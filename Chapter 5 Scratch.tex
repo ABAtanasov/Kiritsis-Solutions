@@ -1,0 +1,50 @@
+	\[
+		\prod_{i<j} |z_{ij}|^{\ell_s p_i \cdot p_j/2} = |z_{12} z_{34}|^{-\ell_s^2 s/2} |z_{23} z_{14}|^{-\ell_s^2 t/2} |z_{13} z_{24}|^{-\ell_s^2 u/2} \to |z|^{-\ell_s^2 t/2} |1-z|^{-\ell_s^2 u/2}.
+	\]
+	We now get three types of contributions: If all the $\d X^\alpha$ contract with each other (3 terms), if two of the $\d X^\alpha$ contract with each other (6 terms) and the remaining two contract with one of the $e^{i k_i \cdot X}$ (nine ways), so 27 ways total, or if none of them contract (6 terms). 
+	In the first case we get:
+	\[
+		\left(-\frac{\ell_s^2}{2}\right)^2 \left(\frac{1}{z_{12}^2 z_{34}^2} + \frac{1}{z_{13}^2 z_{24}^2} + \frac{1}{z_{14}^2 z_{23}^2} \right) \to \left(\frac{\ell_s^2}{2}\right)^2 \left(\eta^{\alpha \beta} \eta^{\gamma \delta} + \frac{\eta^{\alpha \gamma} \eta^{\beta \delta}}{(1-z)^{2}} + \frac{\eta^{\alpha \delta} \eta^{\beta \gamma}}{z^{2}} \right)  % z^{-\ell_s^2 t/2} (1-z)^{-\ell_s^2 u/2}
+	\]
+	Now define $K_i = \sum_{j \neq i} \tfrac{k_j}{z_{ij}}$. Note:
+	\[
+		K_1 \to -(k_2^\alpha + \frac{k_3^\alpha}{z}), 
+		\quad K_2 \to k_1^\beta + \frac{k_4^\beta}{1-z}, 
+		\quad K_3 \to (1+z)k_1^\gamma + z k_2^\gamma + k_4^\gamma, 
+		\quad K_4 \to \frac{k_1^\delta}{z} + \frac{k_2^\delta}{z-1}.
+	\]
+	 We can write the second case as:
+	\[
+	\begin{aligned}
+		&\left(\frac{\ell_s^2}{2}\right)^3 \left(\frac{K_3 K_4}{z_{12}^2} + \frac{K_1 K_2}{z_{34}^2} + \frac{K_1 K_4}{z_{23}^2} + \frac{K_2 K_3}{z_{14}^2} + \frac{K_2 K_4}{z_{13}^2} + \frac{K_1 K_3}{z_{24}^2} \right) \\
+		& \to \left(\frac{\ell_s^2}{2}\right)^3 \Big[
+		((1+z)k_1^\gamma + z k_2^\gamma + k_4^\gamma)(\tfrac{k_1^\delta}{z} + \tfrac{k_2^\delta}{z-1}) \eta^{\alpha \beta}
+		-(k_2^\alpha + \tfrac{k_3^\alpha}{z})(k_1^\beta + \tfrac{k_4^\beta}{1-z}) \eta^{\gamma \delta}
+		-(k_2^\alpha + \tfrac{k_3^\alpha}{z})(\tfrac{k_1^\delta}{z} + \tfrac{k_2^\delta}{z-1}) \eta^{\beta \gamma}
+		\\ & \qquad \qquad \qquad + \tfrac{1}{z^2}(k_1^\beta + \tfrac{k_4^\beta}{1-z}) ((1+z)k_1^\gamma + z k_2^\gamma + k_4^\gamma) \eta^{\alpha \delta}
+		+ (k_1^\beta + \tfrac{k_4^\beta}{1-z}) (\tfrac{k_1^\delta}{z} + \tfrac{k_2^\delta}{z-1}) \eta^{\alpha \gamma}\\
+		& \qquad \qquad \qquad - \tfrac{1}{(1-z)^2} (k_2^\alpha + \tfrac{k_3^\alpha}{z}) ((1+z)k_1^\gamma + z k_2^\gamma + k_4^\gamma) \eta^{\beta \delta}
+		\Big]
+	\end{aligned}
+	\]
+	The last term is then just $(\tfrac{\ell_s^2}{2})^4 K_1^\alpha K_2^\beta K_3^\gamma K_4^\delta$
+	
+	Now we need to multiply each of these three contributions by their complex conjugates and integrate over $\CP^1$. Now, each contribution has, 3, 6, and 1 term respectively, which means that multiplying them by their conjugates will give $9, 36$, and $1$ terms to consider. That second one will be especially annoying. From \textbf{Polchinski 6.6.22} we have for $m_i - n_i \in \ZZ$
+	\[
+		\int_{\CC} d^2 z^{a+m_1} \bar z^{a+n_1} (1-z)^{b+m_2} (1-\bar z)^{b+n_2} = -2 \sin(\pi(b+n_2)) \mathrm B(1+a+m_1, 1+b+m_2) \mathrm B (1+b+n_2, -1- a - b - n_1 - n_2)
+	\]
+	Using $a = -\ell_s^2 t/4, b=-\ell_s^2 u/4$
+	
+	Everything below will be multiplied by $-\frac{2 \pi i}{\ell_s^2} g_c^2\, \zeta_{1, \alpha \bar \alpha} \zeta_{2, \beta \bar \beta} \zeta_{3, \gamma \bar \gamma}, \zeta_{4, \delta \bar \delta}$ to give the full amplitude. The first contribution gives:
+	\[
+		 \left(\frac{\ell_s^2}{2}\right)^2 \left(\frac{\Gamma(-1-\ell_s^2 s/2) \Gamma(1-\ell_s^2 t/2) \Gamma(1-\ell_s^2 u/2)}{\Gamma(2+\ell_s^2 s/2) \Gamma(\ell_s^2 t/2) \Gamma(\ell_s^2 u/2)} \eta^{\alpha \beta} \eta^{\gamma \delta} \eta^{\bar \alpha \bar \beta} \eta^{\bar \gamma \bar \delta} + 2 \perms \right)
+	\]
+	\textbf{Haven't done the second term}.
+	To get the last term, note that one term that it will have is:
+	\[
+		\frac{k_3^\alpha (k_1+k_4)^\beta (k_1+k_4)^\gamma (k_2^\delta z)}{z^2 (1-z)^2} \to k_3^\alpha (k_1+k_4)^\beta (k_1+k_4)^\gamma k_2^\delta \frac{\Gamma(2-\ell_s^2 s/4) \Gamma(-\ell_s^2 t/4) \Gamma(-1-\ell_s^2 u/4)}{\Gamma(-1+\ell_s^2 s/4) \Gamma(1+\ell_s^2 t/4) \Gamma(2+\ell_s^2 u/4)}
+	\]
+	With shorthand $k_{ij,k} = k_i + k_j - k_k$ We can write this as
+	\[
+		 \frac{1}{16} \left(\frac{\ell_s^2}{2} \right)^4 \left[k_{12,3}^\alpha k_{14,3}^\beta k_{14,2}^\gamma k_{13,2}^\delta \frac{\Gamma(2-\ell_s^2 s/4) \Gamma(-\ell_s^2 t/4) \Gamma(-1-\ell_s^2 u/4)}{\Gamma(-1+\ell_s^2 s/4) \Gamma(1+\ell_s^2 t/4) \Gamma(2+\ell_s^2 u/4)} + 5 \perms \right]
+	\]

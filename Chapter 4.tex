@@ -1,0 +1,1505 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd}
+\usepackage{mathabx}
+\usepackage{geometry}
+\usepackage{color}
+\usepackage{natbib}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{simpler-wick}
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage{listings}
+\usepackage{relsize}
+\usepackage{stmaryrd}
+\usepackage{kiritsis}
+\geometry{margin = 0.5in}
+
+\begin{document}
+	
+
+\section*{Chapter 4: Conformal Field Theory} % (fold)
+\label{sec:chapter_4_conformal_field_theory}
+
+\begin{enumerate}
+	\item We'll do this directly. First observe:
+	\begin{equation}
+		\begin{aligned}
+			\frac{d}{dt}|_{t=0} e^{-i t P_\mu} f(x) &= -\partial_\mu f\\
+			\frac{d}{dt}|_{t=0} e^{-\frac{i t}{2} \omega^{\mu \nu} J_{\mu \nu}} f(x) &= - \omega^{\mu}_\nu x^\nu \partial_\mu \\
+			\frac{d}{dt}|_{t=0} e^{-i t D} f(x) &= x \cdot \partial f(x) \text{ annoying that there is no - }\\
+			\frac{d}{dt}|_{t=0} e^{-i t K_\mu} f(x) &= - (x^2 \partial_\mu - 2 x_\mu (x \cdot \delta)) f(x)
+		\end{aligned}
+	\end{equation}
+	The last one is exactly the first-order expansion of $\frac{x^\mu + x^2 a^\mu}{1 + 2 a \cdot x + a^2 x^2}$. 
+	Note the dilatation and special conformal generators are the negative of Di Francesco's (SO ANNOYING OGM).
+	
+	Now let's do the commutator 
+	\[
+	\begin{aligned}
+		\, [J_{\mu \nu}, P_\rho] &= - \partial_\rho (x_{\mu} \partial_\nu - \partial_\nu \partial_\mu) = - (\eta_{\mu \rho} \partial_\nu - \eta_{\nu \rho} \partial_\mu) = - i (\eta_{\mu \rho} \partial_\nu - \eta_{\nu \rho} \partial_\mu)\\
+		[P_\mu, K_\nu] &= - \partial_{\mu} (x^2 \partial_\nu - 2 x_\nu x \cdot \partial) = - (2 x_\mu \partial_\nu - 2 \eta_{\mu \nu} x^\lambda \partial_\lambda - 2 x_\nu \delta_\mu^\lambda \partial_\lambda) = 2 i J_{\mu \nu} - 2 i \eta_{\mu \nu} D\\
+		[J_{\mu \nu}, J_{\rho \sigma}] &= -i (\eta_{\mu \rho} J_{\nu \sigma} - \eta_{\mu \sigma} J_{\nu \rho} - \eta_{\nu \rho} J_{\mu \sigma} + \eta_{\nu \sigma} J_{\mu \rho}) \leftarrow\textit{Everyone has done this one like 20 times}\\
+		[J_{\mu \nu}, K_\rho] &= -i (\eta_{\mu \rho} K_\nu - \eta_{\nu \rho} K_\mu ) \\
+		[D, K_\mu] &= x^\nu \cdot \partial_\nu [x^2 \partial_\mu - 2 x_\mu (x^\lambda \partial_\lambda)] - [x^2 \partial_\mu - 2x_\mu x \cdot \partial] x^\lambda \partial_\lambda \\
+		&= \cancel{2} x^\nu x_\nu \partial_\mu - 2 x^\nu \eta_{\mu \nu} (x \cdot \partial) - \cancel{2 x_\mu (x \cdot \partial)} - \cancel{x^2 \partial_\mu} + \cancel{2 x_\mu x \cdot \partial} =  i K_\mu\\
+		[D, P_\mu] &= - \partial_\mu x^\lambda \partial_\lambda = - \partial_\mu = - i P_\mu\\
+		[J_{\mu \nu}, D] &= 0
+	\end{aligned}
+	\]
+	The way we did the $[J, K]$ commutator is by noting it should look the same as $[J, P]$, since $P$ is just translation about the point at $\infty$. The $[J,D]$ commutator follows because rotation is scale invariant.
+	
+	\item
+	We see immediately that the $J_{\mu \nu}$ can be mapped to the $M_{\mu \nu}$ corresponding to a $\mathrm{SO}(p, q)$ subgroup of $\mathrm{SO}(p+1, q+1)$. The full group has:
+	\begin{equation}\label{eq:fullgp}
+		[M_{\mu \nu}, M_{\rho \sigma}]= -i (\eta_{\mu \rho} M_{\nu \sigma} - \eta_{\mu \sigma} M_{\nu \rho} - \eta_{\nu \rho} M_{\mu \sigma} + \eta_{\nu \sigma} M_{\mu \rho})
+	\end{equation}
+	 Note the commutation relations of $J$ with $P$ and $K$ gives us:
+	\[
+		[J_{\mu \nu}, \frac12(K_\rho \pm P_\rho) ] = -i \left( \eta_{\mu \rho} \frac12 (K \pm P)_\nu - \eta_{\nu \rho} \frac12 (K \pm P)_\mu \right)
+	\]
+	Writing these as $M_{\rho, d+1}$ and $M_{\rho, d}$ respectively, we see that we get the second and fourth terms nonzero and we get exactly \eqref{eq:fullgp}. Note at this stage I didn't need to do such linear combinations of $K$ and $P$. That is important for appreciating that we want:
+	\[
+		[M_{\mu d}, M_{\nu d+1}] = -i \eta_{\mu \nu} M_{d d+1} = - i \eta_{\mu \nu} M_{d, d+1} = i \eta_{\mu \nu} D
+	\]
+	and we get exactly this:
+	\[
+		\frac14 [(K-P)_\mu, (K + P)_\nu] = \frac14 ([K_\mu, P_\nu] - [P_\mu, K_\nu]) = i \eta_{\mu \nu} D
+	\]
+	We needed that combination so that $J_{\mu \nu}$ wouldn't appear. As required $[J_{\mu \nu}, D] = [M_{\mu \nu}, M_{d, d+1}]=0$ for $\mu \in 0 \dots d-1$. 
+	\textbf{I'm getting the wrong sign. Perhaps our friend's convention is off.}
+
+	\item This comes from noting that for $f = z + \epsilon(z)$
+	\[
+	\begin{aligned}
+		\left(\frac{\d f}{\d z}\right)^{\Delta} \left(\frac{\d f}{\d \bar z}\right)^{\bar \Delta} - 1 &= (1 + \partial \epsilon)^{\Delta}(1 + \bar \partial \epsilon)^{\bar \Delta} - 1 = \Delta \partial \epsilon + \bar \Delta \bar \partial \epsilon\\ & \Rightarrow \Phi(z) (1 - (\Delta \partial \epsilon + \bar \Delta \bar \partial \epsilon)) = \Phi'(f(z), \bar f(\bar z)) = (1 + \epsilon \d + \bar \epsilon \bar \d) \Phi'(z)\\
+		&\Rightarrow (1 - (\Delta \partial \epsilon + \bar \Delta \bar \partial \epsilon + \epsilon \d + \bar \epsilon \bar \d) ) \Phi(z) = \Phi'(z)\\
+		&\Rightarrow \Phi(z) - \Phi'(z) = (\Delta \partial \epsilon + \epsilon \d + \bar \Delta \bar \partial \epsilon + \bar \epsilon \bar \d ) \Phi(z)
+	\end{aligned}
+	\]
+	How weird... think about this in terms of active/passive. Contrast with Di Francesco. 
+	
+	\item As in the 2-point greens function case, note that:
+	\[
+		\delta_{\epsilon} G^N = 0 \Rightarrow \left(\sum_{i=1}^N \epsilon(z_i) \partial_{z_i} + \Delta_i \partial \epsilon(z_i) + c.c. \right) G^N = 0
+	\]
+	We can WLOG look at just the holomorphic sector (set $\bar \epsilon = 0$) Now first set $\epsilon(z) = 1$. This directly gives $\sum_{i} \partial_i G^N = 0$, as we wanted. Next, take $\epsilon(z)= z$. This gives $\sum_{i} (z_i \partial_i + \Delta_i) G^N = 0$. Finally, take $\epsilon = z^2$ to get $\sum_i (z^2_i \partial_i + 2 z_i \Delta_i) G^N = 0$ as desired. 
+	Note in all these cases, we are exactly performing the global $\mathrm{SL}(2)$ transformations, so these Ward identities will always hold. 
+	
+	\item The first Ward identity tells us that the function can only depend on $z_{12}, z_{23}$. Then the next two can be written as:
+	\[
+		\begin{aligned}
+			(x_1 \partial_1 + x_2 \partial_2 + x_3 \partial_3 + \Sigma \Delta_i) f(x_{12}, x_{23}) &= \left( (x_1 - x_2) \partial_{12} + (x_2 - x_3) \partial_{23} + \Sigma \Delta_i \right) f = 0\\
+			(x_1^2 \partial_1 + x_2^2 \partial_2 + x_3^2 \partial_3 + \Sigma 2 x_i \Delta_i) f(x_{12}, x_{23}) &= \left( (x_1^2 - x_2^2) \partial_{12} + (x_2^2 - x_3^2) \partial_{23} + \Sigma 2 x_i \Delta_i \right) f = 0
+		\end{aligned}
+	\]
+	We can subtract out $\partial_{23}$ to get the differential equation:
+	\[
+	\begin{aligned}
+		0 &= \left( \frac{x_1 + x_2}{x_2 + x_3} - 1 \right) x_{12} \partial_{12} + \sum_i \left( \frac{2 x_i}{x_2 + x_3} - 1 \right) \Delta_i \to (x_{12} + x_{23}) x_{12} \partial_{12} + (x_{12} + x_{12} + x_{23}) \Delta_1  + x_{23} (\Delta_2 - \Delta_3)\\
+		& \Rightarrow 0 = \left(x_{12}^2 \partial_{12} + x_{23} x_{12} \partial_{12} + 2 x_{12} \Delta_{12} + x_{23} (\Delta_1 + \Delta_2 - \Delta_3) f \right)
+	\end{aligned}
+	\]
+	Now write $f(x_{12}, x_{23}) = e^g(u, x_{23})$ with $u = \log x_12$. This substitution gives the ODE:
+	\[
+		(e^u + x_{23}) g'(u) + 2 \Delta_1 e^u + x_{23} (\Delta_1 + \Delta_2 - \Delta_3) = 0 \Rightarrow g(u) = \int_{-\infty}^{\log{x_{12}}} du \frac{2 \Delta_1 e^u - x_{23} (\Delta_1 + \Delta_2 - \Delta_3)}{e^{u} + x_{23}}
+	\]
+	This integral can be done and gives:
+	\[
+		\frac{C}{x_{12}^{\Delta_1 + \Delta_2 - \Delta_3} (x_{12} + x_{23})^{\Delta_1 + \Delta_3 - \Delta_2}} = \frac{C}{x_{12}^{\Delta_1 + \Delta_2 - \Delta_3} x_{13}^{\Delta_1 + \Delta_3 - \Delta_2}} 
+	\]
+	We can do the same for $\partial_{23}$ and get the general form:
+	\[
+		\frac{\lambda_{123}}{x_{12}^{\Delta_1 + \Delta_2 - \Delta_3} x_{13}^{\Delta_1 + \Delta_3 - \Delta_2} x_{23}^{\Delta_2 + \Delta_3 - \Delta_1}} \times c.c.
+	\]
+	for $\lambda_{123}, \bar \lambda_{123}$ undetermined constants (call their product $C_{123}$). 
+	
+	\item Again specialize to the holomorphic part. We see $G^N$ depends only on relative positions $x_{12}$, $x_{13}$, $x_{14}$. We can WLOG take $G^{(4)}$ to have the form:
+	\[
+		G^{(4)}(z_1, z_2, z_3, z_4) = \frac{f(z_1, z_2, z_3, z_4)}{z_{12}^{\Delta_{12}} z_{13}^{\Delta_{13}} z_{14}^{\Delta_{14}} z_{23}^{\Delta_{23}} z_{24}^{\Delta_{24}} z_{34}^{\Delta_{34}}}
+	\]
+	Here, because $f$ is arbitrary, we have not made any assumptions. The Ward identities imply the following:
+	\begin{itemize}
+		\item $f$ depends only on the relative positions $z_{ij}$
+		\item $\sum_{i<j} \Delta_{ij} = \Delta$ with $\Delta = \sum_{i} \Delta_i$ and $\sum_i z_i \partial_i f = 0$
+		\item $\Delta_{23} + \Delta_{24} + \Delta_{34} = 2 \Delta_1,\quad  \Delta_{13} + \Delta_{14} + \Delta_{34} = 2 \Delta_2, \quad \Delta_{12} + \Delta_{14} + \Delta_{24} = 2 \Delta_3, \quad \Delta_{12} + \Delta_{13} + \Delta_{23} = 2 \Delta_4$ and $\sum_i z_i^2 \partial_i f = 0$
+	\end{itemize}
+	These give $4$ constraints for the $6$ $\Delta_{ij}$, so the system is underdetermined. The most symmetric solution is given by:
+	\[
+		\Delta_{ij} = \Delta_i + \Delta_j - \frac13 \Delta
+	\]
+	It remains to find the general form of $f$.
+	\begin{itemize}
+		\item The first ward identity gives us that it can only depend on the $z_i$ through $z_{ij}$.
+		\item Further, it must transform trivially under dilatation, so we see that it can only depend on ratios of the $z_{ij}$ with an equal number of each $z_{ij}$ in the numerator and denominator. 
+		\item Under special conformal transformations, each such ratio will transform as $\frac{z_{ij}}{z_{kl}} \to \frac{z_{ij}}{z_{kl}} (z_i + z_j - z_k - z_l)$, and more generally
+		\[
+			\prod_a \frac{z_{i_a \, j_a}}{z_{k_a\, l_a}} \to \prod_a \frac{z_{i_a \, j_a}}{z_{k_a\, l_a}} \times \sum_{a} (z_{i_a} + z_{j_a} - z_{k_a} - z_{l_a})
+		\]
+		 The third Ward identity shows that $f$ must transform trivially under these, and so $f$ can only depend on ratios where each $z_i$ appears an equal number of times in the numerator and denominator. 
+	\end{itemize}
+	In total: we need ratios of $z_{ij}$ with an equal number of $z_{ij}$ in the numerator and denominator, and each $z_i$ appears the same number of times in the numerator and denominator. All such ratios can be obtained as rational functions of:
+	\[
+		x := \frac{z_{12} z_{34}}{z_{13} z_{24}}, \quad y := \frac{z_{14} z_{24}}{z_{13} z_{24}}
+	\]
+	But we see that $y = 1-x$ so in fact the most general such function is any function of $x$ alone, as was required. 
+	
+	 
+	
+	% The Ward identities give
+% 	\[
+% 		\begin{aligned}
+% 			\left( (x_1 - x_2) \partial_{12} + (x_1 - x_3) \partial_{13} + (x_1 - x_4) \partial_{14} + \Sigma \Delta_i \right) f = 0\\
+% 			\left( (x_1^2 - x_2^2) \partial_{12} + (x_1^2 - x_3^2) \partial_{13} + (x_1^2 - x_4^2) \partial_{14} + \Sigma 2 x_i \Delta_i \right) f = 0
+% 		\end{aligned}
+% 	\]
+% 	Appropriately subtracting gives:
+% 	\[
+% 		(x_{12} - x_{13}) x_{13} \partial_{13} + (x_{12} - x_{14}) x_{14} \partial_{14} + \sum_{i} (2 x_i - x_1 - x_2) \Delta_i
+% 	\]
+% 	This last term can be written as:
+% 	\[
+% 		x_{12} (\Delta_1 - \Delta_2) + (x_{12} - 2 x_{13} ) \Delta_3 + ( x_{12} - 2 x_{14}) \Delta_4 = x_{12} (\Delta_1 - \Delta_2 + \Delta_3 + \Delta_4) - 2 x_{13} \Delta_3 - 2 x_{14} \Delta_4
+% 	\]
+% 	So altogether this becomes:
+% 	\[
+% 		x_{13} ((x_{12} - x_{13}) \partial_{13} - 2 \Delta_3) + x_{14} ((x_{12} - x_{14}) \partial_{14} - 2 \Delta_4) + x_{12} (\Delta - 2 \Delta_2)
+% 	\]
+%
+	\item With conformal invariance (rescaling in particular), an infinite cylinder has no moduli, so you can set its radius to be whatever you like and get the same theory. 
+	
+	\item Let's perform the OPE within the correlator: 
+	\[
+		\braket{\Phi_i(z_1) \Phi_j(z_2) \Phi_k (z_3)} = \sum_{\ell} z_{12}^{\Delta_\ell - \Delta_i - \Delta_j} \bar z_{12}^{\bar \Delta_\ell - \bar \Delta_i - \bar \Delta_j} C_{ij\ell} \braket{ \Phi_{\ell}(z_2) \Phi_k(z_3)}
+	\]
+	By the orthonormality assumption of the OPE, we then have
+	\[
+	\braket{\Phi_\ell(z_2) \Phi_k (z_3)} = \frac{\delta_{\ell k}}{z_{23}^{2\Delta_k} \bar z_{23}^{2 \bar \Delta_k} }	\Rightarrow \braket{\Phi_i(z_1) \Phi_j(z_2) \Phi_k (z_3)} = \frac{C_{ijk} (z_{12})}{z_{23}^{2 \Delta_k} \bar z_{23}^{2 \bar \Delta_k} z_{12}^{\Delta_i+\Delta_j - \Delta_k} \bar z_{12}^{\bar \Delta_i+\bar \Delta_j - \bar \Delta_k} }
+	\] 
+	\item We assume that $\mu \ll 1/r$. The integral is in fact real, and we can approximate it by 
+	\[
+		\int d^2 p \frac{\cos(p r \cos(\theta))}{p^2 + m^2} = \int d\theta \int_0^\infty \frac{p\, dp\, e^{-\frac12 (p r \cos(\theta))^2}}{p^2 + \mu^2} = \int d\theta \frac12 \int_{\frac12 \mu^2 r^2 \cos^2(\theta)}^\infty \frac{du\, e^{-u}}{u} = \frac12 \int_{0}^{2\pi} d\theta \Gamma(0, \tilde \mu^2 r^2 \cos^2(\theta))
+	\]
+	It is known that $\Gamma(0, \epsilon) = -\gamma - \log \epsilon$ so up to a constant (that can be absorbed into the redefinition of $\mu$) we get;
+	\[
+		-\frac{\ell_s^2}{2\pi} \frac12 (2 \pi) \log(\mu^2 |x-y|^2) = - \frac{\ell_s^2}{2} \log(\mu^2 |x-y|)
+	\]
+	
+	\item By Stokes' theorem its clear. Let $\Omega$ be any disk enclosing the origin: 
+	\[
+		\int_{\Omega} d^2 z \bar \d \d \log |z|^2 =  i \int_{\Omega} dz \wedge d\bar z \,\bar \d \d \log|z|^2 = -i \oint_{\partial \Omega} dz \d \log|z|^2 = - i \oint_{\partial \Omega} \frac{dz}{z} = 2\pi 
+	\]
+	Alternatively we could put in a regulator and evaluate this directly:
+	\[
+		\int_\Omega d^2 z \d \bar d \log(|z|^2 + \mu^2) = \int_\Omega d^2 z \partial \frac{z}{|z|^2 + \mu^2} = \int_\Omega d^2 z \frac{\mu^2}{(|z|^2 + \mu^2)^2}
+	\]
+	As $\mu \to 0$ this approaches $0$ everywhere except for the origin. Taking $|z| = r$ and integrating in polar coordinates (note $d^2 z = 2 dx dy = 2 r dr d\theta$):
+	\[
+		2\pi \times 2 \times \int_{0}^\infty \frac{\mu^2 r}{(r^2 + \mu^2)^2} = 2 \pi
+	\]
+	as required.
+	
+	\item We have:
+	\[
+		\frac{1}{4 \pi \ell_s^2} \int d^2 \xi \, \sqrt{-g}\, g^{ab} \partial_a X\, \partial_b X \Rightarrow T_{ab} = -\frac{4\pi}{\sqrt{-g}} \frac{\delta S}{\delta g^{ab}} -\frac{1}{\ell_s^2} \left( \partial_a X \partial_b X - \frac12 g_{ab} \partial_c X \partial^c X \right)
+	\]
+	This is clearly traceless. Let's specialize to the holomorphic sector to get $T(z) = -\frac{1}{\ell_s^2} :\partial X \partial X:$ and of course this is the non-singular part of the $\partial X(z) \partial X(w)$ OPE as $z \to w$.
+	
+	
+	\item The scaling dimensions of conserved currents don't change.
+	
+	For a current to be conserved, we must that the surface operator $\frac{1}{2\pi i} \oint dz J(z)$ is topological (independent of contour). Applying dilatation $z \to z/\lambda$ on this does not change the operator, so long as it does not pass any operator insertions. So we have:
+	\[
+		\frac{1}{2\pi i} \oint dz J(z) + c.c. = \frac{1}{2\pi i} \oint d\frac{z}{
+		\lambda} J'(z/\lambda, \bar z/\lambda) + c.c.
+	\]
+	And thus we get $J(z, \bar z) = \lambda^{-1} J'(z/\lambda, \bar z/\lambda)$, and we get $J$ has scaling dimension 1.
+	
+	On the other hand for $T^{\mu \nu}$, we have the conserved charge:
+	\[
+		P_\nu = \oint dn^\mu T_{\mu \nu}
+	\]
+	Applying dilatation, we see from exponentiating the commutation relation for $[D, P_\nu]$ that $P_\nu = P_\nu'/\lambda$ so
+	\[
+		P_\nu = \oint dn^\mu T_{\mu \nu} + c.c. = \frac{1}{\lambda} \underbrace{\oint \frac{dn^\mu}{\lambda} T'_{\mu \nu}(z/\lambda, \bar z/\lambda) + c.c.}_{= P'_\nu)} = P'_\nu/\lambda
+	\]
+	giving us that
+	\[
+		T_{\mu \nu}(z, \bar z) = \lambda^{-2} T'_{\mu \nu}(z/\lambda, \bar z/\lambda)
+	\]
+	so $T$ properly has scaling dimension $2$.
+	
+	 % The quickest way to see this is through the Ward identity. Consider $\braket{T(z) J(w)}$. On one hand the ward identity for $T$ gives us that:
+ % 	\[
+ % 		\braket{T(z) J(w)} = \frac{1}{z-w} \partial_w J(w) + \frac{\Delta_J}{(z-w)^2} \braket{J}
+ % 	\]
+	
+	\item 
+	\[
+	\begin{aligned}
+		\braket{\prod_{n=1}^N e^{i p X(z, \bar z)}} &= \int \mathcal DX e^{-\frac{1}{2\pi \ell_s^2} \int d^2 z \partial X \bar \partial X + i \int d^2 z \, X(z)  \sum_i p_i \delta^2(z-z_i)}\\ &= 2 \pi \delta(\Sigma p_i) e^{-\frac12 \int d^2 \sigma d^2 \sigma' J(\sigma) J(\sigma') G(\sigma, \sigma')} = 2 \pi \delta(\Sigma p_i) e^{-\frac12 \sum_{i,j=1}^N p_i p_j \braket{X(z_i) X(z_j)}}
+	\end{aligned}
+	\]
+	Appreciate both the UV divergence (from coincident points in the correlator) and the IR divergence (from the correlator going as a logarithm) will cancel (think Kosterlitz-Thouless/Mermin Wagner stuff here):
+	\[
+		\mu^{2 \frac{\ell^2_s}{4} (\Sigma p_i)^2} \epsilon^{2 \frac{\ell^2}{4} \sum p_i^2}
+	\]
+	Momentum conservation removes the IR, and if we normal-order the vertex operators within the product we will not get the UV divergence.
+	
+	\item By explicit calculation:
+	\[
+	\begin{aligned}
+		T(z) [(\partial X)^4](w) &\sim \frac{-3 \alpha (\partial X)^2(w)}{(z-w)^4} + \frac{4 (\partial X)^4}{(z-w)^2} + \dots \\
+		T(z) [(\partial^2 X)^2](w) &\sim \frac{-2 \alpha}{(z-w)^6} + \frac{4 (\partial X \partial^2 X)(w)}{(z-w)^3} + \frac{4 (\partial^2 X)^2 (w)}{(z-w)^2}\\
+		T(z) [\partial^3 X \partial X](w) &\sim \frac{-3 \alpha}{(z-w)^6} + \frac{6 (\partial X)^2 (w)}{(z-w)^4} + \frac{6 (\partial X \partial^2 X)(w)}{(z-w)^3} + \frac{6 (\partial^2 X)^2 (w)}{(z-w)^2} + \dots
+	\end{aligned}
+	\]
+	where $+ \dots$ are terms that are $O((z-w)^{-1})$ or higher powers, which will not affect the non-primary terms. We see that the combination:
+	\[
+		(\partial X)^4 + \frac{\alpha}{2}  \partial^3 X \partial X - \frac{3}{4\alpha} (\partial^2 X)^2
+	\]
+	gives a primary operator of dimension 4. Along the way I noticed that there are no primary operators of dimension $2$ or $3$ that are finite sums of products of derivatives of $\partial X$.
+	
+	I can't help but think that this might have \emph{something} to do with the Schwarzian. 
+	% Naively I might expect something like $:(\partial^2 X)^2:$ or $:(\partial X)^4:$. Let's check this:
+% 	\[
+% 		-\frac1{\ell_s^2} :(\d X(z))^2: :(\d X(w))^4: = -\frac1{\ell_s^2} (4 \times 3) :X(w)^2:
+% 	\]
+% 	\textbf{FINISH THIS}
+	
+	\item We look at:
+	\[
+	\begin{aligned}
+		:i \frac{\sqrt 2}{\ell_s} \partial X(z): :e^{i p X(w)}: 
+		&= i \frac{\sqrt 2}{\ell_s} \sum_{n=0}^\infty :\partial X(z): :(X(w))^n: \, \frac{(i p)^n}{n!} + \text{finite}\\
+		&= i \frac{\sqrt 2}{\ell_s} \sum_{n=0}^\infty (-) \frac{\ell_s^2}{2} \frac{n}{z-w} \, \frac{(i p)^2 :X(w)^{n-1}:}{n!} = \frac{\ell_s p}{\sqrt2} \frac{1}{z-w} V_p(w) + \text{finite}
+	\end{aligned}
+	\]
+	
+	\item Directly:
+	\[
+	\begin{aligned}
+		\sum_{n, m} \frac{(i a)^n (i b)^m}{n!\, m!} :X^n(z): :X^m(w):
+	\end{aligned}
+	\]
+	First lets look at when $n = m$ and say we contract everything. Then we need to contract all $n$ $X(z)$ with all $n$ $X(w)$. There are $n!$ ways to do this, and each produces a factor of $-\frac{\ell^2}{2} \log |z-w|^2$. The diagonal components thus give the sum:
+	\[
+		\sum_n \frac{1}{n!} \left(\frac{ab \ell_s^2}{2} \log |z-w|^2 \right)^n = |z-w|^{a b \ell_s^2/2}
+	\]
+	Now a more general term, say $:X(z)^n: :X(w)^m:$ where we want to contract $k < n,m$ of them we must choose $k$ $X(z)$ and $k X(w)$ to contract the $X(z)$ with and then figure out the order to contract those $k$ amongst themselves ($k!$), so we have ${n \choose k} \times {m \choose k} \times k! = \frac{n! m!}{(m-k)! (n-k)! k!}$ ways to do this. The contraction again gives the $\log^k$ term as before, and now we have a remaining factor of $\frac{(ia)^{n-k} (ib)^{m-k}}{(n-k)! (m-k)!} :X(z)^{n-k}: :X(w)^{m-k}:$. For each $k$-contracted set which gives the $\log^k$ term, we should therefore multiply it by:
+	\[
+		\sum_{m,n=k}^\infty \frac{(ia)^{n-k} (ib)^{m-k}}{(n-k)! (m-k)!} :X(z)^{n-k}: :X(w)^{m-k}: = e^{i a X(z) + i b X(w)}
+	\]
+	So the OPE is:
+	\[
+		:e^{i a X(z)}: :e^{i a X(w)}: = |z-w|^{a b \ell^2/2} e^{i a X(z) + i b X(w)}
+	\]
+	
+	\item Directly:
+	\[
+		\partial_z J(z) \partial_w J(w) = \partial_z \partial_w \left(\frac{1}{(z-w)^2} \right) = -\frac{6}{(w-z)^4} + \text{finite}
+	\]
+	We have no $\frac{2}{(z-w)^2}$ term, as would otherwise be required
+	
+	\item The stress energy tensor is:
+	\[
+		T(z) = - \frac12 :\psi(z) \d \psi(z): \Rightarrow T(z) \psi(w) = -\frac12 \psi(z) (\frac{-1}{(z-w)^2}) + \frac12 \frac{\d \psi(z)}{z-w} = \frac12 \frac{1}{(z-w)^2} \psi(w) + \frac{\partial \psi(w)}{(z-w)}
+	\]
+	so this shows that $\psi$ is primary with weight $1/2$.
+	
+	\item I'll instead have the notation $w = g \circ f(z)$. For $T(z) = (f')^2 T(f) + \{f, z\}$ consider $h = g \circ f$. Then we have:
+	\[
+		T(z) = (f')^2 T(f) + C(f) = (f')^2 ((g')^2 T(g \circ f) + C(g \circ f)) + C(f) = (h')^2 T(h) + (f')^2 C(g) + C(f)
+	\]
+	So we get the desired cocycle property: 
+	\[
+		C(h) = (f')^2 C(g) + C(f)
+	\]
+	
+	Now, we need $C(f)$ to have units of $[z]^{-2}$. The most naive guess is to let $C(h) = h''$, but this gives:
+	\[
+		h'' = (f')^2 g'' + f'' g'
+	\]
+	If that last factor of $g'$ were not there, we would be done. Instead we must think more deeply. 
+	We also need the Schwarzian to include a term linear in the third derivative, and the only such term is a constant times $f'''/f'$. Let us look at how this transforms:
+	\[
+		\frac{h'''}{h'} = (f')^2 \frac{g'''}{g'} + 3 \frac{f'' g''}{g'} + \frac{f'''}{f'}
+	\]
+	Now what stops us is the cross-term. The only terms that we can add to $f'''/f'$ that involve less than third derivatives in $\epsilon$ are $f''$, $(f')^2$ $(f''/f')^2$.
+	
+	There is one last term we could have built out of terms of order $\leq 3$ that would give units of $[z]^{-2}$: $(f'''/f'')^2$, however in the limit of an infinitesimal transformation $z + \epsilon(z)$, this would give $(\epsilon'''/\epsilon'')^2$ which is nonlinear in $\epsilon$, so this term cannot contribute. . 
+	
+	$(h')^2 = (f' g')^2$ has none of the properties we'd like, and adding it would break the term that $(f')^2$ multiplies being proportional to $C(g)$. Similarly, adding $f''$ would break the term that $(f')^2$ \emph{doesn't} multiply being proportional to $C(f)$. What is left is  $\left(\frac{f''}{f'}\right)$. This transforms as:
+	\[
+		\left(\frac{h''}{h'}\right)^2 = (f')^2 \left(\frac{g''}{g'}\right)^2 +  \left(\frac{f''}{f'}\right)^2 + \frac{2 f'' g''}{g'} 
+	\]
+	The cross term is exactly of the form of the cross term in $f'''/f'$, and so by appropriately subtracting:
+	\[
+		\frac{h'''}{h'} - \frac32 \left(\frac{h''}{h'}\right)^2 = (f')^2 \left( \frac{g'''}{g'} - \frac32 \left(\frac{g''}{g'}\right)^2 \right) + \frac{f'''}{f'} - \frac32 \left(\frac{f''}{f'}\right)^2
+	\]
+	
+	
+	Another way to do this is to first look at the general $n$th derivative of the global conformal transformations (the M\"obius transformations). Note that:
+	\[
+		g = \frac{az+b}{cz+d}, \quad g'(z) = \frac{ad-bc}{(cz+d)^2} = \frac{1}{(cz+d)^2} \quad \Rightarrow \partial^n_z g = \frac{n! (-c)^{n-1}}{(cz+d)^{n+1}}
+	\]
+	In particular:
+	\[
+		g''(z) = \frac{-2c}{(cz+d)^3}, \quad g'''(z) = \frac{6c^2}{(cz+d)^4}
+	\]
+	The simplest combination of $g'$, $g''$, and $g'''$ that can give zero is:
+	\[
+		(g'')^2 - \frac{2}{3} g'''(z) g'(z)
+	\]
+	We want this to have units of $[g]/[z]^2$ and to behave as $\epsilon'''(z)$ to leading order when $g = z + \epsilon(z)$. The only way to do this (which fixes overall normalization and all) is to divide through by $-2/3 (g'(z))^2$ and get:
+	\[
+		\frac{g'''}{g'} - \frac{3}{2} \left(\frac{g''}{g'}\right)^2.
+	\]
+	It is easy to check that this satisfies the cocycle property for composition, namely:
+	\begin{equation}
+		\{z_3, z_1 \} = \left( \frac{\partial z_2}{\d z_1} \right)^2 \{z_3, z_2\} +  \{z_2, z_1 \} 
+	\end{equation}
+	Since for $h = g \circ f$ we get:
+	\[
+		\frac{h'''}{h'} - \frac32 \left(\frac{h''}{h'}\right)^2 = \frac{f'''}{f'} + 3 \frac{f'' f' g''}{f' g'} + \frac{(f')^3 g'''}{f' g'} - \frac32 \left(\frac{f'' g' + (f')^2 g''}{f' g'} \right)^2 = \{f, z\} + (f')^2 \frac{g''}{g'} - \frac32 \frac{g''}{g'} = \{f, z\} + (f')^2 \{g, f(z)\}
+	\]
+	
+	\item I will use shorthand ${z' \choose z}$ for $\frac{\d z'}{\d z}$ and ${z' \choose z z}$ for $\frac{\d z'}{\d^2 z}$, also I will just write $\Gamma_{zz}^z, g_{z\bar z}, g^{z \bar z}$ as $\Gamma, g, g^{-1}$ respectively. Now
+	\[
+		\Gamma = g^{-1} \d g \quad \Rightarrow \quad \Gamma' = {g^{-1}}' \d' g' = g^{-1} \d\left( {z \choose z'} g \right) = {z \choose z'} \Gamma - {z \choose z'}^2 {z' \choose zz}
+	\]
+	So 
+	\[
+	\begin{aligned}
+			(\Gamma')^2 &= {z \choose z'}^2 \Gamma^2 - 2 \Gamma {z \choose z'}^3 {z' \choose zz} + {z \choose z'}^4 {z' \choose zz}^2 \\
+			\partial' \Gamma'&
+			= {z \choose z'} \partial \left[{z \choose z'} \Gamma - {z \choose z'}^2 {z' \choose zz} \right]
+			=  {z \choose z'}^2 \d \Gamma
+			- \Gamma {z \choose z'}^3 {z' \choose zz}
+			+ 2 {z \choose z'}^2 {z' \choose zz}^2
+			- {z \choose z'}^3 {z' \choose zzz}
+	\end{aligned}
+	\]
+	To cancel out the $\Gamma$ term we look at $2 \partial \Gamma - \Gamma^2$. We see this transforms as:
+	\[
+		2 \partial' \Gamma' - {\Gamma'}^2 = {z \choose z'}^2 (2 \d \Gamma - \Gamma^2) + 3 {z \choose z'}^4 {z' \choose zz}^2 - 2 {z \choose z'}^3 {z' \choose zzz} = {z \choose z'}^2 (2 \d \Gamma - \Gamma^2 - 2 \{z' , z\})
+	\]
+	So that
+	\[
+		T_{zz} - \frac{c}{24} (2 \partial \Gamma - \Gamma^2) = { z' \choose z}^2 (T_{z' z'} - \frac{c}{24} (2 \partial' \Gamma' - {\Gamma'}^2)) + \frac{c}{12} \{z' , z\} - \frac{c}{24} 2 \{z', z\} 
+		= { z' \choose z}^2 (T_{z' z'} - \frac{c}{24} (2 \partial' \Gamma' - {\Gamma'}^2))
+	\]	
+	So indeed $\hat T_{zz}= T_{zz} - \frac{c}{24} (2 \partial \Gamma - \Gamma^2)$ transforms as a tensor.
+	
+	\item We have:
+	\[
+		- \bar \nabla T_{z \bar z} = \nabla \hat T_{zz} = g^{z \bar z} \bar \partial \hat T = - \frac{c}{24} g^{z \bar z} \bar \d [2 \d(g^{-1} \d g) - (g^{-1} \d g)^2] = -\frac{c}{24} g^{z \bar z} \left[2\d \bar \d(g^{-1} \d g) - 2 (g^{-1} \d g) \bar \d (g^{-1} \d g)\right]
+	\]
+	We can recognize this as:
+	\[
+		\frac{c}{24} 2 g^{z \bar z} (\partial R_{\bar z z} - \Gamma^z_{z z} R_{\bar z z}) = \frac{c}{24} 2 g^{z \bar z} \nabla_z R_{\bar z \bar z} = \frac{c}{24} \nabla_z R = \frac{c}{24} \d R  = - \frac{A}{2} \d R
+	\]
+	so we have $A = - c/12$
+	\item The first part of the action is truly invariant. Let us look at how $R$ changes under Weyl rescaling:
+	\[
+		-2 e^{-\chi} g^{-1} \bar \d(e^{\chi} g^{-1} \d (e^{\chi} g)) = e^{-\chi} (R - 2 g^{-1} \partial \bar \partial \chi) = e^{-\chi} (R - 2 \partial \bar \partial \chi)
+	\]
+	Consequently: $\sqrt{-g} R \to \sqrt{-g} (R - 2 \nabla^2 \chi)$
+	
+	So the action part will transform as:
+	\[
+		S_L(g_{\alpha \beta} e^{\chi}, \phi) = S_L(g_{\alpha \beta}, \phi) - \frac{1}{48\pi} \int d^2 \xi \sqrt{g} \phi \nabla^2 \chi = S_L(g_{\alpha \beta}, \phi) + \frac{1}{24\pi} \int d^2 \xi \sqrt{g} g^{\alpha \beta} \partial_{\alpha} \phi \partial_\beta \chi
+	\]
+	
+	\item The most general variation of the effective action is:
+	\begin{equation}
+		\delta \log Z = - \frac{1}{4\pi} \int_{\Sigma} d^2 \xi \sqrt{g} (a_1 R + a_2) \delta \phi - \frac{1}{4\pi} \int_{\partial \Sigma} d \xi (a_3 + a_4 K + a_5 n^a \nabla_a) \delta \phi
+	\end{equation}
+	The counterterms that we can introduce are:
+	\begin{equation}
+		\int_\Sigma d^2 \xi \sqrt g b_1 + \int_{\partial \Sigma} d \xi (b_2 + k b_3)
+	\end{equation}
+	and the variation of the counterterm action: 
+	\[
+		\int_\Sigma d^2 \xi \sqrt g b_1 \delta \omega + \frac12 \int_{\partial \Sigma} d \xi (b_2 + b_3 n^a \partial_a) \delta \omega
+	\]
+	So we can use this to set $a_2, a_3, a_5 = 0$. Further, we know the bulk integral's variation is in fact:
+	\[
+		\delta \log Z = - \delta S_{eff} = \frac{1}{4\pi} \int d^2 \xi \sqrt g \, T_{\alpha \beta} \delta g^{\alpha \beta} = - \frac{1}{4\pi} \int d^2 \xi \sqrt g \, T^\alpha_\alpha \delta \phi = \frac{c}{48\pi} \int d^2 \xi \, \sqrt g R \delta \phi \Rightarrow a_1 = - \frac{c}{12}
+	\]
+	Now let's start with a flat metric and do two changes:
+	\[
+	\begin{aligned}
+		\delta_{\phi_1} \delta_{\phi_2} \log Z &= -\frac{c}{24\pi} \int d^2 \xi \sqrt g\, \delta \phi_2 \nabla^2 \delta \phi_1 - \frac{a_4}{4\pi} \int d\xi \sqrt g\,  \delta \phi_2 n^a \d_a \delta \phi_1\\ &= \frac{c}{24\pi} \int d^2 \xi \sqrt g\, \d^a \delta \phi_2 \d_a \delta \phi_1 + \left(\frac{c}{24\pi} - \frac{a_4}{4\pi}\right) \int d\xi \sqrt g\,  \delta \phi_2 n^a \d_a \delta \phi_1
+	\end{aligned}
+	\]
+	Note that the second term is \emph{not} symmetric under $\delta_{\phi_1} \leftrightarrow \delta_{\phi_2}$, and so we must have the counterterm $\frac{a_4}{4\pi} = \frac{c}{24\pi}$.
+	
+	A variation of this argument can be used to show that $c$ is truly a constant, independent of any worldsheet coordinates. 
+	
+	\item Take the map $\frac{L}{2\pi} \log z$, mapping the plane to the cylinder of circumference $L$. We get:
+	\[
+		T^{cyl} = (\partial z')^{-2} (T^{plane} - \{z', z\}) = \left( \frac{2\pi}{L}\right)^2 z^2 \left(T^{plane} - \frac{c}{12} \frac{1}{2 z^2} \left(\frac{L}{2\pi} \right)^2 \right) = \left(\frac{2\pi z}{L}\right)^2 T^{plane} - \frac{c}{24}
+	\]	
+	So the zero mode of $T^{cyl}$ is modified. By $T^{cyl}$ has the expansion $\sum_n L_n e^{-2 \pi i n x}$ so we see $L_0$ gets modified by $-\frac{c}{24}$.
+	
+	Because $L_0$ is a codimension $1$ operator, it will get modified the same way, whether on the cylinder or torus. 
+
+	\item Each raising operator $L_{-n}$ acts by raising the level by $n$, and so assuming each one gives a unique state not expressible in terms of the action of the other $L_{-k}$, we get that it will contribute:
+	\[
+		1 + q^n + q^{2n} + \dots = \frac{1}{1-q^n}
+	\]
+	to the partition function. All together these give
+	\[
+		\frac{1}{\prod_{n=1}^\infty (1-q^n)} \Rightarrow \mathrm{Tr}[e^{2 \pi i \tau (\Delta - c/24)}] = \frac{q^{\Delta - c/24}}{\prod_{n=1}^\infty (1-q^n)}.
+	\]
+	This also shows that at level $n$ there will generically be as many states as there are partitions of the number $n$.
+	
+	\item Consider a nontrivial state $\ket{h}$ so that $L_{n} \ket{h} = 0$ for some $n$ sufficiently positive. Then: 
+	\[
+		0 = \bra{h} L_{-n} L_{n} \ket{h} = \bra{h} (\frac{n(n^2-1)}{12} c - 2nh) \ket{h}
+	\]
+	If $c = 0$ we get a contradiction unless either $\ket{0}$ is null (and thus decouples) or otherwise $h = 0$, and so we get a vacuum state.
+	
+	I think we need to add the assumption of irreducibility to have a unique ground state (ie a counterexample would be TQFTs with multiple ground states). 
+	
+	\item It is enough to show that $L_1$ and $L_2$ acting on this state give zero, since then all other $L_n$ can be obtained by commutators of these two. Indeed:
+	\[
+		L_1 (L_{-2} - \frac34 L_{-1}^2) \ket{1/2} = (3 L_{-1} -\frac34 (2 L_0 L_{-1} + 2 L_{-1} L_0 ) ) \ket{1/2} = (3 L_{-1} - \frac34 ( 2 L_{-1} + 4 L_{-1} L_0) ) \ket{1/2}  = 0
+	\]
+	\[
+		L_2 (L_{-2} - \frac34 L_{-1}^2) \ket{1/2} = (4 L_0 + \frac{2 (2^2 - 1)}{12} c - \frac34 3 (L_{-1} L_1 + L_1 L_{-1})) \ket{1/2} = (4 L_0 + \frac14 - \frac92 L_0 )) \ket{1/2} = 0
+	\]
+	\item The null state's field must satisfy:
+	\begin{equation}\label{eq:BPZ}
+				(\mathcal L_{-2} - \frac34 \mathcal L_{-1}^2) \braket{\psi_{w} \prod_{i} \psi_{w_i}} = \left[\sum_{i} \left(\frac{1/2}{(w_i - w)^2} - \frac{1}{w_i - w} \partial_i\right) - \frac34 \frac{\d^2}{\d^2 w}\right] \braket{\psi_{w} \prod_{i} \psi_{w_i}}
+	\end{equation}
+	For the three-point function (holomorphic sector) this gives:
+	\[
+		\left[ \frac{1/2}{(w-w_1)^2} + \frac{1}{w-w_i} \partial_1 + \frac{1/2}{(w-w_2)^2} + \frac{1}{w-w_i} \partial_2 - \frac34 \partial^2_w \right] \frac{\lambda}{(w - w_1)^{1/2} (w_1 - w_2)^{1/2} (w_2 - w)^{1/2}} = 0
+	\]
+	This gives:
+	\[
+		\frac{7 \lambda}{16} \frac{(w_1 - w_2)^{3/2}}{(w-w_1)^{5/2} (w_2 - w)^{5/2}} = 0
+	\]
+	which gives $\lambda = 0$. We could have inferred this from fermion parity. 
+	
+	Next, for the four-point function, first note that all the $\psi$ have the same scaling dimension, so WLOG we can write this as:
+	\[
+		\braket{\psi(z_1) \psi(z_2) \psi(z_3) \psi(z_4)} = \frac{1}{z_{12} z_{34}}  h\left(\frac{z_{12} z_{34}}{z_{13} z_{24}}\right)
+	\]
+	plugging this into \eqref{eq:BPZ} gives a complicated-looking differential equation, but this can be simplified substantially by taking $z_1 = z, z_2 = 0, z_3 = \infty, z_4 = 0$. Notice then that $z$ here is indeed the cross ratio. We then get the simpler differential equation:
+	\[
+		2 z g(z) + 2 (1-z^2) g'(z) - 3 z (1-z)^2 g''(z) = 0
+	\]
+	This can be solved in terms of known functions (we should more specifically give boundary conditions by specifying residues of $g(z)$ at $z = 0, 1, \infty$). All in all we get:
+	\[
+		g(z) = \frac{z^2 - z + 1}{1- z}
+	\]
+	Thus 
+	\[
+		\braket{\psi(z) \psi(z_1) \psi(z_2) \psi(z_3)} = \frac{1}{z_{12} z_{34}} + \frac{1}{z_{14} z_{23}} - \frac{1}{z_{13} z_{24}}
+	\]
+	exactly as we would get for Wick contraction. 
+	
+	\item Assume it is not primary - then it is a descendant. By positivity of scaling dimensions, it must be a descendant of a field of scaling dimension $0$, but as we have shown two exercises ago, the only such field is the vacuum $\ket 0$. The vacuum is translation invariant $\partial_z \mathbf{1} = 0$ and so it has no descendants of scaling dimension $1$. (It \emph{does} have $T$ as a descendant of scaling dimension $2$ under $\partial_z^2 \mathbf{1}$).
+	
+	\item Assume $z > w$. On one hand, 
+	\[
+		:[J^a(z), J^b(w)]: = J^a(z) J^b(w) = \sum_{m, n} [J_m^a, J_n^b] z^{-m-1} w^{-n-1}
+	\]
+	On the other 
+	\[
+		\begin{aligned}
+		J^a(z) J^b(z) = \frac{G^{ab}}{(z-w)^2} + \frac{i f^{ab}_c J^c(w)}{z-w} + \dots 
+		&= \sum_{m} m G^{ab} z^{-2} \left(\frac{w}{z}\right)^{m-1} + \sum_{m,n} i f^{ab}_c J^c_m w^{-m-1} z^{-1} \left( \frac{w}{z} \right)^n\\
+		&= \sum_m m G^{ab} z^{-m-1} w^{m-1} + \sum_{m,n} i f^{ab}_c J^c_m w^{-(m-n)-1} z^{-n-1}\\
+		&= \sum_{m, n} \left(m \delta_{m+n} G^{ab} w^{-m-1} w^{-n-1} + i f^{ab}_c J^c_{m+n} w^{-m-1} z^{-n-1} \right)
+		\end{aligned}
+	\]
+	so we get:
+	\[
+		[J^a_m, J^b_n] = m \delta_{m+n} G^{ab} + i f^{ab}_c J^c_{m+n}
+	\]
+	\item Rewrite the first part of the action as $-\frac{1}{4\lambda^2} \int d^2 \xi\, \mathrm{Tr}[(g^{-1} \d g)^2]$. Now note:
+	\[
+		\delta(g^{-1} \d g) = g^{-1} \d \delta g - g^{-1}\, \delta g\, g^{-1} \d g
+	\]
+	Then we can write the variation of the action as:
+	\[
+	\begin{aligned}
+				- \frac{1}{2 \lambda^2} \int d^2 \xi \mathrm{Tr} \left[ (g^{-1} \d_\mu \delta g - g^{-1}\, \delta g\, g^{-1} \d_\mu g) (g^{-1} \d^\mu g) \right]
+				&=  \frac{1}{2 \lambda^2} \int d^2 \xi \mathrm{Tr} \left[ \delta g \left(\d_\mu(g^{-1} \d^\mu g\, g^{-1}) + \underbrace{g^{-1} \d_\mu g g^{-1} \d^\mu g g^{-1}}_{g^{-1} \d_\mu g\, \d^\mu(g^{-1})}\right) \right]\\
+		&= \frac{1}{2 \lambda^2} \int d^2 \xi \mathrm{Tr} \left[ g^{-1} \delta g \, \d^\mu \left(g^{-1} \d_\mu g \right) \right]		
+	\end{aligned}
+	\]
+	So we see that we must have $g^{-1} \d_\mu g$ be a conserved current if we only had the first part of the action. In $z, \bar z$ cooredinates we have $\d J^z + \bar \d J^{\bar z} = 0$. We would like both $J = J^z$ and $\bar J = J^{\bar z}$ to be separately conserved $\bar \d J = \d \bar J = 0$. However, this is equivalent to also having $\varepsilon^{\mu \nu} J_\nu$ conserved. However $\d_\mu J_\nu - \d_\nu J_\mu = -[J_\mu, J_\nu]$ gives that $\d_\mu \epsilon^{\mu \nu} J_\nu = - \epsilon^{\mu \nu} J_\mu J_\nu \neq 0$ for nonabelian algebras. 
+	
+	On the other hand, the second term has variation:
+	\[
+		\frac{i k}{8 \pi} \int_B d^3 \xi \, \varepsilon_{\alpha \beta \gamma} \mathrm{Tr}\left[(g^{-1} \d^\alpha \delta g - g^{-1} \delta g g^{-1} \d^\alpha g) (g^{-1} \d^\beta g) (g^{-1} \d^\gamma g) \right] + \text{ perms.}
+	\]
+	this will all vanish identically as an action on $B$, since $\mathrm{Tr}(A \wedge A \wedge A)$ is already closed for our 1-form $A = g^{-1} \mathrm{d} g$. On the other hand, the first term in parenthesis contributes a boundary term when $\alpha$ is transverse 
+	\[
+		\frac{i k}{8\pi} \int_{\partial B} d^2 \xi\, \varepsilon_{\beta \gamma} \mathrm{Tr}(g^{-1} \delta g g^{-1} \d^\beta g (g^{-1} \d^\gamma g))
+		 = -\frac{i k}{8\pi} \int_{\partial B} d^2 \xi\, \varepsilon_{\beta \gamma} \mathrm{Tr}\left[g^{-1} \delta g \, \d^\beta \left( g^{-1}  \d^\gamma g \right) \right]
+	\]
+		\emph{Appreciate the difference between this and the factor of $3$ in Di Francesco. I believe we only account for 1 of the 3 terms, since only 1 of the 3 indices will give a transverse direction.}
+		
+	This gives a total equation of motion of:
+	\begin{equation}
+		\frac{1}{2\lambda^2} \d^\mu(g^{-1} \d_\mu g) - \frac{i k}{8 \pi} \varepsilon_{\mu \nu} \d^\mu(g^{-1} \d^\nu g) = 0
+	\end{equation}
+	Taking the basis $z, \bar z$, $\d^z = 2 \d_{\bar z}$, $\varepsilon_{z \bar z} = i/2$, we get:
+	\[
+		[\d_{\bar z} (g^{-1} \d_z g) + \d_{z} (g^{-1} \d_{\bar z} g)] - \frac{i k \lambda^2}{4 \pi} \left[i \d_{\bar z} (g^{-1} \d_z g) g^{-1} - i \d_z (g^{-1} \d_{\bar z} g) \right] = \left(1 + \frac{k \lambda^2}{4\pi}\right) \d_{\bar z} (g^{-1} \d_z g) + \left(1 - \frac{k \lambda^2}{4\pi} \right) \d_{z} (g^{-1} \d_{\bar z} g)
+	\]
+	When $\lambda^2 = 4\pi/k$ (meaning $k$ must be positive) the second term goes away and we get the conservation law $\bar \d J_z$. Taking the conjugate of this equation gives the other conservation law. 
+	\[
+		\bar d (g^{-1} \d g) = 0 \to - \d(\bar \d g \, g^{-1}) = 0
+	\]
+	
+	In particular the classical solutions factorize into the form $g(z, \bar z) = f(z) \bar f(\bar z)$. It is also quick to show that $g(z, \bar z) \to \Omega(z) g(z, \bar z) \bar \Omega (\bar z)$ (for $\Omega, \bar \Omega$ two independent matrices valued in the same rep'n of $G$) keeps the action invariant, and so we see that the $G \times G$ classical invariance of the action is \emph{enhanced} to a full $G(z) \times G(\bar z)$ invariance. This is the real power of WZW models, and should be appreciated.
+	
+	\item Importantly, the 3D action does not have any metric dependence. For the 2D boundary we have:
+	\[
+		\frac{1}{4 \lambda^2} \int d^2 \xi \sqrt{g} g^{\mu \nu} \mathrm{Tr}[g^{-1}\d_\mu g\, g^{-1} \d_\nu g]
+	\]
+	this gives a stress tensor:
+	\[
+		T_{\mu \nu} = - \frac{\pi}{\lambda^2} \left(\mathrm{Tr}[g^{-1}\d_\mu g\, g^{-1} \d_\nu g] - \frac12 g_{\mu \nu} g^{\alpha \beta} \mathrm{Tr}[g^{-1}\d_\alpha g\, g^{-1} \d_\beta g] \right)
+	\]
+	we see that this is traceless. The holomorphic part is:
+	\[
+		- \frac{\pi}{\lambda^2} \mathrm{Tr}[J^2] = \frac{k}{4} J^a J^a
+	\]
+	the constant out front can have a field strength renormalization from its classical value (because the $J$ are not free fields), and so we would not expect it to agree with the one given in the definition of $T$.
+	
+	\textbf{Give another reason for this discrepancy. Try to account for it.}
+	
+	\item This one is direct. Take $z > w$
+	\[
+		[J^a(z), R_i(w)] = \sum_{m} J^a_m z^{-m-1} R_i (w) = \sum_{n} z^{-1} \left(\frac wz \right)^n T_{ij} R_j(w)
+	\]
+	and so we get:
+	\[
+		J^a_m R_i(w) = w^m T^a_{ij} R_j(w)
+	\]
+	
+	\item We have:
+	\[
+		\frac{1}{2(k+\bar h)} \sum_{n,m} z^{-2-(n+m)} :J^a_m J^a_n: = \sum_{k} L_m z^{-2 + m}
+	\]
+	Appropriately shifting, we see that $L_m = \frac{1}{2(k+\bar h)} :J_{m+n} J_{-n}:$ as required. The only term here that doesn't give zero when acting on a WZW primary is $J_{-1}^a J_0^a$ which acts as $J_{-1}^a T_{ij}^a$ and this terms appears twice, so we get that
+	\[
+		\ket{\chi_i} = (L_{-1} \delta_{ij} - \frac{1}{k + \bar h} T^a_{ij} J^a_{-1} ) \ket{R_j}
+	\]
+	is null. But we also have that:
+	\[
+	\begin{aligned}
+		\braket{(J_{-1}^a R(z_1)) R(z_2) \dots R(z_N)} &= \frac{1}{2\pi i} \oint_{z_1} \frac{dz}{z-z_1} J^a(z) R(z_1) R(z_2) \dots R(z_N)\\
+		&=  - \frac{1}{2\pi i} \sum_{i \neq 1} \oint_{z_i} \frac{dz}{z-z_1} R(z_1) R(z_2)\dots J^a(z) R(z_k) \dots R(z_N)\\
+		&= - \frac{1}{2\pi i} \sum_{k \neq 1} \oint_{z_k} \frac{dz}{z-z_1} \frac{1}{z-z_k} R(z_1) R(z_2)\dots T^a_{ij} R_{j}(z_k) \dots R(z_N)\\
+		&= \sum_{k \neq 1} \frac{T^a_{ij} R_j(z_k)}{z_1 - z_k}
+	\end{aligned}
+	\]
+	Here we chose to do this with $R(z_1)$, but we could have picked arbitrary $z_i$. This means that correlators must satisfy:
+	\[
+		\left(\partial_{z_1} -   \frac{1}{k + \bar h} \sum_{j \neq i}^N \frac{T^a_i \otimes T^a_j}{z_i - z_j} \right) \braket{\prod_{k=1}^N R(z_k)} = 0
+	\]
+	where $T^a_i$ acts on the $i$th primary field in the correlator. 
+	
+	\item I think its instructive to do this one out in detail. First let's take a look at just $T_G(z)$ acting on any current $J^a(w)$. We want the singular terms: 
+	\[
+	\begin{aligned}
+		\frac{1}{2 (k + \bar h)} \wick{\c{(J^b J^b)}\!(z) \c J^a(w)}
+		& = \frac{1}{2 (k + \bar h)} \frac{1}{2\pi i} \oint_{z} \frac{dx}{x-z} (\wick{\c J^b(x) J^b(z) \c J^a(w)} + \wick{J^b(x) \c J^b(z) \c J^a(w)})\\
+		& = \frac{1}{2 (k + \bar h)} \frac{1}{2\pi i} \oint_{z} \frac{dx}{x-z} \left[\left(\frac{G^{ba}}{(x-w)^2} + \frac{i f^{ba}_c J^c(w)}{x-w} \right) J^b(z) + J^b(x) (z \leftrightarrow x) \right]\\
+		&= \frac{1}{k + \bar h} \left(\frac{G^{ab} J^b(z)}{(z-w)^2} + \frac12 f_{abc} \frac{J^c(w) J^b(z) + J^b(z) J^c(w)}{z-w} \right)\\
+	\end{aligned}
+	\]
+	but note that last term will have
+	\[
+		J^c(w) J^b(z) + J^b(z) J^c(w) = \frac{2 G^{bc}}{(z-w)^2} + \frac{2 i f_{cbd} J^d(w)}{w-z} + (J^c J^b)(w) + (J^b J^c)(w) 
+	\]
+	The first term will cancel when multiplied by the anti-symmetric $f_{abc}$, as will the last (regular) term. The second term will give $f_{abc} f_{cbd} = -f_{abc} f_{dbc} = 2 \bar h \delta_{ad}$, by the definition of dual coxeter number. On the other hand we have $G_{ab} = k \delta_{ab}$ so altogether we get:
+	\[
+		\frac{1}{k+\bar h} \frac{(k+\bar h) J^a(z)}{(z-w)^2} = \frac{J^a(w)}{(z-w)^2} + \frac{\d J^a(w)}{(z-w)}
+	\]
+	as we wished. \emph{Note} we could have run this logic in reverse, and demanded that a stress tensor must its OPE make second term involving $\d J^a$ have coefficient $1$, giving the required normalization of $(2 (k+\bar h))^{-1}$. Now note that if we define $T^H(z) := \frac{1}{2(k+\bar h_H)} \sum_{a \in H} (J^a J^a)(z)$, then as long as we are taking the OPE with $J^a$ for $a \in H$, we see that the singular terms are \emph{exactly} the same. Indeed, we get the same factor of $k \delta_{ab}$ from the quadratic OPE term, and the sum over $f_{abc} f_{dbc}$ restricts $b$ and $c$ to be in $H$ by the subgroup property, so we get $\bar h_H$. Thus $(T_G - T_H) J^a =T_{G/H} J^a$ is regular for $a \in H$. 
+	
+	For the next step, again lets first just look at the singular terms in the $T_G T_G$ OPE:
+	\[
+	\begin{aligned}
+		T(z) T(w) &= \frac{1}{2 (k + \bar h)} \frac{1}{2\pi i} \oint \frac{dx}{x-w} T(z) J^a(x) J^a(w)\\
+		&= \frac{1}{2 (k + \bar h)} \frac{1}{2\pi i} \oint \frac{dx}{x-w} \left[  \left(\frac{J^a(x)}{(z-x)^2} + \frac{\d J^a(x)}{z-x} \right) J^a(w) + J^a(x) (w \leftrightarrow x) \right]\\
+		&=  \frac{1}{2 (k + \bar h)} \frac{1}{2\pi i} \oint \frac{dx}{x-w} \left[ \frac{k \dim G}{(z-x)^2 (x-w)^2} + \frac{\d J^a(x)\, J^a(w)}{z-x} + (w \leftrightarrow x) \right]\\
+		&= \frac{c/2}{(z-w)^4} + \frac{2 T(w)}{(z-w)^2} + \frac{\d T(w)}{(z-w)}
+	\end{aligned}
+	\]
+	here we have $c = \frac{k \dim G}{k + \bar h}$ as required. The same logic applies to the $T_H(z) T_H(w)$ OPE, where we would get:
+	\[
+		\frac{c_H/2}{(z-w)^4} + \frac{2 T_H(w)}{(z-w)^2} + \frac{\d T_H(w)}{(z-w)}, \quad c_H = \frac{k \dim H}{k + \bar h_H}
+	\]
+	Now it remains to evaluate:
+	\[
+	\begin{aligned}
+		T_G(z) T_H(w) &= \frac{1}{2 (k + \bar h_H)} \frac{1}{2\pi i} \oint \frac{dx}{x-w} \sum_{a \in H} T_G(z) J^a(x) J^a(w)\\
+		&= \frac{1}{2 (k + \bar h_H)} \frac{1}{2\pi i} \oint \frac{dx}{x-w} \left[  \left(\frac{J^a(x)}{(z-x)^2} + \frac{\d J^a(x)}{z-x} \right) J^a(w) + J^a(x) (w \leftrightarrow x) \right]\\
+		&=  \frac{1}{2 (k + \bar h_H)} \frac{1}{2\pi i} \oint \frac{dx}{x-w} \left[ \frac{k \dim H}{(z-x)^2 (x-w)^2} + \frac{\d J^a(x)\, J^a(w)}{z-x} + (w \leftrightarrow x) \right]\\
+		&= \frac{c_H/2}{(z-w)^4} + \frac{2 T_H(w)}{(z-w)^2} + \frac{\d T_H(w)}{(z-w)}
+	\end{aligned}
+	\]
+	so indeed $T_G(z) T_H(w) - T_H(z) T_H(w) = T_{G/H}(z) T_H(w)$ has a regular OPE. This further gives us that $T_{G/H}(z) T_{G/H}(w)$ has singular part coming from $T_{G/H}(z) T_G(w)= T_G(z) T_G(w) - T_G(z) T_H(w)$, which gives:
+	\[
+		\frac{(c_G-c_H)/2}{(z-w)^4} + \frac{2 T_{G/H}(w)}{(z-w)^2} + \frac{\d T_{G/H}(w)}{z-w}
+	\]
+	
+	So a $G$ theory can be re-written as a set of ``decoupled'' CFTs with stress tensors $T_H$ and $T_{G/H}$. Now take $G = \mathrm{SU}(2)_{m} \times \mathrm{SU}(2)_1$. This theory have total level $m+1$. So now take the diagonal subgroup $\mathrm{SU}(2)_{m+1}$.
+	
+	We see that the $G/H$ theory has central charge:
+	\[
+		c_G - c_H = \left(\frac{m \times 3}{m+2} + \frac{1 \times 3}{1+2} \right) - \frac{(m+1) \times 3}{m+1 + 2} = 1 + \frac{3m}{m+2} - \frac{3(m+1)}{m+3} = 1 - \frac{6}{(m+2)(m+3)}
+	\]
+	exactly coincident with the prescribed formula for the minimal models. So, we expect at $m=1$ to get the Ising CFT.  
+	
+	\item We have 
+	\[
+	\begin{aligned}
+				\psi^i (z) = \sum_n \psi_n^i z^{-n-1/2} \Rightarrow \braket{\psi^i(z) \psi^j(w)} &= \sum_{n,m \in \mathbb Z} \braket{\psi_n^i \psi_m^j} z^{-n-1/2} w^{-m-1/2}\\ &= \sum_{m=0}^\infty \braket{\psi_{m}^i  \psi_{-m}^j} z^{-m-1/2} w^{m-1/2}\\ &= \frac{\delta^{i}}{\sqrt{z w}} \left[ \sum_{m=0}^\infty \left(\frac{w}{z}\right)^m - \frac12 \right]\\ &= \frac{\delta_{ij}}{2 \sqrt{z w}} \frac{z+w}{z-w}
+	\end{aligned}
+	\]
+	the $1/2$ comes from the zero-mode Clifford algebra $\{ \psi^i_0 , \psi^j_0\} = \delta^{ij}$.
+	\item We can get this directly from the Ward identity:
+	\[
+		\braket{T(z_1) \phi(z_2) \phi(z_3)}  = \left(\frac{\d_{z_2}}{z_1 - z_2} + \frac{\d_{z_3}}{z_1 - z_3} + \frac{\Delta}{(z_1-z_2)^2} + \frac{\Delta}{(z_1-z_3)^2} \right) \frac{1}{(z_2 - z_3)^{2 \Delta}} = \frac{\Delta}{z_{12}^2 z_{13}^2 z_{23}^{2\Delta - 2}}.
+	\]
+	Next, we can write:
+	\[
+		\bra{X} T(z) \ket{X} = \lim_{w \to 0} \bar w^{-2\Delta} \bra{0} X(1/\bar w) \, T(z) \, X(0) \ket{0} = \lim_{w\to 0}  \frac{ \bar w^{-2 \Delta}\, \Delta}{z^2 \bar w^{-2 \Delta}} = \frac{\Delta}{z^2}.
+	\]
+	Finally, let's look at the $O(N)$ fermion. We have that $T(z) = -\frac12 \sum_{i=1}^N :\psi^i \d \psi^i:$ so we get:
+	\[
+		\bra{S} T \ket{S} = - \frac12 \Sigma_{i=1}^N \lim_{z \to w} \left[\d_w\left( \frac{z+w}{2 \sqrt{z w}} \frac{1}{z-w} \right) - \underbrace{\d_w \frac{1}{(z-w)}}_{\text{Normal ordering constant}} \right] = -\frac{N}{2} (-\frac{1}{8 w^2}) = \frac{N/16}{w^2}
+	\]
+	as required. 
+	
+	 % Right away, we get that for the current $J^{ij}$:
+ % 	\[
+ % 		\bra{S} J^{ij} \ket{S} = \lim_{z \to w} \left( \bra{S} i \psi^i (z) \psi^j(w) \ket{S} - \frac{i \delta^{ij}}{z-w} \right) =
+ % 	\]
+ % 	 $T(z) = \frac{1}{2(N-1)} \sum_{i, j} (\psi^i \psi^j \psi^i \psi^j) (z)$.
+	\item This is direct:
+	\[
+	\begin{aligned}
+		D_\theta \hat X &= \left(\d_\theta + \theta \d_z \right) (X + i \theta \psi + i \bar \theta \bar \psi + \theta \bar \theta F) = i \psi + \theta \d X + \bar \theta F + \theta \bar \theta \d \bar \psi, \quad \bar D_{\bar \theta} \hat X = i \bar \psi + \bar \theta \d X + \theta F + \bar \theta \theta \bar \d \psi
+	\end{aligned}
+	\]
+	Now we only want the $\theta \bar \theta$ terms of $(D_\theta \hat X)(\bar D_{\bar \theta} \hat X)$ as everything else will vanish in the Berezin integral. This gives:
+	\[
+		S= \frac{1}{2\pi \ell_s^2} \int d^2 z \int d\bar \theta d \theta \, \theta \bar \theta (\d X \d X - F^2 + i \bar \psi \d \bar \psi + i \psi \bar \d \psi) = \frac{1}{2\pi \ell_s^2} \int d^2 z (\d X \d X + i \bar \psi \d \bar \psi + i \psi \bar \d \psi)
+	\]
+	we have dropped $F^2$ because it has no dynamics or interactions with $X, \psi$ whatsoever. 
+	
+	\item Expanding 
+	\[
+		e^{i p \cdot \hat X} = e^{i p_\mu (X^\mu + i \theta \psi^\mu + i \bar \theta \bar \psi^\mu + \theta \bar \theta F^\mu)} = (1 + i \theta p \cdot \psi) (1+ i \bar \theta p \cdot \bar \psi) (1+ \theta \bar \theta p \cdot F) e^{i p X} 
+	\]
+	Imposting EOM's gives $F = 0$ right away. Now for the rest:
+	\[
+		D_\theta \hat X^\mu \, D_{\bar \theta} \hat X^\nu e^{i p X}|_{\theta \bar \theta}= [(\d X^\mu \d X^\nu + i \bar \psi^\mu \d \bar \psi^\nu + i \psi^\nu \bar \d \psi^\mu) + (i \d X^\nu \psi^\mu)  p \cdot \psi + (i \d X^\mu \bar \psi^\nu) p \cdot \bar \psi] e^{i p X}
+	\]
+	again using the equations of motion we get rid of the $\d \bar \psi, \bar d \psi$ terms. Now we get:
+	\[
+		[\d X^\mu \d X^\nu + (i \d X^\nu \psi^\mu)  p \cdot \psi + (i \d X^\mu \bar \psi^\nu) p \cdot \bar \psi] e^{i p \cdot X} = (\d X^\mu + i (p \cdot \psi) \psi^\mu) (\d X^\nu + i (p \cdot \psi) \psi^\nu) e^{i p \cdot X}
+	\]
+	\item Following the same logic as the $\mathcal{N} = (2,0)$ case, we can now compute in the R sector:
+	\[
+		\{G_0^\alpha, \bar G_0^\beta\} = \frac{4 k}{2} \left(- \frac14 \right) \delta^{\alpha \beta} + 2 L_0 \delta^{\alpha \beta}
+	\]
+	for this to be positive we need:
+	\[
+		2 (\Delta - k/4) \geq 0 \Rightarrow \Delta \geq k/4.
+	\]
+	In the NS sector, we have a positivity condition on
+	\[
+		\{G_{-1/2}^\alpha, \bar G_{1/2}^\beta\} = -2 \sigma^a_{\alpha \beta} J^a_0 + 2 \delta^{\alpha \beta} L_0
+	\]
+	The positivity condition on this operator translates to the matrix:
+	\[
+		2 \Delta \mathbf{1} - 2 \sigma^a_{\alpha \beta} J^a
+	\]
+	being positive semidefinite. But the determinant of this matrix is given by
+	\[
+		\Delta^2 - |J|^2 = \Delta^2 - j^2
+	\]
+	So for this to be $\geq 0$, given that $\Delta \geq 0$, we need $\Delta - j \geq 0$
+	
+	
+	\item This calculation is also direct:
+	\[
+	\begin{aligned}
+		T(z) T(w) &= \frac{1/2}{(z-w)^4} + 2\frac{-\frac{1}{\ell_s^2} (\d X)^2(w)}{(z-w)^2} + \frac{\d \left(-\frac{1}{\ell_s^2} (\d X)^2(w)\right)}{z-w} \\
+		& \qquad + \frac{\ell_s}{2} \partial X(z) \frac{Q}{\sqrt2 \ell_s^3} 2\frac{2}{(z-w)^3} + \frac{\ell_s}{2} \partial X(w) \frac{Q}{\sqrt2 \ell_s^3} 2\frac{-2}{(z-w)^3} -\frac{\ell_s^2}{2} \frac{Q^2}{2\ell_s^2} \frac{-6}{(z-w)^4}\\
+		&= \frac{1/2 (1 + 3 Q^2)}{(z-w)^4} + \frac{2 T(w)}{(z-w)^2} + \frac{\d T(w)}{z-w}
+	\end{aligned}
+	\]
+	we thus get a central charge equal to $1 + 3 Q^2$ as required. 
+	
+	\item The integral over the zero mode will give no contribution from the $\partial X \partial \bar X$ term in the action and instead will just:
+	\[
+		\int \mathcal D X \exp\left(- \int d^2 z \sqrt{g} \left(\frac{ Q}{4 \pi \ell_s \sqrt{2} } R^{(2)} - i \sum_{i} p_i \delta^2(z-z_i) \right) X(z) \right)
+	\]
+	This is a $\delta$-functional on the $p_i$. We have:
+	\[
+		\boldsymbol{\delta}\left[ \frac{Q}{4 \pi \ell_s \sqrt{2} } R^{(2)} - i \sum_{i} p_i \delta^2(z-z_i) \right]
+	\]
+	but this can only happen if, after integrating over $z$, we get:
+	\[
+		\frac{Q}{\ell_s \sqrt 2} \chi = i \sum_i p_i \Rightarrow i \sqrt{2} \ell_s \sum_i p_i = Q \chi.
+	\]
+	Give an interpretation of the vertex operators as ``contributing curvature''.
+	
+	\item Note that:
+	\[
+		\, [L_{-m}, J_{-n}] = n J_{-m - n} + \frac{A}{2} m (m-1) \delta_{m+n} = n J_{- (m+n)} + \left(\frac{A}{2} m (m+1) - m A\right) \delta_{m+n}
+	\]
+	so this will only have the same form of the central term if $J_0^\dagger = J_{0} + A$, ie $J_{-m}^\dagger + A \delta_{m, 0}$. This shows that it is necessary. By the above commutation relation, we cannot mix $J_m$ labeled by different mode number in defining $J^{\dagger}_m$, as they would transform differently under $L_0$, so can only have $J_{-m}$ and a central term on $J_0$. Similarly, we cannot mix $L_n$ of different $n$ in defining $L^\dagger_0$. Do we add a central term (necessarily to the definition of $L_0^\dagger$, since only this one transforms as a scalar under $L_0$)? We already have, since this is fixed by the $[L_{m}, L_{-m}]$ and $[L^\dagger_m, L^\dagger_{-m}]$ commutations that give the central charge.
+	
+	% First, from the commutation relation of $J$ with $V_{q} (w)$, we note:
+% 	\[
+% 		[J_m, V_{q}(w)] =
+% 	\]
+	
+	
+	\item Noting that
+	\[
+	\begin{aligned}
+		b(z) \d c(w) = c(z) \d b(w) &= \frac{1}{(z-w)^2}\\
+		\d b(z) c(w) = \d c(z) b(w) &= - \frac{1}{(z-w)^2}\\ 
+		\d b(z) \d c(w) = \d c(z) \d b(w) &= -\frac{2}{(z-w)^3}
+	\end{aligned}
+	\]
+	we can just directly compute the $TT$ OPE:
+	\[
+	\begin{aligned}
+		T(z) T(w) &= \left(-\lambda b(z) \d c(z) + (1-\lambda) \d b(z) c(z) \right) \left(-\lambda b(w) \d c(w) + (1-\lambda) \d b(w) c(w) \right)\\
+		&= \lambda^2 (b \d c)(z) (b \d c)(w) + \lambda (\lambda - 1)\left[ (b \d c)(z) (\d b c)(w) + (\d b c) (z) (b \d c)(w)\right] + (1-\lambda)^2 (\d b c)(z) (\d b c)(w)\\
+		&= - \frac{\lambda^2 + (1-\lambda)^2 + 4 \lambda (\lambda-1) }{(z-w)^4} + \frac{\lambda^2 (-b(z) \d c(w) + \d c(z) b(w))}{(z-w)^2} + \frac{(1-\lambda)^2 (\d b(z) c(w) - c(z) \d b(w))}{(z-w)^2}\\
+		&\qquad + \lambda (\lambda-1) \frac{\d c(z) \d b(w) + \d b(z) \d c(w)}{z-w} - 2 \lambda (\lambda-1) \frac{b(z) c(w) + c(z) b(w)}{(z-w)^3}
+	\end{aligned}
+	\]
+	The first term on the last line will die since we can take $z \to w$ and ignore first-order terms capturing the differences. The second term in the last line will become:
+	\begin{equation}\label{eq:terms}
+		- 2 \lambda (\lambda - 1) \frac{\d b(w) c(w) + \d c(w) b(w)}{(z-w)^2} - \lambda (\lambda - 1) \frac{\d^2 b(w) c(w) + \d^2 c(w) b(w)}{(z-w)}
+	\end{equation}
+	the second two terms in the first line contribute a $(z-w)^{-2}$ term of:
+	\[
+		\lambda^2 (2 \d c(w) b(w)) + (1-\lambda)^2 (2 \d b(w) c(w))
+	\]
+	this will combine with the $(z-w)^{-2}$ terms in \eqref{eq:terms} to give:
+	\[
+		2 \left[ \lambda \d c(w) b(w) + (1 - \lambda) \d b(w) c(w) \right] = 2 T(w)
+	\]
+	as required. Finally, the $(z-w)^{-1}$ terms all collected give coefficient (dropping the $w$ dependence, as it is understood):
+	\[
+	\begin{aligned}
+		& \lambda^2 (-\d b \d c + \d^2 c b)) + (1-\lambda)^2 (\d^2 b c - \d c \d b) - \lambda (\lambda - 1) (\d^2 b c + \d^2 c b)\\
+		&= - \lambda^2 \cancel{(\d b \d c + \d c \d b)} - 2 \lambda \d b \d bc + 1 \d b \d c  + [\lambda^2 + \lambda (1 -\lambda)] (\d^2 c b) + [(1-\lambda)^2 + \lambda (1-\lambda)] (\d^2 b c)\\
+		&= \lambda \d^2 c b + (1-\lambda) \d^2 b c + (1 - 2 \lambda) \d b \d c = \d T
+	\end{aligned}
+	\]
+	as required. So altogether we get exactly the stress tensor OPE needed to satisfy the Virasoro algebra with central charge:
+	\[
+		-2 (\lambda^2 + (1-\lambda)^2 + 4 \lambda(\lambda-1)) = - 2 (6 \lambda^2 - 6 \lambda + 1) = 1 - 3 Q^2, \quad Q = (1-2\lambda)
+	\]
+	
+	\item The BRST current is:
+	\[
+		j_B(z) = c(z) T^X(z) + (b c \d c)(z)
+	\]
+	There are several OPEs to do. Let's start with the easier ones:
+	\begin{equation}\label{eq:easyOPE1}
+		\begin{aligned}
+			(c T^X) (c T^X) &\sim c(z) c(w) \left[ \frac{c^X/2}{(z-w)^4} + \frac{2 T(w)}{(z-w)^2} + \frac{\d T(w)}{z-w} \right]\\
+			& = - \sum_{n=1}^\infty \frac{(z-w)^n}{n!} c(w) \d^n c(w) \left[ \frac{c^X/2}{(z-w)^4} + \frac{2 T(w)}{(z-w)^2} + \frac{\d T(w)}{z-w} \right]\\
+			&\sim - \frac{\frac12 c^X \, c(w) \d c(w)}{(z-w)^3} - \frac12 \frac{\frac12 c^X \, c(w) \d^2 c(w)}{(z-w)^2} - \frac{1}{6} \frac{\frac12 c^X \, c(w) \d^3 c(w)}{z-w} - \frac{2 T(w) c(w) \d c(w)}{z-w}
+		\end{aligned}
+	\end{equation}
+	Next:
+	\begin{equation}\label{eq:easyOPE2}
+		\begin{aligned}
+			(c T^X) (b c \d c) + (b c \d c) (c T^X) &\sim \frac{T^X(z) c(w) \d \c(w)}{z-w} + \frac{c(z) \d c(z) T^X(w)}{z-w}\\
+			&\sim \frac{2 T(w) c(w) \d c(w)}{z-w}
+		\end{aligned}
+	\end{equation}
+	This exactly cancels the last term in the previous expression. Now the hard one. Being careful of fermion minus signs, I'll underline the contractions that will give them:
+	\begin{equation}
+		\begin{aligned}
+			(b c \d c) (b c \d c) &= \wick{(\c1 b c \c2{\d c}) (\c2{b} c \c1{\d c})} + \underline{\wick{(\c1 b c \c2{\d c}) (\c2{b} \c1{c} \d c)}} + \underline{\wick{(\c1 b \c2{c} \d c) (\c2{b} c \c1{\d c})}} + \wick{(\c1 b \c2{c} \d c) (\c2{b} \c1{c} \d c)}\\
+			& \qquad + \wick{(\c b c \d c) (b c \c {\d c})} + \wick{(b c \c{\d c}) (\c b c \d c)} + \cancel{\underline{\wick{(\c b c \d c) (b \c c \d c)}}} + \cancel{\underline{\wick{(b \c c \d c) (\c b c \d c)}}}
+		\end{aligned}
+	\end{equation}
+	the last two terms are canceled because they contribute only $(z-w)^{-1}$ singularities multiplying $c(z) \d c(w)$ which is $O(z-w)$ and so only contributes finite terms. The remaining terms give: 
+	\begin{equation}
+		\begin{aligned}
+			-\frac{c(z) c(w)}{(z-w)^4} + \frac{c(z) \d c (w)}{(z-w)^3} - \frac{\d c(z) c(w)}{(z-w)^3} + \frac{\d c(z) \d c(w)}{(z-w)^2} + \frac{c(z) \d c(z) b(w) c(w)}{(z-w)^2} + \frac{b(z) c(z) c(w) \d c(w)}{(z-w)^2}
+		\end{aligned}
+	\end{equation} 
+	The last two terms will cancel, as they contribute a $(z-w)^{-1}$ singularity with numerator $c \d^2 c b c + \d c \d c b c + b \d c c \d c + \d b c c \d c$. All of these terms are evaluated at $w$, so all are zero. Now we have (all evaluated at $w$)
+	\begin{equation}\label{eq:hardOPE}
+		\begin{aligned}
+			&\frac{-\d c c + c \d c - \d c c}{(z-w)^3} + \frac{-\frac12 \d^2 c c + \d c \d c - \d^2 c c + \d c \d c}{(z-w)^2} + \frac{-\frac16 \d^3 c c + \frac12 \d^2 c \d c - \frac12 \d^3 c c + \d^2 c \d c }{z - w}\\
+			&= \frac{3 c(w) \d c(w)}{(z-w)^3} + \frac{\frac32 c(w) \d^2 c(w)}{(z-w)^2} + \frac{\frac23 c(w) \d^3 c(w) + \frac32 \d^2 c(w) \d c(w)}{z-w}
+		\end{aligned}
+	\end{equation}
+	Combining Equations~\eqref{eq:easyOPE1}, \eqref{eq:easyOPE2} and  \eqref{eq:hardOPE} we get:
+	\begin{equation}\label{eq:finalOPE}
+				j_B(z) j_B(w) = \frac{(3 - \frac12 c^X) c(w) \d c(w)}{(z-w)^3} + \frac{(\frac32 - \frac14 c^X) c(w) \d^2 c(w)}{(z-w)^2} + \frac{(\frac23 - \frac{c^X}{12}) c(w) \d^3 c(w) + \frac32 \d^2 c(w) \d c(w)}{z-w}
+	\end{equation}
+	Now for $Q_B^2 = 0$, we need to look at $j_B(z) j_B(w)$ residue as $z \to w$ as a function of $w$ and ensure that this has no residue in $w$. First we just need to look at the $(z-w)^{-1}$ term and reduce it all to the integral:
+	\[
+		Q_B^2 = \frac{1}{2\pi i} \oint dw \left[\left(\frac23 - \frac{c^X}{12}\right) c(w) \d^3 c(w) + \frac32 \d^2 c(w) \d c(w)\right] = \frac{1}{2\pi i} \oint dw \left(\frac{13}{6} - \frac{c^X}{12}\right) c(w) \d^3 c(w)
+	\]
+	This will vanish exactly when $c^X = 26$ as required. 
+	
+	NB in Polchinski, there is an additional $c \d^3 c$ term in the definition of $j_B$ that contributes to this OPE (which makes Equation~\eqref{eq:finalOPE} look nicer), but the conclusion about $D = 26$ is still the same. 
+	
+	\item This is the type of question with a two-line answer that depends on a lot of conceptual build up. It is instructive to go through some of the details. Here I will set $\ell_s^2 = 2$. First lets start with the system of two Majorana-Weyl fermions $\psi^1, \psi^2$. This has central charge $c=1$. Moreover, we can compute everything in terms of
+	\[
+		\psi = \frac{1}{\sqrt 2} (\psi^1 + i \psi^2), \quad \bar \psi = \frac{1}{\sqrt 2} (\psi^1 - i \psi^2).
+	\]
+	Note both $\psi(z)$ and $\bar \psi(z)$ are in the holomorphic sector. The anti-holomorphic fields, if we considered them, can be labeled as in polchinski by $\tilde \psi(\bar z), \tilde{\bar \psi}(\bar z)$. These fields give OPE:
+	\begin{equation}\label{eq:fermiOPEs}
+		\psi(z) \psi(w) = O(z-w), \quad \bar \psi(z) \bar \psi(w) = O(z-w)  \quad \psi(z) \bar \psi(w) = \frac{1}{z-w} + :\psi \bar \psi:\!(w) + O(z-w)
+	\end{equation}
+	Now $J(z) = :\psi \bar \psi:\!(z)$ can be seen to have scaling dimension $1$ by OPE, so it is a conserved current (and necessarily a primary operator in a unitary theory). Indeed $J J = (z-w)^{-2}$ and $J\psi = \psi (z-w)^{-1}, J \bar \psi = \bar \psi (z-w)^{-1}$ so $\psi, \bar \psi$ have charge $\pm 1$ under $J$. From extending equation~\eqref{eq:fermiOPEs} to terms of order $(z-w)$ the stress energy tensor $T = - \frac12 :\psi^i \d \psi^i: = \frac12 J^2$.
+	
+	Now note that this shares everything in common with the free scalar theory. The central charge $c=1$. The $\frak u(1)$ currents there are $J = i \d \phi$ and have the same OPE. The analogues of the fermions $\psi, \bar \psi$ are then the operators $e^{\pm i \phi(z)}$ respectively. Indeed these have charge $\pm 1$ under $J$. But it would be surprising if these operators anti-commuted, being built out of bosons and all. In fact they do! By Baker-Campbell-Hausdorff:
+	\[
+		e^{i \phi(z)} e^{i \phi(z')} = e^{- [\phi(z), \phi(z')]} e^{i \phi(z')} e^{i\phi(z)} = -e^{i \phi(z')} e^{i\phi(z)}
+	\]
+	since $[\phi(z), \phi(w)] = - \log \frac{z-w}{w-z} = - i \pi$
+	The anti-commutation property comes out of the non-locality of the vertex operators in terms of $\phi$. We can make the exact same argument for $e^{i \phi(z)} e^{-i\phi(w)}$ or any combination thereof. So all of these fields are in fact fermionic. They have the same OPEs as the fermions above:
+	\[
+		e^{\pm i \phi(z)} e^{\pm i \phi(w)} = O(z-w), \quad e^{\pm i \phi(z)} e^{\mp i \phi(w)} \sim \frac{1}{z-w}
+	\]
+	Note also the OPE 
+	\[
+	\begin{aligned}
+		:e^{i \phi(z)}: :e^{i \phi(w)}: &= \exp\left[- \int dz' dw' \log(z' - w') \delta_{\phi(z')} \delta_{\phi(w')} \right] :e^{i \phi(z)} e^{-i \phi(w)}:\\
+		 &= \frac{1}{z-w} (1 + i \d \phi(w) (z-w) + O(z-w)^2)\\
+		 &= \frac{1}{z-w} + i \d \phi(w) + O(z-w)
+	\end{aligned}
+	\]
+	as required. 
+	
+	We can actually perform this procedure to the $b c$ ghosts as well, for any value of $\lambda$. The trick is to note that we have performed it for $\lambda = 1/2$, and now the stress-energy tensor changes to:
+	\[
+		T^{\lambda} = T^{\lambda=1/2} - (\lambda-1/2) \d(:b c:)
+	\]
+	If we still take $b = e^{i \phi}, c=e^{-i\phi}$ then $:b c: = i \d \phi$ and so the stress-energy tensor looks like:
+	\[
+		T^\lambda = - \frac12 (\d \phi)^2 - i (\lambda-1/2) \d^2 \phi
+	\]
+	which is just the Coloumb gas model with $Q = - i (2 \lambda-1)$. The central charge is $1 + 3 Q^2 = 1 - 3 (2 \lambda-1)^2$, exactly as we want. The conformal weights are $k^2/2 \pm i Q k/2 \to \frac12 \pm (\lambda-1/2)$ at the lowest level, and this is exactly $\lambda$ and $1-\lambda$ as desired. Note that $b$ and $c$ are hermitian, so we need $\phi$ to be anti-hermitian. Equivalently we can write $\phi = i \rho$ for $\rho$ hermitian. Then
+	\[
+		b = e^{-\rho}, \quad c = e^{\rho}, \qquad J = - \d \rho.
+	\]
+	Note $\rho$ has opposite OPE from $\phi$ so that $\d \rho(z)\, \d \rho(w) \sim \frac{1}{(z-w)^2}$.
+	
+	Now lets look at the \emph{bosonic} $\beta \gamma$ theory. Can we bosonize this too? For one, the charge is $J = - \beta \gamma$ which has opposite sign OPE $J(z) J(w) = -\frac{1}{z-w}$, so we will now need $\rho$ to have the regular-sign OPE (ie the same as $\phi$). We'll just call this hermitian field $\phi$. Let's take $\beta = e^{-\phi}, c = e^{\phi}$ as before and $J = - \d \phi$. Already there is an issue. If $\phi$ satisfies the standard OPE then $\beta$ and $\gamma$ will be anticommute. Further, $\beta \gamma = e^{-\phi(w)} e^{\phi(z)} = O(z-w)$ while by the same logic $\beta \beta \sim \gamma \gamma \sim (z-w)^{-1}$. We want $\beta \beta = O((z-w)^0), \gamma \gamma = O((z-w)^0), \beta \gamma \sim -(z-w)^{-1}, \gamma \beta \sim (z-w)^{-1}$. 
+	
+	Another way to see that we are missing something: we can try to write a Coulomb gas model for the $\beta \gamma$ theory:
+	\[
+		T^\lambda = T^{\lambda = 1/2} - (\lambda-1/2) \d (\beta \gamma) = - \frac{1}{2} J^2 - \left(\frac12 - \lambda\right) \d J = - \frac12 (\d \phi)^2 + \frac{1 - 2 \lambda}{2} \d^2 \phi
+	\]
+	notice the $-$ sign in front of $\frac12 J^2$, as we want. We have a coulomb gas model with $Q = 1 -2 \lambda$. This gives a central charge $1 + 3Q^2 = 4 - 6 \lambda + 12 \lambda^2$. On the other hand, the $\beta \gamma$ theory should have central charge $-1 + 3Q^2$. We are off by $2$.
+	
+	All of this indicates that we need to add an uncoupled $c = -2$ including fermions--namely the $bc$ fermi theory at $\lambda = 1$--  and redefine $\beta \gamma$ in terms of $\phi$ to incorporate this. Take $\eta, \xi$ of scaling dimensions $1, 0$ and charges $\mp 1$ respectively. Then define
+	\[
+		\beta = e^{- \phi} \d \xi, \quad \gamma e^{\phi} \eta.
+	\]
+	We now have the OPE:
+	\[
+		\beta(z) \gamma(w) = (z-w) \times - \frac{1}{(z-w)^2} = -\frac{1}{z-w}, \quad \gamma(z) \beta(w) = \frac{1}{z-w}
+	\]
+	This is \textbf{4.15.2}. Further because $\eta \eta = O(z-w)$ and  $\d \xi \d \xi = O(z - w)$ we get $\beta \beta = O((z-w)^0)$ and likewise for $\gamma \gamma$ as needed. We also know how to interpolate between NS and R sectors by taking $\phi \to \phi/2$ etc. 
+	
+	The total current $-:\beta \gamma:$ stays the same because we look for the constant term in the expansion:
+	\[
+		\beta(z) \gamma(w) = -\frac{1}{(z-w)^2} e^{-\phi(z)} e^{\phi(w)} = -\frac{1}{(z-w)^2} \left((z-w) - \d \phi(w) (z-w)^2 \right) \to \d \phi(w) \Rightarrow J = - \d \phi(w)
+	\]
+	so we identify $:\beta \gamma:$ with $\d \phi$, which are both $-J$. This is \textbf{14.15.10}. Writing out the full stress tensor now gives:
+	\[
+		-\frac12 (\d \phi)^2 + \frac{1 - 2\lambda}{2} \d^2 \phi - \eta \d \xi = T^{\lambda = 1/2} + (1/2 - \lambda) \d(\beta \gamma)
+	\]
+	It remains to show that $T^{\lambda = 1/2} = -\frac12 \beta \d \gamma + \frac12 \d \beta \gamma = \frac12 (2 \d \beta \, \gamma - \d (\beta \gamma))$. Now looking at the $\beta \gamma$ OPE to order $z-w$ we get:
+	\[
+	\begin{aligned}
+		e^{- \phi(z)} \d \xi(z) e^{\phi(w)} \eta(w) &= \d \xi(z) \eta(w) e^{- \phi(z)} e^{\phi(w)} \\ &=  \left(\frac{-1}{(z-w)^2} + :\d \xi \eta: \right) \left( (z-w) -  (z-w)^2 \d \phi + \frac12 (z-w)^3 ((\d \phi)^2 - \d^2 \phi) \right)
+	\end{aligned}
+	\]
+	\textbf{NOTE} I had to assume that while $\xi, \eta$ and $e^{\phi}, e^{-\phi}$ separately anticommute with their partners, the $e^{\pm \phi}$ fields commute with the $\xi, \eta$ fields. Give an interpretation/example in condensed matter of this. 
+	
+	The order $z-w$ term here is:
+	\[
+		:\d \xi \eta: - \frac12 ((\d \phi)^2 - \d^2 \phi)
+	\]
+	So this is the normal ordered product of $\d \beta\, \gamma$. The $\d (\beta \gamma) = \d^2 \phi$ term will cancel the $\d^2 \phi$ term there and we'll get the stress tensor 
+	\[
+		- \eta \d \xi  - \frac12 (\d \phi)^2 = T^{\lambda = 1/2}
+	\]
+	which is \textbf{4.15.8} as desired.
+	
+	We can also bosonize the $\eta, \xi$ theory in terms of an auxiliary bosonic field $\chi$, but this was not necessary for the exercise. 
+	
+	\item Let us do this directly from definitions:
+	\[
+	\begin{aligned}
+		X(\tau, \sigma) &= x - \sqrt{2} \ell_s \sum_{k \in \mathbb Z + 1/2} \frac{\alpha_k}{k} e^{-i k \tau} \sin(k \sigma) = x + i \frac{\ell_s}{\sqrt 2} \sum_{k \in \mathbb Z + 1/2} \frac{\alpha_k}{k} (z^{-k} - \bar z^{-k})\\
+		\Rightarrow \braket{X(z, \bar z) X(w, \bar w)} &= -\frac{\ell_s^2}{2} \sum_{k, l \in \mathbb Z + 1/2} \frac{\alpha_{k} \alpha_l}{k l} (z^{-k} - \bar z^{-k}) (w^{-l} - \bar w^{-l})\\
+		&= \frac{\ell_s^2}{2} \sum_{k = 0}^\infty \frac{1}{k+1/2} \left[ \left(\frac{w}{z} \right)^{k+1/2} - \left(\frac{\bar w}{z} \right)^{k+1/2} - \left(\frac{w}{\bar z} \right)^{k+1/2} + \left(\frac{\bar w}{\bar z} \right)^{k+1/2} \right]
+	\end{aligned}
+	\]
+	Now we have \[
+		\sum_{k=0}^\infty \frac{x^{k+1/2}}{k+1/2} = 2 \sum_{k=0}^\infty \frac{(\sqrt x)^{2k+1}}{2k+1} = 2\, \mathrm{arctanh}(\sqrt{x}) = - ( \log(1-\sqrt x) - \log(1+\sqrt x)).
+	\]
+	Our convention on the square root branch cut is along the negative real axis. We get:
+	\[
+		-\frac{\ell_s^2}{2} \left[\log(1 - \sqrt{w/z}) - \log(1 + \sqrt{w/z})  - \log(1 - \sqrt{\bar w/z}) + \log(1 - \sqrt{\bar w/z}) + c.c. \right]
+	\]
+	% We know that $w/z$ and $\bar w/\bar z$ will still be in $\mathbb H$ and $-\mathbb H$, and the square root stabilizes these regions. Further $\bar w/z$ and $w/\bar z$ are conjugates so will be in opposite half-planes.
+% 	\begin{itemize}
+% 		\item $\mathrm{Re}\,w>0, \mathrm{Re}\,z>0$: $\bar w/z \in - \mathbb H$, $\bar w/\bar z \in \mathbb H$
+% 		\item $\mathrm{Re}\,w<0, \mathrm{Re}\,z>0$: $\bar w/z \in - \mathbb H$, $\bar w/\bar z \in \mathbb H$
+% 	\end{itemize}
+	so the final result gives us:
+	\[
+		- \frac{\ell_s^2}{2} \left[ \log|1 - \sqrt{w/z}|^2 - \log|1 + \sqrt{w/z}|^2 - \log|1 - \sqrt{\bar w/z}|^2 +  \log|1 + \sqrt{\bar w/z}|^2 \right].
+	\]
+	we can add and subtract $\log z$ to get:
+	\[
+		- \frac{\ell_s^2}{2} \left[ \log|\sqrt{z} - \sqrt{w}|^2 - \log|\sqrt{z} + \sqrt{w}|^2 - \log|\sqrt{z} - \sqrt{\bar w}|^2 + \log|\sqrt{z} + \sqrt{\bar w}|^2 \right].
+	\]
+	\textbf{Interpret this in terms of image charges}
+	
+	\item Firstly, $\d X \bar \d X$ requires no normal ordering constant to be added ordinarily, since it has a wick contraction of zero. Now to go from the plane from the disk we have $x = \frac{z-i}{z+i}$. Vice versa is $z = i \frac{1+x}{1-x}$. This gives
+	\[
+	\begin{aligned}
+		\log|z-w|^2 &= \log|x-y|^2 + \log|\frac{2}{(1-x)(1-y)}|^2\\
+		\log|z-\bar w|^2 &= \log|1-x \bar y|^2 + \log|\frac{2}{(1-x)(1-\bar y)}|^2
+	\end{aligned}
+	\]
+	So for $NN$ and $DD$ boundary conditions we get:
+	\[
+	\begin{aligned}
+		\braket{X_{NN}(x, \bar x) X_{NN}(y, \bar y)} &= -\frac{\ell_s^2}{2} \left(\log|x - y|^2 + \log |1 - x \bar y|^2 - 2 \log|(1-x) (1-y)|^2 + 4 \log 2 \right)\\
+		\braket{X_{DD}(x, \bar x) X_{DD}(y, \bar y)} &= -\frac{\ell_s^2}{2} \left(\log|x - y|^2 - \log |1 - x \bar y|^2 \right).
+	\end{aligned}
+	\]
+	So NN boundary conditions correspond to putting an image charge of the same sign at $1/x^*$ while DD boundary conditions correspond to putting an image charge of opposite sign at $1/x^*$ as well as a \emph{neutralizing} charge of the opposite sign at $1$--corresponding to $\infty$ in the $\mathbb H$ setting. \textbf{Interpret this}. 
+	
+	Differentiating the above with $\d_x \bar \d_y$ shows that in either case only the $\log(1-x \bar y)$ term contributes:
+	\[
+	\begin{aligned}
+		\braket{\d X_{NN}(x) \bar \d X_{NN}(\bar y)} &= \frac{\ell_s^2}{2} \frac{1}{(1- x \bar y)^2}\\
+		\braket{\d X_{DD}(x) \bar \d X_{DD}(\bar y)} &= -\frac{\ell_s^2}{2} \frac{1}{(1- x \bar y)^2}.
+	\end{aligned}
+	\]
+	% We have not specified the boundary conditions (N or D) on the disk, but in either case, we can consider an image charge. For $\d X = \pm \bar \d X$ for NN and DD respectively, the circle is the fixed locus of $z = 1/\bar z$, and so we must have the condition $\bar \d X = \pm \d X(1/z^*)$. Since both sides of this equation are holomorphic, they must agree everywhere. We get:
+	This will become singular only as $z$ approaches the boundary of the unit circle. We encounter the divergence $\pm \frac{\ell_s^2}{2} \frac{1}{(1 - x \bar y)^2}$ in the $NN$ and $DD$ cases respectively and so we can define 
+	\[
+		^\star_\star \d X(z) \bar \d X(\bar w) ^\star_\star = \d X(z) \bar \d X(\bar w) \mp \frac{\ell_s^2}{2} \frac{1}{(1 - z \bar w)^2}
+	\]
+	On the other hand for $\d X \, \d X$ we get the normal ordering constant:
+	\[
+		^\star_\star \d X(z) \d X(w) ^\star_\star = \d X(z) \d X(w) + \frac{\ell_s^2}{2} \frac{1}{(z - w)^2}
+	\]
+	We have $\bar X(1/\bar w) = \pm X(w)$ so consequently $\d X(w) = \pm \bar \d_{1/\bar w} X(1/\bar w)$. Now its a quick check (being careful to keep subscripts on $\bar \d$ so we know what we're differentiating w.r.t.): 
+	\[
+		\begin{aligned}
+			^\star_\star \d X(z) \bar \d_{\bar w} X(1/\bar w) ^\star_\star &= \d X(z) \bar \d_{\bar w} X(1/\bar w) \mp \frac{\ell_s^2}{2} \frac{1}{(1 - z/\bar w)^2}\\
+			\Rightarrow \, ^\star_\star \d X(z) \bar \d_{1/\bar w} X(1/\bar w) ^\star_\star &=  \d X(z) \bar \d_{1/\bar w} X(1/\bar w) \mp (-\bar w^{-2}) \frac{\ell_s^2}{2} \frac{1}{(1-z/\bar w)^2}\\
+			\Rightarrow\,  ^\star_\star \d X(z) \d X(w) ^\star_\star &= \d X(z) \d X(w) + \frac{\ell_s^2}{2} \frac{1}{(z-w)^2}
+		\end{aligned}
+	\]
+	where the extra minus sign in the Dirichlet boundary condition case removes any sign ambiguity in the last line. Thus, we see that indeed $^\star_\star \d X(z) \d X(w) ^\star_\star = \pm \, ^\star_\star \d X(z) \bar \d X(1/\bar w) ^\star_\star $ for Neumann and Dirichlet boundary conditions respectively. 
+	\item We do this by Wick contraction:
+	\[
+		\braket{ \prod_{i=1}^m \psi(z_i) \, \prod_{j=1}^{2n-m} \bar \psi(\bar z_j)} = \dots
+	\]
+	\textbf{Unsure what I learn from the combinatorics.}
+	
+	\item I feel that this has already been done in 2.3.31. Rotating to euclidean signature, the most general solution for $X$ is 
+	\[
+		X(\tau, \sigma) = x^\mu + \frac{\ell_s^2}{2} (p + \bar p) \tau + \frac{\ell_s^2}{2} (p - \bar p) \sigma + i \frac{\ell_s}{\sqrt 2} \sum_{k \neq 0} \frac{e^{-k \tau}}{k} (\alpha_k e^{-i k \sigma} + \bar \alpha_k e^{i k \sigma})
+	\]
+	The first boundary condition $\dot X = 0$ at $\sigma = 0$ gives:
+	\[
+		\alpha_k = -\bar \alpha_{k}, \quad p + \bar p = 0
+	\]
+	while the second boundary condition $X' = 0$ at $\sigma = \pi$ gives:
+	\[
+		\sin(k \pi) = 0 \Rightarrow k \in \mathbb Z + 1/2 \quad p - \bar p = 0
+	\]
+	Thus we have neither momentum nor winding-number. So for the mode expansion is:
+	\[
+		X(\tau, \sigma) = x - \sqrt{2} \ell_s \sum_{k \in \mathbb Z + 1/2} \frac{\alpha_k}{k} e^{-k \tau} \sin(k \sigma) = x + i \frac{\ell_s}{\sqrt 2} \sum_{k \in \mathbb Z + 1/2} \frac{\alpha_k}{k} (z^{-k} - \bar z^{-k})
+	\]
+	as desired. This gives:
+	\[
+		\d X = -i \frac{\ell_s}{\sqrt 2} \sum_{k \in \mathbb Z + 1/2} \alpha_k z^{-k-1}, \quad \bar \d X = i \frac{\ell_s}{\sqrt 2} \sum_{k \in \mathbb Z + 1/2} \alpha_k \bar z^{-k-1}
+	\]
+	\item 
+	We have $N$ scalars with $\d X^i (z) = O^{ij} \bar \d X^j(\bar z)$ on the real axis. Because the conformal group includes the translation group, $O^{ij}$ must be translationally invariant, ie it cannot depend on $z$. Further because $X^i$ is a scalar $\d + \bar \d$ and $\d - \bar \d$ both act on it in an invariant way. These are the two boundary conditions we can set on each $X^i$. So we see that $O^{ij}$ can definitely be a diagonal matrix of $\pm 1$s. However, because all the scalars are identical we can also transform ${X'}^j(z, \bar z) = R^j_i X^i(z ,\bar z)$, with $R$ any orthogonal matrix (not just special orthogonal) and still get a valid boundary condition. So $O$ is any orbit of the matrix of $\pm 1$s under the conjugation action of the orthogonal group $O \to P^T O P$. This can be easily appreciated as boundary conditions for an open string along the various coordinate directions being either Neumann or Dirichlet. 
+	
+	\emph{Its surprising that O can't vary on the real axis - corresponding to the D-brane changing which $X^i$ live on it. Think about this more.}
+	 
+	\item Everything is in the NS sector. Let's first evaluate $\braket{\psi_{NN}(z) \psi_{NN} (w)}$. We have
+	\[
+		\sum_{n,m} \underbrace{\bra{0} b_{n+1/2} b_{m+1/2} \ket{0}}_{\delta_{n=-m-1}} z^{-n-1} w^{-m-1} = \sum_{n=0}^\infty z^{-n-1} = \frac{1}{z-w}
+	\]
+	For the NS sector we have the following cases:
+	\begin{itemize}
+		\item NN: $b_{n+1/2} + \bar b_{n+1/2} = 0$
+		\item DD: $b_{n+1/2} -\bar b_{n+1/2} = 0$
+		\item DN: $b_n + \bar b_n = 0$
+	\end{itemize}
+	so we see that $\braket{\psi(z) \bar \psi(\bar w)}$ will add an extra minus sign in the NN case. It will not do so in the in the DD case. Collecting our results. 
+	\[
+	\begin{aligned}
+		\braket{\psi_{NN}(z) \psi_{NN} (w)} &= \frac{1}{z-w}, \quad 
+		\braket{\psi_{NN}(z) \bar \psi_{NN} (\bar w)} = -\frac{1}{z-\bar w} \\
+		\braket{\psi_{DD}(z) \psi_{DD} (w)} &= \frac{1}{z-w}, \quad 
+		\braket{\psi_{DD}(z) \bar \psi_{DD} (\bar w)} = \frac{1}{z-\bar w}\\
+	\end{aligned}
+	\]
+	Lastly, for the DN case, $\psi$ now takes integer values and so:
+	\[
+		\braket{\psi_{DN}(z) \psi_{DN} (w)} = \sum_{n, m} \underbrace{\bra{0} b_n b_m \ket{0}}_{\delta_{n=-m}} z^{-n-1/2} w^{-m-1/2} = \sum_{n=0}^\infty z^{-n-1/2} w^{n-1/2} - \underbrace{\frac12}_{\text{zero mode}} z^{-1/2} w^{-1/2} = \frac{z+w}{2 \sqrt{z w} (z - w)}.
+	\]
+	Because $b_n = -\bar b_n$ we then also have
+	\[
+		\braket{\psi_{DN}(z) \bar \psi_{DN} (\bar w)} = - \frac{z+\bar w}{2 \sqrt{z \bar w} (z - \bar w)}.
+	\]
+	\item 
+	On to the R sector.
+	\begin{itemize}
+		\item NN: $b_{n} - \bar b_n = 0$
+		\item DD: $b_{n} + \bar b_n = 0$
+		\item DN: $b_{n+1/2} - \bar b_{n+1/2} = 0$
+	\end{itemize}
+	 Let's again evaluate $\braket{\psi_{NN}(z) \psi_{NN} (w)}$. The calculation is exactly the same as the DN calculation above. Using the above relations between the $b$ and $\bar b$ in the different sectors we'll get:
+	\[
+	\begin{aligned}
+		\braket{\psi_{NN}(z) \psi_{NN} (w)} &= \frac{z+w}{2 \sqrt{z w} (z - w)}, \quad 
+		\braket{\psi_{NN}(z) \bar \psi_{NN} (\bar w)} = \frac{z+\bar w}{2 \sqrt{z \bar w} (z - \bar w)} \\
+		\braket{\psi_{DD}(z) \psi_{DD} (w)} &= \frac{z+w}{2 \sqrt{z w} (z - w)}, \quad 
+		\braket{\psi_{DD}(z) \bar \psi_{DD} (\bar w)} = -\frac{z+\bar w}{2 \sqrt{z \bar w} (z - \bar w)} \\
+		\braket{\psi_{DN}(z) \psi_{DN} (w)} &= \frac{1}{z-w}, \;\, \qquad \qquad 
+		\braket{\psi_{DN}(z) \bar \psi_{DN} (\bar w)} = \frac{1}{z-\bar w}\\
+	\end{aligned}
+	\]
+	\item There are several ways to do this. One way is directly by using the identity relating an expectation of an exponential to the exponential of an expectation:
+	\[
+		\braket{e^{i a X(z)}}_{\mathbb{RP}^2} = \braket{e^{i a X(z) } e^{-i a \bar X(\bar z)}}_{\mathbb{CP}^1} \propto \exp\left(\frac{a^2}{2} \times 2 \braket{X(z) \bar X(\bar z)}\right) = \exp\left(-\frac{a^2 \ell_s^2}{2} \log(1 + z \bar z)\right) = \frac{1}{(1+|z|^2)^{a^2 \ell_s^2/2}}.
+	\]
+	It is not clear that we haven't omitted a proportionality constant. Another way to compute this is to note that $\braket{:X(z, \bar z) X(z, \bar z):} = - \frac{\ell_s^2}{2} \log|1 + z \bar z|^2$ and so expanding out:
+	\[
+		e^{i a X} = \sum_{n=0}^\infty \frac{(ia)^n}{n!} \braket{X(z, \bar z)^n}.
+	\]
+	
+	Now we do wick contractions. For each even term we need to put $2n$ elements in to $n$ pairs. There are $(2n-1)(2n-3) \dots (3) (1)$ ways to do this. Simplifying we get:
+	\[
+		\sum_{n=0}^\infty \frac{(-1)^n (a)^{2n}}{2^n n!} \left(-\frac{\ell_s^2}{2}\right)^{n} \log^n |1+z \bar z|^2 = \exp\left(\log|1+z \bar z|^{a^2 \ell_s^2/2} \right) = (1 + |z|^2)^{a^2 \ell_s^2/2}
+	\]
+	
+	This doesn't look right. If instead we had:
+	\[
+		e^{i a X(z)} e^{-i a \bar X(\bar z)} = \sum_{n,m=0}^\infty \frac{(i a)^n}{n!}  \frac{(-i a)^m}{m!} \braket{:X(z)^n \bar X(\bar z)^m:} = \sum_n \frac{a^{2n} \cancel{n!}}{\cancel{n!} n!} \left(-\frac{\ell_s^2}{2} \log(1 + z \bar z) \right)^n = \frac{1}{(1 + |z|^2)^{a^2 \ell_s^2/2}}
+	\]
+	as required. 
+	
+	In doing this problem, I needed to consider the $e^{i a X} e^{-i a \bar X}$ correlator rather than the $e^{i a (X + \bar X)}$ correlator - otherwise I would get an ill-defined one-point function that blows up as $z \to \infty$ (ie is not a globally-defined differential). Perhaps this comes from boundary conditions in the case of $\mathbb{RP}^2$, since $H_1 = \mathbb{Z_2}$ and so we can enforce anti-periodic boundary conditions that would be consistent with a negative charge vertex operator being placed a $-1/\bar z$. 
+	
+	\item For the non-supersymmetric theory, we have the action (on the sphere, with $\sqrt{-g} R^{2} = 1$):
+	\[
+		S = \frac{1}{4\pi \ell_s^2} \int d^2 z \sqrt{g} g^{\alpha \beta} \d_\alpha X \d_\beta X + \frac{Q}{4 \pi \ell_s \sqrt 2} \int d^2 z \sqrt{g} R^{(2)} X = \frac{1}{2\pi \ell_s^2} \int d^2 z \d X \bar \d X + \frac{Q}{4 \pi \ell_s \sqrt 2} \int d^2 z \, X
+	\]
+	this gives a stress-energy tensor:
+	\[
+		T = - \frac{1}{\ell_s^2} \d X^2 + \frac{Q}{\ell_s \sqrt 2} \d^2 X
+	\]
+	
+	Now for $\mathcal N = 1$ we might expect an action of the form:
+	\[
+		S = \frac{1}{4\pi \ell_s^2} \int d^2 z \sqrt{g} g^{\alpha \beta} \d_\alpha X \d_\beta X + \frac{Q}{4 \pi \ell_s \sqrt 2} \int d^2 z \sqrt{g} R^{(2)} X = \frac{1}{2\pi \ell_s^2} \int d^2 z \d X \bar \d X + \frac{Q}{4 \pi \ell_s \sqrt 2} \int d^2 z \, X
+	\]
+	\textbf{Come back to this problem.}
+
+	\item For $X$ a compact scalar valued in $S^1$ of radius $R$ we have the solutions $X = 2\pi R (n \sigma_1 + m \sigma_2)$, which have vanishing Laplacian. The action of these instanton solutions is:
+	\[
+		S = \frac{1}{4 \pi \ell_s^2} \int_0^1 d\sigma_1 \int_0^1 d \sigma_2 \frac{1}{\tau_2} |\tau \d_1 X - \d_2 X|^2 = \frac{\pi R^2}{\ell_s^2 \tau_2}|n \tau - m|^2
+	\]
+	Expanding $X = X^{cl} + \chi$, we get no cross-terms in the action. We now do the path integral over the $\chi$ with periodic conditions around both cycles. $\chi$ separates into the zero mode $\chi_0 + \delta \chi$ and $\delta \chi$ can be expanded in terms of eigenfunctions of the laplacian on periodic functions. These are precisely $e^{2\pi i (m_1 \sigma_1 + m_2 \sigma_2)}$ with eigenvalues $\frac{(2\pi)^2}{\tau_2} |m_1 \tau - m_2|^2$. They form an orthonormal basis. The contribution to the action is then
+	\[
+		\frac{1}{4\pi \ell_s^2} \sum_{m_1,m_2 \in \mathbb Z^2} \lambda_{m_1 m_2} |A_{m_1 m_2}|^2
+	\]
+	The measure on the space of functions comes from the norm of $\delta X$
+	\[
+		||\delta_X||^2 = \frac{1}{\ell_s} \int d^2 \sigma \sqrt{g} (d \chi) = \sum_{m_1, m_2} \frac{|A_{m_1 m_2}|^2}{\ell_s^2}
+		\Rightarrow \int \mathcal D \chi = \int_0^{2\pi R} \frac{d \chi_0}{\ell_s} \, \int_{-\infty}^\infty \prod_{m_1,m_2 \neq \{0,0\}} \frac{d A_{m_1, m_2}}{\ell_s}.
+	\]
+	Note the difference with Kiritsis. This is crucial to get the right factors of $2\pi$ in the end. This then gives:
+	\[
+		\int \mathcal D \chi e^{-S(\chi)} = \frac{2 \pi R}{\ell_s} \times \prod_{m_1, m_2 \in \mathbb Z^2_{\geq 0} \backslash \{0,0\}} \int_{-\infty}^\infty dA_{m,n} \frac{e^{-\frac{\lambda_{m_1 m_2} |A_{m_1 m_2}|^2}{4 \pi \ell_s^2}}}{(2\pi \ell_s)^2} 
+		= \frac{2\pi R}{\ell_s} \times {\prod_{m,n}}' \sqrt{\frac{2\pi}{\lambda_{m_1 m_2}}} 
+		= \frac{2\pi R}{\ell_s} \times ({\det}'\, \frac{\nabla^2}{2\pi})^{-1/2}
+	\]
+	Henceforth a primed sum or product means that we omit the origin $0$ or $\{0, 0\}$ and sum over the integers. It remains to evaluate 
+	\[
+		\prod \sqrt{\frac{2\pi}{\lambda_{n,m}}} = \exp\left(-\frac12 {\sum_{m, n}}' \log\left( \frac{2\pi}{\tau_2}\, |m + n \tau|^2 \right) \right)
+	\]
+	Notice that this sum can be obtained by explicitly calculating the Eisenstein series
+	\[
+		G(s) = \left( \frac{\tau_2}{2\pi} \right)^{s} {\sum_{m,n}}' \frac{1}{|m + n \tau|^{2s}}
+	\]
+	and evaluating $\frac12 G'(0)$. Let's do that. First note:
+	\[
+		{\sum_{m,n}}' \frac{1}{|m + n \tau|^{2s}} = 2 \zeta(2s) + {\sum_{n}}' \sum_m \frac{1}{|m+n\tau|^{2s}} 
+	\]
+	The derivative of $2 \zeta(2s)$ at $s=0$ yields $-2 \log(2\pi)$. On the other hand $2 \zeta(0)$ is $-1$, which multiplies the order $s$ factor  in the expansion of $\left(\frac{\tau_2}{2\pi}\right)^{s}$ (none of the subsequent terms will have an $O(s^0)$ term to multiply this). This gives $\log(2 \pi / \tau_2)$. Together these contribute
+	\[
+		-\frac12 \log(2 \pi \tau_2)
+	\]
+	to $\frac12 G'(0)$.
+	
+	Note also because this is a periodic function of $\tau$ of period one, we can represent it as a Fourier series in $\tau$
+	\[
+		\sum_{m} \frac{1}{|m+n\tau|^{2s}} 
+		= \sum_{p \in \mathbb Z} e^{2 \pi i p n \tau_1} \int_0^1 dt e^{- 2\pi i p t} \sum_{m \in \mathbb Z} \frac{1}{((m + t)^2 + n^2 \tau_2^2)^s} 
+		= \sum_{p \in \mathbb Z} e^{2 \pi i p n \tau_1} \underbrace{\int_{-\infty}^\infty dt \frac{1}{(t^2 + n^2 \tau_2^2)^s} }_{\text{combine $\int_0^1$ with $\sum_{\mathbb Z}$}}
+	\]
+	Using a clever Gamma function manipulation (following Di Francesco here):
+	\[
+		\frac{1}{\Gamma(s)} \sum_{p} \int_{-\infty}^\infty dt \int_0^\infty dx \, e^{2 \pi i p(n \tau_1 - t)}  x^{s-1} e^{-x (t^2 + n^2 \tau_2^2)} = \frac{\sqrt \pi}{\Gamma(s)} \sum_p \int_0^\infty dx\, x^{s-3/2}\, e^{-x n^2 \tau_2^2 - \pi^2 p^2/x + 2 \pi i p n \tau_1}.
+	\]
+	Now at $p = 0$ this reduces to
+	\[
+		\frac{\sqrt{\pi} \Gamma(s-1/2)}{\Gamma(s)} |n \tau_2|^{1-2s}
+	\]
+	Summing \emph{this} over $n$ gives $2 \frac{\sqrt{\pi} \Gamma(s-1/2)}{\Gamma(s)} \zeta(2s-1)$. We have explicit series formulae for these at $s = 0$. Extracting the first-order term (this is in fact finite at $s = 0$) gives $\frac{\pi \tau_2}{3}$. 
+	
+	Now let's evaluate the sum over $p \neq 0$. I'll directly take $s=3/2$ here. We get a sum over an integral that is now solvable:
+	\[
+		\frac{\sqrt{\pi} \Gamma(s-1/2)}{\Gamma(s)} \sum_{p > 0} e^{-2 \pi i p n \tau_1} \int_{0}^\infty x^{-3/2} e^{-x n^2 \tau_2 - \pi^2 p^2/x} = \sqrt{\pi} s \sum_{p > 0} \frac{\sqrt{\pi}}{\pi p} (e^{-2 \pi i p n (\tau_1 + i \tau_2)} + e^{-2 \pi i p n (\tau_1 - i \tau_2)})
+	\]
+	We see that the contribution to $G'(0)$ from this will be:
+	\[
+		\underbrace{2 \sum_{n > 0}}_{= {\sum_n}'} \sum_p \frac{1}{p} (q + \bar q) = - 2 \sum_{n>0} \log(|1-q^n|^2) = -2 \log( e^{\frac{\pi \tau_2}{6}} |\eta(\tau)|^2) = -2 \log(|\eta(\tau)|^2) - \frac{\pi \tau_2}{3}
+	\]
+	we see that the $p=0$ term cancels this last part and we are left with 
+	$\frac12 G'(0) = -\log(\sqrt \tau_2 2 \pi) - \log(|\eta|^2)$, and so:
+	\[
+		Z(R, \tau) = \frac{R}{\ell_s \sqrt{\tau_2} |\eta(\tau)|^2} \times \sum_{m, n} e^{-\frac{\pi R^2}{\tau_2 \ell_s^2} |m - n \tau|^2}.
+	\]
+	While we're at it, let's simplify this even further by applying Poisson summation. We have the 1D case for the Gaussian:
+	\[
+		\sum_{n} e^{-\pi a n^2 + \pi b n} = \frac{1}{\sqrt a} \sum_{\tilde n \in \mathbb Z} e^{-\frac{\pi}{a} (n + i \frac{b}{2})^2}.
+	\]
+	Performing this over the $m$ variable we get
+	\[
+	\begin{aligned}
+		\sum_{m, n} e^{- \frac{\pi R^2}{\ell_s^2 \tau_2} (m^2 - m \overbrace{(n \tau + n \bar \tau)}^{2 n \tau_1} +  n^2 |\tau|^2)}
+		& = \frac{\ell_s \sqrt{\tau_2}}{R} \sum_{\tilde m, n} e^{-\frac{\pi R^2}{\ell_s^2 \tau_2} n^2 |\tau|^2} e^{-\frac{\pi \ell_s^2 \tau_2}{R^2} \left(\tilde m + i \frac{R^2 n \tau_1}{\ell_s \tau_2}\right)^2}\\
+		&= \frac{\ell_s \sqrt{\tau_2}}{R} \sum_{\tilde m, n} e^{-\pi\frac{R^2}{\ell_s^2} n^2 \tau_2 - \frac{\pi \ell_s^2}{R^2} \tilde m^2 \tau_2 - 2 \pi i \tilde m n \tau_1}\\
+		&= \frac{\ell_s \sqrt{\tau_2}}{R} \sum_{\tilde m, n} e^{\pi (i \tau_1 - \tau_2) \frac12 \left(\frac{\ell_s}{R} \tilde m + \frac{R}{\ell_s} n\right)^2 } e^{\pi (-i \tau_1 - \tau_2) \left(\frac{\ell_s}{R} \tilde m - \frac{R}{\ell_s} n\right)^2 }\\
+		&= \frac{\ell_s \sqrt{\tau_2}}{R} \sum_{\tilde m, n} q^{\frac{P_L^2}{2}} \bar q^{\frac{P_R^2}{2}}
+	\end{aligned}
+	\]
+	with $P_L = \frac{1}{\sqrt 2} (m \ell_s/R + n R/\ell_s), P_R = \frac{1}{\sqrt 2} (m \ell_s/R - n R/\ell_s)$. We then get a simple form for the partition function:
+	\[
+		Z(R, \tau) = \sum_{\tilde m, n} \frac{q^{\frac{P_L^2}{2}} \bar q^{\frac{P_R^2}{2}}}{|\eta(\tau)|^2}.
+	\]
+	
+	\item We follow Polchinski Vol 2 on advanced CFT. The following operator product arises when we calculate correlation functions of the energy-momentum tensor:
+	\[
+		- T \O = - T_zz(z, \bar z)\, g \int d^2 w \phi_{\Delta, \Delta}(w, \bar w)
+	\]
+	We get:
+	\[
+		\bar \d_{\bar z} T(z, \bar z) \phi(w, \bar w) = \bar \d_{\bar z} \left[ \frac{\Delta}{(z-w)^2} + \frac{\d_w}{z- w} \right] \phi(w, \bar w) = (-2 \pi \Delta \d_z \delta(z - w) + 2 \pi \delta(z - w) \d_w) \phi(w, \bar w)
+	\]
+	Where the last line was obtained using basic delta-function identities. Integrating over $w$ gives:
+	\[
+		- \bar \d_{\bar z} T \O = 2 \pi g (\Delta - 1) \d \phi
+	\]
+	Thus, unless $\Delta = 1$ we get that $T$ gains an anti-holomorphic part. The exact same equation (with $z \to \bar z$) holds for $\bar T$. Further, the conservation equation $\bar d T_{zz} + \d T_{z \bar z} = 0$ gives us that
+	\[
+		T_{z \bar z} = 2 \pi g (1 - \Delta) \phi.
+	\]
+	There cannot be an overall constant, since this is zero when $\phi = 0$. Here we will \emph{define} $\beta(g)$ by:
+	\[
+		T^i_i(z, \bar z) = - 2\pi {\sum_{i}}' \beta(g) \O_i(z, \bar z)
+	\]
+	where the sum runs over operators of dimension $\leq d$. The trace is $T^a_a = 2 T_{z \bar z} = - 4 \pi g (1 - \Delta) \phi$ so under this deformation $\beta = (2 - 2\Delta) g$. We now want to go to second order. The next contribution will come from:
+	\[
+		- T\, \frac12 (\O \O)^2 = - T_{zz} (z, \bar ) \frac{g^2}{2!} \int d^2w d^2w' \phi(w, \bar w) \phi(w', \bar w')
+	\]
+	Doing an OPE we get to leading order:
+	\[
+		\phi_{\Delta, \Delta}(w, \bar w) \phi_{\Delta, \Delta}(w', \bar w') \sim \frac{C}{|z-w|^{2 \Delta}} \phi_{\Delta, \Delta}(w', \bar w')
+	\]
+	where here $C$ is the coefficient of the $\phi_{\Delta, \Delta}$ 3-point function. We can now preform the $w, w'$ integrals and get:
+	\[
+		2 \pi C g^2 \int \frac{dr}{r^{2\Delta-1}} \times \int dw' \phi(w', \bar w')
+	\]
+	Assuming $\Delta = 1$ we get a log term that must be regulated in the UV and IR. Regulation in the UV gives a scale that breaks conformal invariance. Rescaling by $1+\epsilon$ increases the log by $\epsilon$. Equivalently we get
+	\[
+		\delta g = -2 \pi C \epsilon g^2
+	\]
+	This gives a second-order contribution to the beta function of $C g^2$ as required. If the operator is not exactly marginal, the second order term will still have this form, plus higher-order corrections in $\Delta -1$ and $g$. 
+
+	\item Generalizing the preceding analysis to a deformation by a family of marginal operators $g_a \phi^a_{1,1}$, for the deformation to be marginal at second order in $g$ we need the three-point function to satisfy $\lambda_{ab}^c g_a g_b = 0$ so that the second order term does not contribute the $1/r$ integral and thus does not break conformal invariance. In this case that means that we require
+	\[
+		\lambda_{a b}^c \, g_{a \bar a} \, g_{b \bar b} = 0.
+	\] 
+	
+	\item Again, we work from the same chapter of Polchinski. For a general 2D QFT with a stress tensor, we can define the quantities
+	\[
+		\begin{aligned}
+			F(r^2) &= z^4 \braket{T_{z z}(z, \bar z) T_{z z} (0, 0)}\\
+			G(r^2) &= 4 z^3 \bar z \braket{T_{z z}(z, \bar z) T_{z \bar z} (0, 0)}\\
+			H(r^2) &= 16 z^2 \bar z^2 \braket{T_{z \bar z}(z, \bar z) T_{z \bar z} (0, 0)}
+		\end{aligned}
+	\]
+	From rotational invariance, these can only depend on $r^2 = |z|^2$. The conservation law $\bar \d T_{zz} + \d T_{z \bar z}= 0$ gives us that:
+	\[
+		4 \dot F + \dot G - 3 G = 0, \quad 4 \dot G - 4 G + \dot H - 2 H = 0
+	\]
+	where $\dot F, \dot G$ indicates the operator $\frac12 r \d_r$ (ie differentiation wrt $\log r^2$). Note subtracting $3/4$ of the second one from the first gives:
+	\[
+		4 \dot F - 2 \dot G - \frac34 \dot H = -\frac{3}{2} H
+	\]
+	Define $C = 2 F - G - \frac38 H$. Note that in a CFT, where $G = H = 0$,  $C$ is exactly the central charge $c$. Further, from this definition we get that in the general setting $\dot C = -\frac34 H$. But note that an \emph{exactly} marginal perturbation does not give the stress-energy tensor a trace, so $\dot C = 0$ and the central charge will remain fixed.
+	
+	\textbf{This technology wasn't developed in Kiritsis. I'm unsure how he would have wanted us to show this.}
+	
+	\item Note under $\tau \to \tau+1$ the $\eta$ function is invariant and we our constraint comes from:
+	\[
+		\frac12 (P_L^2 - P_R^2) \in \ZZ \Rightarrow G^{ij} m_j G_{ik} G^{kl} n_l = m_k n^k \in \ZZ
+	\]
+	as required. So in particular we have $P_L^2 - P_R^2 \in 2 \ZZ$. We can interpret $(P_L, P_R)$ as being a vector lying in an \emph{even, Lorentzian} lattice, with signature $(N, N)$. Note in the 1D case then get that 
+	\[
+		P^1 \cdot P^2 := P^1_L P^2_L - P^1_R P^2_R = \frac12 \left[(\frac{R}{\ell_s} n + \frac{\ell_s}{R} m) (\frac{R}{\ell_s} n' + \frac{\ell_s}{R} m')
+		 - (\frac{R}{\ell_s} n - \frac{\ell_s}{R} m) (\frac{R}{\ell_s} n' - \frac{\ell_s}{R} m') \right] = (m n' + n m') \in \ZZ
+	\]
+	Going to higher dimensions and turning on $G$ and $B$ gives us the same result (take $\ell_s = 1$ for simplicity here). All terms will cancel except the ones given by the relative minus sign of $G$ on the second term
+	\[
+		\frac12 \left[m_i n'^i + n^i m'_i + \cancel{(n^i n'^j + n'^i n^j )B_{ij}} \right] \in \ZZ
+	\]
+	The last term cancels by antisymmetry. Here $n^i, m_i \in \ZZ$ (note the index convention, different from Kiritsis). 
+	
+	Under $\tau \to -1/\tau$ the $\eta$ function is a modular form of weight $1/2$, so $\eta(\tau)^N$ is a modular form of weight $N/2$ and $|\eta(\tau)|^{2N} = |\tau|^{-N} |\eta(-1/\tau)|^{2N}$. Let us now look at the remaining part
+	\[
+		\Theta(\tau) := \sum_{P = (P_L, P_R) \in \Gamma} q^{\frac12 P_L^2}\, \bar q^{\frac12 P_R^2}
+	\]
+	is also a modular form of this weight. Let's show this. We can use the Poisson resummation formula to write:
+	\[
+		\sum_{p' \in \Gamma} \delta(p - p') = \frac{1}{V_\Gamma} \sum_{p'' \in \Gamma^*} e^{2\pi i p p''}  \Rightarrow \sum_{p \in \Gamma} f(p) = \frac{1}{V_\Gamma} \sum_{q \in \Gamma^*} \hat f(q)
+	\]
+	here $V^{-1}_{\Gamma}$ is the covolume of $\Gamma$. Taking $f = e^{i \pi \tau P_L^2 - i \pi \bar \tau P_R^2}$ and doing a $2N$-dimensional Fourier transform, we see that $\hat f(q) = \frac{1}{|\tau|^N} e^{-i \pi Q_L^2/\tau + i \pi Q_R^2/\bar \tau} $.
+	We can use this to write:
+	\[
+		\Theta(\tau) = \sum_{P \in \Gamma} \exp\left[ \pi i (\tau P_L^2 - \bar \tau P_R^2) \right] = \frac{1}{|\tau|^N V_\Gamma} \sum_{Q \in \Gamma^*} \exp\left[ \pi i (-\frac{1}{\tau} Q_L^2 + \frac{1}{\bar \tau} Q_R^2) \right]
+	\]
+	Now as long as $\Gamma = \Gamma^*$, that is, $\Gamma$ is an \emph{even, Lorentzian, self-dual} lattice. Then $V_{\Gamma} = 1$ and the sum over $Q \in \Gamma^*$ is the same as the sum over $P \in \Gamma$. So we get
+	\[
+		\Theta(\tau) = |\tau|^{-N} \Theta(-1/\tau)
+	\]
+	which is the exact same transformation law as the $|\eta|^{2N}$ in the denominator, and so we get that $Z(R)$ is indeed modular invariant. 
+			
+	\item We have in fact done this in the first part exercise 46. 
+	
+	\item Certainly this is an order 2 involution, just like $R \to 1/R$. Now we know $V_{m,n} \to V_{m, -n}$ under this involution, so
+	\[
+	\begin{aligned}
+		[{H^0}'] \cdot [{H^0}'] &\sim \sum_{n,m} C^{2n, 2m} [V_{2n, 2m}] + C^{2n+1, 2m} [V_{2n+1, 2m}] = \frac12 ([H^0] \cdot [H^0] + [H^\pi] \cdot [H^|\pi|]) + [H^0] \cdot [H^\pi] \\
+		[{H^\pi}'] \cdot [{H^\pi}'] &\sim \sum_{n,m} C^{2n, 2m} [V_{2n, 2m}] - C^{2n+1, 2m} [V_{2n+1, 2m}] = \frac12 ([H^0] \cdot [H^0] + [H^\pi] \cdot [H^|\pi|]) + [H^0] \cdot [H^\pi] \\
+		[{H^0}'] \cdot [{H^0\pi}'] &\sim \sum_{n,m} C^{2n, 2m+1} [V_{2n, 2m+1}] \hspace{1.2in}= \frac12 ([H^0] \cdot [H^0] - [H^\pi] \cdot [H^\pi])
+	\end{aligned}
+	\]
+	the only consistent transformation with these OPEs is exactly:
+	\[
+		\begin{pmatrix}
+			{H^0}'\\
+			{H^\pi}'
+		\end{pmatrix}
+		= \frac{1}{\sqrt 2} \begin{pmatrix}
+			1 & 1\\
+			1 & -1
+		\end{pmatrix}
+		\begin{pmatrix}
+			H^0\\
+			H^\pi
+		\end{pmatrix}
+	\]
+	
+	\item Note first that at $R/\ell = 1/\sqrt{2}$ we get \[
+		P_L = m + \frac{n}{2}, P_R = m - \frac{n}{2}
+	\]
+	So we are summing over these lattice values in the numerator $\Theta$ of $Z(R)$. On the other hand, we have:
+	\[
+		\frac12(|\theta_2|^2 + |\theta_3|^2 + |\theta_4|^2) = \sum_{n, m} \left( \frac12 (1 + (-1)^{n+m}) q^{\frac12 n^2} \bar q^{\frac12 m^2} + \frac12 q^{\frac12 (n-1/2)^2} \bar q^{\frac12 (m-1/2)^2}  \right)
+	\]
+	This is a sum over all lattice points whose sum is an even integer \emph{union with} the set of all half-lattice points, but only \emph{half} of the half-lattice points are counted in the sum. This agree exactly with the standard weighting for the lattice generated by $(1, 1)$ and $\frac12 (1, -1)$ which is exactly the original theta function numerator. 
+	
+	Squaring the Ising model theta function then gives:
+	\[
+		\frac{|\theta_2 \theta_3| + |\theta_3 \theta_4| + |\theta_2 \theta_4|}{4|\eta|^2} + \underbrace{\frac14 \frac12(|\theta_2|^2 + |\theta_3|^2 + |\theta_4|^2)}_{\frac12 Z(R)} = \frac12 Z(R) + \frac12 \left(\frac{|\eta|}{|\theta_2|} + \frac{|\eta|}{|\theta_3|} + \frac{|\eta|}{|\theta_4|} \right)
+	\]
+	exactly as we wanted. 
+	
+	\item Define the orbifold partition function as
+		\[
+			^+\underset{+}{\BoxPlz}' = \frac12 \left( \,^+\underset{+}{\BoxPlz} + ^-\underset{+}{\BoxPlz} + ^+\underset{-}{\BoxPlz} + ^-\underset{-}{\BoxPlz} \right)
+		\]
+		Note that the orbifolded theory itself has a $\ZZ_2$ symmetry obtained by taking all the states in the $\ZZ_2$ twisted sectors to minus themselves:
+		\[
+			^\pm\underset{+}{\BoxPlz} \to ^\pm\underset{+}{\BoxPlz}, \qquad ^\pm\underset{-}{\BoxPlz} \to - ^\pm\underset{-}{\BoxPlz}
+		\]
+		I can now \emph{orbifold again} by this symmetry, defining (as before):
+		\[
+		\begin{aligned}
+			&^\pm\underset{+}{\BoxPlz}' = \frac12 \left( \,^+\underset{+}{\BoxPlz} + ^-\underset{+}{\BoxPlz} \pm ^+\underset{-}{\BoxPlz} \pm ^-\underset{-}{\BoxPlz} \right)\\
+			& ^\pm\underset{-}{\BoxPlz}' = \frac12 \left( \,^+\underset{+}{\BoxPlz} - ^-\underset{+}{\BoxPlz} \pm ^+\underset{-}{\BoxPlz} \mp ^-\underset{-}{\BoxPlz} \right)
+		\end{aligned}
+		\]
+		Then forming the new partition function of this double orbifold theory I see that almost everything cancels:
+		\[
+			\frac12 \left( \,^+\underset{+}{\BoxPlz}' + ^-\underset{+}{\BoxPlz}' + ^+\underset{-}{\BoxPlz}' + ^-\underset{-}{\BoxPlz}' \right) = ^+\underset{+}{\BoxPlz}
+		\]
+
+	\item Take $\ell_s = 1$ here. The partition function will still have 1 twisted sector and a single projection. So we need to consider $4$ terms. We have $Z\twist00 = Z(R_1, R_2) = Z(R_1) Z(R_2)$. Our vertex operators are labelled by $(m_1, n_1, m_2, n_2)$, and $g$ acts as $(m_1, n_1, m_2, n_2) \to (-1)^{m_2} (-m_1, -n_1, m_2, n_2)$. And so:
+	\[
+		\frac12 Z\twist01 = \mathrm{Tr}_1[g\, q^{L_0 - c/24} \bar q^{\bar L_0 - \bar c/24}] = \overbrace{\left|\frac{\eta}{\theta_2}\right|}^{X^1 \to -X^1}
+		 \underbrace{\frac{1}{\eta \bar \eta}\sum_{m, n} (-1)^m \exp\left[\tfrac{i \pi \tau}{2} \left( \tfrac{m}{R_2} + n R_2 \right)^2 - \tfrac{i \pi \bar \tau}{2} \left( \tfrac{m}{R_2} - n R_2 \right)^2  \right] }_{X^2 \to X^2 + \pi R_2}
+	\]
+	\[
+		\frac12 Z\twist10 = \mathrm{Tr}_g[g\, q^{L_0 - c/24} \bar q^{\bar L_0 - \bar c/24}] = \left|\frac{\eta}{\theta_4}\right| \quad \frac{1}{\eta \bar \eta}\sum_{m, n} \exp\left[\tfrac{i \pi \tau}{2} \left( \tfrac{m}{R_2} + (n + \tfrac12) R_2 \right)^2 - \tfrac{i \pi \bar \tau}{2} \left( \tfrac{m}{R_2} - (n + \tfrac12) R_2 \right)^2  \right]
+	\]
+	\[
+		\frac12 Z\twist11 = \mathrm{Tr}_g[g\, q^{L_0 - c/24} \bar q^{\bar L_0 - \bar c/24}] = \left|\frac{\eta}{\theta_3}\right| \frac{1}{\eta \bar \eta}\sum_{m, n} (-1)^m \exp\left[\tfrac{i \pi \tau}{2} \left( \tfrac{m}{R_2} + (n + \tfrac12) R_2 \right)^2 - \tfrac{i \pi \bar \tau}{2} \left( \tfrac{m}{R_2} - (n + \tfrac12) R_2 \right)^2  \right]
+	\]
+	it is clear that the sum of all these is modular invariant. I am unsure if I should try to simplify this further. Certainly (unlike the freely-acting orbifold case) this doesn't look trivial. This is the CFT of fields \emph{valued in the Klein bottle}.
+	
+	
+	\item Take $\ell_s = 1$ here. The symmetry interchanges $\ket{m_1, n_1, m_2, n_2} \to \ket{m_2, n_2, m_1, n_1}$ We have $Z\twist00 = Z(R)^2$. In the $g$-trace, we will need $m_1 = m_2, n_1 = n_2$. Then, excitations around this state must have equal mode number in $m_1, m_2$ and $n_1, n_2$ to contribute to the $g$-trace so for each factor of $q^{\frac12 P_L^2} \, \bar q^{\frac12 P_R^2}$ we have
+	\[
+	\begin{aligned}
+		Z\twist01 &= q^{-2/24} \bar q^{2/24} \sum_{m, n} \exp\left[i \pi \tau \left( \tfrac{m}{R} + n R \right)^2 - i \pi \bar \tau \left( \tfrac{m}{R} - n R \right)^2  \right] \prod \frac{1}{1-q^{2n}} \prod \frac1{1-\bar q^{2m}}\\
+		& = \frac{1}{|\eta(2 \tau)|^2}  \sum_{m, n} \exp\left[i \pi \tau \left( \tfrac{m}{R} + n R \right)^2 - i \pi \bar \tau \left( \tfrac{m}{R} - n R \right)^2  \right] = \frac{2}{|\eta(\tau)| |\theta\twist10(\tau)|} \sum \dots
+	\end{aligned}
+	\]
+	On the other hand, the twisted sector we have boundary conditions $X^1(\sigma+2\pi) = X^2(\sigma), X^2(\sigma+2\pi) = X^1(\sigma)$. Applying $\tau \to -1/\tau$ on the preceding we get:
+	\[
+		Z\twist10 = \frac{1}{|\eta(\tau)| |\theta\twist01(\tau)|} \sum_{m, n}  \exp\left[\frac{i \pi \tau}{4} \left( \tfrac{m}{R} + n R \right)^2 - \frac{i \pi \bar \tau}{4} \left( \tfrac{m}{R} - n R \right)^2  \right] 
+	\]
+	Taking $\tau \to \tau+1$ gives
+	\[
+		Z\twist11 = \frac{1}{|\eta(\tau)| |\theta\twist00(\tau)|}\sum_{m, n} (-1)^{mn} \exp\left[\frac{i \pi \tau}{4} \left( \tfrac{m}{R} + n R \right)^2 - \frac{i \pi \bar \tau}{4} \left( \tfrac{m}{R} - n R \right)^2  \right].
+	\]
+	Let us check if this is modular invariant. Clearly $Z\twist00$ maps to itself under both $S$ and $T$. Under $T$, $Z\twist01$ maps to itself, and $Z\twist10$ and $Z\twist11$ get exchanged by the properties of theta functions. Further, under $\tau \to -1/\tau$ $Z\twist10$ and $Z\twist01$ map to one another. However, $Z\twist11$ does not seem to map to itself. Doing Poisson resummation seems to spoil the determinant from being $\tau$. \textbf{I expect it should be preserved though. Find my mistake.}
+	
+	\item If we orbifold the single free scalar by acting as $\ket{m, n} \to (-1)^{m+n} \ket{m, n}$ we have $Z\twist00 = Z(R)$ as before, but now:
+	\[
+		Z\twist01 = \sum_{m,n} (-1)^{m+n} \exp\left[\tfrac{i \pi \tau}{2} \left( \tfrac{m}{R} + n R \right)^2 - \tfrac{i \pi \bar \tau}{2} \left( \tfrac{m}{R} - n R \right)^2  \right]
+	\]
+	Taking $\tau \to -1/\tau$ gives that both $m$ and $n$ shift by $1/2$
+	\[
+		Z\twist10 = \sum_{m,n} \exp\left[\tfrac{i \pi \tau}{2} \left( \tfrac{m-\tfrac12}{R} + (n-\tfrac12) R \right)^2 - \tfrac{i \pi \bar \tau}{2} \left( \tfrac{m-\tfrac12}{R} - (n-\tfrac12) R \right)^2  \right]
+	\]
+	Then doing $\tau \to \tau+1$ gives:
+	\[
+		Z\twist11 = \sum_{m,n} (-1)^{m+n+\frac12} \exp\left[\tfrac{i \pi \tau}{2} \left( \tfrac{m-\frac12}{R} + (n-\tfrac12) R \right)^2 - \tfrac{i \pi \bar \tau}{2} \left( \tfrac{m-\frac12}{R} - (n-\tfrac12) R \right)^2 \right]
+	\]
+	this already looks a little weird. Out front we don't necessarily have a $\pm 1$. Further, doing $\tau \to \tau+1$ again does not get us back to $Z\twist10$, we need $\tau \to \tau+4$.
+	\item In the untwisted sector we have our vacuum state $\ket0$, with $\Delta = \bar \Delta = 0$ as required. Now consider the $k$th twisted sector. We have creation and annihilation operators $\alpha_{n+k/N}$ satisfying the same commutation relations $[\alpha_r, \alpha_s] = r \delta_{r+s}$. However as $X$ is a \emph{complex} boson, the $\alpha_r$ are complex numbers and so we have \emph{two} sets of them (which we can call $\alpha_r, \bar \alpha_r$ following previous convention). From commuting them across, we get:
+	\[
+		\braket{X(z) \d X(w)} = 2 \times \frac1w \sum_{r=\mathrm{min}(1,k/N)}^\infty \left( \frac{w}{z} \right)^r = 2 \times \frac{\frac{w}{z} \left(\frac{z}{w} \right)^{k/L}}{z-w}
+	\]
+	Then, differentiating with respect to $z$ gives:
+	\[
+		\braket{\d X(z) \d X(w)} = - \frac{2}{(w-z)^2} \left(\frac{w}{z}\right)^{k/N} (1 - \tfrac{k}{L} (1 - \tfrac{z}{w}) )
+	\]
+	Taking the finite part of this $-\frac12$ of expression as $w \to z$ gives us:
+	\[
+		\braket{T} = \frac{k (L-k)}{2 L^2}
+	\]
+	as required. 
+	
+	
+	\item We have the scalar propagator written in terms of the eigen-modes as:
+	\[
+		\braket{X(z) X(0)} = -\frac{\ell_s^2}{2} {\sum_{m,n}}' \frac{1}{|m + n \tau|^2} e^{2\pi i (m \sigma_1 + n \sigma_2)}
+	\]
+	Rather than trying to massage this into our appropriate logarithm of theta functions, let's appreciate what properties we want our correlator to have. For $z \to 0$, the small-distance behavior of the correlator should reproduce the $\CP^1$ result, so we namely need it to go as:
+	\[
+		 - \frac{\ell_s^2}{2} \log|z|^2 + O(z)
+	\]
+	Further, the \emph{only} singularity on the torus is at $z \to 0$, nowhere else. Thus we should be able to write our correlator as 
+	\[
+		- \frac{\ell_s^2}{2} \log G(z, \bar z)
+	\]
+	where $G$ must be a doubly-periodic harmonic function with a \emph{single} zero at $z=0$ on the torus and no poles. There are no such holomorphic functions since all non-constant elliptic functions need to have an equal number of zeros and poles (and also more than one zero, since the coefficients of all zeros must sum to 0). In other words, instead of looking at an elliptic function we should be looking at a section of a line bundle over the torus with a single zero. 
+	
+	We see that the theta functions give us exactly this- and moreover rational functions of the theta functions generate all such sections. The constraint of a \emph{single} zero at $z=0$ together with \emph{modular invariance} singles out $\theta\twist11$ uniquely. To give it the appropriate coefficient of the zero, we must have:
+	\[
+		G(z) = \left|\frac{\theta\twist11(z, \tau)}{\d_z \theta\twist11(0, \tau)} \right|^2 \times (1 + O(z))
+	\]
+	The problem is that this is a \emph{quasi-periodic} foundtion in $z$. Under $z \to z + \tau$ we get that $\log G \to \log G + 2 \pi \tau_2 + 4 \pi \mathrm{Im}(z)$. This can be remedied by adding $e^{- 2 \pi \frac{z_2^2}{\tau_2}}$ to $G$. 
+	
+	Also,  under $\tau \to 1/\tau$, $z \to z/\tau$ from the ratio we pick up a factor of $|\exp(i \pi z^2/\tau)|^2 = e^{- 2 \pi \mathrm{Im} (z^2/\tau)}$. But this is exactly the same factor as is picked up by $e^{-2 \pi \frac{\mathrm{Im} z^2}{\tau_2}}$, so adding this term fixes modular invariance as well.
+	 Our final result is then:
+	\[
+		G(z) = \left|\frac{\theta\twist11(z, \tau)}{\d_z \theta\twist11(0, \tau)} \right|^2 e^{-2 \pi \frac{(\mathrm{Im} z)^2}{\tau_2}}.
+	\]
+	So we now have an explicit formula for $\Delta(z - w, \tau)$ on the torus. The Klein bottle is given by identifying $z \cong - \bar z + \tau/2$. Then we expect the propagator to be
+	\[
+		\Delta_{K_2}(z- w) = \Delta(z - w, 2 i t) + \Delta(z + \bar w + i t, 2 i t)
+	\] 
+	Next, for the cylinder we have the involution $z \cong -1/\bar z$ so we have the propagator:
+	\[
+		\Delta_{C_2}(z- w) = \Delta(z - w, i t) + \Delta(z + \bar w, i t)
+	\]
+	Finally, for the M\"obius strip, we have two involutions and get
+	\[
+		\Delta_{M_2}(z- w) = \Delta(z - w, 2 i t) + \Delta(z + \bar w, 2 i t) + \Delta(z - w - 2 \pi (i t + \tfrac12) , 2 i t) + \Delta(z + \bar w + 2 \pi (-i t + \tfrac12) , 2 i t)
+	\]
+	
+	\item We already know how to calculate $\mathrm{Tr}_{NS/R} ( (\pm1)^F q^{L_0^{cyl}})$ for the free fermion. $\Omega$ acts by sending a left-moving state to a right-moving one and vice-versa. Only states that are left-right symmetric survive. First lets do the NS sector. There is a single vacuum and we get:
+	\[
+	\begin{aligned}
+		\mathrm{Tr_{NS}} [ \Omega e^{-2\pi t(L_0 + \bar L_0 - c/12)}] &= e^{ 2 \pi t/24} \prod_{n=1}^\infty (1 + e^{- 2 \pi t \times 2 (n - 1/2)}) =  \sqrt{\frac{\theta_3 (2 i t)}{\eta(2 i t)}}\\
+		\mathrm{Tr_{NS}} [ \Omega (-1)^F e^{-2\pi t(L_0 + \bar L_0 - c/12)}] &= e^{ 2 \pi t/24} \prod_{n=1}^\infty (1 + e^{- 2 \pi t \times 2 (n - 1/2)}) = \sqrt{\frac{\theta_3 (2 i t)}{\eta(2 i t)}}
+	\end{aligned}
+	\]
+	Note that these two are the same, since only sectors with an equal number of left movers and right-movers contribute, and this necessarily forces $F$ to be even. Then, for the Ramond sector we have
+	\[
+	\begin{aligned}
+		\mathrm{Tr_{R}} [ \Omega e^{-2\pi t(L_0 + \bar L_0 - c/12)}] &= \sqrt 2 e^{-2 \pi t (1/16-1/48)} \prod_{n=1}^\infty (1 + e^{- 2 \pi t \times 2 n}) = \sqrt{\frac{\theta_2(2 i t)}{\eta(2 i t)}}\\
+		\mathrm{Tr_{R}} [ \Omega (-1)^F q^{L_0 - c/24} \bar q^{\bar L_0 - \bar c/24}] &= 0
+	\end{aligned}
+	\]
+	where the last one is zero as before, since for any state, there is a corresponding one with opposite $(-1)^F$ eigenvalue, related by zero-modes. 
+
+\end{enumerate}
+
+% section chapter_4_conformal_field_theory (end)
+
+\end{document}
+	

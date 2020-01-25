@@ -1,0 +1,383 @@
+\documentclass[11pt, class=article, crop=false]{standalone}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd}
+\usepackage{mathabx}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{simpler-wick}
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage{listings}
+\usepackage{relsize}
+\usepackage{xcolor}
+\usepackage{stmaryrd}
+\usepackage{kiritsis}
+\geometry{margin = 0.5in}
+
+
+\begin{document}
+
+\section*{Chapter 5: Scattering Amplitudes and Vertex Operators} % (fold)
+\label{sec:chapter_5_scattering_amplitudes_and_vertex_operators}
+\begin{enumerate}
+	\item
+	Note that we need 3 more $c$ ghosts than be ghosts since the difference of the zero modes must be three. Now, $c$ has scaling dimension $1$ and $b$ has scaling dimension $-2$ so the total scaling of the correlator $\braket{\prod_{i=1}^{n+3} c(z_i) \prod_{j=1}^n b(w_j)}$ will be $3-n$. Thus, viewed in the complex plane, we expect it to be a homogenous rational function of degree exactly $3-n$.
+	
+	 We will have $n$ contractions of the $b$s and $c$s with $3$ $c$s left over. This gives:
+	\[
+		\braket{\prod_{i=1}^{n+3} c(z_i) \prod_{j=1}^n b(w_j)} = \frac{(z_{n+1} - z_{n+2}) (z_{n+1} - z_{n+3}) (z_{n+2} - z_{n+3})}{(z_1 - w_1) \dots (z_n - w_n)} \times c.c. + \text{perms.}
+	\]
+	where each permutations will pick up a sign for every odd combined permutation of the $z_i, w_j$.
+	Another way to do it is as follows: 
+	
+ As stated before, the correlator when viewed in the complex plane will be a homogenous rational function of degree exactly $3-n$. That way, it will be finite at infinity. We also know that this function is antisymmetric upon swapping any of the $z_i$, any of the $w_i$, or any of the $z_i$ with the $w_i$. Further, if any of the $z_i = z_j$ or $w_i = w_j$, this function will vanish. On the other hand, if $z_i = w_j$, we expect a contribution of a pole $\frac1{z_i-w_j}$. There is only one such homogenous rational function:
+ 	\[
+ 		\frac{\prod_{i < j}^{n+3} (z_i - z_j) \prod_{i<j}^{n} (w_i - w_j)}{\prod_{i=1}^{n+3} \prod_{j=1}^n (z_i - w_j)}.
+ 	\]
+ 	This is indeed of degree $3-n$, as desired.
+	
+	\item It is clear from plugging things in that when $z_1 \to 0, z_2 \to 1, z_3 \to \infty$, the 4-point tachyon amplitude becomes:
+	\[
+		\lim_{z_3 \to \infty} \frac{8 \pi i}{\ell_s^2} g_c^2\,  \sdelta^{26}(\Sigma p) |z_3|^2 |z_3-1|^2 \int d^2 z_4 |z_4|^{\ell_s^2 p_1 \cdot p_4} |1-z_4|^{\ell_s^2 p_2 \cdot p_4} |z_4 - z_3|^{\ell_s^2 p_3 \cdot p_4} 1^{\ell_s^2 p_1 \cdot p_2}|z_3|^{\ell_s^2 p_1 \cdot p_3} |z_3 - 1|^{\ell_s^2 p_2 \cdot p_3} 
+	\]
+	here $\sdelta = 2 \pi \delta$. 
+	Note all the terms that go to infinity cancel, since $\ell_s^2 p_3 \cdot (p_1 + p_2 + p_3) = -\ell_s^2 p_3^2 = -4$ which cancels with the two powers of two outside the integral. Next, $\ell_s^2 p_1 \cdot p_4 = \frac12 (p_1 + p_4)^2 - \frac12(\ell_s^2 p_1^2 - \ell_s^2 p_4^2) = -\ell_s^2 t/2 - 4$ etc so we get:
+	\[
+		\frac{8 \pi i}{\ell_s^2} g_c^2 \sdelta^{26}(\Sigma p) \int d^2 z_4 |z_4|^{-\ell_s^2 t/2- 4} |1-z_4|^{-\ell_s^2 u/2 - 4} 
+	\]
+	as required. 
+	
+	\item For a conformal transformation we have $|x_{ij}'|^2 = \Omega(x_i) \Omega(x_j) |x_{ij}|^2$ where $\Omega(x_i)$ is the local scale factor $\det \d x'/\d x$ evaluated at $x_i$. Then, the $N$-point tachyon amplitude will pick up $\Omega(x_1)^2 \Omega(x_2)^2 \Omega(x_3)^2$ from the three terms outside of the integral. The terms inside the integral can be written as:
+	\[
+		\prod_{i < j} (|z_{ij}|^2)^{\ell_s^2 p_i \cdot p_j/2}
+	\]
+	so $z_i$ in this term will pick up a power of $\sum_{j \neq i} \ell_s^2 p_i \cdot p_j/2 = -\ell_s^2 p_j^2 / 2 = -2$ on its scale factor. This exactly cancels for $z_1, z_2, z_3$. For the other $z_i$, we note that $d^2 z_i$ will pick up the factor $\Omega(z_i)^{2}$ upon transformation. 
+	
+	Another way to do this is directly from noting that each $\int d^2 z_i V_{p_i} (z_i, \bar z_i)$ for $i > 3$ is invariant under conformal transformation, and $c(z_i) \bar c(\bar z_i) V_{p_i}(z_i, \bar z_i)$ has scaling dimension zero, so transforms trivially under $\mathrm{SL}_2 (\mathbb C)$ transformations. 
+	
+	\item 
+	Note that the three-point tachyon amplitude is very simple and independent of momenta aside from a delta function: $S(k_1, k_2, k_3) = \frac{8 \pi i}{\ell_s^2} g_c \sdelta^{26}(\Sigma k)$. 
+	
+	Let's now consider the limit of a nearly on-shell particle of momenta $k$. From elementary field theory we get:
+	\[
+		S(k_1, k_2, k_3, k)4) \sim i \int \frac{d^{26} k}{(2\pi)^{26}} \frac{S_{S^2} (k_1, k_2, k) S_{S_2} (-k, k_3, k_4)}{-k^2 + 4/\ell_s^2 + i \epsilon} = i \left(\frac{8 \pi i}{\ell_s^2}\right)^2 g_c^2 \sdelta^{26} (\Sigma k_i) \frac{1}{s + 4 \ell_s^2 + i \epsilon}
+	\]
+	This has a pole when $-(k_1 + k_2)^2 = s = -4/\ell_s^2$. We see that (ignoring the $\sdelta$ term) this gives a residue of $-i\frac{64 \pi^2}{\ell_s^4} g_c^2$
+	
+	On the other hand we have from \textbf{5.2.5} a residue of:
+	\[
+		\frac{8 \pi i}{\ell_s^2} g_c^2 \times 2\pi \times -\frac{4}{\ell_s^2} = - i \frac{64 \pi^2}{\ell_s^2} g_c^2
+	\]
+	exactly consistent with unitarity. Note we needed every constant to be as it was so that we could get such agreement. 
+	
+	
+	\item The massless state corresponds to $\zeta_{\mu \nu} \d X^\mu \d X^\nu e^{i p \cdot X}$. We don't have to integrate. Let's calculate the correlator
+	\[
+		\braket{\d X(z_1) \bar \d X(z_1) e^{i k_1 X(z_1)}\,  e^{i k_2 X(z_2)} \,  e^{i k_3 X(z_3)} } 
+		= i C_{S^2}^X \sdelta^{26}(\Sigma p) \prod_{i<j} |z_{ij}|^{\alpha' k_i \cdot k_j} \left(-\tfrac{i \ell_s^2}{2}\right) \left(\tfrac{k_2}{z_{12}} + \tfrac{k_3}{z_{13}}\right) \, \left(-\tfrac{i\ell_s^2}{2}\right) \left(\tfrac{k_2}{\bar z_{12}} + \tfrac{k_3}{\bar z_{13}}\right)
+	\]
+	with the ghost correlator this gives:
+	\[
+		i C_{S^2}^X C_{S^2}^{gh} \, \tfrac{-\ell_s^4}{4} \sdelta^{26}(\Sigma p) \prod_{i<j} |z_{ij}|^{\alpha' k_i \cdot k_j + 2} \left(\tfrac{k_2}{z_{12}} + \tfrac{k_3}{z_{13}}\right)  \left(\tfrac{k_2}{\bar z_{12}} + \tfrac{k_3}{\bar z_{13}}\right)
+	\]
+	Now $k_1^2 = 0 = k_1 \cdot k_2 + k_1 \cdot k_3$. On the other hand $-4/\ell_s^2 = -k_2^2 = k_2 \cdot k_3 + k_1 \cdot k_2 = -k_3^2 = k_2 \cdot k_3 + k_1 \cdot k_3$. Solving this gives $k_1 \cdot k_2 = k_1 \cdot k_3 = 0$ while $k_2 \cdot k_3 = -4/\ell_s^2$. Then, taking $z_1 \to 0, z_2 \to 1, z_3 \to \infty$ gives:
+	\[
+		-i \frac{\ell_s^2}{4} C_{S^2}^X C_{S^2}^{gh} \sdelta^{26}(\Sigma p) \zeta_{\mu \nu}k_2^\mu k_2^\nu
+	\] 
+	Further, we have that $\zeta_{\mu \nu} k_1^\mu = \zeta_{\mu \nu} (k_2 + k_3)^\mu = 0$ so we can rewrite this symmetrically as 
+	\[
+		-i \frac{\ell_s^4}{16} \underbrace{C_{S^2}^X C_{S^2}^{gh}}_{:= 8 \pi g_c'/\ell_s^2} \sdelta^{26}(\Sigma p) \zeta_{\mu \nu}  k_{23}^\mu k_{23}^\nu = -\frac{i \pi \ell_s^2}{2} g_c' \sdelta^{26}(\Sigma p) \zeta_{\mu \nu} k_{23}^\mu k_{23}^\nu.
+	\]
+	The overall constants can be determined from unitarity. The pole of the Veneziano amplitude at $s = 0$ has residue (using that $s = 0, s+t+u = -16/\ell_s^2$) that is a delta function times:
+	\begin{equation}\label{eq:factor1}
+		\frac{8 \pi i}{\ell_s^2} g_c^2 \times 2\pi \times \frac{4}{\ell_s^2 s} \frac{\Gamma(-1-\ell_s^2 t/4) \Gamma(3 + \ell_s^2 t/4)}{\Gamma(-2-\ell_s^2 t/4) \Gamma(2 + \ell_s^2 t/4)} = -i \frac{(4 \pi)^2}{\ell_s^2} g_c^2 \times \frac{4}{\ell_s^2 s} \overbrace{(2 + \ell_s^2 t/4)^2}^{(\frac{\ell_s^2}{8} (t - u))^2} = -i \pi^2 g_c^2 \frac{(t-u)^2}{s} 
+	\end{equation}
+	On the other hand, factorization of this into amplitudes with massless states yields a delta function times:
+	\begin{equation}\label{eq:factor2}
+		i C^2_{3pt} \sum_{\zeta} \zeta_{\mu \nu} \zeta_{\sigma \rho} k_{12}^\mu k_{12}^\nu k_{34}^\sigma k_{34}^\rho \times \frac{1}{(k_1 + k_2)^2 + i \epsilon}
+		= i C^2_{3pt} (k_{12} \cdot k_{34})^2 \times \frac{1}{s}
+		 = i C^2_{3pt} \frac{(u-t)^2}{s}
+	\end{equation}
+	where we have used that, just as the sum over intermediate photon polarizations $\epsilon_\mu \epsilon^*_\nu$ can be replaced by just $\eta_{\mu \nu}$, the sum over intermediate polarizations $\zeta_{\mu \nu} \zeta_{\rho \sigma}$ be replaced by $\frac12 (\eta_{\mu \rho} \eta_{\nu \sigma} + \eta_{\mu \sigma} \eta_{\nu \rho})$. Comparing equations \eqref{eq:factor1} and \eqref{eq:factor2} We the get $C_{3pt} = -\pi i g_c$. Equivalently, $g_c' = 2 g_c /\ell_s^2$.
+
+	\item 
+	We already determined the normalization in the previous question. It is also simple to check that it is correct to attach $g'_c$ to each vertex operator in the 3-point and 4-point functions by considering first the 2 tachyon $\to$ 2 massless state scattering in the $t$ and $u$ channels, which relates the $3$-point scatterings of tachyons and massless states to one another, and then use the 2 $\to 2$ tachyon to tachyon scattering to express its normalization in terms of the 3-point tachyon amplitude. All of this equates to taking $g'_c = 2 g_c/\ell_s^2$. 
+	
+	As a warm-up lets do the three-point massless amplitude. We compute the correlator
+	\[
+		\braket{:\d X^\alpha(z_1) e^{i p_i X(z_1)}: \, :\d X^\beta(z_2) e^{i p_i X(z_2)}: \, :\d X^\gamma(z_3) e^{i p_i X(z_3)}: \times c.c.}
+	\]
+	In the holomorphic part, there are two types of contribution: One where each $\d X$ contracts with an exponential and one where two of the $\d X$ contract with one another and the last one contracts with an exponential. Further, we see that $p_i \cdot p_j = 0$, so the $\prod_{i<j} |z_{ij}|^{\ell_s^2 p_i \cdot p_j}$ is unity. The first contribution gives:
+	\[
+		i \left(\frac{\ell_s^2}{2}\right)^3 
+		\left(\frac{k_2^\alpha}{z_{12}} + \frac{k_3^\alpha}{z_{13}}\right) 
+		\left(\frac{k_1^\alpha}{z_{21}} + \frac{k_3^\alpha}{z_{23}}\right)
+		\left(\frac{k_1^\alpha}{z_{31}} + \frac{k_2^\alpha}{z_{32}}\right)
+		\to i  \left(\frac{\ell_s^2}{2}\right)^3 \frac{1}{2^2}  (k_1-k_2)^\gamma (k_2 - k_3)^\alpha (k_3 - k_1)^\beta
+	\]
+	The second contribution gives
+	\[
+		i \left(\frac{\ell_s^2}{2}\right)^2 
+		\left[ \frac{\eta^{\alpha \beta}}{z_{12}^2} \left(\frac{k_1^\gamma}{z_{31}} + \frac{k_2^\gamma}{z_{32}} \right)
+		+ \frac{\eta^{\beta \gamma}}{z_{23}^2} \left(\frac{k_2^\alpha}{z_{12}} + \frac{k_3^\alpha}{z_{13}} \right)
+		+ \frac{\eta^{\alpha \gamma}}{z_{13}^2} \left(\frac{k_1^\beta}{z_{21}} + \frac{k_3^\beta}{z_{23}} \right) \right]
+	\]
+	Multiplying this by the $c$ contribution $z_{12} z_{23} z_{13} \times c.c.$ and setting $z_1 = 0, z_2 = 1, z_3 = \infty$ we get the 3-point amplitude:
+	\begin{equation}\label{eq:3ptmassless}
+		\pi i g_c \, \zeta_{1, \alpha \bar \alpha} \zeta_{2, \beta \bar \beta} \zeta_{3, \gamma \bar \gamma} T^{\alpha \beta \gamma} T^{\bar \alpha \bar \beta \bar \gamma}, \quad T^{\alpha \beta \gamma} = \eta^{\alpha \beta} k_{12}^\gamma + \eta^{\beta \gamma} k_{23}^\alpha + \eta^{\alpha \gamma} k_{31}^\beta + \frac{\ell_s^2}{8} k_{12}^\gamma k_{23}^\alpha k_{31}^\beta.
+	\end{equation}
+	
+	Now let's do the four-point amplitude. \emph{First, I will work with the open string} (no CP indices, so $U(1)$ gauge symmetry) and use some tricks at the end to get the closed string amplitude. For the open string, there are six possible orderings of the $y_1, y_2, y_3, y_4$. In three of these cases we can send $y_1\to 0, y_2 \to 1, y_3 \to \infty$ and vary $y_4$. In the other three, cases we switch $y_2$ and $y_3$. This amounts to swapping $s\leftrightarrow t$. \textbf{HOWEVER} for Polchinski's trick, I only need to consider \emph{one of these six}. WLOG I set $y_4$ to be between $y_1, y_2$ in $0,1$.
+	I'll also absorb $\ell_s^2$ in the definition of $s,t,u$. So we have,
+	\[
+		\prod_{i<j} |y_{ij}|^{2 k_i \cdot k_j} \to |y|^{-u} |1-y|^{-t} \leftrightarrow |y|^{-u} |1-y|^{- s}
+	\]
+	% This product multiplies (c.f. \textbf{Polchinski 6.2.19}):
+% 	\[
+% 		\braket{\prod_{i=1}^4 (v^{\mu_i}(z_i) + q^{\mu_i}(z_i))}
+% 	\]
+	We now get three types of contributions: If all the $\d X^\alpha$ contract with each other (3 terms), if two of the $\d X^\alpha$ contract with each other (6 terms) and the remaining two contract with one of the $e^{i k_i \cdot X}$, or if they all contract with the $e^{i k_i \cdot X}$ (1 term). 
+
+	In the first case we get:
+	\[
+		\left(-2 \ell_s^2\right)^2 \left(\frac{1}{y_{12}^2 y_{34}^2} + \frac{1}{y_{13}^2 y_{24}^2} + \frac{1}{y_{14}^2 y_{23}^2} \right) \to 4 \left(\eta^{\alpha \beta} \eta^{\gamma \delta} + \frac{\eta^{\alpha \gamma} \eta^{\beta \delta}}{(1-y)^{2}} + \frac{\eta^{\alpha \delta} \eta^{\beta \gamma}}{y^{2}} \right)  % z^{-\ell_s^2 t/2} (1-z)^{-\ell_s^2 u/2}
+	\]
+	Integrating $y$ from $0$ to $1$ gives
+	\begin{equation}\label{eq:part1}
+		\frac{\Gamma(1-t) \Gamma(1-u)}{\Gamma(2+s)} + \frac{\Gamma(1-t) \Gamma(-1-u)}{\Gamma(s)} + \frac{\Gamma(-1-t) \Gamma(1-u)}{\Gamma(s)}		
+	\end{equation}
+
+	% and the $132$ ordering will give the same since the above is invariant under $s \leftrightarrow t$, so we get twice this factor.
+	
+	Now the annoying one\footnote{Wasted all of 1/17/20 on this. Not worth it}. Define $K_i = \sum_{j \neq i} \tfrac{k_j}{y_{ij}}$. Note:
+	\[
+		K_1 \to -(k_2^\alpha + \frac{k_3^\alpha}{y}), 
+		\quad K_2 \to k_1^\beta + \frac{k_4^\beta}{1-y}, 
+		\quad K_3 \to (1+y)k_1^\gamma + y k_2^\gamma + k_4^\gamma, 
+		\quad K_4 \to \frac{k_1^\delta}{y} + \frac{k_2^\delta}{y-1}.
+	\]
+	We can write the second case as:
+	\[
+	\begin{aligned}
+		&\left(2 \ell_s^2\right)^3 \left(\frac{K_3 K_4}{y_{12}^2} + \frac{K_1 K_2}{y_{34}^2} + \frac{K_1 K_4}{y_{23}^2} + \frac{K_2 K_3}{y_{14}^2} + \frac{K_2 K_4}{y_{13}^2} + \frac{K_1 K_3}{y_{24}^2} \right) \\
+		& \to \left(2 \ell_s^2\right)^3 \Big[
+		((1+y)k_1^\gamma + y k_2^\gamma + k_4^\gamma)(\tfrac{k_1^\delta}{y} + \tfrac{k_2^\delta}{y-1}) \eta^{\alpha \beta}
+		-(k_2^\alpha + \tfrac{k_4^\alpha}{y})(k_1^\beta + \tfrac{k_4^\beta}{1-y}) \eta^{\gamma \delta}
+		-(k_2^\alpha + \tfrac{k_4^\alpha}{y})(\tfrac{k_1^\delta}{y} + \tfrac{k_2^\delta}{y-1}) \eta^{\beta \gamma}
+		\\ & \qquad \qquad \qquad + \tfrac{1}{y^2}(k_1^\beta + \tfrac{k_4^\beta}{1-y}) ((1+y)k_1^\gamma + y k_2^\gamma + k_4^\gamma) \eta^{\alpha \delta}
+		+ (k_1^\beta + \tfrac{k_4^\beta}{1-y}) (\tfrac{k_1^\delta}{y} + \tfrac{k_2^\delta}{y-1}) \eta^{\alpha \gamma}\\
+		& \qquad \qquad \qquad - \tfrac{1}{(1-y)^2} (k_2^\alpha + \tfrac{k_4^\alpha}{y}) ((1+y)k_1^\gamma + y k_2^\gamma + k_4^\gamma) \eta^{\beta \delta}
+		\Big]
+	\end{aligned}
+	\]
+	We can integrate this out to get (looking at just the first term):
+	\begin{equation}\label{eq:part2}
+		\begin{aligned}
+			(2 \ell_s)^3 \eta^{\alpha \beta} \int_0^1 dy & \left(k_1^\delta [y^{-1} k_{1+4}^\gamma + k_{1+2}^\gamma] + k_2^\delta[ (y-1)^{-1} k_{1+4}^\gamma + y (y-1)^{-1} k_{1+2}^\gamma] \right) |y|^{-u} |1-y|^{-t} + 5 \perms \\
+			=(2\ell_s)^3 \eta^{\alpha \beta} \Big[& k_{14}^\delta (k_{13} + k_{43})^\gamma \frac{\Gamma(1-t) \Gamma(1-u)}{\Gamma(2-s)}  + k_{14}^\delta  (k_{13} + k_{23})^\gamma \frac{\Gamma(2-u) \Gamma(1-t)}{\Gamma(3+s)}  \\
+		& - k_{24}^\delta (k_{13}+ k_{43})^\gamma  \frac{\Gamma(2-t) \Gamma(1-u)}{\Gamma(3+s)} - k_{24}^\delta (k_{13} + k_{23})^\gamma - \frac{\Gamma(2-t) \Gamma(2-u)}{\Gamma(4+s)} \Big] + 5 \perms
+		\end{aligned}
+	\end{equation}
+	% \[
+	% 	\begin{aligned}
+	% 		(2\ell_s)^3 \Big[& k_{14}^\delta (k_{13} + k_{43})^\gamma \left(\frac{\Gamma(1-u) \Gamma(1-s)}{\Gamma(t)} + \frac{\Gamma(1-t) \Gamma(1-u)}{\Gamma(2-s)} + \frac{\Gamma(1-t) \Gamma(-1-s)}{\Gamma(u)} \right)\\
+	% 	& + k_{14}^\delta  (k_{13} + k_{23})^\gamma \left(- \frac{\Gamma(2-u) \Gamma(-2-s)}{\Gamma(t)} + \frac{\Gamma(2-u) \Gamma(1-t)}{\Gamma(3+s)} + \frac{\Gamma(1-t) \Gamma(-2-s)}{\Gamma(-1+u)} \right)\\
+	% 	& + k_{24}^\delta (k_{13}+ k_{43})^\gamma \left(\frac{\Gamma(1-u) \Gamma(-2-s)}{\Gamma(-1+t)} - \frac{\Gamma(2-t) \Gamma(1-u)}{\Gamma(3+s)} + \frac{\Gamma(2-t) \Gamma(-2-s)}{\Gamma(u)} \right)\\
+	% 	& + k_{24}^\delta (k_{13} + k_{23})^\gamma \left(- \frac{\Gamma(2-u) \Gamma(-3-s)}{\Gamma(-1+t)} - \frac{\Gamma(2-t) \Gamma(2-u)}{\Gamma(4+s)} + \frac{\Gamma(2-t) \Gamma(-3-s)}{\Gamma(-1+u)} \right)
+	% 	+ s \leftrightarrow t\Big] \eta^{\alpha \beta} \\ &+ 5 \perms
+	% 	\end{aligned}
+	% \]
+	The last term, given by contracting each $\d X$ against an exponential is $K_1^\alpha K_2^\beta K_3^\gamma K_4^\delta$ so we'll get
+	\begin{equation}\label{eq:part3}
+		-(2\ell_s^2)^4 \int_0^1 dy \, \left(k_2^\alpha + \frac{k_4^\alpha}{y} \right) \left(k_1^\beta + \frac{k_4^\beta}{1-y} \right) \Big(  (k_1+k_4)^\gamma + y (k_1+k_2)^\gamma \Big) \left(\frac{k_1^\delta}{y} +\frac{k_2^\delta}{y-1} \right) y^{-u} (1-y)^{-t}  
+	\end{equation}
+	This gives a lot of terms all multiplying gamma functions of some appropriate type. Although each term has a quick computation, I don't want to write them all out.
+	
+	The open string amplitude is then given by summing equations \eqref{eq:part1}, \eqref{eq:part2} and \eqref{eq:part3} and multiplying that result by $\frac{i g_o^2}{\ell_s^2} \sdelta^{26}{\Sigma p}$. Call this $A^{\alpha \beta \gamma \delta}_o(s,t,u, \ell_s, g_o)$. Using \textbf{Polchinski 6.6.23} we can write the closed string amplitude as:
+	\[
+		A_c(s,t,u,\ell_s, g_c) = \zeta_{1, \alpha \bar \alpha} \zeta_{2, \beta \bar \beta} \zeta_{3, \gamma \bar \gamma} \zeta_{4, \delta \bar \delta} 
+		\frac{\pi i g_c^2 \ell_s^2}{g_o^4}{g_o^4} 
+		\sin(\pi \ell_s^2 t) 
+		A_o^{\alpha \beta \gamma \delta} 
+		[A_o^{\bar \alpha \bar \beta \bar \gamma \bar \delta}(t, u, s, \ell_s/4, g_o)]^*
+	\]
+	where $\zeta$ are our $24^2$ closed string polarization vectors. 
+	
+	\item There are three types of propagators to consider: bulk-bulk, bulk-boundary, and boundary-boundary. Using shorthand $X_i = X(z_i, \bar z_i), X_I = X(w_I)$, from \textbf{4.7.9} we have:
+	\[
+	\begin{aligned}
+		\braket{\prod_{i=1}^m e^{i p_i X_i} \prod_{I=1}^n e^{i q_I X(w_I)}} &= \sdelta^{26} (\Sigma p + \Sigma q) \exp\Big[- \sum_{i<j} p_i p_j \braket{X_i X_j} - \frac12 \sum_{i, I} p_i q_I \braket{X_i X_I} - \sum_{I<J} q_I q_J \braket{X_I X_J} \Big]\\
+	\end{aligned}
+	\]
+	Using the form of the propagators 
+	\[
+		\begin{aligned}
+			\braket{X_i X_j} &= -\frac{\ell_s^2}{2} (\log |z_i - z_j|^2 + \log |z_i - \bar z_j|^2 )\\
+			\braket{X_i X_I} &=  -\frac{\ell_s^2}{2} (\log |w_I-z_i|^2 + \log |w_I-\bar z_i|^2)\\
+			\braket{X_I X_J} &= -\ell_s^2 \log|w_I-w_J|^2
+		\end{aligned}
+	\]
+	we get
+	\[
+		\sdelta^{26} (\Sigma p + \Sigma q) \prod_{i} |z_i - \bar z_i|^{\ell_s^2 p_i^2/2} \prod_{i<j}^m |(z_i - z_j) (z_i - \bar z_j)|^{\ell_s^2 p_i \cdot p_j} \prod_{I<J} |w_I - w_J|^{2 \ell_s^2 q_I q_J} \prod_{I, i} |(w_I - z_i) (w_I- \bar z_i)|^{\ell_s^2 p_i \cdot q_I}
+	\]
+	Note an additional term which I believe Kiritsis dropped. The extension to $\RP^2$ is no more difficult. We now have no boundary and the $\braket{X_i X_j}$ propagator is $-\frac{\ell_s^2}{2} (\log(z_i - z_j) + \log(1+z_i \bar z_j))$ so we get:
+	\[
+		\sdelta^{26} (\Sigma p + \Sigma q) \prod_{i} |1 + z_i \bar z_i|^{\ell_s^2 p_i^2/2} \prod_{i < j} |(z_i - z_j) (1 + z_i \bar z_j)|^{\ell_s^2 p_i^2/2}
+	\]
+	
+	\item Forgetting $c$ ghosts here, I can just integrate over all of $\H$. The massless closed-string state of zero momentum is given by $\d X(z) \bar \d X(z)$. Note that $\H = \mathrm{PSL}_2(\RR) / SO(2)$, so that:
+	\[
+		-\frac{\ell_s^2}{2} \frac{1}{\mathrm{Vol}(\mathrm{PSL}_2(\RR))} \int_{\H} dz \frac{1}{|z - \bar z|^2}
+		 = -\frac{\ell_s^2}{8} \frac{1}{\mathrm{Vol}(\mathrm{PSL}_2(\RR))} \int_{\H} \frac{dx dy}{y^2} = -\frac{\ell_s^2}{8} \frac{\mathrm{Vol}(\H)}{\mathrm{Vol}(\mathrm{PSL}_2(\RR))} = -\frac{\ell_s^2}{16\pi}
+	\]
+	 Note that this answer is finite and invariant under conformal transformation. This gives an amplitude of $-\frac{i}{16} \sdelta^{26}(0)$. 
+	
+	\item Let $p_1$ be the momentum of the closed-string tachyon, and $p_2, p_3$ the the momenta of the open string tachyons. We get $2 p_2 \cdot p_3 = p_1^2 - p_2^2 - p_3^2 = 2/\ell_s^2 \Rightarrow p_2 \cdot p_3 = 1/\ell_s^2, \quad 2 p_1 \cdot p_2 = p_3^2 - p_2^2 - p_1^2  = -4/\ell_s^2 \Rightarrow p_1 \cdot p_2 = -2/\ell_s^2$
+	
+	 I no longer have enough freedom to fix all three points. I can send one to $\infty$ on the real line, and fix the position of the closed string to be $i \in \H$. The remaining open string insertion can be anywhere on the real line, so we must integrate over this. The ghost and vertex operator correlator gives:
+	\[
+		(z_1 - \bar z_1) (z_1 - w_3) (\bar z_1 - w_3)\,  |z_1 - \bar z_1|^{\ell_s^2 p_1^2/2} |z_1 - w_3|^{2 \ell_s^2 p_1 \cdot p_3} \int_\RR dw_2 \, |w_2 - w_3|^{2 \ell_s^2 p_2 \cdot p_3} |w_2 - z_1|^{2 \ell_s^2 p_1 \cdot p_2} \; \sdelta(\Sigma p)
+	\] 
+	Setting $z_1 = i, w_3 \to \infty$ has momentum conservation and $p_3^2 = 1/\ell_s^2, p_1^2 = 4/\ell_s^2$ getting the $w_3$ factors to drop out. We are left with
+	\[
+		2i \,2^{\ell_s^2 p_1^2/2} \int_\RR dw \, (w^2 + 1)^{\ell_s^2 p_1 \cdot p_2} \; \sdelta(\Sigma p) = 8 i \sqrt\pi \,  \frac{ \Gamma(-\frac12 +2)}{\Gamma(2)} \sdelta(\Sigma p) = 4\pi i \sdelta(\Sigma p)
+	\]
+	% We could also do this on the disk, using the NN disk propagator we got in exercise \textbf{4.48}. We place $z_1 = 0, w_3 = 1$ and integrate $w_2$ over the sphere. Almost everything cancels except for $|\frac12 (w_2 - 1)|^{2 \ell_s^2 p_2 \cdot p_3}$ and integrating this over the circle, we get
+	% \[
+	% 	8 \sqrt\pi \frac{\Gamma(\frac12 + \ell_s^2 p_2 \cdot p_3)}{\Gamma(1+ \ell_s^2 p_2 \cdot p_3)} % 4 \pi \frac{\Gamma(2 \ell_s^2 p_2 \cdot p_3)}{\ell_s^2 p_2 \cdot p_3 \Gamma(\ell_s^2 p_2 \cdot p_3)^2 }
+	% \]
+	% This is equivalent, upon noting that $\ell_s^2 p_1 \cdot p_2 = -1 - \ell_s^2 p_2 \cdot p_3$.
+
+	This gives a scattering amplitude of:
+	\[
+		-\frac{4 \pi g_o^2}{\ell_s^2}  \sdelta^{26}(\Sigma p).
+	\]
+
+	\item The conformal Killing group is now $\mathrm{SO}(3)$. Again, we can fix one operator to be at $z = 0$, but the other one can be at any value of $|z| \in [0, 1]$ (we have control over the phase). So we must integrate over the modulus. We do this on the disk using the $\RP^2$ propagator. We insert one vertex operator at $0$ and the other $z$. The integral gives a delta function times: 
+	\[
+		\int_0^1 d|z_2| c(z_1)\bar c(\bar z_1) c(z_2)  (1+|z_1|^2)^{\ell_s^2 p^2/2} (1+|z_2|^2)^{\ell_s^2 p^2/2} |(z_1 - z_2) (1+z_1 \bar z_2)|^{-\ell_s^2 p^2}\to \int_0^1 r dr\, r^{-\ell_s^2 p^2} (1+r^2)^{\ell_s^2 p^2/2}
+	\]
+	For the closed string tachyon, we have $p^2 = 4/\ell_s^2$. The integral is divergent, coming from the $(z-w)^{-4}$ singularity as the two tachyons approach one another. If we had the milder $(z-w)^{-1}$ singularity of the open-string tachyon, this could be fixed. 
+	\textbf{REVISIT}
+	
+	
+	\item To simplify this problem, as Polchinski asks in his problem 6.9, I will look at the terms that contribute to the $e_1 \cdot e_2 \, e_3 \cdot e_4$ amplitude, which comes from contracting $\d X^\alpha(y_1) \d X^\beta(y_2)$ and $\d X^\beta(y_3) \d X^\delta(y_4)$. There are six possible orderings for the trace in the 4-point amplitude. We get $\frac{i {g_o'}^4}{g_o^2 \ell_s^2}  \sdelta^{26}(\Sigma p) \times \left(2 \ell_s^2 \right)^2$ multiplying a sum of six integrals. Using $s := - \ell_s^2 (p_1 + p_2)^2 = -2 p_1 \cdot p_2, t := - \ell_s^2 (p_1 + p_3)^2 = - 2 p_1 \cdot p_3, u := - \ell_s^2 (p_1 + p_4)^2 = - 2 p_1 \cdot p_4$ and the shorthand $[1234]$ for $\mathrm{Tr}(\lambda^{\mu_1} \lambda^{\mu_2} \lambda^{\mu_3} \lambda^{\mu_4})$, we get:
+	\[
+	\begin{aligned}
+		& \left[[1234] \int_{-\infty}^0
+		 + [1423] \int_0^1 + [1243] \int_1^\infty \right] (|w|^{-u} |1-w|^{-t}) dw \\
+		+ & \left[[1324] \int_{-\infty}^0 + [1432] \int_0^1 + [1342] \int_1^\infty \right] (|w|^{- u} |1-w|^{-s}) dw
+	\end{aligned}
+	\]
+	Note the second triplet of integrals swaps $2$ with $3$ so equivalently swaps $s$ and $t$. We get the amplitude 
+	\[
+	\begin{aligned}
+		\frac{i g_o^2}{2 \ell_s^2} e_1 \cdot e_2\, e_3 \cdot e_4 \sdelta^{26} (\Sigma p) \Big[& \, \quad ([1234] + [1432]) B(1 -  u, -1 - s)\\
+		& + ([1423] + [1324]) B(1 -  t, 1 - u)\\
+		& + ([1243] + [1342]) B(1 -  t, -1 -  s) \Big]
+	\end{aligned}
+	\]
+	Now in the $s$ channel, the first and third Beta functions give us poles at $s = 0$ with residues $-t$ and $-u = t$ respectively. This gives:
+	\begin{equation}\label{eq:4ptgauge}
+		-\frac{i g_o^2}{2 \ell_s^2} \sdelta^{26} (\Sigma p) e_1 \cdot e_2 \, e_3 \cdot e_4 ([1234] + [2143] - [1243] - [2134]) \times \frac{t-u}{s}
+	\end{equation}
+	On the other hand, the 3-point vertex (again just the leading order of the two terms, compare with \eqref{eq:3ptmassless}) for massless bosons comes from the correlator 
+	\[
+	\begin{aligned}
+		&\frac{i (g_o')^3}{g_o^2 \ell_s^2} |w_{12} w_{13} w_{23}| \braket{:\d X^{\mu_1}(w_1) e^{i k_1 X(w_1}: :\d X^{\mu_2}(w_2) e^{i k_2 X(w_2)}: :\d X^{\mu_3}(w_3) e^{i k_3 X(w_3)}:}\\
+		&\to \frac{i (g'_o)^3}{g_o^2 \ell_s^2} (-i 2 \ell_s^2) (-2 \ell_s^2) \left( \frac{p_1^{\mu_3}}{w_{12}^2 w_{13}} + \frac{p_2^{\mu_3}}{w_{12}^2 w_{23}} + 2 \perms \right) |w_{12}|^{2 \ell_s^2 p_1 \cdot p_2- 1} | w_{13}|^{2 \ell_s^2 p_1 \cdot p_3 - 1} | w_{23}|^{2 \ell_s^2 p_2 \cdot p_3 - 1} \\
+		&= -i g_o \frac{\sqrt 2}{\ell_s} (\eta^{\mu_1 \mu_2}\frac12 p_{12}^{\mu_3} + 2 \perms) 
+	\end{aligned}
+	\]
+	using $g_o' = g_o/(\sqrt 2 \ell_s)$. Adding CP factors gives:
+	\[
+		-\frac{i g_o}{\sqrt 2 \ell_s} (\eta^{\mu_1 \mu_2} p_{12}^{\mu_3} + \eta^{\mu_1 \mu_3} p_{13}^{\mu_2} + \eta^{\mu_2 \mu_3} p_{23}^{\mu_1}) \underbrace{([123] - [321])}_{f^{123}}
+	\]
+	We care about the $e_1 \cdot e_2 \, e_3 \cdot e_4$ term which means we only look at the $p_{12} \cdot p_{34} = t - u$ contribution in the $s$ channel.
+	\[
+		i \int \frac{d^{26}k}{(2\pi)^{26}} \frac{S(k_1, k_2, k) S(-k, k_3, k_4)}{-k^2 + i \epsilon} \to - i \frac{g_o^2}{2 \ell_s^2} \sdelta^{26}(\Sigma p) \frac{t-u}{s} \times \sum_{5} \left( f^{125} f^{534} \right)
+	\]
+	Lastly, note that the factors in equation~\eqref{eq:4ptgauge} give $\mathrm{Tr}(f^{12a} \lambda_a f^{34b} \lambda_b)$, and with suitable normalization, this gives $\sum_5 f^{125} f^{534}$, exactly as desired. 
+	
+	We thus see that the amplitude indeed factorizes, respecting the structure of the $U(N)$ gauge group. 
+	
+	\item We have $p^2 + m^2 = \frac{1}{\ell_s^2} L_0$ for the open string. From \textbf{5.3.1} (and consequently \textbf{5.3.3}) this gives:
+	\[
+		\frac{i}{2} \frac{V_{26}}{(4\pi)^{26}} \int_0^\infty \frac{dt}{t^{13+1}} \overbrace{\mathrm{Tr'}[e^{-2\pi t m^2}]}^{\text{transverse only}} = \frac{i}{2} \frac{V_{26}}{(16\pi^2 \ell_s^2)^{13}} \int_0^\infty \frac{dt}{t^{13+1}} \mathrm{Tr'}[e^{-2\pi t L_0^{\text{cyl}}}] =  \frac{i}{2} \frac{V_{26}}{(16\pi^2 \ell_s^2)^{13}} \int_0^\infty \frac{dt N_1 N_2 \eta(i t)^2}{t^{13+1} \eta(i t)^{26}} 
+	\]
+	All together this gives:
+	\[
+		i N_1 N_2 V_{26} \int_0^\infty \frac{dt}{2 t} \frac{1}{(8 \pi^2 \ell_s^2 t)^{13} \eta(it)^{24}}
+	\]
+	as required.
+	% \[
+	% 	\Lambda = \frac{i V_{26}}{2} \int \frac{d^{26} p}{(2\pi)^{26}} \int_0^\infty \frac{dt}{t} \mathrm{Tr'} (e^{-2 \pi t L_0/\ell_s^2}) =   \frac{i V_{26}}{2} \int \frac{d^{26} p}{(2\pi \ell_s)^{26}} \int_0^\infty \frac{dt}{t} \frac{N_1 N_2 |\eta(it)|^{4}}{(2 t)^{13} |\eta(it)|^{2 \times 26}}
+	% \]
+	%
+	\item We already know the form of our propagators on the torus from exercise \textbf{4.69}. Take 
+	\[
+		G(z, w)= \Bigg|\frac{\theta\twist11 (z-w, \tau)}{\d_z \theta \twist11 (0, \tau)} \Bigg|^2 e^{-2 \pi (\mathrm{Im} z)^2 / \tau_2}.
+	\]
+	This gives us
+	\[
+		\braket{\prod_{i} :e^{i k_i X(z_i, \bar z_i)}:}  = i C^X_{T^2} \sdelta^{26} (\Sigma k) \prod_{i < j} |G(z_i, z_j)|^{\ell_s^2 k_i \cdot k_j/2}
+	\]
+	where $C_X$ which is equal to the partition function of the torus $Z(\tau)$ that we have also computed in the last chapter.
+	
+	\item
+	We need to calculate the form of the propagators $\braket{X^\mu(z) X^\nu(w)}$ on the cylinder with NN boundary conditions. Let's use the image charge method. The finite cylinder can be thought of as the fundamental domain of the quotient of the upper half plane by the action $z \to \lambda z$ for $\lambda$ a real number corresponding to the modulus of the cylinder. For $X$ at $z$ where $1<|z|<\lambda$ we place images at each $\lambda^n z$ in the upper half plane as well as at $\lambda^n \bar z$ on the lower half plane. 
+	\[
+		\braket{X(z) X(w)} = - \frac{\ell_s^2}{2} \sum_{n \in \ZZ} \left( \log|\lambda^{-n/2} z - \lambda^{n/2} w|^2 +  \log|\lambda^{-n/2} z - \lambda^{n/2} \bar w|^2 \right)
+	\]
+	This gives
+	\[
+		\braket{\prod_{i} :e^{i p_i X}:} = \sdelta^D(\Sigma p) \prod_{n} \prod_{i < j} |(\lambda^{-n/2} z_i - \lambda^{n/2} z_j) (\lambda^{-n/2} z_i - \lambda^{n/2} \bar z_j)|^{\ell_s^2 p_i \cdot p_j}
+	\]
+	For open strings (operators inserted at the boundary) we must apply boundary normal ordering. We'll get:
+	\[
+		\braket{\prod_{i} {_\star^\star} e^{i q_i X} {^\star_\star} } = \sdelta^D(\Sigma q) \prod_{n} \prod_{I < J} |(\lambda^{-n/2} w_I - \lambda^{n/2} w_J)|^{2 \ell_s^2 q_I \cdot q_J}
+	\]	
+	Lastly, for the correlations between boundary and bulk operators we'll get:
+	\[
+		\prod_n \prod_{i, I} |\lambda^{-n/2} w_i - \lambda^{n/2} z_i|^{2 \ell_s^2 p_i \cdot q_I}
+	\]
+	Taking the product of the above three equations (with only a single momentum-conserving delta function) gives us the $X$ correlator on the cylinder. The CKG here is simply the compact $SO(2)$ so it is best to ignore ghosts, integrate the insertions over the whole cylinder and divide at the end by the volume of the $SO(2)$ action: $\lambda$. 
+	
+	\textbf{Revisit this}
+	% Let's first start with the infinite strip:$-1 < \mathrm{Im}(z) < 1$. We can map the upper half plane to this by using $\frac{1}{\pi} \log(z)$. We get:
+	% \[
+	% 	X(z) X(\bar z)= - \frac{\ell_s^2}{2} \frac{1}{(z-\bar z)^2} \to -\frac{\ell_s^2}{2} \frac{\pi}{2i} \frac{1}{\sinh(\pi )}
+	% \]
+	
+	\item Here I assume Kiritsis meant $\epsilon_c = 1$, since equation \textbf{3.4.3} refers specifically to closed string ground states. The one-loop contribution for the unoriented closed string comes from the Klein bottle amplitude. 	As before, the only nonzero contributions come from states with an equal number of left and right movers. All that this gives is an overall factor of $\epsilon_c$ in this amplitude:
+	\[
+		Z_{K_2} := \frac12 \mathrm{Tr}[\Omega e^{-2\pi t (L_0 + \bar L_0 - c/12)}] =  \frac{V_{26}}{2} \int \frac{d^{26} p}{(2\pi)^{26}}\, \epsilon_c \frac{e^{-\pi \ell_s^2 t p^2}}{\eta(2 i t)} \Rightarrow \Lambda_{K_2} = i \frac{V_{26}}{(2\pi \ell_s)^{26}} \int_0^\infty \frac{dt}{4t^{1+13} \eta(2 i t)^{24}}
+	\]
+	And working in the transverse channel gives
+	\[
+		24 i \epsilon_c \frac{2^{26} V_{26}}{4 \pi (8\pi^2 \ell_s^2)^{13}} \int_0^\infty d\ell
+	\]
+	This gives a total tadpole term given by:
+	\[
+		\epsilon_c 2^{26} - 2^{14} \zeta N + N^2
+	\]
+	We have $N$ is a positive integer. Further, we have that $\zeta$ is a \emph{sign}. If $\zeta = -1$ then $\epsilon$ must be negative, and so by unitarity it is $-1$, but there are no integer solutions $N$ to $2^{26} = 2^{14} N + N^2$. Thus we need $\zeta = 1$ and consequently $\epsilon = -1, N = 2^{13}$.
+	 % If $\epsilon$ were not purely real, then $\zeta$ would also have to be complex and we would need $\zeta = \epsilon_c \frac{2^{12}}{N} + \frac{N}{2^{14}}$. Since $\zeta, \epsilon_c$ are unimodular, we need
+ % 	\[
+ % 		1 = \frac{2^{24}}{N^2} + \frac{\mathrm{Re}(\epsilon_c)}{2} + \frac{N^2}{2^{28}}
+ % 	\]
+ % 	On the other hand, for $N$ positive, the minimum value of $2^{24}/{N^2} + N^2/2^{28}$ is $\frac12$ when $N = 2^{13}$, in which case we have $\epsilon_c = 1$ as required. Now if $N$ gets slightly larger, then $N/2^{14}$ will grow and $2^{12}/N$ will shrink, so we would need the real part of $\epsilon_c$ to grow in order to
+ % 	\textbf{Finish}
+
+\end{enumerate}
+
+% section chapter_5_scattering_amplitudes_and_vertex_operators (end)
+	
+
+\end{document}
+	
