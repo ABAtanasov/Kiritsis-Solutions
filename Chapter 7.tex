@@ -1,0 +1,159 @@
+\documentclass[11pt, class=article, crop=false]{standalone}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd}
+\usepackage{mathabx}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{simpler-wick}
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage{listings}
+\usepackage{relsize}
+\usepackage{xcolor}
+\usepackage{stmaryrd}
+\usepackage{tikz-feynman}
+\usepackage{kiritsis}
+\geometry{margin = 0.5in}
+
+
+\begin{document}
+\section*{Chapter 7: Superstrings and Supersymmetry} % (fold)
+\label{sec:chapter_7_superstrings_and_supersymmetry}
+\begin{enumerate}
+	\item We already know that $T T$ will have the desired OPE, since the bosons and fermions are uncoupled and we already have shown their own respective stress tensor OPEs. Next
+	\[
+	\begin{aligned}
+		G(z) G(w) &= - \frac{2}{\ell_s^4} \psi_\mu(z) \d X^\mu(z) \psi_\nu(w) \d X^\nu (w)\\ 
+		&= - \frac{2}{\ell_s^4} \left(\ell_s^2 \frac{\eta_{\mu \nu}}{z-w} + (z-w) :\d \psi_\mu \psi_\nu(w): \right) \left(-\frac{\ell_s^2}{2} \frac{\eta_{\mu \nu}}{(z-w)^2} + :\d X_\mu \d X_\nu (w): \right)\\
+		&= \frac{D}{(z-w)^3} + \frac{-\frac{2}{\ell_s^2} \d X_\mu \d X^\mu (w) - \frac{1}{\ell_s^2} \psi^\mu \d \psi_\mu (w)}{z-w} \\
+		&= \frac{\hat c}{(z-w)^3} + \frac{2 T(w)}{z-w}
+	\end{aligned}
+	\]
+	Finally
+	\[
+		\begin{aligned}
+			T(z) G(w) &= - \frac{1}{\ell_s^2} \, \left(:\d X_\mu \d X^\mu (z): + \frac12 \psi^\mu \d \psi_\mu (z)\right) i \frac{\sqrt 2}{\ell_s^2} \psi_\nu \d X^\nu(w)\\
+			&= -i \frac{\sqrt 2}{\ell_s^4} \left(-\frac{\ell_s^2}{2} \frac{ \psi_\mu \d X^\mu (w) + \psi_\mu \d^2 X^\mu(w) (z-w)}{(z-w)^2} - \frac{\ell_s^2}{2} \frac{ \psi_\mu \d X^\mu (w)}{(z-w)^2} + (-) \frac{\ell_s^2}{2} \frac{\d_\mu \psi \d X^\mu(w)}{(z-w)} \right)\\
+			&= \frac32 \frac{G(w)}{(z-w)^2} + \frac{\d G(w)}{z-w}
+		\end{aligned}
+	\]
+	
+	\item We will take the OPE of $j_B(z) j_B(w)$, but just look at the $(z-w)^{-1}$ term as a function of $w$, as this, when integrated around the origin in $w$ will give $Q_B^2$. This is an extension of exercise \textbf{4.45}, and there is nothing conceptually further, except for some $\beta \gamma$ manipulation. There are altogether $16$ terms to consider, and we will get $c=15$. The algebra is heavy, so I will skip this. An alternative is to do this as in \textbf{Polchinski 4.3}.
+	
+	To do it this way, note the following OPEs:
+	\[
+		\begin{aligned}
+			j_B(z) b(w) &\sim \frac{T_{matter}(z)}{z-w} -\frac{1}{(z-w)^2} \left(b c (z) + \frac34 \beta \gamma(z)\right) + \frac{1}{z-w} \left(-b \d c(z) + \frac14 \d \beta \gamma(z) - \frac34 \beta \d \gamma(z) \right)\\
+			&= \dots + \frac{1}{z-w} \left[T_{matter}(z) - \d b\, c(w) - 2 b \d c(w) - \frac12 \d \beta \gamma(w) - \frac32 \beta \d \gamma(w) \right]\\
+			&= \dots + \frac{T_{matter}(w) + T_{gh}(w)}{z-w} \Rightarrow \{Q_B, b_n\} = L_n
+		\end{aligned}
+	\]
+	Similarly
+	\[
+		j_B(z) \beta(w) = \dots + \frac{G_{matter}(w) + G_{gh}(w)}{z-w} \Rightarrow [Q_B, \beta_n] = G_n
+	\]
+	Now note that the Jacobi identity on $Q_B$ reads:
+	\[
+		\{[Q_B, L_m], b_n \} - \{\overbrace{[L_m, b_n]}^{(m-n)b_{m+n}}, Q_B\} - [\overbrace{\{b_n, Q_B \}}^{L_n}, L_m] = 0 \Rightarrow \{[Q_B, L_m], b_n \} = (m-n) L_{m+n} - [L_m, L_n]
+	\]
+	So if the total central charge is zero we'll get $\{[Q_B, L_m], b_n \} = 0$, implying that $[Q_b, L_m]$ is independent of the $c$ ghost. But on the other hand this operator has ghost number $1$, so it must therefore vanish. Further, the Jacobi identity also yields
+	\[
+		[\{Q_B, Q_B\}, b_n] = - 2 [\{b_n , Q_B\}, Q_B] = 2 [Q_B, L_n]
+	\]
+	since we just showed that this last term vanishes, we must have $Q_B, Q_B$ is also independent of $c$, but again since $Q_B^2$ has positive ghost number, we get that it is in fact zero. We can do the same argument with $\beta$ and $G$ and get that the superstring BRST operator is zero, as long as the total central charge vanishes. This was much cleaner than the OPE way. 
+
+	
+	\item
+	First a lemma: An abelian $p$-form field $A$ has ${D - 2 \choose p}$ on shell DOF. To prove this, note that we have a gauge symmetry of $A \to A + \d \Lambda$ which has ${D \choose p-1}$ parameters.
+	Next, the Euler-Lagrange equations give us that the components $A^{0 i_1 \dots i_{p-1}}$ are non-propagating. We thus get ${D-1 \choose p}$ massless propagating off-shell d.o.f. which have ${D-2 \choose p-1}$ gauge symmetries left over. These can be used to enforce Coulomb gauge conditions which allow for there to be no polarizations along one of the spatial directions. 
+	We thus get ${D-1 \choose p} - {D-2 \choose p-1} = {D - 2 \choose p}$ massless on-shell degrees of freedom. For $A_\mu$ this is $D-2$ and for $B_{\mu \nu}$ this is $(D-2)(D-3)/2$.
+	
+	The metric has $\frac12 D (D-3)$ on-shell degrees of freedom. There are two ways to see this, first, that the dynamically allowed variation $\delta g$ may on-shell be described by a symmetric traceless tensor in dimension $D-2$ which gives
+	\[
+		\frac{(D-1)(D-2)}{2} - 1 = \frac12 D (D-3)
+	\]
+	or by noting that since we are gauging translation symmetry locally, each translation makes $2$ polarizations unphysical and so we get:
+	\[
+		\frac{D(D+1)}{2} - 2 D = \frac12 D (D-3)
+	\]
+	as required.
+	
+	We now consider the R-R, R-NS, NS-R, NS-NS sectors together. For NS-NS we have the scalar $=1$ both on-shell and off-shell, the antisymmetric two-form, which has only transverse degrees of freedom $=8 * 7/2 = 28$ and the gravity, $= 10 * 7/2 = 35$ altogether we get $64$ on-shell degrees of freedom.
+
+	In both the R-NS and NS-R sector, we have a Weyl representation of dimension $2^{5-1} = 16$. There are however only $8$ on-shell degrees of freedom. Similarly, we only consider the on-shell $\psi^\mu_{-1/2}$ acting on the NS part of the vacuum which gives another factor of $8$. This gives $64$ fermionic variables in each sector for a grand total of $128$.
+
+	In R-R for IIA we have a 0, 2, and \emph{self-dual} 4-form. This gives:
+	\[
+	1 + {8 \choose 2} + \frac12 {8 \choose 4} = 64
+	\]
+	For IIB we have a 1 and 3-form. This gives
+	\[
+	{8 \choose 1} + {8 \choose 3} = 64
+	\]
+	so in either case we have 64 on-shell degrees of freedom here. This is consistent with each $\ket{S}$ state having $8$ on-shell degrees of freedom giving $8 \times 8 = 64$. All together, we have the same number of on-shell fermionic and bosonic degrees of freedom. 
+
+	Now for the massive case. In the NS sector you might expect the next excitations come from the bosons $\alpha_{-1}$, but this gets projected out by GSO, so in fact the next states come from $C_{ijk} \psi_{-1}^i \psi_{-1}^j \psi_{-1}^k$ and $C_{ij} \psi_{-1}^i \alpha_{-1}^j$. The physical state conditions will force them to transform as $\mathbf{8}^3$ and $\mathbf{8}^2$. In the R sector, it is quick to see that neither $\alpha_{-1}$ nor $\psi_{-1}$ will satisfy $G_0 = 0$, so the massive state will come from the next level. This will then have mass higher than the NS sector, and so we can ignore it here. 
+
+	Consequently, the NS-NS sector will have a spin 6, spin 4, and two spin 5 massive particles. 	From R-NS and NS-R I can tensor the R vacuum $\ket{S_\alpha}$ or $\ket{C_\alpha}$ with the NS states and get two copies of $\mathbf{8}^4$ and $\mathbf{8}^3$. These will appropriately combine to give representations of $\mathrm SO(9)$. \textbf{SHOW THIS PART}
+
+	
+	Finally, in the RR sector we get massive bosons of larger mass, which we thus disregard . I did not have to find the first massive state in the R sector to do this problem. 
+	
+	\item In terms of theta functions:
+	\[
+	\begin{aligned}
+		\chi_O &= \frac12 \left(\prod_{i=1}^4 \frac{\theta_3(\nu_i)}{\eta} - \prod_{i=1}^4 \frac{\theta_4(\nu_i)}{\eta} \right)\\
+		\chi_V &= \frac12 \left(\prod_{i=1}^4 \frac{\theta_3(\nu_i)}{\eta} + \prod_{i=1}^4 \frac{\theta_4(\nu_i)}{\eta} \right)\\
+		\chi_S &= \frac12 \left(\prod_{i=1}^4 \frac{\theta_2(\nu_i)}{\eta} - \prod_{i=1}^4 \frac{\theta_1(\nu_i)}{\eta} \right)\\
+		\chi_C &= \frac12 \left(\prod_{i=1}^4 \frac{\theta_2(\nu_i)}{\eta} + \prod_{i=1}^4 \frac{\theta_1(\nu_i)}{\eta} \right)\\
+	\end{aligned}
+	\]
+	We'll take $\nu_i = 0$ here \textbf{(I assume this is what I'm supposed to do)} and so $\theta_1 = 0 \Rightarrow \chi_S= \chi_C$.
+	
+	For IIB we look at 
+	\[
+		\frac{|\chi_V - \chi_C|^2}{(\sqrt \tau_2 \eta \bar \eta)^8} = \frac{1}{(\sqrt \tau_2 \eta \bar \eta)^8} \frac12 \sum_{a,b=0}^1 (-1)^{a+b} \frac{\theta^4\twist{a}{b} }{\eta^4}
+		\times \frac12 \sum_{\bar a, \bar b=0}^1 (-1)^{\bar a + \bar b} \frac{\bar \theta^4 \twist{\bar a}{\bar b}}{\bar \eta^4}
+	\]
+	Under modular transformations $\tau \to \tau+1$ $\theta^4\twist01 \leftrightarrow \theta^4\twist00$, $\theta^4\twist10\to-\theta^4\twist10$ while $\eta^{12} \to -\eta^{12}$. In the holomorphic and anti-holomorphic parts separately, each term in the sum picks up a minus sign that is cancelled by the minus sign in the $\eta^4$. 
+	
+	Under $\tau \to -1/\tau$, the $\frac1{(\sqrt{\tau_2} \eta \bar \eta)^8}$ out front is invariant. On the other hand, the $\theta$ functions transform as $\theta^4\twist00 \to (-i\tau)^2 \theta^4\twist00$, $\theta^4\twist01 \to (-i\tau)^2 \theta^4\twist10$, $\theta^4\twist10 \to (-i\tau)^2 \theta^4\twist01$. These are exactly compensated by the $\eta$ transformations in the denominator, and no overall sign is picked up
+	
+	For IIA we have similarly
+	\[
+		\frac{(\chi_V - \chi_C)(\bar \chi_V - \bar \chi_S)}{(\sqrt \tau_2 \eta \bar \eta)^8} = \frac{1}{(\sqrt \tau_2 \eta \bar \eta)^8} \frac12 \sum_{a,b=0}^1 (-1)^{a+b} \frac{\theta^4\twist{a}{b} }{\eta^4}
+		\times \frac12 \sum_{\bar a, \bar b=0}^1 (-1)^{\bar a + \bar b + \bar a \bar b} \frac{\bar \theta^4 \twist{\bar a}{\bar b}}{\bar \eta^4}
+	\]
+	Again, the holomorphic part transforms as before and as we have set the $\nu_i$ to zero, we have the same partition function. Using \textbf{D.18}, we see that each of the four above sums are zero since they are equal to a product of $\theta_1 = 0$.
+	
+ 	\item Again, these are identical if I set the $\nu_i = 0$ (am I not supposed to be doing this? What do the $\nu_i$ represent physically?). They are equal to
+	\[
+		\frac{1}{(\sqrt {\tau_2} \eta \bar \eta)^8 4 \eta^4 \bar \eta^4} (\cancel{|\theta_1^4|^2} + |\theta_2^4|^2 + |\theta_3^4|^3 + |\theta_4^4|^2)
+	\]
+	We have $\theta_3$ and $\theta_4$ swapping under $\tau \to \tau+1$, generating no signs in this case, while the denominator looks like $|\eta|^{24}$ and also doesn't generate a sign. Then, under $\tau \to -1/\tau$ we have $\theta_2$ and $\theta_4$ swapping generating a $|\tau|^4$, identical to what is generated by the $(\eta \bar \eta)^4$. 
+	
+	\item We can write this partition function as:
+	\[
+		\frac12 \frac12 \frac12 \frac{1}{\sqrt{\tau}^8 \eta^{12} \bar \eta^{24}} \sum_{h, g} \sum_{\gamma, \delta, \gamma', \delta'} (-1)^{(\gamma + \gamma') g + (\delta + \delta') h} \bar \theta^8\twist{\gamma}{\delta} \bar \theta^8\twist{\gamma'}{\delta'} \sum_{a,b} (-1)^{a + b + ab + ag + bh + gh} \theta^4 \twist ab
+	\]
+	 under $\tau \to \tau+1$ we have $\theta^4\twist01 \leftrightarrow \theta^4\twist00$, $\theta^4\twist10\to-\theta^4\twist10$ while $\eta^{12} \to -\eta^{12}, \bar \eta^{24} \to \bar \eta^{24}$. And swapping $\theta^4\twist00$ and $\theta^4\twist01$ as well as $\bar \theta^4 \twist00 \bar \theta^4 \twist01$ will give us $(-1)^{1+h}$. 
+	
+	\item 
+	
+	\item
+	
+	\item
+	
+	\item 
+	
+	\item 
+	
+\end{enumerate}
+% section chapter_7_superstrings_and_supersymmetry (end)
+	
+\end{document}
+	

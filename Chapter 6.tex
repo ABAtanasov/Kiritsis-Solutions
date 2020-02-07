@@ -274,18 +274,34 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 	
 	In doing this path integral we get a determinant factor of $\sqrt{4 \pi^2 \ell_s^2/R^2} = 2 \pi \ell_s/R$ for each mode. Using zeta function regularization this is equal to $\sqrt{R/2 \pi \ell_s}$ which we can understand as adding a $-\frac12 \log(R/2 \pi \ell_s)$ term to the action that will couple to the curvature $R$ \textbf{(Show why)}, this shifting the dilaton as required.
 	
-	\item Let's use the conventions of the next problem to do this one. Here, we have a \emph{single} compact coordinate $\theta$. From formula \textbf{F.3} specialized to this case, we get that the metric and Dilaton terms become
+	\item We can simplify things by using the conventions of the next problem to do this one. Here, we have a \emph{single} compact coordinate $\theta$. In our convention:
 	\[
-		\int d^D x \sqrt{-\det \hat G_{\mu \nu}} e^{-2 \Phi} \left[\hat R + 4 (\d_\mu \Phi)^2 \right] = \int d^{D-1}x \sqrt{-\det G_{ij}} e^{-2 \phi} \left[R + 4 (\d_\mu \Phi)^2 + \frac14 (\d_\mu G_{00})^2 - \frac14 G_{00} F_{\mu \nu} F^{\mu \nu}  \right]
+		\hat G_{\mu \nu} = \begin{pmatrix}
+			G_{00} & G_{00} A_j\\
+			G_{00} A_i & g_{ij} + G_{00} A_i A_j
+		\end{pmatrix}, \quad B_{\mu \nu} = B_j d\theta \wedge dx^i + A_i B_j b_{ij} dx_i \wedge dx_j, \quad \phi = \Phi - \frac14 \log \det G_{00}
 	\]
-	where $F_{\mu \nu} = \d_\mu A_\nu - \d_\nu A_\mu$ and $R$ corresponds to $G_{ij}$ while $\hat R$ corresponds to the original $\hat G_{\mu \nu}$. From \textbf{F.6-F.9}, the antisymmetric tensor changes as:
-	\[
-		-\frac1{12} \int d^D \sqrt{-\det \hat G} e^{-2\Phi} \hat H_{ijk} \hat H^{ijk} = - \int d^{D-1} x \sqrt{-\det G}\left[\frac1{12} H_{ijk} H^{ijk} + \frac14 \hat H_{ij0} \hat H^{ij0} \right]
-	\]
-	where $H_{ij0} = \hat H_{ij0}$ and $H_{ijk} = \hat H_{ijk} - (A_i H_{0jk} + 3 \perms)$. 
+	 From formula \textbf{F.3} specialized to this case, we get that the metric and dilaton terms become
+	\begin{equation}\label{eq:gdil}
+		\int d^D x \sqrt{-\det \hat G_{\mu \nu}} e^{-2 \Phi} \left[\hat R + 4 (\d_\mu \Phi)^2 \right] = \int d^{D-1}x \sqrt{-\det g}\, e^{-2 \phi} \left[R + 4 (\d_\mu \phi)^2 + \frac14 \d_\mu G_{00} \d^\mu G^{00} - \frac14 G_{00} (F^A_{\mu \nu})^2\right]
+	\end{equation}
+	where $F_{\mu \nu} = \d_\mu A_\nu - \d_\nu A_\mu$ and $\hat R$ corresponds to the original $\hat G_{\mu \nu}$ while $R$ corresponds to $g_{ij}$. Further $G^{00} = $
 	
-	Now under T-duality $G_{00} \to G_{00}^{-1}$ so that $(\d_\mu G_{00})^2 \to G_00^{-2} (\d_\mu G_00)^2$. \textbf{FINISH}
-	
+	From \textbf{F.6-F.9}, the antisymmetric tensor changes as:
+	\begin{equation}\label{eq:b}
+		-\frac1{12} \int d^D \sqrt{-\det \hat G}\, e^{-2\Phi} \hat H_{ijk} \hat H^{ijk} = - \int d^{D-1} x \sqrt{-\det g} \, e^{-2 \phi} \left[\frac1{12} H_{ijk} H^{ijk} + \frac14 \hat H_{ij0} \hat H^{ij0} \right]
+	\end{equation}
+	Here where $H_{ij0} = \hat H_{ij0}$ and $H_{ijk} = \hat H_{ijk} - (A_i H_{0jk} + 3 \perms)$.  Here $H_{ijk}$ is defined so that it is invariant under $T$-duality \textbf{(TYSM Kiritsis for pre-organizing these terms for me)} . Further, under T-duality
+	\begin{equation}\label{eq:Tdual}
+		\begin{aligned}
+			G_{00} &\to G_{00}^{-1} = G^{00} \Rightarrow \d_\mu G_{00} \d^\mu G^{00} \text{ invariant}\\
+			g_{ij} &\to g_{ij} \Rightarrow R  \text{ invariant} \\
+			A_i &\to B_i\\
+			B_i &\to A_i\\
+			\Phi &\to \Phi - \frac12 \log G_{00}\Rightarrow \phi \to \phi \Rightarrow (\d_\mu \phi)  \text{ invariant}.
+		\end{aligned}		
+	\end{equation}
+	We see that the $\sqrt{- \det g} \, e^{-2\phi}$ as well as first three terms of equation \eqref{eq:gdil}. We have that $F_{\mu \nu}^A \to \d_\mu B_\nu - \d_\nu B_\mu =: F^B_{\mu \nu}$ and $F^B_{ij} = H_{ij0}$. The last term of \eqref{eq:gdil} will therefore  become  swap with the last term of \eqref{eq:b} and we are done.
 	
 	\item This one is quick. We have
 	\[

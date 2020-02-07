@@ -24,6 +24,20 @@
 \section*{Chapter 5: Scattering Amplitudes and Vertex Operators} % (fold)
 \label{sec:chapter_5_scattering_amplitudes_and_vertex_operators}
 \begin{enumerate}
+	\setcounter{enumi}{-1}
+	\item A worthwhile exercise (that is not in the book) is to show that we have the correct Regge behavior at large $s$, fixed $t$. From Stirling's approximation for large $s$, we have $\frac{\Gamma(a + s)}{\Gamma(b + s)} \sim s^{a-b}$, so:
+	\[
+	\begin{aligned}
+		S_{4} (s, t, u) &\sim % \frac{8 \pi i}{\ell_s^2} g_s^2 \sdelta^{26}(\Sigma p) \times 2\pi
+		  \frac{\Gamma(-1 - \ell_s^2 t/4) \, \Gamma(-1 - \ell_s^2 s/4)\Gamma(3 + \ell_s^2 t/4 + \ell_s^2 s/4)}{\Gamma(2 + \ell_s^2 t/4) \, \Gamma(2 + \ell_s^2 s/4)  \Gamma(-2-\ell_s^2 t/ 4 - \ell_s^2 s/4)} \sim \frac{\Gamma(-1 - \ell_s^2 t/4)}{\Gamma(2 + \ell_s^2 t/4)} s^{1 + \ell_s^2 t/4} \frac{\Gamma(-1 - \ell_s^2 s/4)}{\Gamma(-2 -\ell_s^2 t/4 - \ell_s^2 s/4)}\\
+		  & = \frac{\Gamma(-1 - \ell_s^2 t/4)}{\Gamma(2 + \ell_s^2 t/4)} s^{1 + \ell_s^2 t/4} \frac{\Gamma(3 +\ell_s^2 t/4 + \ell_s^2 s/4)}{\Gamma(2 + \ell_s^2 s/4)} \frac{\sin(\ell_s^2 (s + t)/4)}{\sin(\ell_s^2 s/ 4)} \\
+		  & \to \frac{\Gamma(-1 - \ell_s^2 t/4)}{\Gamma(2 + \ell_s^2 t/4)}  \frac{\sin(\ell_s^2 (s + t)/4)}{\sin(\ell_s^2 s/ 4)} s^{2 + \ell_s^2 t/2}
+	\end{aligned}
+	\]
+	Using the same argument, in the large $s, t, u$ limit, we get the following soft behavior: 
+	\[
+		S_4(s, t, u) \sim \frac{s^{-1-\ell_s^2 s/4} t^{-1 - \ell_s^2 t/4} u^{-1-\ell_s^2 u/4}}{s^{2+\ell_s^2 s/4} t^{2 + \ell_s^2 t/4} u^{2+\ell_s^2 u/4}} \sim e^{-\frac{\ell_s^2}{2}((s+3) \log s + (t+3) \log t + (u+3) \log u)} \to e^{-\frac{\ell_s^2}{2} (s \log s + t \log t + u\log u)}
+	\]
 	\item
 	Note that we need 3 more $c$ ghosts than be ghosts since the difference of the zero modes must be three. Now, $c$ has scaling dimension $1$ and $b$ has scaling dimension $-2$ so the total scaling of the correlator $\braket{\prod_{i=1}^{n+3} c(z_i) \prod_{j=1}^n b(w_j)}$ will be $3-n$. Thus, viewed in the complex plane, we expect it to be a homogenous rational function of degree exactly $3-n$.
 	
@@ -348,7 +362,18 @@
 	\]
 	Taking the product of the above three equations (with only a single momentum-conserving delta function) gives us the $X$ correlator on the cylinder. The CKG here is simply the compact $SO(2)$ so it is best to ignore ghosts, integrate the insertions over the whole cylinder and divide at the end by the volume of the $SO(2)$ action: $\lambda$. 
 	
-	\textbf{Revisit this}
+	There is a cleaner way to do this. From exercise \textbf{4.69} we know the cylinder propagator can be written in terms of the torus propagator as an involution:
+	\[
+		\Delta_{C_2}(z- w) = \Delta(z - w, i t) + \Delta(z + \bar w, i t)
+	\]
+	Here $\Delta = -\frac{\ell_s^2}{2} \log G(z, \bar z)$ from the problem above. This will then give us for $m$ closed string and $n$ open string tachyons:
+	\[
+	\begin{aligned}
+		\braket{\prod_{i} :\!e^{i p_i X(z_i)}\!: \prod_{I} {_\star^\star} e^{i q_I X(w_I)} {^\star_\star} } = & i \sdelta^D g_c^m g_o^n \int_0^\infty \frac{dt}{2t (8 \pi^2 \ell_s^2 t)^{13} \eta(it)^{24}} \prod_{i=1}^m \int_{C} dz_i \, \prod_{I=1}^n \, \int_{\d C} dw_I  \\
+		& \times \prod_{i<j} [G(z_i-z_j; \tau = it) G(z_i + \bar z_j; \tau = it)]^{\ell_s^2 p_i \cdot p_j/2}  \prod_{I<J}^n G(w_I-w_J; \tau = it)^{\ell_s^2 q_I \cdot q_j}\\
+		& \times \prod_{i, I} [G(w_I - z_i; \tau = it) G(w_I + \bar z_i; \tau = i t)]^{\ell_s^2 p_i \cdot q_I/2}
+	\end{aligned}
+	\]
 	% Let's first start with the infinite strip:$-1 < \mathrm{Im}(z) < 1$. We can map the upper half plane to this by using $\frac{1}{\pi} \log(z)$. We get:
 	% \[
 	% 	X(z) X(\bar z)= - \frac{\ell_s^2}{2} \frac{1}{(z-\bar z)^2} \to -\frac{\ell_s^2}{2} \frac{\pi}{2i} \frac{1}{\sinh(\pi )}

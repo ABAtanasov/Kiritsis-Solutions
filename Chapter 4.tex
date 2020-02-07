@@ -1139,7 +1139,17 @@
 	\[
 		S = \frac{1}{4\pi \ell_s^2} \int d^2 z \sqrt{g} g^{\alpha \beta} \d_\alpha X \d_\beta X + \frac{Q}{4 \pi \ell_s \sqrt 2} \int d^2 z \sqrt{g} R^{(2)} X = \frac{1}{2\pi \ell_s^2} \int d^2 z \d X \bar \d X + \frac{Q}{4 \pi \ell_s \sqrt 2} \int d^2 z \, X
 	\]
-	\textbf{Come back to this problem.}
+	This gives:
+	\[
+		T = - \frac{1}{\ell_s^2} \d X \d X + \frac{Q}{\ell_s \sqrt 2} \d^2 X - \frac12 \psi \d \psi, \quad G = i \frac{\sqrt 2}{\ell_s} \psi \d X - i Q \d \psi
+	\]
+	The $TT$ OPE will give central charge $\frac32 + 3 Q^2$. $G$ remains primary, so we'll have $T G = \frac32 \frac{G(w)}{(z-w)^2} + \frac{\d G(w)}{z-w}$. Finally, $G G$ will give
+	\[
+		\frac{1}{(z-w)^3} + \frac{2 Q^2}{(z-w)^3} + \cancel{\frac{\frac{\sqrt 2}{\ell_s} Q \d X - \frac{\sqrt 2}{\ell_s} Q \d X}{(z-w)^2}} + \frac{2T}{z-w}
+	\]
+	so we get $\hat c = 1 + 2 Q^2$ as desired. 
+	
+	Now for $\mathcal N = 2$, following the same example, we still get get same $TT$ OPE and $G^{\pm}$ remains primary, so we have the $T G^\pm$ OPE staying the same. The $G G$ OPE will have $\hat c = 1 + 2 Q^2$ as before and $J$ will have to be modified to include $\d^2 X$ so as to remain primary under $T$.
 
 	\item For $X$ a compact scalar valued in $S^1$ of radius $R$ we have the solutions $X = 2\pi R (n \sigma_1 + m \sigma_2)$, which have vanishing Laplacian. The action of these instanton solutions is:
 	\[
@@ -1365,24 +1375,24 @@
 	exactly as we wanted. 
 	
 	\item Define the orbifold partition function as
-		\[
-			^+\underset{+}{\BoxPlz}' = \frac12 \left( \,^+\underset{+}{\BoxPlz} + ^-\underset{+}{\BoxPlz} + ^+\underset{-}{\BoxPlz} + ^-\underset{-}{\BoxPlz} \right)
-		\]
-		Note that the orbifolded theory itself has a $\ZZ_2$ symmetry obtained by taking all the states in the $\ZZ_2$ twisted sectors to minus themselves:
-		\[
-			^\pm\underset{+}{\BoxPlz} \to ^\pm\underset{+}{\BoxPlz}, \qquad ^\pm\underset{-}{\BoxPlz} \to - ^\pm\underset{-}{\BoxPlz}
-		\]
-		I can now \emph{orbifold again} by this symmetry, defining (as before):
-		\[
-		\begin{aligned}
-			&^\pm\underset{+}{\BoxPlz}' = \frac12 \left( \,^+\underset{+}{\BoxPlz} + ^-\underset{+}{\BoxPlz} \pm ^+\underset{-}{\BoxPlz} \pm ^-\underset{-}{\BoxPlz} \right)\\
-			& ^\pm\underset{-}{\BoxPlz}' = \frac12 \left( \,^+\underset{+}{\BoxPlz} - ^-\underset{+}{\BoxPlz} \pm ^+\underset{-}{\BoxPlz} \mp ^-\underset{-}{\BoxPlz} \right)
-		\end{aligned}
-		\]
-		Then forming the new partition function of this double orbifold theory I see that almost everything cancels:
-		\[
-			\frac12 \left( \,^+\underset{+}{\BoxPlz}' + ^-\underset{+}{\BoxPlz}' + ^+\underset{-}{\BoxPlz}' + ^-\underset{-}{\BoxPlz}' \right) = ^+\underset{+}{\BoxPlz}
-		\]
+	\[
+		^+\underset{+}{\BoxPlz}' = \frac12 \left( \,^+\underset{+}{\BoxPlz} + ^-\underset{+}{\BoxPlz} + ^+\underset{-}{\BoxPlz} + ^-\underset{-}{\BoxPlz} \right)
+	\]
+	Note that the orbifolded theory itself has a $\ZZ_2$ symmetry obtained by taking all the states in the $\ZZ_2$ twisted sectors to minus themselves:
+	\[
+		^\pm\underset{+}{\BoxPlz} \to ^\pm\underset{+}{\BoxPlz}, \qquad ^\pm\underset{-}{\BoxPlz} \to - ^\pm\underset{-}{\BoxPlz}
+	\]
+	I can now \emph{orbifold again} by this symmetry, defining (as before):
+	\[
+	\begin{aligned}
+		&^\pm\underset{+}{\BoxPlz}' = \frac12 \left( \,^+\underset{+}{\BoxPlz} + ^-\underset{+}{\BoxPlz} \pm ^+\underset{-}{\BoxPlz} \pm ^-\underset{-}{\BoxPlz} \right)\\
+		& ^\pm\underset{-}{\BoxPlz}' = \frac12 \left( \,^+\underset{+}{\BoxPlz} - ^-\underset{+}{\BoxPlz} \pm ^+\underset{-}{\BoxPlz} \mp ^-\underset{-}{\BoxPlz} \right)
+	\end{aligned}
+	\]
+	Then forming the new partition function of this double orbifold theory I see that almost everything cancels:
+	\[
+		\frac12 \left( \,^+\underset{+}{\BoxPlz}' + ^-\underset{+}{\BoxPlz}' + ^+\underset{-}{\BoxPlz}' + ^-\underset{-}{\BoxPlz}' \right) = ^+\underset{+}{\BoxPlz}
+	\]
 
 	\item Take $\ell_s = 1$ here. The partition function will still have 1 twisted sector and a single projection. So we need to consider $4$ terms. We have $Z\twist00 = Z(R_1, R_2) = Z(R_1) Z(R_2)$. Our vertex operators are labelled by $(m_1, n_1, m_2, n_2)$, and $g$ acts as $(m_1, n_1, m_2, n_2) \to (-1)^{m_2} (-m_1, -n_1, m_2, n_2)$. And so:
 	\[

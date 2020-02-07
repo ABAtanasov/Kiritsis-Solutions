@@ -14,4 +14,7 @@
 \subpreamble{"Chapter 6".tex}
 \usepackage {amsmath,amssymb,amsfonts,amsthm}\usepackage {enumitem}\usepackage {fancyhdr}\usepackage {tikz-cd}\usepackage {mathabx}\usepackage {geometry}\usepackage {natbib}\usepackage {braket}\usepackage {graphicx}\usepackage {simpler-wick}\usepackage {hyperref}\usepackage {cancel}\usepackage {listings}\usepackage {relsize}\usepackage {xcolor}\usepackage {stmaryrd}\usepackage {tikz-feynman}\usepackage {kiritsis}\geometry {margin = 0.5in}
 \endsubpreamble
+\subpreamble{"Chapter 7".tex}
+\usepackage {amsmath,amssymb,amsfonts,amsthm}\usepackage {enumitem}\usepackage {fancyhdr}\usepackage {tikz-cd}\usepackage {mathabx}\usepackage {geometry}\usepackage {natbib}\usepackage {braket}\usepackage {graphicx}\usepackage {simpler-wick}\usepackage {hyperref}\usepackage {cancel}\usepackage {listings}\usepackage {relsize}\usepackage {xcolor}\usepackage {stmaryrd}\usepackage {tikz-feynman}\usepackage {kiritsis}\geometry {margin = 0.5in}
+\endsubpreamble
 \endstandalonepreambles
