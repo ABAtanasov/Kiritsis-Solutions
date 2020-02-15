@@ -2,4 +2,7 @@
 *.log
 *.out
 *.gz
-
+*.lb
+*latexmk
+*.fls
+*watcher_pid
