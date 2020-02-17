@@ -263,10 +263,29 @@
 	\[
 		\begin{aligned}
 			\text{NN:}\quad & \Omega \psi_r \Omega^{-1} = (-1)^r \psi_r \\ 
-			\text{DD:}\quad & \Omega \psi_r \Omega^{-1} = - (-1)^r \psi_r
+			\text{DD:}\quad & \Omega \psi_r \Omega^{-1} = - (-1)^r \psi_r.
 		\end{aligned}
 	\]
-	\item The characters for $O(32)$ are $\frac12 \frac{\theta^{16} \twist ab}{\eta^16}$ and the characters for $O(8)$ are $\frac12 \frac{\theta^4 \twist ab}{\eta^4}$. Each of these has $4$ sectors, so there are $16$ sectors that we can choose from. \textbf{Finish}
+	\item Let's first not twist the left sector with the right one. We can either take all the 32 fermions together and orbifold by $(-1)^F$. This gives the partition function for the $\SO(32)$ heterotic string $\frac12 \sum_{ab} \theta^16 \twist ab$. We can also split them up into groups of 16 + 16 and orbifold by $(-1)^{F_1}$ and $(-1)^{F_2}$ on each of the two groups ($\cong \ZZ_2^2$). This gives the partition function for the $E_8 \oplus E_8$ heterotic string $\left(\frac12 \sum_{ab} \theta^8 \twist ab\right)^2$. We cannot split things any further, since splitting the fermions into groups of $8$ will require us to have minus signs between the different sectors in order to keep modular invariance. This would give negative weight to the R sector (which would give the wrong spin-statistics, since the $R$ sector ground state are spacetime scalars) correspond do doing the projection $(-1)^F = -1$ in the NS sector (which would not close under OPE). 
+	
+	We also have no other internal symmetry to twist the right-movers by. The remaining partition functions that we can write down necessarily must twist together the fermions on the left-moving and right-moving sides.
+	
+	The simplest thing we can twist by is $(-1)^{F_L} (-1)^{F_R}$ \emph{diagonally now} rather than separately. Our fermion partition function will be:
+	\[
+		\frac12 \sum_{ab} \frac{(-1)^{a + b + ab} \theta^4 \twist ab \bar \theta^{16} \twist ab}{\eta^4 \bar \eta^{16}}
+	\]
+	Here all the fermions are either R or NS and have been projected out by $(-1)^{F_L + F_R} = 1$
+	This theory is consistent, but at level $0$ we have the tachyon associated with the identity. The normalization is of the identity is indeed 1.  
+	
+	Now lets try to twist this further. Note that twisting this theory by $(-1)^F_R$ or $(-1)^F_L$ would just give group elements $\frac{1 + (-1)^{F_L + F_R}}{2} \frac{1 + (-1)^{F_R}}{2} = \frac{1 + (-1)^{F_L}}{2} \frac{1 + (-1)^{F_R}}{2}$ so we would recover the $\SO(32)$ superstring. 
+	
+	Consider instead twisting by $(-1)^{F_{R, 1}}$ which flips the sign of the first 16 righr-moving fermions. 
+		%
+	% The characters for $O(32)$ are $\frac12 \frac{\theta^{16} \twist ab}{\eta^16}$ and the characters for $O(8)$ are $\frac12 \frac{\theta^4 \twist ab}{\eta^4}$. Each of these has $4$ sectors, so there are $16$ sectors that we can choose from.
+	
+	
+	
+	We thus have 9 theories satisfying modular invariance, spin-statistics. Six of them have tachyons, so we get \textbf{three} theories left over. Of these three, only two have spacetime supersymmetry--exactly heterotic O and heterotic E. 
 	
 	\item I think this problem is backwards. For 32 fermions \emph{all} with the same boundary conditions, its immediate to see that they will reproduce the partition function for the $\mathrm{Spin}(32)/\ZZ_2$ string:
 	\[
@@ -278,47 +297,109 @@
 	\]
 	\item Note this was a Lorentzian lattice of signature $(n,n)$. The norm was thus $P_L^2 - P_R^2 = 2 m n \in 2 \ZZ$. It is also self dual, since it is already integral, and there is no integral sublattice. 
 	
-	\item Recall upon bosonization $\beta(z) = e^{-\phi(z)} \d \xi(z), \gamma = e^{\phi(z)} \eta(z)$. Written in terms of the bosonic coordinates, we have
+	\item We have
 	\[
-		\gamma G_{ghost} = c \gamma \d \beta - \frac32 \d c \gamma \beta, \quad c T_{ghost} = 2 b c \d c - \frac12 c \gamma \d \beta - \frac32 c \d \gamma \beta
+		\gamma G_{ghost} = -c \gamma \d \beta - \frac32 \d c \gamma \beta - 2 \gamma^2 b, \quad c T_{ghost} = 2 b c \d c - \frac12 c \gamma \d \beta - \frac32 c \d \gamma \beta
 	\]
-	We can rewrite $\beta \gamma(z) = \gamma \beta(z) = \d \phi(z)$. It will be nice to take $\eta = e^{-\chi}, \xi = e^{\chi}$ so that $\eta \xi(z) = \d \chi(z)$. We're about to take a lot of normal orderings. It'll be easy to proceed knowing that the normal-ordered operator $:AB:(w)$ is just the constant term in the OPE $A(z) \cdot B(w)$. 
-	
-	We have a few simplifications in order first:
+	\textbf{Here Kitisis' conventions are different than Polchinski.}= Recall upon bosonization $\beta(z) = e^{-\phi(z)} \d \xi(z), \gamma = e^{\phi(z)} \eta(z)$. 
+	Although we can solve this problem very quickly since we already know what the stress tensor looks like in the bosonized variables, I think it's way more instructive to explicitly compute OPEs to $O(z-w)$. First let's look at the $\eta, \xi$ theory, which is a fermoinic $bc$ theory of weights $1, 0$. We get
 	\[
-		:\d \phi e^{-\phi}:(z) = \d^2 \phi(z)
+		\xi(z) \eta(w) = \frac{1}{z-w} + :\xi \eta:(w) + O(z-w)
 	\]
-	
+	We can bosonize this theory in terms of hermitian $\chi$ field so that $\eta = e^{-\chi}, \xi = e^{-\chi}$. Using these coordinates
 	\[
 	\begin{aligned}
-		G_{ghost} &= c \d \phi e^{-\phi} \d\xi - c e^{-\phi} \d^2 \xi - 2 e^{\phi} \eta b - \frac32 \d c e^\phi \eta\\
-	T_{ghost} &= \underbrace{-2 b \d c - \d b\, c}_{T_{bc}} + \underbrace{\frac12 e^{\phi} \eta \d \phi e^{-\phi} \d \xi}_{} - \frac12 e^{\phi} \eta e^{-\phi} \d^2 \xi  - \frac32 \d \phi e^\phi \eta e^{-\phi} \d \xi - \frac32 e^\phi \d \eta e^{-\phi} \d \xi \\
-	& = \underbrace{-2 b \d c - \d b\, c}_{T_{bc}} - \frac12 (\d\phi)^2 + \frac12 (\d \chi)^2
-	\\& \Rightarrow c T_{ghost} = 2 b c \d c + c \left(-\frac12 (\d \phi)^2 \right)
+		\xi(z) \eta(w) &= e^{\chi(z)} e^{-\chi(w)} = \frac{1}{z-w} \left[1 + (z-w) \d \chi + \frac12 (z-w)^2 (\d^2 \chi + (\d \chi)^2)  + \dots \right]\\
+		\Rightarrow \d \xi(z) \eta(w) &= -\frac{1}{(z-w)^2} + \frac12 (\d^2 \chi + (\d \chi)^2)
 	\end{aligned}
 	\]
+	Using this we can write
+	\[
+	\begin{aligned}
+		\beta(z) \gamma(w) &= e^{-\phi(z)} \d \xi(z) \, e^{\phi(w)} \eta(w) \\
+		&= (z-w) \left[1 - (z-w) \d \phi(w) + \frac12 (z-w)^2 ((\d\phi)^2 - \d^2 \phi) \right] \left[-\frac{1}{(z-w)^2} + \frac12 (\d^2 \chi + (\d \chi)^2) \right]
+	\end{aligned}
+	\]
+	The constant term gives $:\!\!\beta \gamma\!\!: = \d \phi \Rightarrow :\!\d(\beta \gamma)\!: = \d^2 \phi$. The $(z-w)$ term gives exactly the stress tensor of the $\beta \gamma$ theory at $\lambda = 0$, which makes sense since this is exactly $\d \beta \gamma$
+	\[
+	\begin{aligned}
+		:\!\d \beta \gamma\!: &= -\frac12 (\d \phi)^2 + \frac12 \d^2 \phi + \frac12 (\d\chi)^2 + \frac12 \d^2 \chi\\
+		\Rightarrow 	T_{\beta \gamma } &= \d \beta \gamma - \lambda \d(\beta \gamma) = -\frac12 (\d \phi)^2 + \left(\frac12 - \lambda\right) \d^2 \phi + \frac12 (\d\chi)^2 + \frac12 \d^2 \chi.
+	\end{aligned}
+	\]
+	In our case we have $\lambda = 3/2$. % but we will leave $\lambda$ in, unevalauted. In terms of these nice bosonic variables we have 
+	\[
+	\begin{aligned}
+		\gamma G_{ghost} &= -c \left(-\frac12 (\d \phi)^2 + \frac12 \d^2 \phi + \frac12 (\d\chi)^2 + \frac12 \d^2 \chi\right) - \frac32 \d \phi\, \d c - 2 \gamma^2 b\\
+		c T_{ghost} &= 2 b c \d c + c \left(-\frac12 (\d \phi)^2 - \d^2 \phi + \frac12 (\d\chi)^2 + \frac12 \d^2 \chi \right)
+	\end{aligned}
+	\]
+	Altogether this gives a BRST current:
 	\[
 	\begin{aligned}
 		j_B &= c T_X + \gamma G_X +  \frac12 \left(c T_{gh} + \gamma G_{gh} \right)\\
-		&=  c T_X + b c \d c + 
+		&=  c T_X + \gamma G_X + b c \d c - \frac34 \d \phi \d c - \frac34 c \d^2 \phi - \gamma^2 b
 	\end{aligned}
 	\]
-	\textbf{Finish}
-	\item The rest of the terms of the fermion vertex are \textbf{Finish}
+	\item We are looking at $[Q_B, \xi e^{-\phi/2} S_\alpha e^{i p X}]$. It suffices to look at the $1/(z-w)$ pole in the OPE of $j_B$ with $\xi e^{-\phi/2} S_\alpha e^{i p X}$. The terms that contribute to this pole must involve pairing $\xi$ with its conjugate $\eta$. $\eta$ appears in $j_B$ wherever $\gamma = e^{\phi} \eta$ appears. From the previous exercise, we see that we need only look at the terms $\gamma G_X$ and $-\gamma^2 b$.
 	
-	\textbf{Answer:}
+	These two terms contribute poles:
 	\[
-		\left[e^{\phi/2} \Gamma_{\alpha \beta}^\mu S^\beta \d X^\mu + e^{\phi/2} \Gamma_{\alpha \beta}^\mu S^\beta i p \cdot \psi \psi^\mu + e^{3 \phi/2} \eta b S_\alpha
-		\right] e^{i p X} u^\alpha(p)
+		- \left[\frac{ :e^{\phi/2} G_X S_\alpha e^{i p X}: }{z-w} - \frac{:e^{3\phi/2} \eta b S_\alpha e^{i p X}: }{z-w} \right]
+	\]
+	The minus sign comes from commuting across an odd number of fermions for the Wick-contraction. We will need to recall two things:
+	\[
+		\psi^\mu(z) \cdot S_\alpha(w) \sim \frac{\ell_s^2}{\sqrt 2 {\sqrt{z-w}}} \left( \Gamma^\mu_{\alpha \beta} S^{\beta}(w) +  \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu \psi^\mu (z-w) \right),
+		\quad e^{\phi(z)} e^{-\phi(w)/2} \sim i \sqrt{z-w} e^{\phi(w)/2}
+	\]
+	\textbf{Justify the $i$ in that last OPE}. That means that  first term is:
+	\[
+	\begin{aligned}
+		e^{\phi (z)} i \frac{\sqrt{2}}{\ell_s^2} &\psi^\mu(z) \d X_\mu(z) \cdot e^{-\phi(w)/2} S_\alpha(w) e^{i p X(z)} \\
+		&\sim  i \frac{\sqrt 2}{\ell_s^2} \,\sqrt{z-w} \, e^{\phi(w)/2} \left(i \frac{\ell_s^2}{\sqrt 2} \frac{\Gamma_{\alpha \beta}^{\mu} S^\beta \d X_\mu e^{i p \cdot X}}{\sqrt{z-w}} + i  \frac{-i p_\mu e^{i p \cdot X}}{z-w} \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu \psi^\mu \sqrt{z-w} \right)\\
+		& = -e^{\phi/2} \left( \Gamma^\mu_{\alpha \beta} S^\beta \d X_\mu 
+		- i \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu p \cdot \psi  \right) e^{i p \cdot X}
+	\end{aligned}
+	\]
+	Note this OPE has no singularity, so we exactly got the normal ordered term we required: $:e^{\phi/2} G_X S_\alpha e^{i p \cdot X}:$. 
+	Altogether this gives us:
+	\[
+		V^{(1/2)}_{\text{fermion}} (u, p) = \left[e^{\phi/2} \Gamma_{\alpha \beta}^\mu S^\beta \d X^\mu -i e^{\phi/2} \Gamma_{\alpha \beta}^\nu S^\beta \psi_\nu p \cdot \psi  + e^{3 \phi/2} \eta b S_\alpha
+		\right] e^{i p X} u^\alpha(p).
 	\]
 	\item It is useful to note that we can write the PCO
 	\[
 		X(z) := Q_B \xi (z) = T_F \delta(\beta(z)) - \d b \delta'(\beta(z))
 	\]
 	In the language of Polchinski, $\delta(\gamma) = e^{-\phi}, \delta(\beta) = e^{\phi}$.  \textbf{Finish}
-	\item \textbf{Finish}
+	\item It is enough to look at the $1/(z-w)$ term in the OPE
+	\[
+		e^{-\phi(z)/2} S_\alpha(z) V^{(-1/2)}_{\text{fermion}}(w) = e^{-\phi(z)/2} S_\alpha(z) u^\beta(p) e^{-\phi(w)/2} S_\beta(w) e^{i p \cdot X(w)}
+	\]
+	We will use the fact of \textbf{4.12.42}:
+	\[
+		S_\alpha(z) S_\beta(w) = \frac{C_{\alpha \beta}}{(z-w)^{N/8}} + \frac{\Gamma^\mu_{\alpha \beta} \psi_\mu(w)}{\sqrt 2 (z-w)^{N/8-1/2}}
+	\]
+	where $C_{\alpha \beta}$ is the charge conjugation matrix and here $N=8$. The only solution is if $e^{\phi(z)/2} e^{-\phi(w)/2} \sim \frac{\sqrt{2} e^{-\phi(w)}}{\sqrt{z-w}}$ \textbf{Why would this possibly happen?}. This leaves the $(z-w)^{-1}$ term to be the requisite 
+	\[
+		e^{-\phi} u^\beta(p) \Gamma^\mu_{\alpha \beta} \psi_\mu e^{i p \cdot X} = V^{(-1)}_{\text{boson}}	
+	\] 
 	
-	\item \textbf{Finish}
+	For the second one, we will look at the $(z-w)^{-1}$ term in the OPE
+	\[
+		e^{-\phi(z)/2} S_\alpha(z) \epsilon_\mu \left(\d X^\mu- \frac i2 p_\mu \psi^\mu\, \psi^\nu \right) e^{i p \cdot X}.
+	\]
+	The first term in parentheses will not contribute to the singular term. Also the $e^{-\phi/2}$ and $e^{i p \cdot X}$ contract with nothing. Here, we use \textbf{4.12.41} to evaluate
+	\[
+		 S_\alpha(z) \cdot \underbrace{\psi^\mu \psi^\nu}_{J^{\mu \nu}} (w) \sim - \frac{(\Gamma_{\mu \nu})^\beta_\alpha S_\beta (w)}{2 (z-w)}
+	\]
+	The $-$ sign comes from the fact that the fermion current is coming from the \emph{right} this time so $z$ and $w$ are swapped.  
+	This gives a variation
+	\[
+		e^{-\phi/2} i p^\mu \epsilon^\nu (\Gamma_{\mu \nu})^{\beta}_{\alpha} S_\beta e^{i p \cdot X} = V^{(-1/2)}_{\text{boson}}
+	\]
+	\textbf{I'm off by \emph{two} factors of $2$ }
+	\item 
 	
 	\item 
 	
@@ -332,7 +413,7 @@
 	\]
 	where $G_4$ is the field strength of the 3-form $\hat C$. From Appendix F, we have that the dilaton $\Phi = 0$ in 11D. So the field $\sigma$ will just be $-2\phi = \frac12 \log G_{00}$, and $A$ here is as it is in appendix \textbf{F}. Directly using the bosonic equation \textbf{F.3} gives the terms
 	\[
-		\frac{1}{2\kappa^2 }\int d^10 x \sqrt g e^{\sigma} \left[R - \frac14 e^{2\sigma} F_2^2  \right]
+		\frac{1}{2\kappa^2 }\int d^8 x \sqrt g e^{\sigma} \left[R - \frac14 e^{2\sigma} F_2^2  \right]
 	\]
 	Now let's look at the $3$-form potential contribution. Because $F$ is antisymmetric in all four indices, and we only are compactifying along one dimension, only the first two terms of \textbf{F.28} can contribute. They give
 	\[
