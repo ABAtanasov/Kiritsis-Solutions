@@ -246,7 +246,7 @@
 	\]
 	This is the twisted sector. The last sum picks up a minus sign under orientation reversal, and so will be projected out. We are left with the equations of motion for the open string.
 	
-	\item In NS we have (up to a factor of $i^{-1/2}$)
+	\item In NS we have (up to an overall irrelevant factor of $i^{-1/2}$)
 	\[
 		\psi(\sigma, \tau) = \sum_{n\in \ZZ} \psi_{n+1/2} e^{(n+1/2) (\tau + i \sigma)}, \quad \bar \psi(\sigma, \tau) = \sum_{n\in \ZZ} \bar \psi_{n+1/2} e^{(n+1/2) (\tau - i \sigma)}
 	\]
@@ -266,24 +266,41 @@
 			\text{DD:}\quad & \Omega \psi_r \Omega^{-1} = - (-1)^r \psi_r.
 		\end{aligned}
 	\]
-	\item Let's first not twist the left sector with the right one. We can either take all the 32 fermions together and orbifold by $(-1)^F$. This gives the partition function for the $\SO(32)$ heterotic string $\frac12 \sum_{ab} \theta^16 \twist ab$. We can also split them up into groups of 16 + 16 and orbifold by $(-1)^{F_1}$ and $(-1)^{F_2}$ on each of the two groups ($\cong \ZZ_2^2$). This gives the partition function for the $E_8 \oplus E_8$ heterotic string $\left(\frac12 \sum_{ab} \theta^8 \twist ab\right)^2$. We cannot split things any further, since splitting the fermions into groups of $8$ will require us to have minus signs between the different sectors in order to keep modular invariance. This would give negative weight to the R sector (which would give the wrong spin-statistics, since the $R$ sector ground state are spacetime scalars) correspond do doing the projection $(-1)^F = -1$ in the NS sector (which would not close under OPE). 
+	\item Let's clarify a bit of terminology before we begin. We are looking at just the fermions of the left moving and right moving sides of the heterotic string theory. On the left-hand (supersymmetric) side, in the light-cone gauge these form an $\widehat{O(8)}$ current algebra at \emph{level 1}. On the right-hand side the form a $\widehat{O(32)}$ current algebra at level 1 again (\textbf{why must we always have level 1? Ask Xi.}). In both cases the left and right fermions share the same boundary conditions.
 	
-	We also have no other internal symmetry to twist the right-movers by. The remaining partition functions that we can write down necessarily must twist together the fermions on the left-moving and right-moving sides.
+	The characters of $\widehat{O(N)}_1$ for $N$ even correspond to the integrable representations labeled by $\O, V, S, C$ corresponding to the trivial, vector, spinor, and conjugate spinor. Our partition functions in question can be constructed from integer linear combination of products of exactly one $\widehat{O(8)}_1$ and one $\widehat{O(32)}_1$ character. This gives sixteen possible terms.
 	
-	The simplest thing we can twist by is $(-1)^{F_L} (-1)^{F_R}$ \emph{diagonally now} rather than separately. Our fermion partition function will be:
-	\[
-		\frac12 \sum_{ab} \frac{(-1)^{a + b + ab} \theta^4 \twist ab \bar \theta^{16} \twist ab}{\eta^4 \bar \eta^{16}}
-	\]
-	Here all the fermions are either R or NS and have been projected out by $(-1)^{F_L + F_R} = 1$
-	This theory is consistent, but at level $0$ we have the tachyon associated with the identity. The normalization is of the identity is indeed 1.  
+	The normalization of the identity contribution $\chi_{8, O} \chi^*_{32, O}$ to $1$ reduces this to $15$. 
+	% The characters of $\widehat{O(N)}_1$ are expressible in terms of $\frac12 \left[\frac{\theta\twist ab(\tau)}{\eta}\right]^{N/2}$ and we will write this in shorthand as $\frac12 Z \twist ab^{N/2}$ as in Polchinski. Before imposing \emph{any} constraints the most general partition function I can write must take the form as a sum of products of one character from the left and one character from the right.
+% 	\[
+% 		\sum_{a, b, a', b'} \alpha_{a,b,a',b'} Z \twist ab^4 Z^* \twist ab^{16}
+% 	\]
+% 	This gives $16$ coefficients $\alpha$. The coefficients are contstrained to be integers.
 	
-	Now lets try to twist this further. Note that twisting this theory by $(-1)^F_R$ or $(-1)^F_L$ would just give group elements $\frac{1 + (-1)^{F_L + F_R}}{2} \frac{1 + (-1)^{F_R}}{2} = \frac{1 + (-1)^{F_L}}{2} \frac{1 + (-1)^{F_R}}{2}$ so we would recover the $\SO(32)$ superstring. 
+	For the next part of this problem, it is important to know that the only integrable representation of $\widehat{E_8}_1$ is the identity which we will denote by $\chi_E= \frac12 \sum_{ab} \theta^8 \twist ab/\eta^8$. This immediately shows that for the case $G = E_8 \times E_8$ the only possibility is the heterotic E theory.
 	
-	Consider instead twisting by $(-1)^{F_{R, 1}}$ which flips the sign of the first 16 righr-moving fermions. 
+	For $G = E_8 \times O(16)$ we again have four characters: $\chi_{E} \chi_{16, \O}, \chi_E \chi_{16, V}, \chi_E \chi_{16, S}, \chi_E \chi_{16, C}$. 
+	
+	Finally, the hardest case: $O(16) \times O(16)$
+	
+	% Let's first not twist the left sector with the right one. We can either take all the 32 fermions together and orbifold by $(-1)^F$. This gives the partition function for the $\SO(32)$ heterotic string $\frac12 \sum_{ab} \theta^16 \twist ab$. We can also split them up into groups of 16 + 16 and orbifold by $(-1)^{F_1}$ and $(-1)^{F_2}$ on each of the two groups ($\cong \ZZ_2^2$). This gives the partition function for the $E_8 \oplus E_8$ heterotic string $\left(\frac12 \sum_{ab} \theta^8 \twist ab\right)^2$. We cannot split things any further, since splitting the fermions into groups of $8$ will require us to have minus signs between the different sectors in order to keep modular invariance. This would give negative weight to the R sector (which would give the wrong spin-statistics, since the $R$ sector ground state are spacetime scalars) correspond do doing the projection $(-1)^F = -1$ in the NS sector (which would not close under OPE).
+	
+	% We also have no other internal symmetry to twist the right-movers by. The remaining partition functions that we can write down necessarily must twist together the fermions on the left-moving and right-moving sides.
+%
+% 	The simplest thing we can twist by is $(-1)^{F_L} (-1)^{F_R}$ \emph{diagonally now} rather than separately. Our fermion partition function will be:
+% 	\[
+% 		\frac12 \sum_{ab} \frac{(-1)^{a + b + ab} \theta^4 \twist ab \bar \theta^{16} \twist ab}{\eta^4 \bar \eta^{16}}
+% 	\]
+% 	Here all the fermions are either R or NS and have been projected out by $(-1)^{F_L + F_R} = 1$
+% 	This theory is consistent, but at level $0$ we have the tachyon associated with the identity. The normalization is of the identity is indeed 1.
+%
+% 	Now lets try to twist this further. Note that twisting this theory by $(-1)^F_R$ or $(-1)^F_L$ would just give group elements $\frac{1 + (-1)^{F_L + F_R}}{2} \frac{1 + (-1)^{F_R}}{2} = \frac{1 + (-1)^{F_L}}{2} \frac{1 + (-1)^{F_R}}{2}$ so we would recover the $\SO(32)$ superstring.
+%
+% 	Consider instead twisting by $(-1)^{F_{R, 1}}$ which flips the sign of the first 16 right-moving fermions.
 		%
 	% The characters for $O(32)$ are $\frac12 \frac{\theta^{16} \twist ab}{\eta^16}$ and the characters for $O(8)$ are $\frac12 \frac{\theta^4 \twist ab}{\eta^4}$. Each of these has $4$ sectors, so there are $16$ sectors that we can choose from.
 	
-	
+	In order for spacetime supersymmetry to exist, we must have $e^{-\phi/2} S_\alpha$ have well-defined OPE with any vertex operator. \textbf{FINISH HERE}. This corresponds exactly to the condition that the GSO projection must act as $(-1)^{F_L} = 1$. This recovers exactly heterotic E and heterotic O.
 	
 	We thus have 9 theories satisfying modular invariance, spin-statistics. Six of them have tachyons, so we get \textbf{three} theories left over. Of these three, only two have spacetime supersymmetry--exactly heterotic O and heterotic E. 
 	
@@ -347,16 +364,16 @@
 	\[
 		- \left[\frac{ :e^{\phi/2} G_X S_\alpha e^{i p X}: }{z-w} - \frac{:e^{3\phi/2} \eta b S_\alpha e^{i p X}: }{z-w} \right]
 	\]
-	The minus sign comes from commuting across an odd number of fermions for the Wick-contraction. We will need to recall two things:
+	The overall minus sign comes from commuting across an odd number of fermions for the Wick-contraction. We will need to recall two things:
 	\[
-		\psi^\mu(z) \cdot S_\alpha(w) \sim \frac{\ell_s^2}{\sqrt 2 {\sqrt{z-w}}} \left( \Gamma^\mu_{\alpha \beta} S^{\beta}(w) +  \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu \psi^\mu (z-w) \right),
-		\quad e^{\phi(z)} e^{-\phi(w)/2} \sim i \sqrt{z-w} e^{\phi(w)/2}
+		\psi^\mu(z) \cdot S_\alpha(w) \sim \frac{\ell_s^2}{\sqrt 2 {\sqrt{z-w}}} \left( \Gamma^\mu_{\alpha \beta} S^{\beta}(w) + \frac{2}{\ell_s^2} \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu \psi^\mu (z-w)\right),
+		\quad e^{\phi(z)} e^{-\phi(w)/2} \sim \sqrt{z-w} e^{\phi(w)/2}
 	\]
-	\textbf{Justify the $i$ in that last OPE}. That means that  first term is:
+	That means that first term is:
 	\[
 	\begin{aligned}
 		e^{\phi (z)} i \frac{\sqrt{2}}{\ell_s^2} &\psi^\mu(z) \d X_\mu(z) \cdot e^{-\phi(w)/2} S_\alpha(w) e^{i p X(z)} \\
-		&\sim  i \frac{\sqrt 2}{\ell_s^2} \,\sqrt{z-w} \, e^{\phi(w)/2} \left(i \frac{\ell_s^2}{\sqrt 2} \frac{\Gamma_{\alpha \beta}^{\mu} S^\beta \d X_\mu e^{i p \cdot X}}{\sqrt{z-w}} + i  \frac{-i p_\mu e^{i p \cdot X}}{z-w} \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu \psi^\mu \sqrt{z-w} \right)\\
+		&\sim  i \frac{\sqrt 2}{\ell_s^2} \,\sqrt{z-w} \, e^{\phi(w)/2} \frac{\ell_s^2}{\sqrt 2} \left(\frac{\Gamma_{\alpha \beta}^{\mu} S^\beta \d X_\mu e^{i p \cdot X}}{\sqrt{z-w}} +  \frac{-i \ell_s^2 p_\mu e^{i p \cdot X} }{z-w} \frac{2}{\ell_s^2} \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu \psi^\mu \sqrt{z-w} \right)\\
 		& = -e^{\phi/2} \left( \Gamma^\mu_{\alpha \beta} S^\beta \d X_\mu 
 		- i \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu p \cdot \psi  \right) e^{i p \cdot X}
 	\end{aligned}
@@ -367,41 +384,67 @@
 		V^{(1/2)}_{\text{fermion}} (u, p) = \left[e^{\phi/2} \Gamma_{\alpha \beta}^\mu S^\beta \d X^\mu -i e^{\phi/2} \Gamma_{\alpha \beta}^\nu S^\beta \psi_\nu p \cdot \psi  + e^{3 \phi/2} \eta b S_\alpha
 		\right] e^{i p X} u^\alpha(p).
 	\]
-	\item It is useful to note that we can write the PCO
+	\item Here, I followed the discussion of Polchinski \textbf{12.5}. The picture changing operator is:
 	\[
-		X(z) := Q_B \xi (z) = T_F \delta(\beta(z)) - \d b \delta'(\beta(z))
+		\mathrm X(z) := Q_B \cdot \xi (z) % = T_F \delta(\beta(z)) - \d b \delta'(\beta(z))
 	\]
-	In the language of Polchinski, $\delta(\gamma) = e^{-\phi}, \delta(\beta) = e^{\phi}$.  \textbf{Finish}
+	Over the sphere, the $\beta \gamma$ path integral is equivalent to the $\phi, \eta, \xi$ path integral \emph{plus} an additional insertion of $\xi$ to make up for the fact that it pics up a zero mode due to to the vacuum degeneracy it produces. Because the expectation value is \emph{just} proportional to the zero-mode of $\xi$, which depends on global information rather than the specific local insertion point, $\braket{\chi(z)}$ is independent of position and we can normalize $\xi$ so that this is $1$. 
+	
+	Say we have a null state. This means it is BRST exact. This means that we can rewrite its pointlike insertion as a local operator surrounded by a BRST contour (direct, from the definition of exact).
+	For that null state to decouple, we need to be able to contract the BRST contour off the sphere (i.e. by pulling it off to the north pole). The fact that $\xi$ is inserted will seem to obstruct this. What happens now as we pull the BRST charge to infinity is that it will circle $\xi$, creating the PCO $\mathrm X(z)$. However, when the $\xi$ insertion is replaced by $\mathrm X$, the path integral will \emph{vanish} since there is now no $\xi$ insertion to avoid the zero-mode.
+	
+	Now consider a path integral with a PCO insertion as well as additional BRST-invariant operators (meaning. the contour integral around them of $j_B$ is zero). Then we can write $\mathrm X(z_1) \xi(z_2) = Q_B \xi(z_1) \xi(z_2) = (-)^2 \xi(z_1) Q^B \xi(z_2) = \xi(z_1) \mathrm X(z_2) $ where I have pulled the $Q_B$ contour around the sphere (there two minus signs, one from commuting $Q_B$ across a fermionic variable and one from reversing the orientation of the contour.) 
+	
+	This is interesting: although $\mathrm X$ is null, it does \emph{not} vanish in the path integral, since pulling $Q_B$ off of it will make $Q_B$ encircle $\xi(z_2)$ but leave behind $\mathrm X(z_1)$'s $\xi(z_1)$, so the $\xi$ zero-mode will remain saturated and we won't get zero. 
+	
+	The $\mathrm X$ can be brought near any of the local BRST closed operators to change their picture (the OPE is nonsingular). Ie note that the main term we look at is $\gamma G_X = e^{\phi} \eta G_X$ in $j_B$ so that $\mathrm X \O^{(-1)}(z) = z G_X(z) \O(0) \to G_{-1/2} \O(0)$. We can move $\mathrm X$ to any other point on the sphere - since the exact position of $\mathrm X$ does not matter any more than the position of $\xi$.
+	
 	\item It is enough to look at the $1/(z-w)$ term in the OPE
 	\[
 		e^{-\phi(z)/2} S_\alpha(z) V^{(-1/2)}_{\text{fermion}}(w) = e^{-\phi(z)/2} S_\alpha(z) u^\beta(p) e^{-\phi(w)/2} S_\beta(w) e^{i p \cdot X(w)}
 	\]
 	We will use the fact of \textbf{4.12.42}:
 	\[
-		S_\alpha(z) S_\beta(w) = \frac{C_{\alpha \beta}}{(z-w)^{N/8}} + \frac{\Gamma^\mu_{\alpha \beta} \psi_\mu(w)}{\sqrt 2 (z-w)^{N/8-1/2}}
+		S_\alpha(z) S_\beta(w) = \frac{C_{\alpha \beta} \ell_s}{(z-w)^{N/8}} + \frac{\Gamma^\mu_{\alpha \beta} \psi_\mu(w)}{\sqrt 2 (z-w)^{N/8-1/2}}
 	\]
-	where $C_{\alpha \beta}$ is the charge conjugation matrix and here $N=8$. The only solution is if $e^{\phi(z)/2} e^{-\phi(w)/2} \sim \frac{\sqrt{2} e^{-\phi(w)}}{\sqrt{z-w}}$ \textbf{Why would this possibly happen?}. This leaves the $(z-w)^{-1}$ term to be the requisite 
+	where $C_{\alpha \beta}$ is the charge conjugation matrix and here $N=10$. We also have $e^{-\phi/2} e^{-\phi/2} = (z-w)^{-1/4} e^{-\phi}$. This leaves the $(z-w)^{-1}$ term to be the requisite  
 	\[
-		e^{-\phi} u^\beta(p) \Gamma^\mu_{\alpha \beta} \psi_\mu e^{i p \cdot X} = V^{(-1)}_{\text{boson}}	
+		e^{-\phi} u^\beta(p) \frac{\Gamma^\mu_{\alpha \beta}}{\sqrt 2} \psi_\mu e^{i p \cdot X} = V^{(-1)}_{\text{boson}}	
 	\] 
-	
-	For the second one, we will look at the $(z-w)^{-1}$ term in the OPE
+	\textbf{I have an extra factor of $1/\sqrt 2$. Is this absorbed in Kiritsis' definition of $\gamma^\mu_{\alpha \beta}$? }
+	For the second example, we will look at the $(z-w)^{-1}$ term in the OPE
 	\[
 		e^{-\phi(z)/2} S_\alpha(z) \epsilon_\mu \left(\d X^\mu- \frac i2 p_\mu \psi^\mu\, \psi^\nu \right) e^{i p \cdot X}.
 	\]
 	The first term in parentheses will not contribute to the singular term. Also the $e^{-\phi/2}$ and $e^{i p \cdot X}$ contract with nothing. Here, we use \textbf{4.12.41} to evaluate
 	\[
-		 S_\alpha(z) \cdot \underbrace{\psi^\mu \psi^\nu}_{J^{\mu \nu}} (w) \sim - \frac{(\Gamma_{\mu \nu})^\beta_\alpha S_\beta (w)}{2 (z-w)}
+		 S_\alpha(z) \cdot \underbrace{\psi^\mu \psi^\nu}_{J^{\mu \nu}} (w) \sim - \frac{\ell_s^2 (\Gamma_{\mu \nu})^\beta_\alpha S_\beta (w)}{2 (z-w)}
 	\]
 	The $-$ sign comes from the fact that the fermion current is coming from the \emph{right} this time so $z$ and $w$ are swapped.  
 	This gives a variation
 	\[
-		e^{-\phi/2} i p^\mu \epsilon^\nu (\Gamma_{\mu \nu})^{\beta}_{\alpha} S_\beta e^{i p \cdot X} = V^{(-1/2)}_{\text{boson}}
+		e^{-\phi/2} i p^\mu \epsilon^\nu (\Gamma_{\mu \nu})^{\beta}_{\alpha} S_\beta e^{i p \cdot X} = V^{(-1/2)}_{\text{fermion}}
 	\]
 	\textbf{I'm off by \emph{two} factors of $2$ }
-	\item 
 	
-	\item 
+	\item We are in type I. We have 
+	\[
+		\frac{1}{\ell_s^2 g_o^2} \braket{c(w_1) V^{(-1)} (w_1) c(w_2)  V^{(-1)} (w_2) c(w_3)  V^{(0)} (w_3) } + 1 \leftrightarrow 2, \quad x_1 > x_2 > x_3
+	\]
+	The relevant expectation values are
+	\[
+		\braket{c(w_1) c(wz_2) c(w_3)} = w_{12} w_{13} w_{23}, \quad \braket{e^{-\phi(w_1)} e^{\phi(w_2)}} = w_{12}^{-1}, \quad \braket{\psi^\mu(w_1) \psi^\nu (w_2)} = w_{12}^{-1} \ell_s^2 \eta^{\mu \nu}
+	\]
+	In the matter CFT we get:
+	\[
+	\begin{aligned}
+		&\braket{\psi^\mu (w_1) e^{i k_1 \cdot X(w_1)}\, \psi^\mu (w_2) e^{i k_2 \cdot X(w_2)} \, (i \d X^\rho + 2 k_3 \cdot \psi \psi^\rho) e^{i k_3 \cdot X(w_3)} } \\
+		&= - 2 i \ell_s^4 \sdelta^{10}(\Sigma k) \left(\frac{\eta^{\mu \nu}k_1^\rho}{w_{12} w_{13}} + \frac{\eta^{\mu \nu} k_2^\rho}{w_{12} w_{23}} - \frac{\eta^{\mu \rho} k_3^\nu - \eta^{\nu \rho} k_3^\mu}{w_{13} w_{23}} \right)
+	\end{aligned}
+	\]
+	
+	
+	\item We should put the gaugini in the $-1/2$ picture and the boson in the $-1$  picture
 	
 	\item 
 	
