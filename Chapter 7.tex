@@ -266,22 +266,88 @@
 			\text{DD:}\quad & \Omega \psi_r \Omega^{-1} = - (-1)^r \psi_r.
 		\end{aligned}
 	\]
-	\item Let's clarify a bit of terminology before we begin. We are looking at just the fermions of the left moving and right moving sides of the heterotic string theory. On the left-hand (supersymmetric) side, in the light-cone gauge these form an $\widehat{O(8)}$ current algebra at \emph{level 1}. On the right-hand side the form a $\widehat{O(32)}$ current algebra at level 1 again (\textbf{why must we always have level 1? Ask Xi.}). In both cases the left and right fermions share the same boundary conditions.
+	\item Let's clarify a bit of terminology before we begin. We are looking at just the fermions of the left moving and right moving sides of the heterotic string theory. On the left-hand (supersymmetric) side, in the light-cone gauge these form an $\widehat{O(8)}$ current algebra at \emph{level 1}. On the right-hand side the form a $\widehat{O(32)}$ current algebra at level 1 again (\textbf{why must we always have level 1? Ask Xi.}). 
 	
-	The characters of $\widehat{O(N)}_1$ for $N$ even correspond to the integrable representations labeled by $\O, V, S, C$ corresponding to the trivial, vector, spinor, and conjugate spinor. Our partition functions in question can be constructed from integer linear combination of products of exactly one $\widehat{O(8)}_1$ and one $\widehat{O(32)}_1$ character. This gives sixteen possible terms.
+	The characters of $\widehat{O(N)}_1$ for $N$ even correspond to the integrable representations labeled by $O, V, S, C$ corresponding to the trivial, vector, spinor, and conjugate spinor. For our purposes (ie the heterotic string), we do not need to distinguish between $S$ and $C$, which will have the same character. The characters can be written in terms of $\theta$ functions as
+	\[
+		\chi_O = \frac12 \left[\left(\frac{\theta_3}{\eta}\right)^{N/2} + \left(\frac{\theta_v}{\eta}\right)^{N/2} \right], \quad
+		\chi_V = \frac12 \left[\left(\frac{\theta_3}{\eta}\right)^{N/2} - \left(\frac{\theta_4}{\eta}\right)^{N/2} \right], \quad
+		\chi_S = \frac12 \left(\frac{\theta_2}{\eta}\right)^{N/2}
+	\]
+	\begin{enumerate}
+		\item 	Now let us first look at $O(32)$. 
+	The $\widehat{O(8)}_1$ characters transform under $\tau \to \tau+1$ as 
+	\[
+		\chi_O^8 \to (-1)^{-1/6} \chi_O, \quad \chi_V^8 \to - (-1)^{-1/6} \chi_V, \quad \chi_S^8 \to - (-1)^{-1/6} \chi_S
+	\]
+	And under $\tau \to -1/\tau$ they transform as
+	\[
+			\chi_O^8 \to \frac12 (\chi_O^8 + \chi_V^8) + \chi_S^8, 
+			\quad \chi_V^8 \to \frac12 (\chi_O^8 + \chi_V^8) - \chi_S^8,
+			\quad \chi_S^8 \to \frac12 (\chi_O^8 - \chi_V^8)
+	\]
+	The $\widehat{O(32)}_1$ characters \emph{depending on $\bar q$} transform the same way under $\tau \to -1/\tau$ but under $\tau \to \tau + 1$ transform as
+	\[
+		\chi_O^{32} \to (-1)^{2/3} \chi_O^{32}, \quad \chi_V^{32} \to - (-1)^{2/3} \chi_V^{32}, \quad \chi_S^{32} \to (-1)^{2/3} \chi_S^{32}
+	\]
+	Our partition functions in question can be constructed from a linear combination of products of exactly one $\widehat{O(8)}_1$ and one $\widehat{O(32)}_1$ character. This gives 9 possible terms $\chi_i^8 {\chi^{32}_j}^*$. I label these in the table below. I cancel all terms that are not invariant under $\tau \to \tau + 1$. 
+	\[
+		\begin{tabular}{c c c}
+			\cancel{O O} & O V & \cancel{O S}\\
+			V O & \cancel{V V} & V S\\
+			S O & \cancel{S V} & S S
+		\end{tabular}
+	\]
+	But we are not done. It is easy to see that while that $\chi_V^8, \chi_S^8$ blocks have Taylor series $O(q^{1/3})$, the $\chi_O$ block contains a singular term going as $q^{-1/6}$. Similarly, $\chi_O^{32}$ contains a singular term going as $O(q^{-2/3})$ while $\chi_V^{32} = O(\bar q^{-1/6})$ and $\chi_{S}^{32} = O(\bar q^{4/3})$. The tachyon can come exactly (and only!) from combining $\chi_O^{8} {\chi_V^{32}}^*$ to get $1/|q|^{1/6}$ that will be singular and satisfy level-matching. Thus we must drop $O V$ above as well. We are left with four possible terms that can work. 
 	
-	The normalization of the identity contribution $\chi_{8, O} \chi^*_{32, O}$ to $1$ reduces this to $15$. 
-	% The characters of $\widehat{O(N)}_1$ are expressible in terms of $\frac12 \left[\frac{\theta\twist ab(\tau)}{\eta}\right]^{N/2}$ and we will write this in shorthand as $\frac12 Z \twist ab^{N/2}$ as in Polchinski. Before imposing \emph{any} constraints the most general partition function I can write must take the form as a sum of products of one character from the left and one character from the right.
-% 	\[
-% 		\sum_{a, b, a', b'} \alpha_{a,b,a',b'} Z \twist ab^4 Z^* \twist ab^{16}
-% 	\]
-% 	This gives $16$ coefficients $\alpha$. The coefficients are contstrained to be integers.
+	Modular invariance under $\tau \to 1/\tau$ further constrains this to take a form proportional to
+	\[
+		(\chi^8_V - \chi^8_S)(\chi^{32}_1 + \chi^{32}_S)
+	\]
+	The normalization of the identity to 1 fixes this entirely. Note that we get spin statistics for \emph{free}, as the only character combinations appearing with a minus sign are precisely those containing $\chi^8_S$, associated with the spacetime fermions. 
+	\item Having $\widehat{O(32)}_1$ out of the way, let's move on to $O(16) \times E_8$. $\widehat{E_8}_1$ has only one integrable representation and thus one corresponding character, $\chi^{E_8}$. As pointed out in the text, it is related to the characters of $\widehat{O(16)}_1$ by $\chi^{E_8} = \chi_O^{16} + \chi_S^{16}$. Thus we have trilinear combinations $\chi_i^{8}(q) \chi_j^{16}(\bar q) \chi^{E_8} (\bar q)$. Upon noting that the characters of $\widehat{O(16)}_1$ multiplied by $\chi_{E_8}$ transform the \emph{same way} under modular transformations as $\widehat{O(32)}_1$ and the \emph{same} combination $\chi^8_1 \chi^{16}_V \chi^{E_8}$ uniquely gives the tachyon, we see that \emph{again} the argument goes as before and the only viable character we can have is
+	\[
+		(\chi^8_V - \chi^8_S)(\chi^{32}_1 + \chi^{32}_S) \chi^{E_8} = (\chi^8_V - \chi^8_S) \chi^{E_8 \times E_8}.
+	\]
+	This is exactly the heterotic E string theory. 
+	\item Finally we get to the hard one: $O(16) \times O(16)$. Here we have 27 trilinear terms that can contribute. I will write them out, and again cross out the ones that are not invariant under $\tau \to \tau+1$ as well as double crossing out the tachyons. Here, though, the notation $OO, OV, SV$ etc will represent \emph{just} the right-moving characters $\chi_O^{16}(\bar q) \chi_O^{16} (\bar q), \chi_O^{16}(\bar q) \chi_V^{16} (\bar q), \chi_S^{16}(\bar q) \chi_V^{16} (\bar q)$ respectively. 
+	\begin{center}
+	\[
+		\chi^{8}_O \times 		\begin{tabular}{c c c}
+			\cancel{O O} & \xcancel{O V} & \cancel{O S}\\
+			\xcancel{V O} & \cancel{V V} & V S\\
+			\cancel{S O} & SV & \cancel{S S}
+		\end{tabular},
+		\qquad \chi^{8}_V \times 		\begin{tabular}{c c c}
+			O O & \cancel{O V} & O S\\
+			\cancel{V O} & V V & \cancel{V S}\\
+			S O & \cancel{S V} & S S
+		\end{tabular},
+		\quad \chi^{8}_S \times 		\begin{tabular}{c c c}
+			O O & \cancel{O V} & O S\\
+			\cancel{V O} & V V & \cancel{V S}\\
+			S O & \cancel{S V} & S S
+		\end{tabular}
+	\]
+	\end{center}
+	It may look that 12 independent terms remain. The fact that the characters are symmetric under exchange of the last two labels mean that there are in fact only 12. 
 	
-	For the next part of this problem, it is important to know that the only integrable representation of $\widehat{E_8}_1$ is the identity which we will denote by $\chi_E= \frac12 \sum_{ab} \theta^8 \twist ab/\eta^8$. This immediately shows that for the case $G = E_8 \times E_8$ the only possibility is the heterotic E theory.
+	Let us look at two cases. First, assume $\chi^8_O {\chi_V^{16}}^* {\chi_S^{16}}^*$ does \emph{not} contribute (ie its coefficient vanishes). Then the first 9 terms are all zero. The remaining constraint of modular invariance under $\tau \to \tau+1$ constrains the partition function to take the form
+	\[
+		(\chi_V - \chi_S) \left[\chi^{16}_O \chi^{16}_O + 2 \alpha \chi^{16}_O \chi^{16}_S + (1-\alpha) \chi^{16}_V \chi^{16}_V + (2-\alpha) \chi^{16}_S \chi^{16}_S\right]
+	\]
+	for any value of $\alpha$. Spin statistics requires all these contributions to come in with positive coefficient, so $0 \leq \alpha \leq 1$. Moreover, if $\alpha$ is non-integral we will have coefficients that are not integers in the character expansion, which would lack a Hilbert space interpretation \textbf{Think more about the integrality condition}. Thus we can have only $\alpha = 0$ and $\alpha =1$ corresponding exactly to the $O(32)$ and $E_8 \times E_8$ superstrings. 
 	
-	For $G = E_8 \times O(16)$ we again have four characters: $\chi_{E} \chi_{16, \O}, \chi_E \chi_{16, V}, \chi_E \chi_{16, S}, \chi_E \chi_{16, C}$. 
-	
-	Finally, the hardest case: $O(16) \times O(16)$
+	So our remaining possibility is that $\chi^8_O {\chi_V^{16}}^* {\chi_S^{16}}^*$ does \emph{not} have vanishing coefficient. WLOG set this coefficient to 1. Invariance under $\tau \to -1/\tau$ constrains us to:
+	\[
+	\begin{aligned}
+		2 \chi_O^8 \chi_V^{16} \chi_S^{16} &+ \chi_V^8 \left[\alpha \chi^{16}_O \chi^{16}_O + 2 \beta \chi^{16}_O \chi^{16}_S + (-1+\alpha-\beta) \chi^{16}_V \chi^{16}_V + (-1+2\alpha - \beta) \chi^{16}_S \chi^{16}_S\right]\\
+		& + \chi_S^8 \left[(1-\alpha) \chi^{16}_O \chi^{16}_O - 2 (1+\beta) \alpha \chi^{16}_O \chi^{16}_S + (-\alpha + \beta) \chi^{16}_V \chi^{16}_V + (1-2\alpha +\beta) \chi^{16}_S \chi^{16}_S\right]
+	\end{aligned}
+	\]
+	Again, spin-statistics requires the coefficient of all the characters involving $\chi_V$ to have positive sign and all the characters involving $\chi_S$ to have negative sign. This makes $1 \leq \alpha, 0 \leq \beta \leq \alpha -1$. Integrality then forces $\alpha = 1, \beta = 0$. \textbf{More general solution? We need to impose that $\chi_i^{8} \chi_O^{16} \chi_O^{16}$ has coefficient 1 or 0}
+	\end{enumerate}
+	Of all these theories, the first two theories have vanishing partition function - an indicator of spacetime supersymmetry, but not necessarily an identifier. Of course, we can identify them as the heterotic string theories, which indeed have space time SUSY. The last theory has nonvanishing partition function and thus cannot have spacetime SUSY as the fermions and bosons do not cancel at one loop.
 	
 	% Let's first not twist the left sector with the right one. We can either take all the 32 fermions together and orbifold by $(-1)^F$. This gives the partition function for the $\SO(32)$ heterotic string $\frac12 \sum_{ab} \theta^16 \twist ab$. We can also split them up into groups of 16 + 16 and orbifold by $(-1)^{F_1}$ and $(-1)^{F_2}$ on each of the two groups ($\cong \ZZ_2^2$). This gives the partition function for the $E_8 \oplus E_8$ heterotic string $\left(\frac12 \sum_{ab} \theta^8 \twist ab\right)^2$. We cannot split things any further, since splitting the fermions into groups of $8$ will require us to have minus signs between the different sectors in order to keep modular invariance. This would give negative weight to the R sector (which would give the wrong spin-statistics, since the $R$ sector ground state are spacetime scalars) correspond do doing the projection $(-1)^F = -1$ in the NS sector (which would not close under OPE).
 	
@@ -299,16 +365,16 @@
 % 	Consider instead twisting by $(-1)^{F_{R, 1}}$ which flips the sign of the first 16 right-moving fermions.
 		%
 	% The characters for $O(32)$ are $\frac12 \frac{\theta^{16} \twist ab}{\eta^16}$ and the characters for $O(8)$ are $\frac12 \frac{\theta^4 \twist ab}{\eta^4}$. Each of these has $4$ sectors, so there are $16$ sectors that we can choose from.
-	
-	In order for spacetime supersymmetry to exist, we must have $e^{-\phi/2} S_\alpha$ have well-defined OPE with any vertex operator. \textbf{FINISH HERE}. This corresponds exactly to the condition that the GSO projection must act as $(-1)^{F_L} = 1$. This recovers exactly heterotic E and heterotic O.
-	
-	We thus have 9 theories satisfying modular invariance, spin-statistics. Six of them have tachyons, so we get \textbf{three} theories left over. Of these three, only two have spacetime supersymmetry--exactly heterotic O and heterotic E. 
+		%
+	% In order for spacetime supersymmetry to exist, we must have $e^{-\phi/2} S_\alpha$ have well-defined OPE with any vertex operator. \textbf{FINISH HERE}. This corresponds exactly to the condition that the GSO projection must act as $(-1)^{F_L} = 1$. This recovers exactly heterotic E and heterotic O.
+	%
+	% We thus have 9 theories satisfying modular invariance, spin-statistics. Six of them have tachyons, so we get \textbf{three} theories left over. Of these three, only two have spacetime supersymmetry--exactly heterotic O and heterotic E.
 	
 	\item I think this problem is backwards. For 32 fermions \emph{all} with the same boundary conditions, its immediate to see that they will reproduce the partition function for the $\mathrm{Spin}(32)/\ZZ_2$ string:
 	\[
 		\frac12 \sum_{a,b} \theta^{16}\twist ab
 	\]
-	Just by considering the $O(N)$ fermion at $N=32$. On the other hand, if we split the fermions into $16+16$, and consider separately boundary conditions for each of \emph{those}, then our partition function is the square of the $16$-fermion system. We then get $E_8 \times E_8$ as required
+	Just by considering the $O(N)$ fermion at $N=32$. On the other hand, if we split the fermions into $16+16$, and consider separately boundary conditions for each of \emph{those}, then our partition function is the square of the $16$-fermion system. We then get the $E_8 \times E_8$ lattice theta-function, as required
 	\[
 		\left[ \frac12 \sum_{a,b} \theta^{8}\twist ab \right]^2
 	\]
@@ -454,29 +520,112 @@
 	\[
 		\frac{1}{2\kappa^2} \int d^{11} x \sqrt{-\det \hat G} \left[R - \frac{1}{2 \cdot 4!} G_4^2 + \frac{1}{(144)^2} \epsilon^{M_1 \dots M_{11}} G_{M_1 \dots M_4} G_{M_4 \dots M_8} \hat C_{M_9 M_{10} M_{11}}\right]
 	\]
-	where $G_4$ is the field strength of the 3-form $\hat C$. From Appendix F, we have that the dilaton $\Phi = 0$ in 11D. So the field $\sigma$ will just be $-2\phi = \frac12 \log G_{00}$, and $A$ here is as it is in appendix \textbf{F}. Directly using the bosonic equation \textbf{F.3} gives the terms
+	where $G_4$ is the field strength of the 3-form $\hat C$. From Appendix F, we have that the dilaton $\Phi = 0$ in 11D. So the field $\sigma$ will just be $\sigma = -2\phi = \frac12 \log G_{11\, 11}$, and $A$ here is as it is in appendix \textbf{F}. Directly using the bosonic equation \textbf{F.3} gives the terms
 	\[
-		\frac{1}{2\kappa^2 }\int d^8 x \sqrt g e^{\sigma} \left[R - \frac14 e^{2\sigma} F_2^2  \right]
+		\frac{1}{2\kappa^2 }\int d^8 x \sqrt{-g} e^{\sigma} \left[R - \frac14 e^{2\sigma} F_2^2  \right]
 	\]
+	(Here the $\frac14 \d_\mu G_{11\, 11} \d^\mu (G_{11\, 11})^{-1}$) will exactly cancel the $4 \d_\mu \phi d^\mu \phi$. 
+	
 	Now let's look at the $3$-form potential contribution. Because $F$ is antisymmetric in all four indices, and we only are compactifying along one dimension, only the first two terms of \textbf{F.28} can contribute. They give
 	\[
-		\frac{1}{2\kappa^2} \int d^{10} x \sqrt{g} e^\sigma \left[-\frac{1}{2 \cdot 4!} F_4^2 - \frac{1}{2 \cdot 3!} H_3^2 \right]
+		% \frac{1}{2\kappa^2} \int d^{10} x \sqrt{-g} e^\sigma \left[-\frac{1}{2 \cdot 4!} F_4^2 - \frac{1}{2 \cdot 3!} G^{11\, 11} C_{\mu \nu \rho\, 11} C_{\mu \nu \rho\, 11} \right]
+		=\frac{1}{2\kappa^2} \int d^{10} x \sqrt{-g} e^\sigma \left[-\frac{1}{2 \cdot 4!} F_4^2 - \frac{1}{2 \cdot 3!} e^{-2\sigma} H_3^2 \right]
 	\]
-	and $H_3 = \d B_2 = \d C_{\mu \nu, 11}$ consistent with \textbf{F.30}
+	and $(H_3)_{\mu \nu \rho} = \d_{[\mu} (B_2)_{\nu \rho]} = \d C_{\mu \nu\, 11}$ so that $H_3^2 = G^{\mu \sigma} G^{\nu \lambda} G^{\rho \kappa} H_{\mu \nu \rho} H_{\sigma \lambda \kappa}$ and $C_{\mu \nu \rho} = \hat C_{\mu \nu \rho} - (\hat C_{\nu \rho\, 11} A_\mu + 2 \perms)$  consistent with \textbf{F.30}.
 
-	Finally, let's look at that last $\epsilon^{M_1 \dots M{11}}$ term. At first it looks quite scary. Note we can write this last term as $\dd \hat C \wedge \dd \hat C \wedge \hat C$. \textbf{(Finish this part)}
-	
-	This translates to our requisite term
+	Finally, let's look at that last $\epsilon^{M_1 \dots M{11}}$ term. At first it looks quite scary. Note we can write this last term as $\frac16 \dd \hat C_3 \wedge \dd \hat C_3 \wedge \hat C_3$. I have $11$ indices to pick to be index $11$. If I pick any of the indices of the last $\hat C$ I get the term
+	\[
+		\frac{1}{12 \kappa^2} \dd C_3 \wedge \dd C_3 \wedge B_2
+	\]
+	If I pick either of the $\dd C$ terms, then after an integration by parts I get the same term. So the same term contributes three times \textbf{Revisit this logic}. We thus get the requisite action contribution:
 	\[
 		\frac{1}{4\kappa^2} \int d^{10} x B_2 \wedge \dd C_3 \wedge \dd C_3
 	\]
-	\item Under $A \to A + \d \epsilon$ and $C \to C + \epsilon H_3$
+	\item Under $A_1 \to A_1 + \dd \epsilon$ and $C_3 \to C_3 + \epsilon H_3$ we see that obviously $R$, $F_2$, $B_2$, and $H_3$ will stay the same. Now $dC_3 \to dC_3 + d\epsilon \wedge H_3$ while $A \wedge H_3 \to A \wedge H_3 - d \epsilon \wedge H_3$. Thus, $F_4$ will stay the same. 
 	
-	Note $F_2$ will stay the same, as will $H_3' = \dd B_2' = \dd C_{\mu \nu 11}' = \dd C_{\mu \nu 11} + \epsilon \dd H_3 = \dd C_{\mu \nu 11} = H_3$ since $H_3$ is exact. $\dd C_3$ will also stay the same. 
+	It remains to look at the variation of $B_2 \wedge \dd C_3 \wedge \dd C_3$. This is
+	\[
+	B_2 \wedge \dd \epsilon \wedge H_3 \wedge \dd C_3 + B_2 \wedge \dd C_3 \wedge \dd \epsilon \wedge H_3.	
+	\]
+	 These two terms cancel by antisymmetry of the indices.
 	
-	Finally, $F_4' = F_4 - \dd \epsilon \wedge H_3$
+	\item Defining $C'_3 = C_3 + A \wedge B_2$ give the above transformation as $A_1 \to A_1 + \dd \epsilon, C'_3 \to C'_3 + \epsilon H_3 + \dd \epsilon \wedge B_2$ so that $\dd C'_3 \to \dd C'_3 + \dd \epsilon \wedge H_3 - \dd \epsilon \wedge H_3 = \dd C'_3$. 
 	
+	Now $G_4 = \dd C_3' - \dd A \wedge B_2$ (Kiritsis wrote a small $A$, which I believe is a typo). Under the same transformation we get that $G_4$ is invariant as required. 
+	
+	Further, the transformation of $C_3 \to C_3 + \dd \Lambda_2$ implies that $C_3' \to C' + \dd \Lambda_2 \Rightarrow \dd C_3' \to \dd C_3' \Rightarrow G_4 \to G_4$ as required. So $C_3'$ now transforms trivially under the $A$ transformation.
+	
+	\item Take $S = S_0 + i e^{-\phi}$. The $\SL_2(\RR)$ transformation acts on IIB supergravity as:
+	\[
+		S \to \frac{a S + b}{c S + d}, \quad \begin{pmatrix}
+			B_2\\
+			C_2
+		\end{pmatrix}
+		\to \begin{pmatrix}
+			d & -c\\
+			-b & a
+		\end{pmatrix} \begin{pmatrix}
+			B_2 \\ 
+			C_2
+		\end{pmatrix}
+	\]
+	The latter is also how $H_3, F_3$ will transform together. Now think of $S$ as the modular parameter $\tau$, $e^{-\phi}= S_2 = \tau_2$ is the imaginary part. Think of $H_3, F_3$ as periods $\omega_1, \omega_2$ The IIB action in the Einstein frame can be written as
+	\[
+		S_{IIB} = \frac{1}{2\kappa^2} \int d^{10} x \sqrt{-g} \left[R - \frac12 \frac{\d S\, \d \bar S}{S_2^2} - \frac1{2\cdot 3!} \frac{|G_3|^2}{S_2} -\frac{1}{4 \cdot 5!} F_5^2 \right] + \frac{1}{8 i \kappa^2} \int C_4 \wedge \frac{G_3 \wedge \bar G_3}{S_2}
+	\]
+	Now $R, C_4,$ and $F_5$ do not change. The term $\frac{\d S\, \d \bar S}{S^2}$ transforms under $\SL(2, \RR)$ exactly like the invariant measure $\frac{d\tau d \bar \tau}{\tau^2_2}$. 
+	
+	Finally, any term consisting of a pair $G_3, \bar G_3$ in the numerator (either wedged or wedged with a hodge star) divided by $S_2$ will also remain modular invariant, as a quick Mathematica check confirms for us:
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/IIB Calculation"}
+	\end{center}
+	\item Again for some reason Kiritsis writes a small $a$, which again I think is a typo. We need to find which gauge transformations need to be modified for $C_0, B_2, C_2, C_4$. There is a Chern-Simons term only in the definition of $F_5 = d C_4 - C_2 \wedge H_3$ so we see that the $C_0 \to C_0 + c$ (for $c$ a constant, the only closed 0-form) keeps the action invariant.
+	
+	 Taking $B_2 \to B_2 + \dd \Lambda_1$ will keep $H_3$ and therefore $F_5$ invariant, so this transform is legitimate. 
+	 
+	 Also, taking $C_4 \to C_4 + \dd \Lambda_3$ will keep $F_5$ invariant as well and will modify the Chern-Simons term in the full action $C_4 \wedge H_4 \wedge F_3$ by closed form, which will give no contribution. 
+	
+	Finally, taking $C_2 \to C_2 + \dd \Lambda_1$ will change $F_5 \to F_5 - \dd \Lambda_1 \wedge H_3$. This must be compensated by changing $C_4 \to C_4 + \frac12 \Lambda_1 \wedge H_3 + \frac12 \dd \Lambda_1 \wedge B_2$. Then $F_5$ will be invariant. Moreover, the Chern Simons term in the action $C_4 \wedge H_3 \wedge F_3$ have a variation
+	\[
+		\frac12 \Lambda_1 \wedge H_3 \wedge H_3 \wedge F_3 + \frac12  \dd \Lambda_1 \wedge B_2 \wedge H_3 \wedge F_3
+	\]
+	After integration by parts this variation will contribute nothing, as required. 
+	
+	\item Clearly $\dim O(32) = 32 \times 31/2 = 496$, which is necessary. For $N=32$ we also get from \textbf{7.9.29} that $\mathrm{Tr}(F^6) = 15\, \mathrm{tr}(F^4) \mathrm{tr}(F^2)$ where $\mathrm{tr}$ is the trace of the curvature form in (an associated bundle for) the fundamental representation Also using \textbf{7.9.30} we get $\mathrm{Tr}(F^4) = 24 \mathrm{tr}(F^4) + 3 (\mathrm{tr}(F^2))^2$ and $\mathrm{Tr}(F^2) = 30 \mathrm{tr}(F^2)$. Then, both sides of equation \textbf{7.9.26} become
+	\[
+		15 \mathrm{tr}(F^4) \mathrm{tr}(F^2) = -\frac{15}{8} \mathrm{tr}(F^2)^3 + \frac{15}{8} \mathrm{tr}(F^2)^3 + 15 \mathrm{tr}(F^4) \mathrm{tr}(F^2)
+	\]
+	and we have agreement!
+	
+	\item For an individual $E_8$, we have exactly
+	\[
+		\mathrm{Tr}(F^6) = \frac{1}{7200} \mathrm{Tr}{F^2} = \frac{1}{48} \mathrm{Tr}{F^2} \cdot \frac{1}{100} (\mathrm{Tr}{F^2})^2 - \frac{1}{14400} (\mathrm{Tr}{F^2})^3
+	\]
+	Now for $E_8 \times E_8$ we have the property that $\mathrm{Tr}(F^n) = \mathrm{Tr}_1(F^n) + \mathrm{Tr}_2(F^n)$ where $\mathrm{Tr}_i$ means tracing over the direct summands in the associated bundle that are acted on by the $i$th $E_8$. Then we will have the relations
+	\[
+		\mathrm{Tr}(F^6) = \frac{1}{7200} (\mathrm{Tr}_1(F^2) + \mathrm{Tr}_2(F^2))^3, \quad \mathrm{Tr}(F^4) = \frac{1}{100} (\mathrm{Tr}_1(F^2) + \mathrm{Tr}_2(F^2))^2
+	\]
+	So replacing $\mathrm{Tr}(F^2)$ with $\mathrm{Tr}_1(F^2) + \mathrm{Tr}_2(F^2)$ in the prior derivation gives us again exact matching and thus anomaly cancelation. 
+	
+	On the other hand $U(1)$ \emph{has} no Casimirs so $\mathrm{Tr}(F^m) = 0$ for all $m$. In particular this allows us to take $E_8 \times U(1)^{248}$ or $U(1)^{496}$ as a gauge group and remain anomaly-free. \textbf{Check with Nick. Reconcile this with} 
+	
+	\item Now let us turn to the $SO(16) \times SO(16)$ theory. To check anomalies, we look at the chiral terms. In this case we have spin $1/2$ fermions transforming in the $(16,16)$ (positive chirality), and $(1, 128) \oplus (128, 1)$ (negative chirality) representations, together with. Note that we do \emph{not} have a gravitino, as there is no spacetime SUSY in this theory.
 
+	\textbf{Finish}
+
+	We thus get a Green-Schwarz term
+	\[
+		\propto \int d^{10} x B \left[\Tr_1 (F^4) + \Tr_2 (F^4) - \frac14 (\Tr_1(F^2)^2 + \Tr_2(F^2)^2 - \Tr(F_1^2) \Tr(F_2^2) \right]
+	\]
+
+	\item We are orbifolding by a $\ZZ_2$. In the sector of the left-moving worldsheet fermions, only $(-1)^F$ acts nontrivially. The twisted blocks are
+	\[
+		Z_{left} = \frac12 \sum_{a, b = 0}^1
+	\]
+	On the $E_8s$ the blocks give
+	\textbf{Finish}
+	
+	
 \end{enumerate}
 % section chapter_7_superstrings_and_supersymmetry (end)
 	
