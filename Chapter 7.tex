@@ -384,7 +384,7 @@
 	\[
 		\gamma G_{ghost} = -c \gamma \d \beta - \frac32 \d c \gamma \beta - 2 \gamma^2 b, \quad c T_{ghost} = 2 b c \d c - \frac12 c \gamma \d \beta - \frac32 c \d \gamma \beta
 	\]
-	\textbf{Here Kitisis' conventions are different than Polchinski.}= Recall upon bosonization $\beta(z) = e^{-\phi(z)} \d \xi(z), \gamma = e^{\phi(z)} \eta(z)$. 
+	\textbf{Here Kitisis' conventions are different than Polchinski.} Recall upon bosonization $\beta(z) = e^{-\phi(z)} \d \xi(z), \gamma = e^{\phi(z)} \eta(z)$. 
 	Although we can solve this problem very quickly since we already know what the stress tensor looks like in the bosonized variables, I think it's way more instructive to explicitly compute OPEs to $O(z-w)$. First let's look at the $\eta, \xi$ theory, which is a fermoinic $bc$ theory of weights $1, 0$. We get
 	\[
 		\xi(z) \eta(w) = \frac{1}{z-w} + :\xi \eta:(w) + O(z-w)
@@ -424,32 +424,34 @@
 		&=  c T_X + \gamma G_X + b c \d c - \frac34 \d \phi \d c - \frac34 c \d^2 \phi - \gamma^2 b
 	\end{aligned}
 	\]
-	\item We are looking at $[Q_B, \xi e^{-\phi/2} S_\alpha e^{i p X}]$. It suffices to look at the $1/(z-w)$ pole in the OPE of $j_B$ with $\xi e^{-\phi/2} S_\alpha e^{i p X}$. The terms that contribute to this pole must involve pairing $\xi$ with its conjugate $\eta$. $\eta$ appears in $j_B$ wherever $\gamma = e^{\phi} \eta$ appears. From the previous exercise, we see that we need only look at the terms $\gamma G_X$ and $-\gamma^2 b$.
+	\item We are looking at $[Q_B, \xi e^{-\phi/2} S_\alpha e^{i p X}]$. Therefore we should look at the $1/(z-w)$ pole in the OPE of $j_B$ with $\xi e^{-\phi/2} S_\alpha e^{i p X}$. The terms that contribute to this pole must involve pairing $\xi$ with its conjugate $\eta$. $\eta$ appears in $j_B$ wherever $\gamma = e^{\phi} \eta$ appears. From the previous exercise, we see that we need only look at the terms $\gamma G_X$ and $-\gamma^2 b$.
 	
 	These two terms contribute poles:
 	\[
-		- \left[\frac{ :e^{\phi/2} G_X S_\alpha e^{i p X}: }{z-w} - \frac{:e^{3\phi/2} \eta b S_\alpha e^{i p X}: }{z-w} \right]
+		- \left[\frac{ :\!e^{\phi} G_X\!: :\!e^{-\phi/2} S_\alpha e^{i p X}\!: }{z-w} - \frac{:e^{3\phi/2} \eta b S_\alpha e^{i p X}: }{z-w} \right]
 	\]
 	The overall minus sign comes from commuting across an odd number of fermions for the Wick-contraction. We will need to recall two things:
 	\[
-		\psi^\mu(z) \cdot S_\alpha(w) \sim \frac{\ell_s^2}{\sqrt 2 {\sqrt{z-w}}} \left( \Gamma^\mu_{\alpha \beta} S^{\beta}(w) + \frac{2}{\ell_s^2} \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu \psi^\mu (z-w)\right),
+		\psi^\mu(z) \cdot S_\alpha(w) \sim \frac{\ell_s}{\sqrt 2 {\sqrt{z-w}}} \left( \Gamma^\mu_{\alpha \beta} S^{\beta}(w) + \frac{1}{\ell_s^2 (\frac D2 - 1)} \Gamma^\nu_{\alpha \beta} S_\beta \psi_\nu \psi^\mu \, (z-w)\right),
 		\quad e^{\phi(z)} e^{-\phi(w)/2} \sim \sqrt{z-w} e^{\phi(w)/2}
 	\]
+	The subleading term in the first expansion is taken from \emph{Blumenhagen 13.81}.
 	That means that first term is:
 	\[
 	\begin{aligned}
 		e^{\phi (z)} i \frac{\sqrt{2}}{\ell_s^2} &\psi^\mu(z) \d X_\mu(z) \cdot e^{-\phi(w)/2} S_\alpha(w) e^{i p X(z)} \\
-		&\sim  i \frac{\sqrt 2}{\ell_s^2} \,\sqrt{z-w} \, e^{\phi(w)/2} \frac{\ell_s^2}{\sqrt 2} \left(\frac{\Gamma_{\alpha \beta}^{\mu} S^\beta \d X_\mu e^{i p \cdot X}}{\sqrt{z-w}} +  \frac{-i \ell_s^2 p_\mu e^{i p \cdot X} }{z-w} \frac{2}{\ell_s^2} \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu \psi^\mu \sqrt{z-w} \right)\\
-		& = -e^{\phi/2} \left( \Gamma^\mu_{\alpha \beta} S^\beta \d X_\mu 
+		&\sim  i \frac{\sqrt 2}{\ell_s^2} \,\sqrt{z-w} \, e^{\phi(w)/2} \frac{\ell_s}{\sqrt 2} \left(\frac{\Gamma_{\alpha \beta}^{\mu} S^\beta \d X_\mu e^{i p \cdot X}}{\sqrt{z-w}} +  \frac{-i \ell_s^2 p_\mu e^{i p \cdot X} }{2(z-w)} \frac{1}{4 \ell_s^2} \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu \psi^\mu \sqrt{z-w} \right)\\
+		& = -\frac{e^{\phi/2}}{\ell_s} \left( \Gamma^\mu_{\alpha \beta} S^\beta \d X_\mu 
 		- i \Gamma^\nu_{\alpha \beta} S^\beta \psi_\nu p \cdot \psi  \right) e^{i p \cdot X}
 	\end{aligned}
 	\]
 	Note this OPE has no singularity, so we exactly got the normal ordered term we required: $:e^{\phi/2} G_X S_\alpha e^{i p \cdot X}:$. 
 	Altogether this gives us:
 	\[
-		V^{(1/2)}_{\text{fermion}} (u, p) = \left[e^{\phi/2} \Gamma_{\alpha \beta}^\mu S^\beta \d X^\mu -i e^{\phi/2} \Gamma_{\alpha \beta}^\nu S^\beta \psi_\nu p \cdot \psi  + e^{3 \phi/2} \eta b S_\alpha
-		\right] e^{i p X} u^\alpha(p).
+		V^{(1/2)}_{\text{fermion}} (u, p) =  u^\alpha(p) \left[\frac{e^{\phi/2}}{\ell_s} \Gamma_{\alpha \beta}^\mu S^\beta \d X^\mu - \frac i8 \frac{e^{\phi/2}}{\ell_s} \Gamma_{\alpha \beta}^\nu S^\beta \psi_\nu p \cdot \psi  + e^{3 \phi/2} \eta b S_\alpha
+		\right] e^{i p X}.
 	\]
+	I believe this is right, and moreover that the inclusion of the $\ell_s^{-1}$ factor is necessary for the dimensional analysis to make sense. 
 	\item Here, I followed the discussion of Polchinski \textbf{12.5}. The picture changing operator is:
 	\[
 		\mathrm X(z) := Q_B \cdot \xi (z) % = T_F \delta(\beta(z)) - \d b \delta'(\beta(z))
@@ -467,54 +469,128 @@
 	
 	\item It is enough to look at the $1/(z-w)$ term in the OPE
 	\[
-		e^{-\phi(z)/2} S_\alpha(z) V^{(-1/2)}_{\text{fermion}}(w) = e^{-\phi(z)/2} S_\alpha(z) u^\beta(p) e^{-\phi(w)/2} S_\beta(w) e^{i p \cdot X(w)}
+		:e^{-\phi(z)/2} S_\alpha(z): V^{(-1/2)}_{\text{fermion}}(w) = e^{-\phi(z)/2} S_\alpha(z) u^\beta(p) e^{-\phi(w)/2} S_\beta(w) e^{i p \cdot X(w)}
 	\]
 	We will use the fact of \textbf{4.12.42}:
 	\[
-		S_\alpha(z) S_\beta(w) = \frac{C_{\alpha \beta} \ell_s}{(z-w)^{N/8}} + \frac{\Gamma^\mu_{\alpha \beta} \psi_\mu(w)}{\sqrt 2 (z-w)^{N/8-1/2}}
+		S_\alpha(z) S_\beta(w) = \frac{C_{\alpha \beta}}{(z-w)^{N/8}} + \frac{\Gamma^\mu_{\alpha \beta} \psi_\mu(w)}{\sqrt 2 \ell_s (z-w)^{N/8-1/2}}
 	\]
 	where $C_{\alpha \beta}$ is the charge conjugation matrix and here $N=10$. We also have $e^{-\phi/2} e^{-\phi/2} = (z-w)^{-1/4} e^{-\phi}$. This leaves the $(z-w)^{-1}$ term to be the requisite  
 	\[
-		e^{-\phi} u^\beta(p) \frac{\Gamma^\mu_{\alpha \beta}}{\sqrt 2} \psi_\mu e^{i p \cdot X} = V^{(-1)}_{\text{boson}}	
+		e^{-\phi} u^\beta(p) \frac{\Gamma^\mu_{\alpha \beta}}{\sqrt 2 \ell_s} \psi_\mu e^{i p \cdot X} = V^{(-1)}_{\text{boson}}(\epsilon = \frac{\Gamma^\mu_{\alpha \beta} u^\beta}{\sqrt 2 \ell_s}, p, z)
 	\] 
-	\textbf{I have an extra factor of $1/\sqrt 2$. Is this absorbed in Kiritsis' definition of $\gamma^\mu_{\alpha \beta}$? }
 	For the second example, we will look at the $(z-w)^{-1}$ term in the OPE
 	\[
 		e^{-\phi(z)/2} S_\alpha(z) \epsilon_\mu \left(\d X^\mu- \frac i2 p_\mu \psi^\mu\, \psi^\nu \right) e^{i p \cdot X}.
 	\]
 	The first term in parentheses will not contribute to the singular term. Also the $e^{-\phi/2}$ and $e^{i p \cdot X}$ contract with nothing. Here, we use \textbf{4.12.41} to evaluate
 	\[
-		 S_\alpha(z) \cdot \underbrace{\psi^\mu \psi^\nu}_{J^{\mu \nu}} (w) \sim - \frac{\ell_s^2 (\Gamma_{\mu \nu})^\beta_\alpha S_\beta (w)}{2 (z-w)}
+		 S_\alpha(z) \cdot \underbrace{\psi^\mu \psi^\nu}_{-i J^{\mu \nu}} (w) \sim - \frac{\ell_s^2 (\Gamma_{\mu \nu})^\beta_\alpha S_\beta (w)}{2 (z-w)}
 	\]
 	The $-$ sign comes from the fact that the fermion current is coming from the \emph{right} this time so $z$ and $w$ are swapped.  
 	This gives a variation
 	\[
-		e^{-\phi/2} i p^\mu \epsilon^\nu (\Gamma_{\mu \nu})^{\beta}_{\alpha} S_\beta e^{i p \cdot X} = V^{(-1/2)}_{\text{fermion}}
+		e^{-\phi/2} i p^\mu \epsilon^\nu \frac{\ell_s^2}{4} \epsilon^\nu (\Gamma_{\mu \nu})^{\beta}_{\alpha} S_\beta e^{i p \cdot X} =  V^{(-1/2)}_{\text{fermion}} (u^\beta = \frac{i p^\mu \epsilon^\nu \ell_s^2  (\Gamma_{\mu \nu})^\beta_\alpha}{4}, p, z)
 	\]
-	\textbf{I'm off by \emph{two} factors of $2$ }
 	
 	\item We are in type I. We have 
 	\[
-		\frac{1}{\ell_s^2 g_o^2} \braket{c(w_1) V^{(-1)} (w_1) c(w_2)  V^{(-1)} (w_2) c(w_3)  V^{(0)} (w_3) } + 1 \leftrightarrow 2, \quad x_1 > x_2 > x_3
+		\frac{1}{\ell_s^4 g_o^2} \braket{:c V^{(-1)}(w_1):\, :c V^{-1}(w_2):\, :c V^{0}(w_3):} + 1 \leftrightarrow 2, \quad x_1 > x_2 > x_3
+	\]
+	\textbf{That constant out front is not obvious from Kiritsis, c.f. the discussion in Polchinski 12.4 and allow for another factor of $\ell_s^2$ since the fermions are dimensionful}
+	The relevant expectation values are
+	\[
+	\begin{aligned}
+		\braket{c(w_1) c(w_2) c(w_3)} &= |w_{12} w_{13} w_{23}|, \quad \braket{e^{-\phi(w_1)} e^{-\phi(w_2)}} = w_{12}^{-1},\\
+		\quad \braket{\psi^\mu(w_1) \psi^\nu (w_2)} &= \ell_s^2 \eta^{\mu \nu} w_{12}^{-1}, 
+		\qquad \braket{\dot X^\mu(w_1) e^{i k_1 X} (w_2)} = -2 i \ell_s^2 k_1^\mu e^{i k_1 X} w_{12}^{-1} 
+	\end{aligned}
+	\]
+	In the matter CFT we get (here $k_i \cdot k_j = 0$ so the pure $e^{i k X}$ terms contract to $1$):
+	\[
+	\begin{aligned}
+		&\braket{\psi^\mu (w_1) e^{i k_1 \cdot X(w_1)}\, \psi^\nu (w_2) e^{i k_2 \cdot X(w_2)} \, (i \dot X^\rho + 2 k_3 \cdot \psi \psi^\rho) e^{i k_3 \cdot X(w_3)} } \\
+		&= 2 \ell_s^4 \sdelta^{10}(\Sigma k) \left(\frac{\eta^{\mu \nu}k_1^\rho}{w_{12} w_{13}} + \frac{\eta^{\mu \nu} k_2^\rho}{w_{12} w_{23}} + \frac{\eta^{\mu \rho} k_3^\nu - \eta^{\nu \rho} k_3^\mu}{w_{13} w_{23}} \right)
+	\end{aligned}
+	\]
+	So altogether we get an amplitude of (taking $x_1 \to 0, x_2 \to 1, x_3 \to \infty$)
+	\[
+	\begin{aligned}
+		& \frac{i}{g_{open}^2 \ell_s^4} \times \frac{2 i \ell_s^4 g_{open}^3}{\sqrt 2 \ell_s} \sdelta^{10}(\Sigma k) \left(\frac{\eta^{\mu \nu}k_1^\rho x_{23}}{x_{12}} + \frac{\eta^{\mu \nu} k_2^\rho x_{13}}{x_{12}} + \eta^{\mu \rho} k_3^\nu - \eta^{\nu \rho} k_3^\mu \right) ([123] - [132])
+		\\ &= 
+		\frac{i g_{open}}{\sqrt 2 \ell_s} \sdelta^{10}(\Sigma k)  \left(\eta^{\mu \nu} k_{12}^\rho + \eta^{\mu \rho} k_{31}^\nu + \eta^{\nu \rho} k_{23}^\mu \right) ([123] - [132])
+	\end{aligned}
+	\]
+	Note unlike the Bosonic string this is \emph{exactly the same} as the ordinary Yang-Mills amplitude, there is no $k^3$ correction term (what would correspond to at $\Tr F^3$ term in the Lagrangian).
+	
+	
+	\item This is also in type I. We should put the gaugini in the $-1/2$ picture and the boson in the $-1$  picture. We have 
+	\[
+		\frac{1}{\ell_s^4 g_o^2} \braket{:c V^{(-1)}(w_1):\, :c V^{-1/2}(w_2):\, :c V^{-1/2}(w_3):} + 1 \leftrightarrow 2, \quad x_1 > x_2 > x_3
 	\]
 	The relevant expectation values are
 	\[
-		\braket{c(w_1) c(wz_2) c(w_3)} = w_{12} w_{13} w_{23}, \quad \braket{e^{-\phi(w_1)} e^{\phi(w_2)}} = w_{12}^{-1}, \quad \braket{\psi^\mu(w_1) \psi^\nu (w_2)} = w_{12}^{-1} \ell_s^2 \eta^{\mu \nu}
-	\]
-	In the matter CFT we get:
-	\[
 	\begin{aligned}
-		&\braket{\psi^\mu (w_1) e^{i k_1 \cdot X(w_1)}\, \psi^\mu (w_2) e^{i k_2 \cdot X(w_2)} \, (i \d X^\rho + 2 k_3 \cdot \psi \psi^\rho) e^{i k_3 \cdot X(w_3)} } \\
-		&= - 2 i \ell_s^4 \sdelta^{10}(\Sigma k) \left(\frac{\eta^{\mu \nu}k_1^\rho}{w_{12} w_{13}} + \frac{\eta^{\mu \nu} k_2^\rho}{w_{12} w_{23}} - \frac{\eta^{\mu \rho} k_3^\nu - \eta^{\nu \rho} k_3^\mu}{w_{13} w_{23}} \right)
+		\braket{c(w_1) c(w_2) c(w_3)} &= |w_{12} w_{13} w_{23}|, \quad \braket{e^{-\phi(w_1)/2} e^{-\phi(w_2)/2} e^{-\phi(w_3)}} = w_{12}^{-1/4} w_{13}^{-1/2} w_{23}^{-1/2},\\
+		\quad \braket{S_\alpha(w_1) S_\beta(w_2)} &= C_{\alpha \beta} w_{12}^{-5/4} 
+		\qquad \Rightarrow \braket{S_\alpha(w_1) S_\beta(w_2) \psi^\mu(w_3)} = \frac{\ell_s^2}{\sqrt 2} (C \Gamma)^\mu_{\alpha \beta} w_{12}^{-3/4} w_{13}^{-1/2} w_{23}^{-1/2}
 	\end{aligned}
 	\]
+	So altogether this gives 
+	\[
+		\frac{i}{\ell_s^4 g_{open}^2} \times (g_{open} \sqrt{\ell_s})^2 g_{open} \frac{\ell_s^2}{\sqrt 2}\, \sdelta^{10}(\Sigma k) C \Gamma^\mu_{\alpha \beta} \times ([123] - [132]) = \frac{i g_{open}}{\sqrt{2} \ell_s} \sdelta^{10}(\Sigma k) C \Gamma^\mu_{\alpha \beta} ([123] - [132])
+	\]
+	This is $k$-independent so is an even \emph{simpler} amplitude that the last in some sense. 
 	
+	\item We are now in type II. Gravitons are NS-NS states. We take two of them in the $(-1, -1)$ picture and the remaining one in the $(0, 0)$ picture. Again now, the constant demanded from unitarity now gets modified to $\frac{8 pi i}{g_c^2 \ell_s^6}$ We look at
+	\[
+	\begin{aligned}
+		&\frac{8 \pi i}{g_{c}^2 \ell_s^6} \frac{2 g_{c}^3}{\ell_s^2} \Big< \big[c \tilde c e^{-\phi - \bar \phi} \psi^\mu \tilde \psi^\sigma e^{i k_1 X} \big] (z_1) \big[c \tilde c e^{-\phi - \bar \phi} \psi^\nu \tilde \psi^\omega e^{i k_2 X}\big] (z_2) \big[ c \tilde c(\d X^\rho - \frac i2 k \cdot \psi \psi^\rho) (\d X^\lambda - \frac i2 k \cdot \psi \psi^\lambda) e^{i k_3 X} \big] (z_3)\Big> 
+	\end{aligned}
+	\]
+	Let's just look at the holomorphic part of the matter CFT, and the calculation goes almost exactly as in the last problem
+	\[
+	\begin{aligned}
+		&\braket{\psi^\mu (z_1) e^{i k_1 \cdot X(z_1)}\, \psi^\nu (z_2) e^{i k_2 \cdot X(z_2)} \, (i \dot X^\rho + \frac12 k_3 \cdot \psi \psi^\rho) e^{i k_3 \cdot X(z_3)} } \\
+		&= \frac12 \ell_s^4 \left(\frac{\eta^{\mu \nu}k_1^\rho}{z_{12} z_{13}} + \frac{\eta^{\mu \nu} k_2^\rho}{z_{12} z_{23}} + \frac{\eta^{\mu \rho} k_3^\nu - \eta^{\nu \rho} k_3^\mu}{z_{13} z_{23}} \right)\\
+		& \rightarrow  \frac{\ell_s^4}{4} \underbrace{\left(\eta^{\mu \nu} k_{12}^\rho + \eta^{\mu \rho} k_{31}^\nu + \eta^{\nu \rho} k_{23}^\mu \right)}_{ =: V^{\mu \nu \rho}}
+	\end{aligned}
+	\]
+	So the total amplitude becomes
+	\[
+		\pi i g_c \sdelta^{10}(\Sigma k) V^{\mu \nu \rho} V^{\sigma \omega \lambda}
+	\]
+	consistent with Polchinski.
 	
-	\item We should put the gaugini in the $-1/2$ picture and the boson in the $-1$  picture
+	\item We can put all our gaugini in the $-1/2$ picture thankfully. Our vertex operators are $g_{open} \sqrt{\ell_s} \lambda^\alpha e^{-\phi/2} S_\alpha e^{ikX}$. The relevant two-point correlator is
+	\[
+		S_\alpha(z) S_\beta(w) \sim \frac{\ell_s (C \Gamma^\mu)_{\alpha \beta} \psi_\mu}{\sqrt 2 (z-w)}% , \quad \braket{e^{-\phi(w_1)/2}e^{-\phi(w_2)/2} e^{-\phi(w_3)/2} e^{-\phi(w_4)/2} } = \prod_{i < j} w_{ij}^{-1/4}
+	\]
+	 From considerations of the singularity structure, we get that the four-point correlator is:
+	\[
+		\frac{\ell_s^2 (C \Gamma^\mu)_{\alpha \beta} (C \Gamma_\mu)_{\gamma \delta}}{2 z_{12} z_{34} z_{23} z_{34}}
+		 + \frac{\ell_s^2 (C \Gamma^\mu)_{\alpha \gamma} (C \Gamma_\mu)_{\alpha \delta}}{2 z_{13} z_{24} z_{32} z_{42}} 
+		 + \frac{\ell_s^2 (C \Gamma^\mu)_{\alpha \delta} (C \Gamma_\mu)_{\beta \gamma}}{2 z_{14} z_{23} z_{42} z_{43}}
+	\]
+	Take $z_1 = 0, z_2 = w, z_3 = 1, z_4 = \infty$. In order for the term going as $1/z$ to cancel so that the integral over the line is well-defined, we need the (physical on-shell condition):
+	\[
+		\Gamma^\mu_{\alpha \beta} \Gamma^\mu_{\gamma \delta} +
+		\Gamma^\mu_{\alpha \gamma} \Gamma^\mu_{\beta \delta} +
+		\Gamma^\mu_{\alpha \delta} \Gamma^\mu_{\beta \gamma} = 0
+	\]
+	 and defining $- \ell_s^2 (k_1 + k_2)^2 = s$ etc. \emph{(crucially notice the $\ell_s^2$ factors in this definition!)} gives
+	\[
+	\begin{aligned}
+		&\frac{i}{\ell_s^4 g_{open}^2} \times (g_{open} \sqrt{\ell_s})^4 \sdelta^{10}(\Sigma k) \times \frac{\ell_s^2}{2} \int_0^1 x^{-s - 1} (1-x)^{-u - 1} (\Gamma_{\alpha \beta}^\mu \Gamma_{\gamma \delta}^\mu + x \Gamma_{\alpha \gamma}^\mu \Gamma_{\beta \delta}^\mu) [1423]\\
+		&= - \frac{i g_{open}^2}{2} \sdelta^{10}(\Sigma k) \, 2 \times \left( \frac{\Gamma(-s) \Gamma(-u)}{\Gamma(1 - s - u)} (u \Gamma_{\alpha \beta}^\mu \Gamma_{\gamma \delta}^\mu - s \Gamma_{\alpha \delta}^\mu \Gamma_{\beta \gamma}^\mu) [1423] + 2 \perms \right)
+	\end{aligned}
+	\]
+	The minus sign comes from pulling an $s$ or $u$ out of the $\Gamma$ functions. The factor of $2$ comes from summing over both orientations. Altogether we can write this as
+	\[
+		-8 i g_{open}^2 \ell_s^2 \sdelta^{10}(\Sigma k) K(u_1, u_2, u_3, u_4) \left( \frac{\Gamma(-s) \Gamma(-u)}{\Gamma(1 - s - u)} [1423] + 2 \perms \right), K(u_1, u_2, u_3, u_4) = \frac18 (u \Gamma_{\alpha \beta}^\mu \Gamma_{\gamma \delta}^\mu - s \Gamma_{\alpha \delta}^\mu \Gamma_{\beta \gamma}^\mu)
+	\]
+	where now $s, t, u$ are defined as $-(k_i+k_j)^2$ \emph{without} $\ell_s^2$ factors.
 	
-	\item 
-	
-	\item 
 	
 	\item The bosonic action in 11D is:
 	\[
@@ -609,22 +685,105 @@
 	
 	On the other hand $U(1)$ \emph{has} no Casimirs so $\mathrm{Tr}(F^m) = 0$ for all $m$. In particular this allows us to take $E_8 \times U(1)^{248}$ or $U(1)^{496}$ as a gauge group and remain anomaly-free. \textbf{Check with Nick. Reconcile this with} 
 	
-	\item Now let us turn to the $SO(16) \times SO(16)$ theory. To check anomalies, we look at the chiral terms. In this case we have spin $1/2$ fermions transforming in the $(16,16)$ (positive chirality), and $(1, 128) \oplus (128, 1)$ (negative chirality) representations, together with. Note that we do \emph{not} have a gravitino, as there is no spacetime SUSY in this theory.
+	\item Now let us turn to the $SO(16) \times SO(16)$ theory. To check anomalies, we look at the chiral terms. In this case we have massless content consisting of spin $1/2$ Majorana-Weyl fermions transforming in the $(16,16)$ (positive chirality), and $(1, 128) \oplus (128, 1)$ (negative chirality) representations. We also have \emph{massive} fermion fields in the $(128,128)$ representation that do \emph{not} contribute to the anomaly. Note that we do \emph{not} have a gravitino, as there is no spacetime SUSY in this theory.
+	
+	The positive chirality $(16,16)$ MW fermions have field strength $F_+ = F_1 \otimes 1 + 1 \otimes F_2$ valued in the vector representation. 
+	
+	The negative chirality $(1, 128) \oplus (128, 1)$ MW fermions have field strength $\hat F_- = \hat F_1 \oplus \hat F_2$ valued in the spinor representation. 
 
-	\textbf{Finish}
+	Our anomaly polynomial is thus
+	\[
+		\frac12 (I_{1/2}(R, F_+) - I_{1/2}(R, F_-))
+	\]
+	Both representations have dimension 256, so the $\frac{n}{64}(\dots)$ term in \textbf{7.9.22} cancels (note we did \emph{not} need to use that the dimension of the gauge group was $496$ here!). We are left with (using $\tr$ for the trace in the fundamental representation and $\tr_s$ for the spinor rep'n)
+	\begin{equation}\label{eq:anomaly}
+		\begin{aligned}
+			&-\frac{\tr[F^6_+]}{720}+ \frac{\tr[F^4_+] \Tr[R^2]}{24 \cdot 48} - \frac{\tr[F^2_+]}{256} \left(\frac{\Tr[R^4]}{45} + \frac{(\Tr[R^2])^2}{36} \right)\\
+			&-\left(-\frac{\tr_S[\hat F^6_-]}{720}+ \frac{\tr_S[\hat F^4_-] \Tr[R^2]}{24 \cdot 48} - \frac{\tr_S[\hat F^2_-]}{256} \left(\frac{\Tr[R^4]}{45} + \frac{(\Tr[R^2])^2}{36} \right) \right)
+		\end{aligned}
+	\end{equation}
+	From explicitly expanding out $(F_1 \otimes 1 + 1\otimes F_2)^{2,4,6}$ we get:
+	\[
+	\begin{aligned}
+		\tr F_+^2 &= 16 (\tr F_1^2 + \tr F_2^2) \\
+		\tr F_+^4 &= 16 (\tr F_1^4 + \tr F_2^4) + 6 \tr F_1^2 \tr F_2^2 \\
+		\tr F_+^6 &= 16 (\tr F_1^6 + \tr F_2^6) + 15 \tr F_1^2 \tr F_2^4 + 15 \tr F_1^4 \tr F_2^2
+	\end{aligned}
+	\]
+	Together with the results \textbf{7.4E, 7.5E} relating $\tr_S$ to $\tr$ we get 
+	\[
+	\begin{aligned}
+		\tr_S F_-^2 &= 16 (\tr F_1^2 + \tr F_2^2) \\
+		\tr_S F_-^4 &= -8 (\tr F_1^4 + \tr F_2^4) + 6 (\tr F_1^2 + \tr F_2^2)^2 \\
+		\tr_S F_-^6 &= 16 (\tr F_1^6 + \tr F_2^6) - 15 (\tr F_1^2 \tr F_1^4 + \tr F_2^2 \tr F_2^4) + \frac{15}{4} \left((\tr F_1^2)^3 + (\tr F_2^2)^3\right)
+	\end{aligned}
+	\]
+	Altogether we get
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/Anomaly Cancelation"}
+	\end{center}
+	
 
 	We thus get a Green-Schwarz term
 	\[
 		\propto \int d^{10} x B \left[\Tr_1 (F^4) + \Tr_2 (F^4) - \frac14 (\Tr_1(F^2)^2 + \Tr_2(F^2)^2 - \Tr(F_1^2) \Tr(F_2^2) \right]
 	\]
-
-	\item We are orbifolding by a $\ZZ_2$. In the sector of the left-moving worldsheet fermions, only $(-1)^F$ acts nontrivially. The twisted blocks are
-	\[
-		Z_{left} = \frac12 \sum_{a, b = 0}^1
-	\]
-	On the $E_8s$ the blocks give
-	\textbf{Finish}
 	
+	We have exhausted the set of supersymmetric chiral anomaly-free theories, so the question remains whether there are any \emph{non}-supersymmetric theories that are chiral and anomaly-free in 10D. We will have only MW fermions and perhaps self-dual 5-form fields contributing. It does not seem possible to cancel the $I_A(R)$ with \emph{just} the $I_{1/2}(R, F)$, so I expect any such 10 D non-SUSY theory will in fact contain \emph{only} MW fermions. They must come in pairs of opposite parities with equal particle number to cancel the gravitational anomaly. \textbf{Exhaustively showing this seems really difficult. Xi didn't know the full answer}
+	
+	I know for a fact there is at least \emph{one} other anomaly free theory in 10D, namely the $USp(32)$ open string Sugimoto theory (c.f. question \textbf{7.36}).
+
+	\item We are orbifolding by a $\ZZ_2$. In the sector of the left-moving worldsheet fermions, only $(-1)^\mathbf{F}$ acts nontrivially. The twisted blocks are
+	\[
+		Z_{fermions} \twist hg = \frac12 \sum_{a, b = 0}^1 (-1)^{a + b + ab + a g + b h + gh} \frac{\theta^4 \twist ab}{\eta^4}
+	\]
+	On the $E_8 \times E_8$s the untwisted block is just $(\frac12 \sum_{ab} \bar \theta^8 \twist ab / \bar \eta^8)^2$. Performing the projection $g$ requires that $a, b$ match for both factors, giving:
+	\[
+		Z_{E_8^2} \twist 01 = \frac14 \sum_{a, b=0}^1 \frac{(-1)^b \bar \theta^{8} \twist{a}{b} (2 \tau)}{\bar \eta^{8}(2 \tau)} = \frac14 \frac{\bar \theta^8\twist00 + \bar \theta^8\twist01}{\bar \eta^4 (\tau) \bar \theta^4 \twist10 (\tau)}
+	\]
+	Taking $\tau \to -1/\tau$ gives
+	\[
+		Z_{E_8^2} \twist 10 = \frac14 \frac{\bar \theta^8\twist00 + \bar \theta^8\twist10}{\bar \eta^4 (\tau) \bar \theta^4 \twist01 (\tau)}
+	\]
+	Finally taking $\tau \to \tau+1$ gives
+	\[
+		Z_{E_8^2} \twist 11 = \frac14 \frac{\bar \theta^8\twist01 + \bar \theta^8\twist10}{\bar \eta^4 (\tau) \bar \theta^4 \twist00 (\tau)}
+	\]
+	The full partition function is thus
+	\[
+		Z = \frac12 \sum_{h, g = 0}^1 Z_{E_8^2} \twist hg Z_{fermions} \twist hg
+	\]
+	We see that this is modular invariant, as individually both $Z_{fermions}$ and $Z_{E_8^2}$ are invariant under $\tau \to -1/\tau$. Their anomalous changes under $\tau \to \tau+1$ from the $\eta^4$ powers in the denominator are cancelled in pairs. 
+	
+	The gauge group corresponds to the invariant (diagonal) $E_8$ sublattice of $E_8 \times E_8$ (\textbf{Confirm}). At the massless level, we still have the gravity supermultiplet ($G, B, \Phi$), as well as gauge bosons with gauge group $E_8$ from the untwisted sector. \textbf{What about the twisted sector?}
+	
+	The gravitino has been projected out, so this theory no longer has spacetime supersymmetry. 
+	The theory is still chiral, and since the partition function is modular invariant, we are also guaranteed that it is anomaly free. However, it has a tachyon. 
+
+	\textbf{Unfinished}
+	
+	\item Let's assume we do not have self-dual 2-form gauge fields that give self-dual $3$-form field strengths and we do not consider an $I_A$ contribution. Recall we can write
+	\[
+		I_{1/2} = \prod_{i=1}^{D/2} \frac{x_i/2}{\sinh(x_i/2)}
+	\]
+	where $x_i$ are the off-diagonal entries in the $2\times2$ block decomposition of $R_0 = \dd \omega$. All of this is easy to do in Mathematica. 
+	\begin{center}
+		\includegraphics[scale=0.45]{"Figures/6D Anomaly"}
+	\end{center}
+	For $n$ spin 1/2 fermions and a gravitino we thus get the forms
+	\[
+	\begin{aligned}
+		I_{1/2}(R, F) &= \frac{n}{576} \left(\frac{\Tr (R^4)}{10} + \frac{(\Tr R^2)^2}{8} \right) - \frac{\Tr F^2}{96} \Tr R^2 + \frac{\Tr F^4}{24}\\
+		I_{3/2}(R) &= \frac{49}{576 \times 2} \Tr (R^4) - \frac{43}{576 \times 8} \Tr(R^2)^2
+	\end{aligned}
+	\]
+	The \emph{Anomalies.nb} also has the 10D cancelation if anyone is interested.
+	
+	\item 
+	
+	\item 
+	
+	\item
 	
 \end{enumerate}
 % section chapter_7_superstrings_and_supersymmetry (end)
