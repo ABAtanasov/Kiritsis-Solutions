@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage{simpler-wick}
 \usepackage{hyperref}
+\usepackage{ytableau}
 \usepackage{cancel}
 \usepackage{listings}
 \usepackage{relsize}
@@ -578,19 +579,20 @@
 		\Gamma^\mu_{\alpha \gamma} \Gamma^\mu_{\beta \delta} +
 		\Gamma^\mu_{\alpha \delta} \Gamma^\mu_{\beta \gamma} = 0
 	\]
-	 and defining $- \ell_s^2 (k_1 + k_2)^2 = s$ etc. \emph{(crucially notice the $\ell_s^2$ factors in this definition!)} gives
+	 and defining $- (k_1 + k_2)^2 = s$ etc. gives
 	\[
 	\begin{aligned}
-		&\frac{i}{\ell_s^4 g_{open}^2} \times (g_{open} \sqrt{\ell_s})^4 \sdelta^{10}(\Sigma k) \times \frac{\ell_s^2}{2} \int_0^1 x^{-s - 1} (1-x)^{-u - 1} (\Gamma_{\alpha \beta}^\mu \Gamma_{\gamma \delta}^\mu + x \Gamma_{\alpha \gamma}^\mu \Gamma_{\beta \delta}^\mu) [1423]\\
-		&= - \frac{i g_{open}^2}{2} \sdelta^{10}(\Sigma k) \, 2 \times \left( \frac{\Gamma(-s) \Gamma(-u)}{\Gamma(1 - s - u)} (u \Gamma_{\alpha \beta}^\mu \Gamma_{\gamma \delta}^\mu - s \Gamma_{\alpha \delta}^\mu \Gamma_{\beta \gamma}^\mu) [1423] + 2 \perms \right)
+		&\frac{i}{\ell_s^4 g_{open}^2} \times (g_{open} \sqrt{\ell_s})^4 \sdelta^{10}(\Sigma k) \times \frac{\ell_s^2}{2} \int_0^1 x^{-\ell_s^2 s - 1} (1-x)^{-\ell_s^2 u - 1} (\Gamma_{\alpha \beta}^\mu \Gamma_{\gamma \delta}^\mu + x \Gamma_{\alpha \gamma}^\mu \Gamma_{\beta \delta}^\mu) [1234]\\
+		&= - \frac{i g_{open}^2 \ell_s^2 }{2} \sdelta^{10}(\Sigma k) \, 2 \times \left( \frac{\Gamma(-\ell_s^2 s) \Gamma(-\ell_s^2 u)}{\Gamma(1 - \ell_s^2 s - \ell_s^2 u)} (u \Gamma_{\alpha \beta}^\mu \Gamma_{\gamma \delta}^\mu - s \Gamma_{\alpha \delta}^\mu \Gamma_{\beta \gamma}^\mu) [1234] + 2 \perms \right)
 	\end{aligned}
 	\]
 	The minus sign comes from pulling an $s$ or $u$ out of the $\Gamma$ functions. The factor of $2$ comes from summing over both orientations. Altogether we can write this as
 	\[
-		-8 i g_{open}^2 \ell_s^2 \sdelta^{10}(\Sigma k) K(u_1, u_2, u_3, u_4) \left( \frac{\Gamma(-s) \Gamma(-u)}{\Gamma(1 - s - u)} [1423] + 2 \perms \right), K(u_1, u_2, u_3, u_4) = \frac18 (u \Gamma_{\alpha \beta}^\mu \Gamma_{\gamma \delta}^\mu - s \Gamma_{\alpha \delta}^\mu \Gamma_{\beta \gamma}^\mu)
+	\begin{aligned}
+		&-8 i g_{open}^2 \ell_s^2 \sdelta^{10}(\Sigma k) K(u_1, u_2, u_3, u_4) \left( \frac{\Gamma(-\ell_s^2 s) \Gamma(-\ell_s^2 u)}{\Gamma(1 - \ell_s^2 s - \ell_s^2 u)} [1234] + 2 \perms \right)\\
+		& \qquad \quad K(u_1, u_2, u_3, u_4) = \frac18 (u \, \bar u_1\Gamma^\mu u_2 \bar u_3 \Gamma_\mu u_4 - s\, \bar u_1 \Gamma^\mu u_4 \bar u_3 \Gamma_\mu u_2)
+	\end{aligned}
 	\]
-	where now $s, t, u$ are defined as $-(k_i+k_j)^2$ \emph{without} $\ell_s^2$ factors.
-	
 	
 	\item The bosonic action in 11D is:
 	\[
@@ -779,11 +781,52 @@
 	\]
 	The \emph{Anomalies.nb} also has the 10D cancelation if anyone is interested.
 	
-	\item 
+	\item In the absence of a linear dilaton background, the RR fields simply satisfy the equations of motion $\dd \star F_{p+2} = 0$, as well as the Bianchi identities $\dd F_{p+2} = 0$. Further, the tree level effective action of type II SUGRA in the string frame gives no coupling between the RR fields and the dilaton, so the equations of motion remain unchanged. 
 	
-	\item 
+	At $k$th order the dilaton dependence of the $F^{2m}$ term is $e^{2(k-1) \Phi} e^{2 m \Phi}$
 	
-	\item
+	\textbf{Finish} (Ask Xi, Nathan, or Nick)
+	
+	\item The (minimal) supergravity multiplet contains  the left-handed $3/2$ gravitino as well as a right-handed self-dual 3-form field. The tensor multiplet contains a left-handed anti-self-dual 3-form field and the right-handed $1/2$ dilatino. Combining \emph{one} of the $N_T$ tensor multiplets with the gravity multiplet gives an anomaly contribution of:
+	\[
+		I_{3/2} - I_{1/2}
+	\]
+	The vector multiplet contains the left-handed gaugino. The hypermultiplet (which BTW Kiritsis has not yet defined) apparently contains a \emph{right-handed} \emph{hyperino} (wow fancy). 
+	
+	So far this gives
+	\[
+		I_{3/2} + (N_V - N_H - 1) I_{1/2} (R)
+	\]
+	But we have $N_T - 1$ addition tensor multiplets which will then contribute
+	\[
+		I_{3/2} + (N_V - N_H - N_T) I_{1/2} (R) + (N_T - 1) I_A(R) 
+	\]
+	A quick calculation for an anti-self-dual tensor gives
+	\[
+		I_{ASD} = - \left( \frac{7 \Tr R^4}{1440} - \frac{(\Tr R^2)^2}{144 \times 4} \right)
+	\]
+	the minus sign out front is from being \emph{anti}-self dual. 
+	
+	As before, in order to have factorization of the anomaly polynomial for the GS mechanism to work, we need the $\Tr R^4$ terms to cancel. This gives our desired constraint
+	\[
+		\frac{49}{144 \times 8} + \frac{(N_V - N_H - N_T)}{144 \times 40} - \frac{7}{144 \times 10} (N_T- 1) = 0 \Rightarrow N_H - N_V + 29 N_T = 273
+	\]
+	I think Kiritsis has a typo in this equation and it should be $\mathbf{+29} N_T$ rather than $-$. This is consistent with \textbf{BBS exercise 5.9}.
+	
+	\item Another 10D nonsupersymmetric string theory without tachyon! This one is open+closed. The $O(16) \times O(16)$ is the only closed non-SUSY string theory in 10D without tachyon. \textbf{Is this the only open one?} The relevant reference is \href{https://arxiv.org/abs/hep-th/9905159}{arXiv:hep-th/9905159}
+	
+	This is a theory of strings stretching $D9-D\bar 9$ branes.
+	
+	We have $\lambda, \tilde \lambda$ are positive chirality spinors belonging to the adjoint of $\mathrm{Sp}(n)$ (equivalent to the symmetric representation {\tiny \ydiagram{2}} and traceless antisymmetric representation {\tiny \ydiagram{1,1}} of $\mathrm{Sp}(m)$ respectively, while $\psi, \bar \psi$ are negative chirality spinors belonging to the bi-fundamental representation of $\SO(n) \times \SO(m)$. We take $n=0, m = 32$.
+	
+	As in the $\SO(16) \times \SO(16)$ example, the lack of spacetime SUSY means there is no gravitino contribution, and we look only at the massless fermion content:
+	\[
+		I_{\lambda} + I_{\bar \lambda} - 2 I_{\psi}
+	\]
+	The gravitational anomaly cancels for free since we have the same number of left and right chirality fermions. $\bar \lambda$ does not contribute to the gauge or mixed anomaly, since it transforms trivially under $\mathrm{USp}(32)$. 
+	
+	\textbf{Finish}
+	
 	
 \end{enumerate}
 % section chapter_7_superstrings_and_supersymmetry (end)

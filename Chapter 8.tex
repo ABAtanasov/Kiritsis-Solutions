@@ -1,0 +1,113 @@
+\documentclass[11pt, class=article, crop=false]{standalone}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd}
+\usepackage{mathabx}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{simpler-wick}
+\usepackage{hyperref}
+\usepackage{ytableau}
+\usepackage{cancel}
+\usepackage{listings}
+\usepackage{relsize}
+\usepackage{xcolor}
+\usepackage{stmaryrd}
+\usepackage{tikz-feynman}
+\usepackage{kiritsis}
+\geometry{margin = 0.5in}
+
+
+\begin{document}
+\section{Chapter 8: D-Branes} % (fold)
+\label{sec:chapter_8_d_branes}
+
+\begin{enumerate}
+	\item First, a simple magnetic monopole for a 1-form gauge field in $D$ spacetime dimensions has a radial magnetic field that $B_r = \frac{\tilde Q_1}{\Omega_{D-2} r^{D-2}}$ where $\Omega_{D-2} = 2 \pi^{d/2} \Gamma(d/2)$ is the volume of a unit $D-2$ sphere. This way, the flux of the solution over any $D-2$ sphere surrounding the (point) monopole will be $\tilde Q_1$.
+	
+	Upon taking the Hodge star we get the solution is $F = \tilde Q_1 \sin \theta \dd \theta \wedge \dd \phi$. We can write this as $A = \tilde Q_1 (c - \cos \theta) \dd \phi$. Taking $c = 1$ we get $A$ vanishes at $\theta = 0$ (which we need since the $\phi$ coordinate degnerates there) while taking $c = -1$ we get $A$ vanishes at $\theta = \pi$, which we also need.
+	
+	We cannot have \emph{both} solutions, and so we realize we are dealing with two $A$s, corresponding to local sections of a line bundle over $S^2$ on different hemispheres. Let $A^+$ be well-defined on all points on $S^2$ except $\theta = \pi$. Then $A^+$ is a section of a line bundle on the punctured sphere. The punctured sphere is contractible so any fiber bundle over it is trivial, so $A^+$ is just a \emph{function} on the punctured sphere $S^2 \setminus \{\theta = \pi\}$. So let's define $A^+ = \tilde Q_1 (1- \cos \theta) \dd \phi$. Similarly, we define $A^-$ to be the nonsingular $A$ on the sphere with $\theta = 0$ removed, namely $A^- = \tilde Q_1 (-1 -\cos \theta) \dd \phi$. 
+	
+	On the overlap, $A^+ - A^-$ differ by an integer, which labels the degree of ``twisting'' of this line bundle over $S^2$. 
+	
+	For a $p$ form, our monopole will now be spatially extended in $p-1$ directions. Label these (locally), by $x^1 \dots x^{p-1}$. Time is $x^0$. Locally transverse to these coordinates will be $r, \varphi^1 \dots, \varphi^{D-1-p}$, where $\varphi^i$ parameterize a $D-1-p$ sphere enclosing the monopole. The field strength looks like:
+	\[
+		% B_r = \frac{\tilde Q_p}{\Omega_{D-1-p} r^{D-1-p}} \dd t \wedge \dd r \Rightarrow
+		F = \tilde Q_p \, \Omega_{D-p-1}
+	\]
+	where $\Omega$ is the canonical $D-p-1$-sphere area form:
+	\[
+		\Omega = \sin^{D-p-2}(\varphi_1) \sin^{D-p-3}(\varphi_2) \dots \sin(\varphi_{D-p-2})\, \dd \varphi_1 \wedge \dots \dd \varphi_{D-p-1}
+	\]
+	This can be written (unfortunately unavoidably) in terms of a hypergeometric function:
+	\[
+		A =  {_2 F_1}\left(\frac12, \frac{D-p-1}{2}, \frac{D-p+1}{2}, \sin^2(\varphi_1) \right) \frac{\sin^{D-p-1}(\varphi_1)}{D-p-1} \dd \varphi_2 \wedge \dots \wedge \dd \varphi_{D-p-1}
+	\]
+	there is no need for an overall constant, as the function above vanishes at both $\varphi_1 = 0$ and $\pi$, \emph{however} this is compensated by the hypergeometric function having a branch cut at $\varphi_1 = \pi/2$. Across this cut, it will have a discontinuity set by an integer depending on the convention of the arcsin function, and again we will have $A^+ - A^-$ differing by an integer.  The same quantization condition follows. 
+	
+	Again $A^+$ will be defined on the $S^{D-p-1}$ sphere minus the south-pole (this is homeomorphic to the $D-p-1$ ball, and hence contractible, so again the line bundle trivializes and $A^+$ is a bona-fide function for any $D, p$) and $A^-$ is similarly defined on the sphere with the excision of the north pole.
+	
+	\item Our simply charged point particle with a Wilson line $A_9 = \chi/2\pi R$ turned on will have an action
+	\[
+		S = \int d \tau \left( \underbrace{\frac12 \dot x^M \dot x_M - \frac{m^2}{2} + q A_9 \dot x^9}_{\mathcal L} \right)
+	\]
+	The canonical momentum will be $p_i = \dot x^\mu$ for $\mu = 0 \dots 8$ and $p_9 = \dot x^9 + \frac{q \chi}{2 \pi R}$. Consequently, our hamiltonian is
+	\[
+	\begin{aligned}
+		H &= p_M \dot x^M - \mathcal L = \frac12 p_\mu p^\mu + p_9 (p_9 -  \frac{q \chi}{2 \pi R}) - \left[\frac12 (p_9 - \frac{q \chi}{2\pi R})^2 - \frac{m^2}{2} + (p_9 - \frac{q \chi}{2 \pi R}) \frac{q \chi}{2 \pi R}\right]\\
+		&= \frac12 \left(p_\mu p^\mu + (p_9 - \frac{q \chi}{2\pi R})^2 + m^2\right)\\
+		&= \frac12 \left(p_\mu p^\mu + \left(\frac{2 \pi n - q \chi}{2\pi R}\right)^2 + m^2\right)
+	\end{aligned}
+	\]
+	
+	
+	\item For a string satisfying Dirichlet boundary conditions, the total momentum is not conserved (along the directions associated with the D boundary conditions). This is easily interpretable as momentum transfer to the brane that it is attached to.
+	
+	\item For an open string of state $\ket{ij}$, $A_9$ will act as $\frac{\chi_i - \chi_j}{2\pi i}$. Since this is an open string with no winding, we can only have momentum contribution, and so we will get a mass formula
+	\[
+		m^2_{ij} = \frac{\hat N - \frac12}{\ell_s^2} + \left(\frac{n}{R} - \frac{\chi_i - \chi_j}{2\pi R} \right)^2
+	\]
+	In particular at the lowest (massless) level for a string without momentum we will get the desired spectrum
+	\[
+		m_{ij}^2 =  \left(\frac{\chi_i - \chi_j}{2\pi R} \right)^2
+	\]
+	
+	\item We will do this for the superstring. The massless vector and scalar modes come from the NS sector, and are associated with the gauge boson vertex operator 
+	\[
+		V_{-1}^{a, \mu} = g_o \lambda^a \psi^\mu e^{-\phi} c e^{i p X}, \qquad
+		V_{0}^{a, \mu} = \frac{g_o}{\sqrt 2 \ell_s} \lambda^a (i \dot X + 2 p \cdot \psi \, \psi^\mu) c e^{i p X}
+	\]
+	We can explicitly scatter four such gauge bosons - two in the $-1$ picture and two in the $0$ picture. 
+	
+	Recall the four-gaugini amplitude from problem \textbf{23} of the last chapter:
+	\[
+	\begin{aligned}
+		&-8 i g_{open}^2 \ell_s^2 \sdelta^{10}(\Sigma k) K(u_1, u_2, u_3, u_4) \left( \frac{\Gamma(-\ell_s^2 s) \Gamma(-\ell_s^2 u)}{\Gamma(1 - \ell_s^2 s - \ell_s^2 u)} [1234] + 2 \perms \right)\\
+		& \qquad \quad K(u_1, u_2, u_3, u_4) = \frac18 (u \, \bar u_1\Gamma^\mu u_2 \bar u_3 \Gamma_\mu u_4 - s\, \bar u_1 \Gamma^\mu u_4 \bar u_3 \Gamma_\mu u_2)
+	\end{aligned}
+	\]
+	For now I will just quote \textbf{Polchinski 12.4.25}.
+	We can get the four-gauge boson amplitude simply by replacing $K$ with
+	\[
+		K(k_1, k_2, k_3, k_4, e_1, e_2, e_3, e_4) = \frac18 \Big(4\, \tr( M^1 M^2 M^3 M^4) - \tr(M_1 M_2) \tr(M_3 M_4)\Big) + (1234 \to 1342) + (1234 \to 1423)
+	\]
+	with $M^i_{\mu \nu} = k_\mu^i e^i_\nu - k^i_\nu e^i_\mu$. Now, the $9-p$ transverse momenta vanish. This gives a $V_{9-p}$ from the $\sdelta$ functions. Altogether we get an amplitude:
+	\[
+		-8 i g_{open}^2 \ell_s^2 V_{9-p} \sdelta^{p+1}(\Sigma k) K(k_i, e_i) \left( \frac{\Gamma(-\ell_s^2 s) \Gamma(-\ell_s^2 u)}{\Gamma(1 - \ell_s^2 s - \ell_s^2 u)} [1234] + 2 \perms \right)
+	\]
+	
+	
+	\item I have done the previous problem in full generality, including CP indices.
+	
+	\item 
+	
+	
+\end{enumerate}
+
+% section chapter_8_d_branes (end)	
+\end{document}
+	
