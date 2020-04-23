@@ -765,9 +765,13 @@
 	
 	\item Note that:
 	\[
-		\, [L_{-m}, J_{-n}] = n J_{-m - n} + \frac{A}{2} m (m-1) \delta_{m+n} = n J_{- (m+n)} + \left(\frac{A}{2} m (m+1) - m A\right) \delta_{m+n}
+		\, [L_{-m}, J_{-n}] = n J_{-m - n} + \frac{A}{2} m (m-1) \delta_{m+n} % = n J_{- (m+n)} + \left(\frac{A}{2} m (m+1) - m A\right) \delta_{m+n}
 	\]
-	so this will only have the same form of the central term if $J_0^\dagger = J_{0} + A$, ie $J_{-m}^\dagger + A \delta_{m, 0}$. This shows that it is necessary. By the above commutation relation, we cannot mix $J_m$ labeled by different mode number in defining $J^{\dagger}_m$, as they would transform differently under $L_0$, so can only have $J_{-m}$ and a central term on $J_0$. Similarly, we cannot mix $L_n$ of different $n$ in defining $L^\dagger_0$. Do we add a central term (necessarily to the definition of $L_0^\dagger$, since only this one transforms as a scalar under $L_0$)? We already have, since this is fixed by the $[L_{m}, L_{-m}]$ and $[L^\dagger_m, L^\dagger_{-m}]$ commutations that give the central charge.
+	Take $(m+n)=0$ and look at the central term. We see that we cannot simply identify $L^{\dagger}_{m} = L_{-m}, J^\dagger_{n} = J_{-n}$ because then the commutation relation above has a central term  $-m A$ off from the correct central term. This can be corrected by redefining \emph{just} the zero mode  $J^\dagger_0 = J_0 + A$. We see that then the hermitian conjugates satisfy the same algebra. We see sufficiency. Is this necessary? 
+	
+	We now show that we cannot change the algebra in any other way and keep the commutation relations. Firstly, we cannot add a (necessarily zero weight) central term to any other $J_m^\dagger = J_{-m}$ relation since only $J_0$ transforms with $0$ weight. In fact we cannot form any linear combination $\tilde J_m$ of the $J_m$ and expect the commutation relations to hold, since each $J_m$ has different eigenvalue under $L_0$. We can thus only rescale the $J_m$- and applying $[L_1, J_m]$ shows that to keep the commutation relation, this rescaling must be the same for all $J_m$ - but this would necessarily modify the central term by changing the charge $A$. 
+
+	 The same logic applies to the $L_m^\dagger$. We cannot mix $L_m$ for different $m$ to define $L_m^\dagger$ since they have different weight under $L_0$. There is also no consistent way to rescale all of them and keep the commutation relations the same. The only possibility is adding a central term to the relation $L_0^\dagger = L_0$, but any redefinition of this will modify the central charge of the conjugate theory. 
 	
 	% First, from the commutation relation of $J$ with $V_{q} (w)$, we note:
 % 	\[
@@ -957,7 +961,7 @@
 	
 	We can also bosonize the $\eta, \xi$ theory in terms of an auxiliary bosonic field $\chi$, but this was not necessary for the exercise. 
 	
-	\item Let us do this directly from definitions:
+	\item We are looking at DN boundary conditions. Let us do this directly from definitions:
 	\[
 	\begin{aligned}
 		X(\tau, \sigma) &= x - \sqrt{2} \ell_s \sum_{k \in \mathbb Z + 1/2} \frac{\alpha_k}{k} e^{-i k \tau} \sin(k \sigma) = x + i \frac{\ell_s}{\sqrt 2} \sum_{k \in \mathbb Z + 1/2} \frac{\alpha_k}{k} (z^{-k} - \bar z^{-k})\\
@@ -981,10 +985,12 @@
 	\[
 		- \frac{\ell_s^2}{2} \left[ \log|1 - \sqrt{w/z}|^2 - \log|1 + \sqrt{w/z}|^2 - \log|1 - \sqrt{\bar w/z}|^2 +  \log|1 + \sqrt{\bar w/z}|^2 \right].
 	\]
-	we can add and subtract $\log z$ to get:
+	We can simplify this to:
 	\[
-		- \frac{\ell_s^2}{2} \left[ \log|\sqrt{z} - \sqrt{w}|^2 - \log|\sqrt{z} + \sqrt{w}|^2 - \log|\sqrt{z} - \sqrt{\bar w}|^2 + \log|\sqrt{z} + \sqrt{\bar w}|^2 \right].
+		- \frac{\ell_s^2}{2} \left[ \log|\frac{\sqrt{z} - \sqrt{w}}{\sqrt{z} + \sqrt{w}}|^2 - \log|\frac{\sqrt{z} - \sqrt{\bar w}}{\sqrt z + \sqrt{\bar w}}|^2 + \log|\sqrt{z} + \sqrt{\bar w}|^2 \right].
 	\]
+	For ND boundary conditions, the $-$ between the two logs becomes a $+$.
+	
 	\textbf{Interpret this in terms of image charges}
 	
 	\item Firstly, $\d X \bar \d X$ requires no normal ordering constant to be added ordinarily, since it has a wick contraction of zero. Now to go from the plane from the disk we have $x = \frac{z-i}{z+i}$. Vice versa is $z = i \frac{1+x}{1-x}$. This gives
@@ -1028,11 +1034,11 @@
 		\end{aligned}
 	\]
 	where the extra minus sign in the Dirichlet boundary condition case removes any sign ambiguity in the last line. Thus, we see that indeed $^\star_\star \d X(z) \d X(w) ^\star_\star = \pm \, ^\star_\star \d X(z) \bar \d X(1/\bar w) ^\star_\star $ for Neumann and Dirichlet boundary conditions respectively. 
-	\item We do this by Wick contraction:
+	\item Using the doubling trick we have $\bar \psi (\bar z) = \psi(z^*)$. So $z_i = $ We can compute the correlator by Wick contraction:
 	\[
-		\braket{ \prod_{i=1}^m \psi(z_i) \, \prod_{j=1}^{2n-m} \bar \psi(\bar z_j)} = \dots
+		\braket{ \prod_{i=1}^m \psi(z_i) \, \prod_{j=1}^{2n-m} \bar \psi(\bar z_j)} = \braket{ \prod_{i=1}^n \psi(w_i) } = \frac{1}{2^n n!}\sum_{\pi \in S_{2n}} \mathrm{sgn}(\pi) \prod_{i=1}^n \frac{1}{w_{\pi(2i-1)} - w_{\pi(2i)}}  = \mathrm{Pf}\Big[\frac{1}{w_i - w_j}\Big]
 	\]
-	\textbf{Unsure what I learn from the combinatorics.}
+	where $w_i = z_i$ for $z = 1 \dots m$ and $w_{i+m} = z_i^*$ for $z = 1 \to 2n-m$
 	
 	\item I feel that this has already been done in 2.3.31. Rotating to euclidean signature, the most general solution for $X$ is 
 	\[

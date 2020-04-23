@@ -22,7 +22,7 @@
 
 
 \begin{document}
-\section{Chapter 8: D-Branes} % (fold)
+\section*{Chapter 8: D-Branes} % (fold)
 \label{sec:chapter_8_d_branes}
 
 \begin{enumerate}
@@ -53,7 +53,7 @@
 	
 	\item Our simply charged point particle with a Wilson line $A_9 = \chi/2\pi R$ turned on will have an action
 	\[
-		S = \int d \tau \left( \underbrace{\frac12 \dot x^M \dot x_M - \frac{m^2}{2} + q A_9 \dot x^9}_{\mathcal L} \right)
+		S = \int d \tau \underbrace{\left( \frac12 \dot x^M \dot x_M - \frac{m^2}{2} + q A_9 \dot x^9 \right)}_{\mathcal L}
 	\]
 	The canonical momentum will be $p_i = \dot x^\mu$ for $\mu = 0 \dots 8$ and $p_9 = \dot x^9 + \frac{q \chi}{2 \pi R}$. Consequently, our hamiltonian is
 	\[
@@ -76,35 +76,398 @@
 		m_{ij}^2 =  \left(\frac{\chi_i - \chi_j}{2\pi R} \right)^2
 	\]
 	
-	\item We will do this for the superstring. The massless vector and scalar modes come from the NS sector, and are associated with the gauge boson vertex operator 
+	\item For completeness, we will do both the gauge boson and scalar scattering. These come from the NS sector, and are given by:
 	\[
-		V_{-1}^{a, \mu} = g_o \lambda^a \psi^\mu e^{-\phi} c e^{i p X}, \qquad
-		V_{0}^{a, \mu} = \frac{g_o}{\sqrt 2 \ell_s} \lambda^a (i \dot X + 2 p \cdot \psi \, \psi^\mu) c e^{i p X}
+		V_{-1}^{a, \mu} = g_p \lambda^a \psi^\mu e^{-\phi} c e^{i p X}, \qquad
+		V_{0}^{a, \mu} = \frac{g_p}{\sqrt 2 \ell_s} \lambda^a (i \dot X + 2 p \cdot \psi \, \psi^\mu) c e^{i p X}
 	\]
-	We can explicitly scatter four such gauge bosons - two in the $-1$ picture and two in the $0$ picture. 
-	
-	Recall the four-gaugini amplitude from problem \textbf{23} of the last chapter:
+	We can explicitly scatter four such gauge bosons - two in the $-1$ picture and two in the $0$ picture.
 	\[
 	\begin{aligned}
-		&-8 i g_{open}^2 \ell_s^2 \sdelta^{10}(\Sigma k) K(u_1, u_2, u_3, u_4) \left( \frac{\Gamma(-\ell_s^2 s) \Gamma(-\ell_s^2 u)}{\Gamma(1 - \ell_s^2 s - \ell_s^2 u)} [1234] + 2 \perms \right)\\
-		& \qquad \quad K(u_1, u_2, u_3, u_4) = \frac18 (u \, \bar u_1\Gamma^\mu u_2 \bar u_3 \Gamma_\mu u_4 - s\, \bar u_1 \Gamma^\mu u_4 \bar u_3 \Gamma_\mu u_2)
+		& \qquad i C_{D^2} \sdelta^{10}(\Sigma k) \times g_p^4 \braket{c V_{-1}(y_1) c V_{-1}(y_2) c V_{0}(y_3) c V_{0}(y_4)} + 5 \perms \\
+		& = \frac{i \sdelta^{p+1}}{g_p^2 \ell_s^4} \times \frac{g_p^4}{2\ell_s^2} \braket{[\psi^{\mu_1} e^{ik_1 X}]_{y_1}\;
+		 [\psi^{\mu_2} e^{ik_2 X}]_{y_2} \;
+		[(i {\dot X}^{\mu_3} + 2 k_3 \cdot \psi \psi^{\mu_3}) e^{i k_3 X}]_{y_3}\;
+		[(i {\dot X}^{\mu_4} + 2 k_4 \cdot \psi \psi^{\mu_4}) e^{i k_43 X}]_{y_4}\;
+		  }  \\ & \qquad  \quad \times \braket{c(y_1) c(y_2) c(y_3)} \braket{e^{-\phi(y_1)} e^{- \phi(y_2)}}
 	\end{aligned}
 	\]
-	For now I will just quote \textbf{Polchinski 12.4.25}.
-	We can get the four-gauge boson amplitude simply by replacing $K$ with
+	Take $y_1 = 0, y_2 = 1, y_3 = \infty$ and integrate $y_4 = y$ from $0$ to $1$ (then we'll have 5 more terms coming from permuatations). There are five contributions. 
+	\begin{itemize}
+		\item Contracting the $\psi^{\mu_1}(0) \psi^{\mu_2}$ together and allowing the remaining 4 terms at $y_3, y_4$ to contract either amongst themselves or with various vertex operators. 
+		\item Not contracting the first two $\psi$ and Contracting the $i \dot X(y_3)$ with any of the vertex operators while contracting the last $\psi$ with the first two
+		\item Not contracting the first two $\psi$ and contracting the $i \dot X(y_4)$ with any of the vertex operators while contracting the third $\psi$ with the first two
+		\item Forgetting the $i \dot X$, and contracting the $\psi$ at $y_1$ with the various $\psi$ at $y_3$ (consequently the $\psi$ at $y_2$ with the $\psi$ at $y_4$)
+		\item Swapping $3$ with $4$ in the above (this gives an overall minus sign by fermionic statistics)
+	\end{itemize}
+	Integrating this will give two types of terms: $\eta^{ab} \eta^{cd}$ and $\eta^{ab} k^c k^d$. Our shorthand replaces the superscript $\mu_i$ by just  $i$. Below, I underline the terms that contribute to the first type:
+	\begin{equation}\label{eq:gauge}
+	\begin{aligned}
+		\frac{i g_p^2 \sdelta^{p+1}}{\ell_s^4} \int_0^1 dy \frac{y^{2 \ell_s^2 k_1 \cdot k_4} y^{2 \ell_s^2 k_2 \cdot k_4}}{2 \ell_s^2}
+		 \Bigg\{
+		& -\ell_s^2 \eta^{12} 
+		 \left[ \underline{2 \ell_s^2 \eta^{34}} + (2 \ell_s^2)^2 (\underline{-\eta^{34} k_3 \cdot k_4} + k_4^3 k_3^4) + (2\ell_s^2)^2 (k_2^3 + k_4^3) \Big(\frac{k_1^4}{y} + \frac{k_2^4}{y-1}\Big) \right]\\
+		& + \ell_s^2 (2 \ell_s^2)^2 
+		\big[(k_2^3 + y k_4^3)(-k_4^1 \eta^{24} + k_4^2 \eta^{14}) \big] 
+		\\ & + \ell_s^2 (2 \ell_s^2)^2 
+		\Big[\Big(\frac{k_1^4}{y} + \frac{k_2^4}{y-1} \Big) (-k_3^1 \eta^{23} + k_3^2 \eta^{13}) \Big]\\
+		& + \ell_s^2 \frac{(2 \ell_s^2)^2}{y-1} 
+		\left[\underline{\eta^{13} \eta^{24} k_3 \cdot k_4} + \eta^{34} k_3^1 k_4^2 - \eta^{13} k_4^2 k_3^4 - \eta^{24} k_4^3 k_3^1 \right]\\
+		& - \ell_s^2 \frac{(2 \ell_s^2)^2}{y} 
+		\left[\underline{\eta^{14} \eta^{23} k_3 \cdot k_4 }+ \eta^{34} k_3^2 k_4^1 - \eta^{13} k_4^2 k_3^4 - \eta^{24} k_4^3 k_3^1 \right]  \Bigg\}
+	\end{aligned}		
+	\end{equation}
+	Using $s = -2 \ell_s^2 k_1 \cdot k_2$ etc we see the underlined terms contribute
 	\[
-		K(k_1, k_2, k_3, k_4, e_1, e_2, e_3, e_4) = \frac18 \Big(4\, \tr( M^1 M^2 M^3 M^4) - \tr(M_1 M_2) \tr(M_3 M_4)\Big) + (1234 \to 1342) + (1234 \to 1423)
+	\begin{aligned}
+		& \quad \frac{i g_p^2 \sdelta^{p+1}}{\ell_s^2} \left[\frac{\Gamma(1-u) \Gamma(1-t)}{\Gamma(2+s)} (-(1 + s) \eta^{12} \eta^{34}) + \frac{\Gamma(1-u) \Gamma(-t)}{\Gamma(1+s)} \eta^{14} \eta^{23} s + \frac{\Gamma(-u) \Gamma(1-t)}{\Gamma(1+s)} \eta^{14} \eta^{23} s \right][1423]\\
+		& = \frac{i g_p^2 \sdelta^{p+1}}{\ell_s^2} \frac{\Gamma(-u) \Gamma(-t)}{\Gamma(1+s)} ( - tu \eta^{12} \eta^{34} - su \eta^{13} \eta^{24} - st \eta^{14} \eta^{23} ) [1423]
+	\end{aligned}
 	\]
-	with $M^i_{\mu \nu} = k_\mu^i e^i_\nu - k^i_\nu e^i_\mu$. Now, the $9-p$ transverse momenta vanish. This gives a $V_{9-p}$ from the $\sdelta$ functions. Altogether we get an amplitude:
+	The non-underlined terms are more involved but end up contributing twelve terms that yield:
 	\[
-		-8 i g_{open}^2 \ell_s^2 V_{9-p} \sdelta^{p+1}(\Sigma k) K(k_i, e_i) \left( \frac{\Gamma(-\ell_s^2 s) \Gamma(-\ell_s^2 u)}{\Gamma(1 - \ell_s^2 s - \ell_s^2 u)} [1234] + 2 \perms \right)
+	\begin{aligned}
+		& \quad \frac{i g_p^2 \sdelta^{p+1}}{\ell_s^2} \left[\frac{\Gamma(-u) \Gamma(1-t)}{\Gamma(1+s)} 2 \ell_s^2 \eta^{12} k_2^3 k_1^4 + \dots \right][1423] = \frac{i g_p^2 \sdelta^{p+1}}{\ell_s^2} 2 \ell_s^2 \frac{\Gamma(-u) \Gamma(-t)}{\Gamma(1+s)} \left[ t \eta^{12} k_2^3 k_1^4 + 11 \perms \right][1423]
+	\end{aligned}
 	\]
+	Here my Mandelstam variables are dimensionless. The result with dimensionful Mandelstam variables is:
+	\begin{equation}\label{eq:4gluons}
+		i g_p^2 \sdelta^{p+1} \ell_s^2  \left( \frac{\Gamma(-\ell_s^2 s) \Gamma( -\ell_s^2 u)}{\Gamma(1 + \ell_s^2 t)} K_4(k_i, e_i) ([1234] + [4321]) + 2 \perms\right)
+	\end{equation}
+	with $K_4 (k_i, e_i) = - t u e_1 \cdot e_2 e_3 \cdot e_4 + 2 s (e_1 \cdot e_3 \, e_2 \cdot k_4 e_4 \cdot k_2 + 3 \perms )  + 2 \perms$
+	
+	Now for the four transverse scalar amplitude, our vertex operators look like:
+	\[
+		V_{-1}^{a, \mu} = g_p \lambda^a \psi^\mu e^{-\phi} c e^{i p X}, \qquad
+		V_{0}^{a, \mu} = \frac{g_p}{\sqrt 2 \ell_s} \lambda^a (X' + 2 p \cdot \psi \, \psi^\mu) c e^{i p X}
+	\]
+	here $X' = \partial_\sigma X =  2 i \partial X$. Moreover, we have Dirichlet boundary conditions on both the $X$s and the fermions $\psi$. The $\psi$ are still in the NS sector since we're looking at the (bosonic) scalar field scattering. 
+	
+	Crucially, the correlators for the $\psi$ field are the same for DD boundary conditions. We had $\braket{\dot X^\mu(z) \dot X^\nu(w)} = -\tfrac{\ell_s^2}{2} \eta^{\mu \nu} (z-w)^{-2}$ while the correlators for $X'$ pick up a minus sign $\braket{{X'}^i (z) {X'}^j(w)} = \tfrac{\ell_s^2}{2} \eta^{ij} (z-w)^{-2}$. This ends up giving the exact same result however, since the vertex operators contain $X'(z)$ while the prior ones contain $i \dot X(z)$. 
+	
+	Finally, contracting ${X'}^i$ with any of the $e^{i k X}$ will give zero, since the open strings only have momenta parallel to the D$p$ brane while the ${X'}^i$ is transverse. This gives a simpler amplitude than \eqref{eq:4gluons}:
+	\begin{equation}\label{eq:4scalars}
+		i g_p^2 \sdelta^{p+1} \ell_s^2 \; K_4'  \left( \frac{\Gamma(-\ell_s^2 s) \Gamma( -\ell_s^2 u)}{\Gamma(1 + \ell_s^2 t)} ([1234] + [4321]) + 2 \perms\right)
+	\end{equation}
+	with $K'_4 = - (t u  \delta_{12} \delta_{34} + s u \delta_{13} \delta_{24} + s t \delta_{14} \delta_{23})$.
+	In the case where there are no CP indices we expand the $\Gamma \Gamma/\Gamma$ functions:
+	\[
+		i g_p^2 \sdelta^{p+1} \ell_s^2 K'_4 \times \left(\frac{2}{\ell_s^4 su} + \frac{2}{\ell_s^4 st} + \frac{2}{\ell_s^4 tu}\right) = i g_p^2 \sdelta^{p+1} \ell_s^2 K'_4 \times \left( \frac{2(s+t+u)}{\ell_s^4 stu}\right)  = 0
+	\]
+	So to leading order in the string length this is zero. This is consistent with the $U(1)$ DBI action, as the scalars do not directly interact with the $U(1)$ gauge field $A_\mu$ (in general a real scalar cannot be charged under a $U(1)$ gauge field). That is, at leading order the action is free in the $X$ fields. Taking $\xi^\mu = X^\mu$ for $\mu = 0 \dots p$ and $X^i$ independent functions, we get: 
+	\[
+		 \int d^{p+1} \xi \sqrt{\det{G_{MN} \d_\alpha X^M \d_\beta X^N}} = \int d^{p+1} \xi \sqrt{\det \delta_{\alpha \beta} + \delta_{ij} \d_\alpha X^i \d_\beta X^j} \to \int d^{p+1} \xi\, \frac{\delta^{\alpha \beta}\delta_{ij}}{2} \d_\alpha X^i \d_\beta X^j 
+	\]
+	This is just a free theory. Its also quick to see that the 3-point function of the transverse scalars vanishes at tree level in string perturbation theory. 
+
+	
+	\item I have done the previous problem in full generality, including CP indices. So now let's again look at the $s$ channel. As $s \to 0$ so that $t = -u$ we get from the $\delta_{12} \delta_{34}$ term a pole in $s$ going as:
+	\[
+		- i g_p^2 \sdelta^{p+1} \ell_s^2 tu \times \left(\frac{1}{\ell_s^4 su} ([1234] + [4321]) + \frac{1}{\ell_s^4 st} ([1243] + [3421])\right) = -i \sdelta^{p+1} \frac{g_p^2}{\ell_s^2} \frac{t}{s} ([1234] + [4321] - [1243] - [3421])
+	\]
+	We can rewrite this as:
+	\[
+		-i \sdelta^{p+1} \frac{g_p^2}{\ell_s^2} \frac{t}{s} (\Tr(12[34]) - \Tr([34]21) = -i \sdelta^{p+1} \frac{g_p^2}{\ell_s^2} \frac{t}{s} \Tr ([12] [34])
+	\]
+	The pole at $s = 0$ corresponds to an exchange of a gluon from the $\frac12 (D_\mu X^I)^2$ term in \textbf{8.6.1}.
+	
+	We also have a further term that does not involve a pole in $s$. Let's still take $1$ and $2$ equal. Expanding to this order we find:
+	\[
+		-i \sdelta^{p+1} \frac{g_p^2}{\ell_s^2} \Big( \Tr([12][34])  + \Tr([13][24]) + \Tr([14][23]) \Big) 
+	\]
+	This comes from exactly the potential term $\frac14 [X^I, X^J]^2$ in the effective action \textbf{8.6.1}. \textbf{Come back to that last term}
+	
+	\item Momentum conservation will imply $p_{\parallel} = 0$ for the NSNS states. Our vertex operator will take the form $\zeta_{\mu \nu} c \tilde c e^{-\phi} e^{- \tilde \phi} \psi^\mu \tilde \psi^\nu e^{i k_{\perp} X}$. We can use the doubling trick to get $\zeta_{\mu \nu} c(z) c(z^*) e^{-\phi(z)} e^{-\phi(z^*)} \psi^\mu \tilde \psi^\nu e^{i k_{\perp} X}$ and we are automatically in the $-2$ picture. 
+	
+	The states from in the $p+1$ parallel directions give just the correlator $\braket{\psi^\mu(i) \psi^\nu(-i)} = -\frac{\eta^{\mu \nu}}{2i}$ (importantly NN fermions in NSNS have 2-point function $-1/(z-\bar w)$ c.f. \textbf{4.16.22}). We also get a $\sdelta^{p+1}$ from momentum conservation.
+	
+	The states in the transverse (Dirichlet) directions give $\frac{\delta^{ij}}{2i}$ correlator. Defining the diagonal matrix $D^{\mu \nu} = (\eta^{\alpha \beta}, \delta^{ij})$ we get a correlator proportional to 
+	\[
+		-\frac{g_c}{2 \ell_s^2 g_p^2}\sdelta^{p+1}(k_{\parallel})  D^{\mu \nu}  = - \frac{(2 \pi \ell_s)^2 T_p}{2} V_{p+1} D^{\mu \nu}
+	\]
+	\textbf{Check with Victor}. Confirm the tension relation. This diagonal tensor $D^{\mu \nu}$ allows for a nonvanishing dilaton and graviton tadpole, but will not couple to the antisymmetric Kalb-Ramond $B$-field. 
+	
+	\item Our RR fields have picture $(r, s)$ for $r,s$ half-integers In order to have total picture $-2$ on the disk, we need to pick this to be the (asymmetric) $(-3/2, -1/2)$ picture. The construction of this operator is complicated. I expect that the $(-1/2,-1/2)$ operator that I am familiar with is basically $e^{- \phi} G_0$ times the $(-3/2,-1/2)$ operator. This means that the $(-3/2, -1/2)$ will be one less power of momentum and one less gamma matrix than the $(-1/2, -1/2)$ operator. Let's set $k = 0$. The $(-1/2, -1/2)$ operator is propotional to (in Blumenhagen's convention)
+	\[
+		\frac14 \frac{\ell_s}{\sqrt 2} F^{\alpha \beta}  S_{\alpha}(z) \tilde S_\beta(\bar z) e^{-\phi/2 - \bar \phi/2} = \frac14 \frac{\ell_s}{\sqrt 2}
+		% \frac14 \sqrt{\frac{\ell_s^2/2}{p!}}
+		\frac{F_{\mu_1 \dots \mu_{p+2}}}{(p+2)!} (\Gamma^{\mu_1 \dots \mu_{p+2}})^{\alpha \beta} \overline{S}_{\alpha} \tilde S_{\beta} e^{-\phi/2 - \bar \phi/2}
+	\]
+	BRST will require that $F$ and $\star F$ be closed. 
+	Changing picture means removing one power of momentum and one gamma matrix. This integrating $F$, which must be proportional to the field strength $C$ since $p_{[\mu_1} C_{\mu_2 \dots \mu_{p+2}]} = F_{\mu_1 \dots \mu_p+2}$. It is then reasonable to expect the corresponding $(-3/2, -1/2)$ operator to be proportional to
+	\[
+		 e^{-3\phi/2 - \bar \phi/2} \frac{C_{\mu_1 \dots \mu_{p}}}{(p+1)!} (\Gamma^{\mu_0 \dots \mu_{p}})^{\alpha \beta} \overline{S}_\alpha \tilde S_\beta
+	\]
+	Note both $e^{-3\phi/3} S_{\alpha}$ and $e^{-\tilde \phi/2} S_{\beta}$ \emph{remain} primary operators, having dimensions $3/8 + 5/8$, so this is indeed a reasonable guess. From \textbf{5.12.42} of Kiritsis  I expect the leading-order of the $S_\alpha \tilde S_\beta$ correlator to be $C_{\alpha \beta}/(z - \bar z)^{10/8}$ and the $e^{-3\phi/2} \tilde e^{-\phi/2}$ will contribute $(z-\bar z)^{-3/4}$ to make this a primary correlator transforming as $C_{\alpha \beta} (z - \bar z)^{-2}$. For Neumann boundary conditions, $C_{\alpha \beta}$ is the charge conjugation matrix. More generally, I believe this will be $\delta^\perp C$, since $\delta^\perp = \prod_{i=p+1}^9 \delta^i, \delta^i = \Gamma^i \Gamma_{11}$ will reflect the $S_\alpha$ spinor along all the Dirichlet directions. 
+	
+	Only in the IIB case will $C_{\alpha \beta}$ will be nonzero between $\overline{S}_\alpha$ and $\tilde S_\beta$ since $S_\alpha$ and $\tilde S_\beta$ transform in the same representations. Each $\beta^i$ changes the chirality. So the amplitude in IIB will vanish if we have an even number of $\beta^i$, equivalently $9-p$ is odd, so we will have only odd dimensional branes in IIB as required and even dimensional branes in IIA as required. 
+	
+	We thus get an amplitude proportional to:
+	\[
+		\mathcal A = i \frac{g_c \sdelta^{p+1}}{g_p^2 \ell_s^2} \frac{C_{\mu_0 \dots \mu_p}}{(p+1)!} \Tr(\Gamma^{\mu_1 \dots \mu_p} \Gamma^{p+1} \dots \Gamma^9 \Gamma^{11}) = i \frac{g_c \sdelta^{p+1}}{g_o^2 \ell_s^2} \frac{C_{\mu_0 \dots \mu_p} \epsilon_{(p+1)}^{\mu_0 \dots \mu_p}}{(p+1)!} 
+	\]
+	Comparing with the \textbf{8.4.4}, which should factorize as $\mathcal A(p_\parallel)^2 G_{9-p}(p_\perp) \delta^{p+1}(p_\parallel)$ we see that the normalization of our on-shell amplitude is in fact:
+	\[
+		\mathcal A = i V_{p+1} \, \sqrt{2 \pi} (2\pi \ell_s)^{3-p} \frac{C_{\mu_0 \dots \mu_p} \epsilon_{(p+1)}^{\mu_0 \dots \mu_p}}{(p+1)!} 
+	\]
+	This is consistent with other results c.f. Di Veccia, Liccardo \emph{Gauge Theories from D-Branes}, arXiv:0307104 but I think they're not incorporating $1/\alpha_p = 2 \kappa_{10}^2$ in the propagator. Taking this factor into account and dividing by it followed by taking a square root gives us an on-shell amplitude of:
+	\[
+		\mathcal A = i V_{p+1} \frac{1}{(2 \pi \ell_s)^p \ell_s g_s} \frac{C_{\mu_0 \dots \mu_p} \epsilon_{(p+1)}^{\mu_0 \dots \mu_p}}{(p+1)!}  = i V_{p+1} T_p \, C_{p+1} \wedge \epsilon_{(p+1)}.
+	\]
+	This is exactly what would come from a minimal coupling term of the form $i T_p \int C_{p+1}$.
+	
+	\item We take one vertex operator to be in the $(-1, -1)$ picture and gauge fix it to lie at $z=i$, and take the other in the $(0, 0)$ picture, and fix it to range along the line from $0$ to $i$. We wish to calculate the correlator:
+	\[
+		-\frac{g_c^2}{g_o^2 \ell_s^4} \frac{2}{\ell_s^2} \braket{[\psi^\mu \tilde \psi^{\bar \mu} e^{i k_1 X}]_0\; [(i \d X^\mu + \frac12 k_2 \cdot \psi \psi^\nu) (i \bar \d X^{\bar \nu} + \frac12 k_2 \cdot \bar \psi \bar \psi^{\bar \nu}) e^{i k_2 X}]_y }
+	\]
+	This will be very similar to the 4-point gauge boson amplitude in \eqref{eq:gauge}. \textbf{Finish.}
 	
 	
-	\item I have done the previous problem in full generality, including CP indices.
+	From this ratio $\Gamma \Gamma/\Gamma$ functions we see that there are open string poles. This corresponds to a closed string splitting in two, with its ends on the D-brane as an intermediate state.
+	
+	\item In the D9 brane case, we have seen that the open string boundary only preserves the sum of $Q + \tilde Q$. If we T-dualize in the 9 direction, we act on the right-moving sector by spacetime parity, so that necessarily $\bar \d X^9 \to - \bar \d X^9, \tilde \psi^9 \to - \tilde \psi^9, \tilde S_\alpha \to \delta^9 \tilde S^\alpha$ (up to a phase in that last one). Here $\delta^9 = \Gamma^9 \Gamma^{11}$. Our spacetime supersymmetry generator $\tilde Q_\alpha = \frac{1}{2\pi i} \int d\bar z\, e^{-\phi/2} S_{\alpha}$ therefore will be mapped to $\delta^9 \tilde Q$. Thus, in the T-dual picture we preserve the supercharge $Q' + \delta^9 \tilde Q'$.
+	
+	Iterating this procedure in other directions we get that in general we preserve $Q + \delta^\perp \tilde Q$, with $\delta^\perp = \prod_{i} \delta^i$, where $i$ runs perpendicular to the brane. Note that T-dualities along different directions do not commute! They commute up to a $(-1)^{\mathbf{F}_R}$, and so the order that we do them matters. In this case the $\delta^i$ act by left-action.
+	
+	\item (As in Polchinski section 13.4) From the previous problem, we see that the first D-brane preserves the supercharges $Q + \delta^\perp \tilde Q$ while the second preserves the supercharges $Q + {\delta^\perp}' \tilde Q = Q + \delta^\perp ({\delta^\perp}^{-1} {\delta^\perp}' \tilde Q)$ so the supersymmetries that will be preserved must be of both forms. This is in one-to-one correspondence with spinors invariant under ${\delta^\perp}^{-1} {\delta^\perp}'$. This operator is a reflection in the direction of the ND boundary conditions (the directions orthogonal to the D$_{p'}$ brane in the D$_p$ brane). Since in either IIA or IIB $p$ and $p'$ must differ by an even integer, the number of mixed boundary conditions--call it $\nu$--must be even. Then we can write ${\delta^\perp}^{-1} {\delta^\perp}'$ as a product of rotations by $\pi$ along each of the $\nu/2$ planes ${\delta^\perp}^{-1} {\delta^\perp}' = e^{i \pi (J_1 + \dots + J_{\nu/2})}$. Each $j$ acts in a spinor representation, so that $e^{i \pi J_i}$ has eigenvalues $\pm i$. If $\nu/2$ is odd, this makes ${\delta^\perp}^{-1} {\delta^\perp}' = -1$ so this will \emph{not} preserve supersymmetry. We thus need $\nu/2$ even, or $\nu = 0$ mod $4$.
+	
+	
+	From this I posit that the static force between two branes vanishes precisely when $\nu = 0 \text{ mod } 4$.
+	
+	\item Now let's confirm this guess with an amplitude calculation. Take $p' \leq p$. We work in lightcone gauge. We do a trace over an open string with $p'$ NN boundary conditions, $p-p' = \nu$ DN boundary conditions, and $8-p$ DD boundary conditions. 
+	
+	We begin from the open string point of view in calculating the cylinder amplitude. Chapter 4 has done the NN, DD, and DN boson amplitudes for us. The difficulty lies almost entirely in the fermions.
+	Recall the following:
+	\[
+	\begin{aligned}
+		\eta &= q^{1/24} \prod_{n=1}^\infty (1-q^n)\\
+		 \sqrt{\frac{\theta[{^0_0}]}{\eta}} = q^{-1/48} \prod_{n=0}^\infty (1 + q^{n+1/2}) \qquad 
+		 \sqrt{\frac{\theta[{^1_0}]}{\eta}} &= \sqrt 2 \, q^{1/24} \prod_{n=0}^\infty (1 + q^n) \qquad  \sqrt{\frac{\theta[{^0_1}]}{\eta}} &= q^{-1/48} \prod_{n=0}^\infty (1 - q^{n+1/2})
+	\end{aligned}
+	\]
+	Further from \textbf{4.16.2} recall that for modes $b_{n+1/2}$, $b_n$ corresponding to NS and R sectors  the NN and DD boundary conditions give:
+	\begin{itemize}
+		\item NN: $\bar b_{n+1/2} = - b_{n+1/2}, \bar b_n = b_n$
+		\item DD: $\bar b_{n+1/2} = b_{n+1/2}, \bar b_n = -b_n$
+	\end{itemize}
+	For DN we have the same result as for DD but now the R sector is half-integrally modded and the NS sector in integrally modded. Now lets compute partition functions. Our final answer will be a sum over spin structures NS+, NS-, R+, R-. Taking $q = e^{- 2 \pi t}$ we see $\Tr[q^{L_0 - c/24}] = $
+	\begin{itemize}
+		\item NS+: 
+		\begin{itemize}
+			\item NN: $q^{-1/48}\prod_{n} (1 + q^{n+1/2}) =  \sqrt{\theta[{^0_0}]/\eta}$
+			\item DD: $q^{-1/48}\prod_{n} (1 + q^{n+1/2}) = \sqrt{\theta[{^0_0}]/\eta}$
+			\item DN: $\sqrt{2} q^{-1/48} q^{1/16} \prod_{n} (1 + q^{n}) = \sqrt{\theta[{^1_0}]/\eta}$ ( $\sqrt 2$ when raised to a power counts ground state degeneracy)
+		\end{itemize}
+		% The NS sector gives $\frac12 (\theta^4 \twist 00  - \theta^4 \twist 01)/\eta^4$
+%
+% 		The R sector gives $-\frac12 \theta\twist 10 ^4/\eta^4$
+		\item NS-: 
+		\begin{itemize}
+			\item NN: $q^{-1/48}\prod_{n} (1 - q^{n+1/2}) =  \sqrt{\theta[{^0_1}]/\eta}$
+			\item DD: $q^{-1/48}\prod_{n} (1 - q^{n+1/2}) = \sqrt{\theta[{^0_1}]/\eta}$
+			\item DN: $0$
+		\end{itemize}
+		
+		\item R+
+		\begin{itemize}
+			\item NN: $\sqrt 2 q^{1/24}\prod_{n} (1 + q^n) =  \sqrt{\theta[{^1_0}]/\eta}$
+			\item DD: $\sqrt 2 q^{1/24}\prod_{n} (1 + q^n) =  \sqrt{\theta[{^1_0}]/\eta}$
+			\item DN: $q^{-1/48}  \prod_{n} (1 + q^{n+1/2}) = \sqrt{\theta[{^0_0}]/\eta}$ 
+		\end{itemize}
+		
+		\item R-
+		\begin{itemize}
+			\item NN: 0
+			\item DD: 0
+			\item DN: $q^{-1/48} \prod_{n} (1 - q^{n+1/2}) = \sqrt{\theta[{^0_1}]/\eta}$ 
+		\end{itemize}
+	\end{itemize}
+	
+	\textbf{Notice} NN vs DD boundary conditions have \emph{no effect} on fermion contribution to partition function. This is because, although the left moving and right-moving modes are identified differently, the mode excitations look exactly the same.
+	
+	On the other hand for NN and DD the bosons will contribute $1/\eta$ and will contribute $\sqrt{\eta/\theta[{^0_1}]}$ for DN. Thus we have the following contributions to the partition function (here $N$ is the number of NN boundary conditions):
+	\[
+		\begin{aligned}
+		NS+ &= \frac{V_N}{(2 \pi \ell_s)^{N}} \int \frac{dt}{2t} \frac{e^{-2 \pi t \left(\frac{\Delta x}{2 \pi \ell_s} \right)^2}}{(\sqrt{2 t})^{N} \eta^{8-\nu} \left(\theta[{^0_1}]/\eta\right)^{\nu/2}} \left(\frac{\theta\twist00}{\eta} \right)^{(8-\nu)/2} \left(\frac{\theta\twist10}{\eta} \right)^{\nu/2} 
+		\\
+		NS- &= -\frac{V_N}{(2 \pi \ell_s)^{N}} \int \frac{dt}{2t} \frac{e^{-2 \pi t \left(\frac{\Delta x}{2 \pi \ell_s} \right)^2}}{(\sqrt{2 t})^{N} \eta^{8}} 
+		\left(\frac{\theta\twist01}{\eta} \right)^{8} \delta_{\nu=0}
+		\end{aligned}
+		\]
+	\[
+	\begin{aligned}
+	R+ &= -\frac{V_N}{(2 \pi \ell_s)^{N}} \int \frac{dt}{2t} \frac{e^{-2 \pi t \left(\frac{\Delta x}{2 \pi \ell_s} \right)^2}}{(\sqrt{2 t})^{N} \eta^{8-\nu} \left(\theta[{^0_1}]/\eta\right)^{\nu/2}} 
+	\left(\frac{\theta\twist10}{\eta} \right)^{(8-\nu)/2} \left(\frac{\theta\twist00}{\eta} \right)^{\nu/2} 
+	\\
+	R- &= \frac{V_N}{(2 \pi \ell_s)^{N}} \int \frac{dt}{2t} \frac{e^{-2 \pi t \left(\frac{\Delta x}{2 \pi \ell_s} \right)^2}}{(\sqrt{2 t})^{N} } \delta_{\nu=8} 	
+	\end{aligned}
+	\]
+	All theta and eta functions are evaluated at $it$. The circumference of the cylinder is $2 \pi t$. The relative signs in front of the different contributions come from a combination of defining the NS vacuum to have negative fermion and modular invariance (equivalently spacetime spin-statistics). 
+	% Summing this gives
+% 	\[
+% 		\frac{V_N}{(2 \pi \ell_s)^{N}} \int \frac{dt}{2t} \frac{e^{-t \left(\frac{\Delta x}{2 \pi \ell_s} \right)^2}}{(\sqrt{2 t})^{N} \eta^{8-\nu} \left(\theta[{^0_1}]/\eta\right)^{\nu/2}} \left[ \left(\frac{\theta\twist00}{\eta} \right)^{(8-\nu)/2} \left(\frac{\theta\twist10}{\eta} \right)^{\nu/2} - \left(\frac{\theta\twist01}{\eta} \right)^{8} \delta_{\nu=0} -
+%
+% 		 \right]
+% 	\]
+	Note when $\nu = 4$ we only get contributions from NS+ and R+, which exactly cancel. Similarly when $\nu = 4$ or $8$, by the abtruse identity of Jacobi we will get cancelation again. 
+	
+	We can interpret our result as a one-loop free energy. Differentiating this w.r.t. $\Delta x$ would then give us our force. For $\nu = 0, 4, 8$ we do not get a force, consistent with the D-brane configuration preserving supersymmetry. 
+	
+	For the sake of completeness, and to clear my own confusion once and for all, I will also do this from the POV of the boundary state formalism (not developed in Kiritsis). For a good reference see the last chapter of Blumenhagen's text on conformal field theory. 
+	
+	For a single free boson, after the flip $(\sigma, \tau)_{open} \to (\tau, \sigma)_{closed}$ the boundary states $\ket{N}, \ket{D}$ must satisfy 
+	\[
+		( \alpha_n + \tilde \alpha_{-n}) \ket N = 0, \qquad ( \alpha_n - \tilde \alpha_{-n}) \ket{D_x} = 0,
+	\]
+	This gives boundary states:
+	\[
+		\begin{aligned}
+			\ket{N} &= \frac{1}{(2\pi \ell_s \sqrt{2})^{1/2}} \prod_n e^{- \frac1n \alpha_{-n} \tilde \alpha_{-n}} \ket{0,0; 0} = \sum_{\vec m = \{m_i\}} \ket{\vec m, \Theta \vec m; 0} \\
+			\ket{D_x} &= (2\pi \ell_s/\sqrt{2})^{1/2} \int \frac{dk}{2\pi} e^{i p x} \prod_n e^{- \frac1n \alpha_{-n} \tilde \alpha_{-n}} \ket{0,0; k}\\			
+		\end{aligned}
+	\]
+	The overall normalization came from comparing with cylinder amplitudes. $\Theta$ here is CPT reversal. Similarly for a fermion
+	\[
+		( \psi_n + \tilde \psi_{-n}) \ket N = 0, \qquad ( \psi_n - \tilde \psi_{-n}) \ket{D_x} = 0,
+	\]
+	So with GSO projection we get:
+	\[
+	\begin{aligned}
+		\ket{N, \text{NSNS}} = P_L P_R \prod_r e^{\psi_{-r} \tilde \psi_{-r} } \ket{0}, &\qquad \ket{N, \text{RR}} = P_L P_R \prod_n e^{\psi_{-n} \tilde \psi_{-n} } \ket{0}\\
+		\ket{D, \text{NSNS}} = P_L P_R \prod_r e^{-\psi_{-r} \tilde \psi_{-r} } \ket{0}, &\qquad \ket{D, \text{RR}} = P_L P_R \prod_n e^{-\psi_{-n} \tilde \psi_{-n} } \ket{0}
+	\end{aligned}
+	\]
+	Here $r$ runs over half-integers in the NSNS sector and $n$ runs over integers in the RR sector. $P_L = \frac12( 1 + (-1)^F), P_R = \frac12 (1 + (-1)^{\tilde F})$ are our GSO projections, defined to project out the tachyon in the NS sector and project out one of the spinors in the R sector. 
+	
+	For the boson, it is quick to see that ($\ell = 1/t$)
+	\[
+	\begin{aligned}
+		\bra{N} e^{-\pi \ell (L_0 + \tilde L_0 - c/12)} \ket{N} &= \frac{V}{2\pi \ell_s \sqrt 2 \eta(i \ell)} = \frac{V}{(2\pi \ell_s) \sqrt{2 t} \eta(i t)} \\
+		\bra{D} e^{-\pi \ell (L_0 + \tilde L_0 - c/12)} \ket{D} &= \frac{2 \pi \ell_s}{\sqrt{2 t} \eta(i t)} \int \frac{dk}{2\pi} e^{i k \Delta x} e^{-\pi \ell_s^2 p^2/2t} = \frac{e^{-2 \pi t \left( \frac{\Delta x}{2 \pi \ell_s} \right)^2 }}{\eta(i t)}\\
+		\bra{D} e^{-\pi \ell (L_0 + \tilde L_0 - c/12)} \ket{N} &= \frac{1}{\sqrt 2} \frac{1}{\prod_n (1+q^{2n})} = \sqrt{\frac{\eta(i \ell )}{\theta\twist10 (i \ell)}} = \sqrt{\frac{\eta(i t)}{\theta\twist01 (i t)}}
+	\end{aligned}
+	\]
+	These are exactly what we've already gotten many times before from our trace over the open string bosonic states. The states $\ket{N}, \ket{D}$ must be a sum of both the RR and NSNS sector fermion states. We do not know the relative coefficients. 
+	
+	Let's look at the NSNS contributions. For the NN boundary conditions, the NSNS sector with projection consists of two terms: 
+	\[
+		\begin{aligned}
+			\bra{N, \text{NSNS}_{unproj}} e^{-\pi \ell (L_0 + \tilde L_0 - c/12)} \ket{N, \text{NSNS}_{unproj}}  &= \left(\frac{\theta\twist00(i \ell)}{\eta(i \ell)}\right)^{\# NN/2}  = \left(\frac{\theta\twist00(i t)}{\eta(i t)}\right)^{\# NN/2}\\
+			\bra{N, \text{NSNS}_{unproj}} (-1)^{F_L = F_R} e^{-\pi \ell (L_0 + \tilde L_0 - c/12)} \ket{N, \text{NSNS}_{unproj}}  &= \left(\frac{\theta\twist01(i \ell)}{\eta(i \ell)}\right)^{\# NN / 2} = \left(\frac{\theta\twist10(i t)}{\eta(i t)}\right)^{\# NN / 2}
+		\end{aligned}
+	\]
+	Replacing $N$ with $D$ would give the \emph{exact same} factor in both cases \textbf{WHY?} (explain: bc we need to match on both sides and so both minuses cancel in the exponent).  For DN boundary conditions the NSNS sector give the two terms:
+	\[
+		\begin{aligned}
+			\bra{D, \text{NSNS}_{unproj}} e^{-\pi \ell (L_0 + \tilde L_0 - c/12)} \ket{N, \text{NSNS}_{unproj}}  &= \left(\frac{\theta\twist01(i \ell)}{\eta(i \ell)}\right)^{\nu/2} = \left(\frac{\theta\twist10(it)}{\eta(i t)}\right)^{\nu/2}\\
+			\bra{D, \text{NSNS}_{unproj}} (-1)^{F_L = F_R} e^{-\pi \ell (L_0 + \tilde L_0 - c/12)} \ket{N, \text{NSNS}_{unproj}}  &= \left(\frac{\theta\twist00(i \ell)}{\eta(i \ell)}\right)^{\nu/2}  = \left(\frac{\theta\twist00(i t)}{\eta(i t)}\right)^{\nu/2}
+		\end{aligned}
+	\]
+	
+	Now let's look at the RR sector. For NN boundary conditions, it contributes:
+	\[
+		\begin{aligned}
+			\bra{N, \text{RR}_{unproj}} e^{-\pi \ell (L_0 + \tilde L_0 - c/12)} \ket{N, \text{RR}_{unproj}}  &= \left(\frac{\theta\twist10(i \ell)}{\eta(i \ell)}\right)^{\# NN/2} = \left(\frac{\theta\twist01(it)}{\eta(i t)}\right)^{\# NN/2} \\ 
+			\bra{N, \text{RR}_{unproj}} (-1)^{F_L = F_R} e^{-\pi \ell (L_0 + \tilde L_0 - c/12)} \ket{N, \text{RR}_{unproj}}  &= 0
+		\end{aligned}
+	\]
+	By the argument before, we get the same for DD boundary conditions. Finally, with DN boundary conditions we get
+	\[
+		\begin{aligned}
+			\bra{D, \text{RR}_{unproj}} e^{-\pi \ell (L_0 + \tilde L_0 - c/12)} \ket{N, \text{RR}_{unproj}}  &=  0\\
+			\bra{D, \text{RR}_{unproj}} (-1)^{F_L = F_R} e^{-\pi \ell (L_0 + \tilde L_0 - c/12)} \ket{N, \text{RR}_{unproj}}  &= \left(\frac{\theta\twist10(i \ell)}{\eta(i \ell)}\right)^{\nu/2} = \left(\frac{\theta\twist01(i t)}{\eta(i t)}\right)^{\nu/2}
+		\end{aligned}
+	\]
+	Together this is exactly consistent with what we get from tracing over the open string. We can work back to get relative normalizations.
+	
+	This shows that the massless RR and NSNS fields mediate the force. Moreover the NSNS fields without and with projection correspond respectively to the unprojected NS and R open string states while the RR fields without and with projection correspond to the \emph{projected} NS and R open string states.
+	
+	\item First recall that for a constant vector potential $A_9 = \frac{\chi_9}{2\pi R}$ corresponds to a $T$-dual picture of a $D$-brane at position $- \chi \tilde R = -2 \pi \ell_s^2 A_9$. Now consider a magnetic flux $F_{12}$ we can write a (nonconstant now) vector potential that gives this flux as $A_2 = F_{12} X^1$. We $T$-dualize along $X^2$ and get $X^2 = -2 \pi \ell_s^2 F_{12} X^1$. Then $\tan \theta = -2 \pi \ell_s^2 F_{12}$.
+	
+	Although we were working with D1 and D2 branes, we could have done the exact same calculation for $F_{01}$ on a D1 brane and recovered a D0 brane tilted in the $X^0-X^1$ plane (ie boosted). Such a D0 brane has the usual point-particle action:
+	\[
+		S_{D0} = -T_0 \int dX^0 \sqrt{1 + (\d_0 {X'}^1)^2} 
+	\]
+	Because the D0 brane and the D1 brane describe the same physics, this action should be identical to the D1 action. Note that $\d_0 {X'}^1$ is infinitesimally exactly $\tan \theta$ calculated above. We get the action
+	\[
+		S_{D1} = -T_1 \int dX^1 dX^2 \sqrt{1 + (2\pi \ell_s^2 F_{12})^2} 
+	\]
+	Of course, because the branes couple to strings, the only gauge invariant combination under transformations of the Kalb-Ramond $B$ field is $\mathcal F = B + 2\pi \ell_s^2 F$. We thus get:
+	\[
+		S_{D1} = -T_1 \int dX^1 dX^2 \sqrt{- \det (G + \mathcal F)} 
+	\]
+	We can tilt this brane and $T$-dualize to pick up EM field strengths in arbitrary dimension up to $9$.
+	
+	\item Let's $T$-dualize. See the solution \eqref{eq:partitionfunc} to the next problem and set $\phi_2 = \phi_3 = \phi_4 = 0$. This describes two D4 branes that are tilted only along the $x_1$-$x_5$ plane, and are otherwise parallel in the $x_2, x_3, x_4$ directions. T-dualizing $x_2, x_3, x_4$ makes these into D1 branes tilted in the $x_1 - x_5$ plane. Now setting $\nu_{2,3,4} = 0$ will give poles from the theta function in the denominator. This is to be expected, from the NN boundary conditions that always come with a volume divergence factor in that direction. We regulate this divergence by replacing:
+	\[
+		\theta\twist11 (i \nu t, i t)^{-1} \to i \frac{L}{\eta(i t)^{-3} 2 \pi \ell_s \sqrt{2 t}}
+	\]
+	Thus we get a partition function:
+	\[
+		-i \frac{L}{2 \pi \ell_s^4}\int_0^\infty \frac{dt}{2t} \frac{e^{-2 \pi t \left( \frac{\Delta x}{2\pi \ell_s} \right)^2}}{\sqrt{2t} \eta(it)^9} \frac{\theta \twist11 (i \theta t/2, i t)^3}{\theta \twist11 (i \theta t, it)}
+	\]
+	\textbf{So what's the force?} Let's take the distance to be large. The small $t$ contributions are then most important and we see a potential of: \textbf{Do it}. We get a potential that decays as $1/y^5$.
+	
+	\item Following Polchinski, we define variables $Z^i = X^i + i X^{i+4}, i= 1, \dots, 4$. Let the $\sigma = 0$ endpoint be on the untilted string. Then at $\sigma = 0$ we have $\d_1 \Re Z^a = \Im Z^a = 0$ and at $\sigma = \pi$ on the tilted string we have $\d_1 \Re(e^{i \theta_a} Z^a) = \Im(e^{i \theta_a} Z^a)$. 
+	
+	We see that the field that satisfies this is given by $Z^a(w, \bar w) = \mathcal Z^a(w) + \bar {\mathcal Z}^a (-\bar w)$ for $w = \sigma^1 + i \sigma^2$. Using the doubling trick we have $\mathcal Z^a(w + 2 \pi) = e^{2 i \theta_a} \mathcal Z^a(w)$ (and similarly for the conjugate). This gives a mode expansion with $\nu_a = \theta_a / \pi$
+	\[
+		\mathcal Z^a = i \frac{\ell_s}{\sqrt 2} \sum_{r \in \mathbb Z + \nu_a} \frac{\alpha^a_r}{r} e^{i r w}
+	\]
+	Then taking $q = e^{-2\pi t}$ as usual for open string partition functions, and restricting $0 < \phi_a < \pi$ we get:
+	\[
+		\frac{q^{\frac1{24} - \frac12 (\nu_a - \frac12)^2}}{\prod_{m=0}^\infty (1 - q^{m + \nu_a}) (1 - q^{m + 1 - \nu_a})} = -i \frac{q^{-\nu_a^2/2} \eta(it)}{\theta\twist11 (i \nu_a t, it)}
+	\]
+	Interesting... so the angles act like chemical potentials to make the theta functions nonzero. Now its time for the fermions (oh boy!). In each NS and R sector (projected and unprojected) the boundary conditions shift by $\nu_a$. We thus get e.g. for NS unprojected:
+	\[
+		Z\twist00 = q^{-\frac1{24} + \nu_a^2/2} \prod_{m=1}^\infty (1-q^{m+1/2 + \nu_a}) (1-q^{m + 1/2 - \nu_a}) = q^{\nu_a^2/2} \frac{\theta\twist00 (i \nu_a t , it)}{\eta(i t)}
+	\]
+	In total, then we will see that the fermion part gives us
+	\[
+		\frac12 \left[\prod_{a=1}^4 Z\twist00 (\phi_a, it) - \prod_{a=1}^4 Z\twist10 (\phi_a, it) - \prod_{a=1}^4 Z\twist01 (\phi_a, it) - \prod_{a=1}^4 Z\twist11 (\phi_a, it) \right]= \prod_{a=1}^4 Z\twist11 (\phi_a', it)
+	\]
+	This last equality follows from the full abstruse identity of Jacobi, where $\phi_1' = \frac12 (\phi_1 + \phi_2 + \phi_3 + \phi_4)$, $\phi_2' = \frac12 (\phi_1 + \phi_2 - \phi_3 - \phi_4)$, $\phi_3' = \frac12 (\phi_1 - \phi_2 + \phi_3 - \phi_4)$, $\phi_4' = \frac12 (\phi_1 - \phi_2 - \phi_3 + \phi_4)$ and exactly the same relations that 
+	We thus get a full potential  as a function of the separation $\Delta_x$
+	\begin{equation}\label{eq:partitionfunc}
+		V = - \int_0^\infty \frac{dt}{2t} \frac{e^{-2 \pi t \left( \frac{\Delta x}{2\pi \ell_s} \right)^2}}{2\pi \ell_s \sqrt{2t}} \prod_{a=1}^4 \frac{\theta \twist11 (i \nu'_a t, i t)}{\theta \twist11 (i \nu_a t, i t)}
+	\end{equation}
+	At long enough distances, the exponential factor forces small $t$ to contribute primarily. The complicated ratio of $\theta$-functions becomes a ratio of sines. 
+
+	\item \textbf{Find boundary conditions at $0$ and $\pi$}.
+	
+	\item We have a vector potential $A_1 = E X^0$. This is a simple as $T$-dualizing in the direction of $X^1$, giving a D-brane lying at $X_1 = 2 \pi \ell_s^2 E X^0$ giving a velocity $2 \pi \ell_s^2 E$. This can also be obtained by analytic continuation of question \textbf{8.13}. 
 	
 	\item 
 	
+	\item The action is a factor of two off from Polchinski's. The momenta are $p_i = \frac{2}{g_s \ell_s} (\dot X^i + [A_t, X^i])$. Then we get:
+	\[
+		H = \int dt \Tr\Big[\frac{g_s \ell_s}{4} p_i p^i + \frac{1}{2 g_s \ell_s (2\pi \ell_s^2)^2} [X^i, X^j]^2\Big]
+	\]
+	Defining $g^{1/3} \ell_s Y^i = X^i, p_i = p_{Y_i}/g_s^{1/3} \ell_s$, this sets the length scale as desired. Now we have $Y^i$ is dimensionless and get a hamiltonian
+	\[
+		H = \frac{g_s^{1/3}}{\ell_s} \int dt \Tr\Big[\frac14 p_{Y_i} p_{Y_i} + \frac{1}{2 (2\pi )^2} [Y^i, Y^j]^2\Big]
+	\]
+	So the hamiltonian is dimensionless, with $g, \ell_s$ appearing only in the overall normalization, which gives an energy scale of $g_s^{1/3}/\ell_s$. For strong coupling $g_s > 1$ this probes deeper than the string scale. 
+	
+	\item This is pretty direct. Since the metric $G_{\mu \nu}$ does not depend on $X^i$ for $i=p+1 \dots 9$, we have that each $X^i$ is killing, in particular the metric takes a block-diagonal form where only the first $(p+1)^2$ $G_{\mu \nu}$ entries have nontrivial coordinate dependence and the remaining metric is just the identity matrix $\delta_{ij}$ along the $X_i$ directions (we didn't even have to do this since 8.5.1 has $\eta_{\mu \nu}$ the flat metric. Is my logic here even right?). 
+	
+	Take the ansatz $A \to (A_\mu, \Phi_i)$. We thus get $F_{\mu \nu}$ in the first $(p+1)^2$ entries and $\partial_\mu \Phi^i$ in the off-block-diagonal piece. We can rewrite this as a determinant of just the $(p+1)$ piece \textbf{Justify this step}
+	\[
+		\sqrt{-\det(G_{\mu \nu} + 2 \pi F_{\mu \nu} + \d_\mu \Phi^i \d_\nu \Phi^i)}
+	\]
+	
+	\item The bosonic part of this is immediate. Write the fields $A_i$ in the dimensionally reduced dimensions as $X^I$ and we immediately get $\Tr F^2_{10} \to \Tr [F_{d+1}^2 + 2 [D_\mu, X^I]^2 + \sum_{I, J} [X^I, X^J]^2]$. The fermionic part will reduce to:
+	\[
+		(\Tr \bar \chi \Gamma^\mu D_\mu \chi)_{10D} \to \Tr [\bar \chi \Gamma^\mu D_\mu \chi + \bar \lambda_a \Gamma^{i} [X_i , \lambda^b] ] 
+	\] 
+	Where now the $\chi_i$ are fermions that break the \textbf{16} representation of $\SO(9,1)$ into a representation of $SO(d-1, 1) \times SO(10-d)$. For $d = 3$ we get $\mathcal N = 4$ SYM and this is $(2, 4) + (\bar 2, \bar 4)$, corresponding to four Weyl spinors. 
+	\item At the minimum of the potential, all $X^I$ lie in a cartan and mutually commute. The $A_{ij}$ correspond to open strings moving between the D-branes at positions $X_I$. The ground states of these open strings have a mass squared of $(X_I - X_J)^2/2 \pi \ell_s^2$, so indeed the mass is linear in the separation. \textbf{Confirm. Understand Lie-Theoretic perspective}.
+	
+	\item The worldvolume coupling to the RR 2-form looks like $i T_2 \int G \wedge C_2$
+
+	\item 
+	
+	\item 
 	
 \end{enumerate}
 
