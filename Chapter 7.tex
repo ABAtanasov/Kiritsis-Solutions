@@ -781,17 +781,23 @@
 	\]
 	The \emph{Anomalies.nb} also has the 10D cancelation if anyone is interested.
 	
-	\item In the absence of a linear dilaton background, the RR fields simply satisfy the equations of motion $\dd \star F_{p+2} = 0$, as well as the Bianchi identities $\dd F_{p+2} = 0$. Further, the tree level effective action of type II SUGRA in the string frame gives no coupling between the RR fields and the dilaton, so the equations of motion remain unchanged. 
+	\item In the absence of a linear dilaton background, the RR fields simply satisfy the equations of motion $\dd \star F_{p+2} = 0$, as well as the Bianchi identities $\dd F_{p+2} = 0$. We want to show that, the tree level effective action of type II SUGRA in the string frame will have no coupling at tree level between the RR field strengths and the dilaton.
 	
-	At $k$th order the dilaton dependence of the $F^{2m}$ term is $e^{2(k-1) \Phi} e^{2 m \Phi}$
-	
-	\textbf{Finish} (Ask Xi, Nathan, or Nick)
+	In a linear dilaton background $\Phi = \frac{Q}{\sqrt{2} \ell_s} X^9$, the supercurrent $G$ will be modified to
+	\[
+		G= i \frac{\sqrt 2}{\ell_s^2}\,\psi \cdot \d X  - i \sqrt 2\;  \Phi_{,\mu} \d \psi^\mu \Rightarrow G_0 \, \propto \, \frac{1}{\sqrt 2} \psi_0 (p_\mu + i \Phi_{, \mu})
+	\]
+	I'm not sure about a possible constant factor multiplying the second term in the definition of $G$, but it is as in Polchsinki 12.1.18. Acting on the RR ground states, $\psi_0$ gives an additional $\Gamma$ matrix, but the $\Phi_{\, \mu}$ term will modify the Bianchi and free massless equations as:
+	\[
+		(\d_\mu -\Phi_{, \mu}) \wedge F = (\d_\mu - \Phi_{, \mu}) \wedge \star F = 0 \Rightarrow e^{\Phi} \dd e^{-\Phi} F = e^{\Phi} \dd \star (e^{-\Phi} F) = 0.
+	\]
+	This implies that we should view $\hat F = e^{-\Phi} F$ as the field strength, and so the RR states correspond to $e^{\Phi} F$ (ie they already incorporate a factor of $e^{\Phi}$). The RR charges are surface integrals of $\hat F = \dd C$. Thus the dilaton coupling to the RR field strength $\hat F^{2m}$ is $e^{2m \Phi} e^{2 (k -1) \Phi} F^{2m}$. In particular, at tree level the $F^2$ term does not couple to the dilaton.
 	
 	\item The (minimal) supergravity multiplet contains  the left-handed $3/2$ gravitino as well as a right-handed self-dual 3-form field. The tensor multiplet contains a left-handed anti-self-dual 3-form field and the right-handed $1/2$ dilatino. Combining \emph{one} of the $N_T$ tensor multiplets with the gravity multiplet gives an anomaly contribution of:
 	\[
 		I_{3/2} - I_{1/2}
 	\]
-	The vector multiplet contains the left-handed gaugino. The hypermultiplet (which BTW Kiritsis has not yet defined) apparently contains a \emph{right-handed} \emph{hyperino} (wow fancy). 
+	The vector multiplet contains the left-handed gaugino. The hypermultiplet (which BTW Kiritsis has not yet defined this) apparently contains a \emph{right-handed} \emph{hyperino} (wow fancy). 
 	
 	So far this gives
 	\[
@@ -811,7 +817,7 @@
 	\[
 		\frac{49}{144 \times 8} + \frac{(N_V - N_H - N_T)}{144 \times 40} - \frac{7}{144 \times 10} (N_T- 1) = 0 \Rightarrow N_H - N_V + 29 N_T = 273
 	\]
-	I think Kiritsis has a typo in this equation and it should be $\mathbf{+29} N_T$ rather than $-$. This is consistent with \textbf{BBS exercise 5.9}.
+	I think Kiritsis has a typo in this equation and it should be $\mathbf{+29} N_T$ rather than $-29$. This is consistent with \textbf{BBS exercise 5.9}.
 	
 	\item Another 10D nonsupersymmetric string theory without tachyon! This one is open+closed. The $O(16) \times O(16)$ is the only closed non-SUSY string theory in 10D without tachyon. \textbf{Is this the only open one?} The relevant reference is \href{https://arxiv.org/abs/hep-th/9905159}{arXiv:hep-th/9905159}
 	

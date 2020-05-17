@@ -26,7 +26,7 @@
 \label{sec:chapter_8_d_branes}
 
 \begin{enumerate}
-	\item First, a simple magnetic monopole for a 1-form gauge field in $D$ spacetime dimensions has a radial magnetic field that $B_r = \frac{\tilde Q_1}{\Omega_{D-2} r^{D-2}}$ where $\Omega_{D-2} = 2 \pi^{d/2} \Gamma(d/2)$ is the volume of a unit $D-2$ sphere. This way, the flux of the solution over any $D-2$ sphere surrounding the (point) monopole will be $\tilde Q_1$.
+	\item First, a simple magnetic monopole for a 1-form gauge field in $D$ spacetime dimensions has a radial magnetic field $B_r = \frac{\tilde Q_1}{\Omega_{D-2} r^{D-2}}$ where $\Omega_{D-2} = 2 \pi^{d/2} \Gamma(d/2)$ is the volume of a unit $D-2$ sphere. This way, the flux of the solution over any $D-2$ sphere surrounding the (point) monopole will be $\tilde Q_1$.
 	
 	Upon taking the Hodge star we get the solution is $F = \tilde Q_1 \sin \theta \dd \theta \wedge \dd \phi$. We can write this as $A = \tilde Q_1 (c - \cos \theta) \dd \phi$. Taking $c = 1$ we get $A$ vanishes at $\theta = 0$ (which we need since the $\phi$ coordinate degnerates there) while taking $c = -1$ we get $A$ vanishes at $\theta = \pi$, which we also need.
 	
@@ -187,18 +187,27 @@
 	\]
 	\textbf{Check with Victor}. Confirm the tension relation. This diagonal tensor $D^{\mu \nu}$ allows for a nonvanishing dilaton and graviton tadpole, but will not couple to the antisymmetric Kalb-Ramond $B$-field. 
 	
-	\item Our RR fields have picture $(r, s)$ for $r,s$ half-integers In order to have total picture $-2$ on the disk, we need to pick this to be the (asymmetric) $(-3/2, -1/2)$ picture. The construction of this operator is complicated. I expect that the $(-1/2,-1/2)$ operator that I am familiar with is basically $e^{- \phi} G_0$ times the $(-3/2,-1/2)$ operator. This means that the $(-3/2, -1/2)$ will be one less power of momentum and one less gamma matrix than the $(-1/2, -1/2)$ operator. Let's set $k = 0$. The $(-1/2, -1/2)$ operator is propotional to (in Blumenhagen's convention)
+	\item Our RR fields have picture $(r, s)$ for $r,s$ half-integers. In order to have total picture $-2$ on the disk, we need to pick this to be the (asymmetric) $(-3/2, -1/2)$ picture. The construction of this operator is complicated. I expect that the $(-1/2,-1/2)$ operator that we are familiar with is basically $e^{- \phi} G_0$ times the $(-3/2,-1/2)$ operator. This means that the $(-3/2, -1/2)$ will be one less power of momentum and one less gamma matrix than the $(-1/2, -1/2)$ operator. Picking out the $p+2$ form part of the $(-1/2, -1/2)$ operator (in Blumenhagen's convention \textbf{16.21}) gives
 	\[
-		\frac14 \frac{\ell_s}{\sqrt 2} F^{\alpha \beta}  S_{\alpha}(z) \tilde S_\beta(\bar z) e^{-\phi/2 - \bar \phi/2} = \frac14 \frac{\ell_s}{\sqrt 2}
-		% \frac14 \sqrt{\frac{\ell_s^2/2}{p!}}
+		\frac14 \frac{\ell_s}{\sqrt 2} 
+		F^{\alpha \beta}  \overline{S}_{\alpha}(z) \tilde S_\beta(\bar z) e^{-\phi/2 - \bar \phi/2} 
+		\to 
+		\frac14 \frac{\ell_s}{\sqrt 2}
 		\frac{F_{\mu_1 \dots \mu_{p+2}}}{(p+2)!} (\Gamma^{\mu_1 \dots \mu_{p+2}})^{\alpha \beta} \overline{S}_{\alpha} \tilde S_{\beta} e^{-\phi/2 - \bar \phi/2}
 	\]
-	BRST will require that $F$ and $\star F$ be closed. 
-	Changing picture means removing one power of momentum and one gamma matrix. This integrating $F$, which must be proportional to the field strength $C$ since $p_{[\mu_1} C_{\mu_2 \dots \mu_{p+2}]} = F_{\mu_1 \dots \mu_p+2}$. It is then reasonable to expect the corresponding $(-3/2, -1/2)$ operator to be proportional to
+	Here $\overline S_\alpha = S_\alpha^\dagger \Gamma^0$ as is standard in a spinor product. BRST will require that $F$ and $\star F$ be closed. 
+	
+	Changing picture means removing one power of momentum and one gamma matrix. This anti-differentiates $F$, which must be proportional to the potential $C$ since $p_{[\mu_1} C_{\mu_2 \dots \mu_{p+2}]} = F_{\mu_1 \dots \mu_p+2}$. It is then reasonable to expect the corresponding $(-3/2, -1/2)$ operator to be proportional to
 	\[
 		 e^{-3\phi/2 - \bar \phi/2} \frac{C_{\mu_1 \dots \mu_{p}}}{(p+1)!} (\Gamma^{\mu_0 \dots \mu_{p}})^{\alpha \beta} \overline{S}_\alpha \tilde S_\beta
 	\]
-	Note both $e^{-3\phi/3} S_{\alpha}$ and $e^{-\tilde \phi/2} S_{\beta}$ \emph{remain} primary operators, having dimensions $3/8 + 5/8$, so this is indeed a reasonable guess. From \textbf{5.12.42} of Kiritsis  I expect the leading-order of the $S_\alpha \tilde S_\beta$ correlator to be $C_{\alpha \beta}/(z - \bar z)^{10/8}$ and the $e^{-3\phi/2} \tilde e^{-\phi/2}$ will contribute $(z-\bar z)^{-3/4}$ to make this a primary correlator transforming as $C_{\alpha \beta} (z - \bar z)^{-2}$. For Neumann boundary conditions, $C_{\alpha \beta}$ is the charge conjugation matrix. More generally, I believe this will be $\delta^\perp C$, since $\delta^\perp = \prod_{i=p+1}^9 \delta^i, \delta^i = \Gamma^i \Gamma_{11}$ will reflect the $S_\alpha$ spinor along all the Dirichlet directions. 
+	Note both $e^{-3\phi/3} S_{\alpha}$ and $e^{-\tilde \phi/2} S_{\beta}$ \emph{remain} primary operators, having dimensions $3/8 + 5/8$, so this is indeed a reasonable guess. Now, for the D-brane boundary conditions we have
+	\[
+		 (\delta^\perp  \tilde S)_\beta(\bar z) = S_\beta(z^*), \quad \delta^\perp = \prod_{i=p+1}^9 \delta^i, \quad \delta^i = \Gamma^i \Gamma_{11}
+	\]
+	This reflects the $S_\beta$ spinor along all the Dirichlet directions and keeps it the same across the Neumann directions. 
+	
+	From \textbf{5.12.42} of Kiritsis  I expect the leading-order of the $S_\alpha \tilde S_\beta$ correlator to be $C_{\alpha \beta}/(z - \bar z)^{10/8}$ and the $e^{-3\phi/2} \tilde e^{-\phi/2}$ will contribute $(z-\bar z)^{-3/4}$ to make this a primary correlator transforming as $C_{\alpha \beta} (z - \bar z)^{-2}$. For Neumann boundary conditions, $C_{\alpha \beta}$ is the charge conjugation matrix. For the $D$-brane, it will be $\delta^\perp C$.
 	
 	Only in the IIB case will $C_{\alpha \beta}$ will be nonzero between $\overline{S}_\alpha$ and $\tilde S_\beta$ since $S_\alpha$ and $\tilde S_\beta$ transform in the same representations. Each $\beta^i$ changes the chirality. So the amplitude in IIB will vanish if we have an even number of $\beta^i$, equivalently $9-p$ is odd, so we will have only odd dimensional branes in IIB as required and even dimensional branes in IIA as required. 
 	
@@ -398,56 +407,200 @@
 	\]
 	We can tilt this brane and $T$-dualize to pick up EM field strengths in arbitrary dimension up to $9$.
 	
-	\item Let's $T$-dualize. See the solution \eqref{eq:partitionfunc} to the next problem and set $\phi_2 = \phi_3 = \phi_4 = 0$. This describes two D4 branes that are tilted only along the $x_1$-$x_5$ plane, and are otherwise parallel in the $x_2, x_3, x_4$ directions. T-dualizing $x_2, x_3, x_4$ makes these into D1 branes tilted in the $x_1 - x_5$ plane. Now setting $\nu_{2,3,4} = 0$ will give poles from the theta function in the denominator. This is to be expected, from the NN boundary conditions that always come with a volume divergence factor in that direction. We regulate this divergence by replacing:
+	\item Let's $T$-dualize. This describes two D4 branes that are tilted only along the $x_1$-$x_5$ plane, and are otherwise parallel in the $x_2, x_3, x_4$ directions. T-dualizing $x_2, x_3, x_4$ makes these into D1 branes tilted in the $x_1 - x_5$ plane. See the solution \eqref{eq:partitionfunc} to the next problem. Now setting $\nu_{2,3,4} = 0$ will give poles from the theta function in the denominator. This is to be expected, from the NN boundary conditions that always come with a volume divergence factor in that direction. We regulate this divergence by replacing:
 	\[
 		\theta\twist11 (i \nu t, i t)^{-1} \to i \frac{L}{\eta(i t)^{-3} 2 \pi \ell_s \sqrt{2 t}}
 	\]
-	Thus we get a partition function:
+	Thus we get a potential:
 	\[
-		-i \frac{L}{2 \pi \ell_s^4}\int_0^\infty \frac{dt}{2t} \frac{e^{-2 \pi t \left( \frac{\Delta x}{2\pi \ell_s} \right)^2}}{\sqrt{2t} \eta(it)^9} \frac{\theta \twist11 (i \theta t/2, i t)^3}{\theta \twist11 (i \theta t, it)}
+		-i\frac{L^3}{(2 \pi \ell_s)^4}\int_0^\infty \frac{dt}{t} \frac{e^{-2 \pi t \left( \frac{\Delta x}{2\pi \ell_s} \right)^2}}{(2t)^{4/2} \eta(it)^9} \frac{\theta \twist11 (i \nu t/2, i t)^4}{\theta \twist11 (i \nu t, it)}
 	\]
-	\textbf{So what's the force?} Let's take the distance to be large. The small $t$ contributions are then most important and we see a potential of: \textbf{Do it}. We get a potential that decays as $1/y^5$.
+	Let's take the distance to be large. The small $t$ contributions are then most important. The $\theta$-function ratio contributes a factor of $e^{-3 \pi /4 t} t^{-3/2}$ while the $\eta^{-9}$ contributes $e^{3 \pi /4 t} t^{9/2}$ \textbf{Finish the details here}
+	
+	 We get a potential that decays as $-\frac{L^3 \ell_s}{(\Delta x)^5} \frac{\sin^4 (\theta/2)}{\sin(\theta)}$ giving another attractive force going as $1/(\Delta x)^6$. 
 	
 	\item Following Polchinski, we define variables $Z^i = X^i + i X^{i+4}, i= 1, \dots, 4$. Let the $\sigma = 0$ endpoint be on the untilted string. Then at $\sigma = 0$ we have $\d_1 \Re Z^a = \Im Z^a = 0$ and at $\sigma = \pi$ on the tilted string we have $\d_1 \Re(e^{i \theta_a} Z^a) = \Im(e^{i \theta_a} Z^a)$. 
 	
 	We see that the field that satisfies this is given by $Z^a(w, \bar w) = \mathcal Z^a(w) + \bar {\mathcal Z}^a (-\bar w)$ for $w = \sigma^1 + i \sigma^2$. Using the doubling trick we have $\mathcal Z^a(w + 2 \pi) = e^{2 i \theta_a} \mathcal Z^a(w)$ (and similarly for the conjugate). This gives a mode expansion with $\nu_a = \theta_a / \pi$
 	\[
-		\mathcal Z^a = i \frac{\ell_s}{\sqrt 2} \sum_{r \in \mathbb Z + \nu_a} \frac{\alpha^a_r}{r} e^{i r w}
+		\mathcal Z^a(w) = i \frac{\ell_s}{\sqrt 2} \sum_{r \in \mathbb Z + \nu_a} \frac{\alpha^a_r}{r} e^{i r w}.
 	\]
-	Then taking $q = e^{-2\pi t}$ as usual for open string partition functions, and restricting $0 < \phi_a < \pi$ we get:
+	The $a^\dagger$ modes are then linearly independent. Taking $q = e^{-2\pi t}$ as usual for open string partition functions, and restricting $0 < \phi_a < \pi$ we get:
+	\begin{equation*}
+		\frac{q^{\frac1{24} - \frac12 (\nu_a - \frac12)^2}}{\prod_{m=0}^\infty (1 - q^{m + \nu_a}) (1 - q^{m + 1 - \nu_a})} = -i \frac{q^{- \nu_a^2/2}\eta(it)}{\theta\twist11 (i \nu_a t, i t)}
+	\end{equation*}
+	Where we have used 
 	\[
-		\frac{q^{\frac1{24} - \frac12 (\nu_a - \frac12)^2}}{\prod_{m=0}^\infty (1 - q^{m + \nu_a}) (1 - q^{m + 1 - \nu_a})} = -i \frac{q^{-\nu_a^2/2} \eta(it)}{\theta\twist11 (i \nu_a t, it)}
+		\theta\twist11 (i \nu t , it) = i q^{\frac{1}{8}} (q^{\nu/2} - q^{-\nu/2}) \prod_{m=1}^\infty (1-q^m) (1- q^{m+\nu}) (1- q^{m-\nu}) =i  \eta(i t) q^{\frac18 - \frac{1}{24} + \frac{\nu}{2}} \prod_{m=0}^\infty (1- q^{m+\nu}) (1- q^{m+1-\nu})
 	\]
-	Interesting... so the angles act like chemical potentials to make the theta functions nonzero. Now its time for the fermions (oh boy!). In each NS and R sector (projected and unprojected) the boundary conditions shift by $\nu_a$. We thus get e.g. for NS unprojected:
+	So the angles act like chemical potentials to make the theta functions nonzero. Now its time for the fermions (oh boy!). In each NS and R sector (projected and unprojected) the boundary conditions shift by $\nu_a$. We thus get e.g. for NS unprojected:
 	\[
 		Z\twist00 = q^{-\frac1{24} + \nu_a^2/2} \prod_{m=1}^\infty (1-q^{m+1/2 + \nu_a}) (1-q^{m + 1/2 - \nu_a}) = q^{\nu_a^2/2} \frac{\theta\twist00 (i \nu_a t , it)}{\eta(i t)}
 	\]
 	In total, then we will see that the fermion part gives us
 	\[
-		\frac12 \left[\prod_{a=1}^4 Z\twist00 (\phi_a, it) - \prod_{a=1}^4 Z\twist10 (\phi_a, it) - \prod_{a=1}^4 Z\twist01 (\phi_a, it) - \prod_{a=1}^4 Z\twist11 (\phi_a, it) \right]= \prod_{a=1}^4 Z\twist11 (\phi_a', it)
+		\frac{\prod_a q^{\nu_a^2/2}}{2 \eta(it)^4} \left[\prod_{a=1}^4 \theta\twist00 (i \nu_a t, it) - \prod_{a=1}^4 \theta\twist10 (i \nu_a t, it) - \prod_{a=1}^4 \theta\twist01 (i \nu_a t, it) - \prod_{a=1}^4 \theta\twist11 (i \nu_a t, it) \right]= \prod_{a=1}^4 \frac{e^{\nu_a^2/2}\theta\twist11 (i \nu_a' t, it)}{\eta(it)}
 	\]
-	This last equality follows from the full abstruse identity of Jacobi, where $\phi_1' = \frac12 (\phi_1 + \phi_2 + \phi_3 + \phi_4)$, $\phi_2' = \frac12 (\phi_1 + \phi_2 - \phi_3 - \phi_4)$, $\phi_3' = \frac12 (\phi_1 - \phi_2 + \phi_3 - \phi_4)$, $\phi_4' = \frac12 (\phi_1 - \phi_2 - \phi_3 + \phi_4)$ and exactly the same relations that 
-	We thus get a full potential  as a function of the separation $\Delta_x$
+	This last equality follows from the full abstruse identity of Jacobi, where $\phi_1' = \frac12 (\phi_1 + \phi_2 + \phi_3 + \phi_4)$, $\phi_2' = \frac12 (\phi_1 + \phi_2 - \phi_3 - \phi_4)$, $\phi_3' = \frac12 (\phi_1 - \phi_2 + \phi_3 - \phi_4)$, $\phi_4' = \frac12 (\phi_1 - \phi_2 - \phi_3 + \phi_4)$ and the $\nu_a'$ are defined identically.
+	Inserting the DD conditions along the $9$ direction that denotes separation, we get the full potential  as a function of the separation $\Delta x$
 	\begin{equation}\label{eq:partitionfunc}
-		V = - \int_0^\infty \frac{dt}{2t} \frac{e^{-2 \pi t \left( \frac{\Delta x}{2\pi \ell_s} \right)^2}}{2\pi \ell_s \sqrt{2t}} \prod_{a=1}^4 \frac{\theta \twist11 (i \nu'_a t, i t)}{\theta \twist11 (i \nu_a t, i t)}
+		V = - 2 \times \int_0^\infty \frac{dt}{2t} \frac{e^{-2 \pi t \left( \frac{\Delta x}{2\pi \ell_s} \right)^2}}{2\pi \ell_s \sqrt{2t}} \prod_{a=1}^4 \frac{\theta \twist11 (i \nu'_a t, i t)}{\theta \twist11 (i \nu_a t, i t)}
 	\end{equation}
-	At long enough distances, the exponential factor forces small $t$ to contribute primarily. The complicated ratio of $\theta$-functions becomes a ratio of sines. 
-
-	\item \textbf{Find boundary conditions at $0$ and $\pi$}.
+	The initial overall factor of two comes from two orientations of the open string.
+	At long enough distances, the exponential factor forces small $t$ to contribute primarily. The complicated ratio of $\theta$-functions becomes a ratio of sines. Then we get
+	\[
+		\prod_{a=1}^4 \frac{\sin(\pi \nu_a')}{\sin(\pi \nu_a)} \int_0^\infty \frac{dt}{2 \pi \ell_s \sqrt{2 t} t} e^{- \frac{(\Delta x)^2}{2\pi \ell_s^2} t}
+	\]
+	Taking the integral and analytically continuing, we get a potential that looks like $- \frac{|\Delta x|}{2 \pi \ell_s^2} \prod_{a=1}^4 \frac{\sin(\pi \nu_a')}{\sin(\pi \nu_a)}$, giving an attractive, constant force, of $-\frac{1}{2 \pi \ell_s^2} \prod_{a=1}^4 \frac{\sin(\pi \nu_a')}{\sin(\pi \nu_a)}$.
 	
-	\item We have a vector potential $A_1 = E X^0$. This is a simple as $T$-dualizing in the direction of $X^1$, giving a D-brane lying at $X_1 = 2 \pi \ell_s^2 E X^0$ giving a velocity $2 \pi \ell_s^2 E$. This can also be obtained by analytic continuation of question \textbf{8.13}. 
+	\item Let the first brane at $\sigma = 0$ have no electric field and put an electric field $F_{01}$ on the second brane at $\sigma = \pi$. The endpoints of the string are charged. We have the following action (take $e$, the charge of the string endpoint to be $1$)
+	\[
+		-\frac{1}{4\pi \ell_s^2} \int d\sigma d\tau [(\d_\sigma X)^2 + (\d_\tau X)^2] + \int_{\sigma = \pi} d\tau A_\mu \d_{\tau} X^\mu
+	\]
+	Upon variation, we get a boundary term:
+	\[
+	\begin{aligned}
+		&\quad -\frac{1}{2\pi \ell_s^2} \int d\tau \d_\sigma X^\mu \delta X_\mu  + \int d\tau \delta(A_\nu \d_\tau X^\nu)
+		\\
+		&= -\frac{1}{2\pi \ell_s^2} \int d\tau \d_\sigma X^\mu \delta X_\mu  + \int d\tau \d_\mu A_\nu \delta X^\mu \d_\tau X^\nu - \d_\tau A_\nu \\
+		&= -\frac{1}{2\pi \ell_s^2} \int d\tau \d_\sigma X_\mu \delta X^\mu  + \int d\tau F_{\mu \nu} \delta X^\mu \d_\tau X^\nu\\
+		& \Rightarrow \d_\sigma X_\mu - 2\pi \ell_s^2 F_{\mu \nu} \d_\tau X^\nu = 0
+	\end{aligned}
+	\]
+	This gives mixed boundary conditions on the $X^0$ and $X^1$ which can be written as
+	\[
+		\begin{pmatrix}
+			\d_\sigma X^0\\
+			\d_\sigma X^1
+		\end{pmatrix}= 2 \pi \ell_s^2 E \begin{pmatrix}
+			0 & 1 \\
+			1 & 0
+		\end{pmatrix}
+		\begin{pmatrix}
+			\d_\tau X^0\\
+			\d_\tau X^1
+		\end{pmatrix}
+	\]
+	with $E = F_{10}$.
+	Note that we have been careful in raising the $\mu$ index. I will define $Z^{\pm} = X^0 \pm X^1$ and have $\d_\sigma Z^+ = \d_\sigma Z^- = 0$ at $\sigma = 0$ and $(\d_\sigma - 2\pi \ell_s^2 E \d_\tau) Z^+ = (\d_\sigma +2\pi \ell_s^2 E \d_\tau) Z^- = 0 $ at  $\sigma = \pi$. The modes thus satisfy Neumann-Mixed boundary conditions. Following a modification of exercise \textbf{2.14} and solving these boundary conditions we get that the modes must be labeled by $\nu = -i u/\pi + \mathbb Z$. Here $u = \mathrm{atanh}{v}$ is the \emph{rapidity}. Now let's compute a cylinder diagram. Let's assume for now that we are scattering D1 branes (the problem does not explicitly give $p, p'$). It will look like the wick-rotation of the integral considered in the previous two questions. We have an amplitude
+	\[
+		-i V_p \times 2 \times \int_0^\infty \frac{dt}{2t} \frac{e^{-t\frac{(\Delta x)^2}{2\pi \ell_s^2}}}{(2 \pi \ell_s)^p (2 t)^{p/2}} \frac{\theta\twist11 (u t / 2 \pi, it)^4}{\eta(i t)^9 \theta\twist11(u t/\pi, i t)}
+	\]
+	Note however that since the first argument of the $\theta$ functions is real, we have poles at $t = \pi n / u$, $\nu = u/\pi$ for $n$ an integer. Upon deforming the integration contour, we can use the identity $\frac{1}{x-i\epsilon} = \pi \delta(x) + \mathrm P(x)$ to pick up poles at $t =  n / \nu$, at \emph{odd} integers $n$ (so that the four-order zero in the numerator doesn't cancel them), giving:
+	\begin{equation}\label{eq:amplitude}
+		\pi V_p  \sum_{n \in \mathbb Z^{odd}} \frac{e^{- n \frac{(\Delta x)^2}{2\pi \ell_s^2 \nu}}}{(2\pi \ell_s)^p (2 n/\nu)^{(p+2)/2}} \frac{\theta \twist11 (\frac{n}{2}, it)^4}{2 \eta(i n/\nu)^{12}}
+	\end{equation}
+	The imaginary part of the amplitude can be interpreted (after $T$-duality) as resonances (ie bound states) of the D-branes.
 	
-	\item 
+	\item From the last problem we can write:
+	In terms of $\d_+, \d_-$, we have:
+		\begin{equation}\label{eq:electric}
+		\begin{pmatrix}
+			\d_+ X^0\\
+			\d_+ X^1
+		\end{pmatrix}=
+			\begin{pmatrix}
+				\frac{1+\mathcal E^2}{1- \mathcal E^2} & \frac{2\mathcal E}{1-\mathcal E^2}\\
+				\frac{2\mathcal E}{1-\mathcal E^2} & \frac{1+\mathcal E^2}{1- \mathcal E^2}\\
+			\end{pmatrix}
+			\begin{pmatrix}
+				\d_- X^0\\
+				\d_- X^1
+			\end{pmatrix}
+		\end{equation}
+		Here $\mathcal E = 2\pi \ell_s^2 E$. Taking $\mathcal E$ close to zero recovers NN boundary conditions on $X^0$, $X^1$.
+		 (It's worth noting that that the speed of light here will translate to a maximum electric field $|E| < T$ on the brane. This provides one motivation for the necessity of a nonlinear electrodynamics, namely DBI). 
+	 taking $E= 0$ give N boundary conditions on $X^0, X^1$. T-dualizing $X^1$ gives $D$ boundary conditions on $\tilde X^1$. Now, boosting the brane along $X^0$ and  
+	\[
+	\begin{aligned}
+	&\begin{pmatrix}
+		\d_+ X^0\\
+		\d_+ \tilde X^1
+	\end{pmatrix}=
+		\begin{pmatrix}
+			\gamma & v \gamma\\
+			v \gamma & \gamma
+		\end{pmatrix}
+		\begin{pmatrix}
+			1 & 0\\
+			0 & -1
+		\end{pmatrix}
+		\begin{pmatrix}
+			\gamma & -v \gamma\\
+			-v \gamma & \gamma
+		\end{pmatrix}
+		\begin{pmatrix}
+			\d_- X^0\\
+			\d_- \tilde X^1
+		\end{pmatrix}\\
+		&\Rightarrow \begin{pmatrix}
+		\d_+ X^0\\
+		\d_+  X^1 
+	\end{pmatrix}
+	=\begin{pmatrix}
+			\gamma & v \gamma\\
+			v \gamma & \gamma
+		\end{pmatrix}
+		\begin{pmatrix}
+			1 & 0\\
+			0 & -1
+		\end{pmatrix}
+		\begin{pmatrix}
+			\gamma & -v \gamma\\
+			-v \gamma & \gamma
+		\end{pmatrix}
+		\begin{pmatrix}
+			1 & 0\\
+			0 & -1
+		\end{pmatrix}
+		\begin{pmatrix}
+			\d_- X^0\\
+			\d_- \tilde X^1
+		\end{pmatrix} = \begin{pmatrix}
+			\frac{1+v^2}{1-v^2} & \frac{2v}{1-v^2}\\
+			\frac{2v}{1-v^2} & \frac{1+v^2}{1-v^2}
+		\end{pmatrix}
+		\begin{pmatrix}
+			\d_- X^0\\
+			\d_- \tilde X^1
+		\end{pmatrix} 
+	\end{aligned}
+	\]
+	This exactly what we had before, with $v = 2 \pi \ell_s E$.
+	
+	This argument is quite simple from the abstract picture: taking $A_1 = E X^0$, $T$-dualizing in the direction of $X^1$ gives a D-brane lying at $X_1 = 2 \pi \ell_s^2 E X^0$ giving a velocity $2 \pi \ell_s^2 E$. This can also be obtained by analytic continuation of question \textbf{8.13}. 
+	
+	\item Using the fact that this scattering problem is exactly T-dual to the electric field problem mentioned before, we return to \eqref{eq:amplitude} and consider $b= \Delta x$ to be small. In this case the large $t$ regime dominates (corresponding to a loop of light open strings). First we perform a modular transformation to get
+	\[
+		\mathcal A = \frac{V_p}{(8\pi^2 \ell_s^2)^{p/2}} \int_0^\infty \frac{dt}{t} t^{(6-p)/2} e^{-\frac{t b^2}{2 \pi \ell_s^2}} \frac{\theta \twist11(i \nu/2, i/t)^4}{\eta(i/t)^9 \theta \twist11 (i \nu, i/t)}
+	\]
+	Now we follow Polchinski and rewrite $\mathcal A$ in terms of an integral over the particle's path $r(\tau)^2 = b^2 + v^2 \tau^2$, $\mathcal A = -i \int d\tau V(r(\tau), v)$. Then we get $V$ from reversing a Gaussian integral to be
+	\[
+		V(r, v) = i \frac{2V_p}{(8 \pi^2 \ell_s^2)^{(p+1)/2}} \int_0^\infty dt t^{(5-p)/2} e^{-\frac{t r^2}{2 \pi \ell_s^2}} \frac{\tanh \pi \nu \, \theta \twist11(i \nu/2, i/t)^4}{\eta(i/t)^9 \theta \twist11 (i \nu, i/t)}
+	\]
+	The large-$t$ limit is now direct:
+	\[
+		V(r, v) = - \frac{2V_{p+1}}{(8 \pi^2 \ell_s^2)^{(p+1)/2}} \int_0^\infty \frac{dt}{t^{(1+p)/2}} e^{-\frac{t r^2}{2 \pi \ell_s^2}} \frac{\tanh u \, \sin^4(u t/2)}{\sin(u t)}
+	\]
+	Using steepest descent at zeroth order, the $t$ that dominates is of order $2 \pi \ell_s^2/r^2$ so that $u t \approx 2 \pi \ell_s^2 v/r^2$ is the leading contribution. \textbf{Justify why $u t$ is $O(1)$}. This then gives that $r \sim \ell_s \sqrt{v}$. If we go at very small velocities we can probe below the string scale. 
+	
+	On the other hand, a slower velocity means that the time it takes to probe this distance is longer $\delta t = r/v = \ell_s/\sqrt{v}$. This implies that $\delta x \delta t \geq \ell_s^2$. This looks like a type of \emph{noncommutative geometry} with $\alpha'$ playing the role of Planck's constant now.
+	
+	Combining this with the usual position-momentum uncertainty relation 
+	\[
+		1 \leq \delta x \, m \delta v = g \ell_s \delta x \delta v \Rightarrow \Delta x = \frac{g \ell_s}{\delta v},
+	\]
+	 we can minimize simultaneously $\ell_s \sqrt v, g \ell_s/v$ by having $v \sim g^{2/3}$ giving $\delta x = \ell_s g^{1/3}$. At weak coupling this is smaller than the string scale. 
 	
 	\item The action is a factor of two off from Polchinski's. The momenta are $p_i = \frac{2}{g_s \ell_s} (\dot X^i + [A_t, X^i])$. Then we get:
 	\[
 		H = \int dt \Tr\Big[\frac{g_s \ell_s}{4} p_i p^i + \frac{1}{2 g_s \ell_s (2\pi \ell_s^2)^2} [X^i, X^j]^2\Big]
 	\]
-	Defining $g^{1/3} \ell_s Y^i = X^i, p_i = p_{Y_i}/g_s^{1/3} \ell_s$, this sets the length scale as desired. Now we have $Y^i$ is dimensionless and get a hamiltonian
+	Defining $g^{1/3} \ell_s Y^i = X^i, p_i = p_{Y_i}/g_s^{1/3} \ell_s$, this sets the length scale, which coincides with what we got in the previous question by less rigorous arguments. Now we have $Y^i$ is dimensionless and get a hamiltonian
 	\[
 		H = \frac{g_s^{1/3}}{\ell_s} \int dt \Tr\Big[\frac14 p_{Y_i} p_{Y_i} + \frac{1}{2 (2\pi )^2} [Y^i, Y^j]^2\Big]
 	\]
-	So the hamiltonian is dimensionless, with $g, \ell_s$ appearing only in the overall normalization, which gives an energy scale of $g_s^{1/3}/\ell_s$. For strong coupling $g_s > 1$ this probes deeper than the string scale. 
+	So the only dimensionful content of this hamiltonian comes from $g, \ell_s$ appearing in the overall normalization. This gives an energy scale of $g_s^{1/3}/\ell_s$. For strong coupling $g_s > 1$ this probes deeper than the string scale. 
 	
 	\item This is pretty direct. Since the metric $G_{\mu \nu}$ does not depend on $X^i$ for $i=p+1 \dots 9$, we have that each $X^i$ is killing, in particular the metric takes a block-diagonal form where only the first $(p+1)^2$ $G_{\mu \nu}$ entries have nontrivial coordinate dependence and the remaining metric is just the identity matrix $\delta_{ij}$ along the $X_i$ directions (we didn't even have to do this since 8.5.1 has $\eta_{\mu \nu}$ the flat metric. Is my logic here even right?). 
 	
@@ -463,12 +616,482 @@
 	Where now the $\chi_i$ are fermions that break the \textbf{16} representation of $\SO(9,1)$ into a representation of $SO(d-1, 1) \times SO(10-d)$. For $d = 3$ we get $\mathcal N = 4$ SYM and this is $(2, 4) + (\bar 2, \bar 4)$, corresponding to four Weyl spinors. 
 	\item At the minimum of the potential, all $X^I$ lie in a cartan and mutually commute. The $A_{ij}$ correspond to open strings moving between the D-branes at positions $X_I$. The ground states of these open strings have a mass squared of $(X_I - X_J)^2/2 \pi \ell_s^2$, so indeed the mass is linear in the separation. \textbf{Confirm. Understand Lie-Theoretic perspective}.
 	
-	\item The worldvolume coupling to the RR 2-form looks like $i T_2 \int G \wedge C_2$
+	\item The worldvolume coupling to the RR 2-form looks like $i T_2 \int C_2$. For the brane tilted in the $x^1, x^2$ plane we can write this explicitly as:
+	\[
+		i \int dx^0 d x^1 (C_{01} + C_{02} \tan(\theta))
+	\]
+	Now T-dualizing in the $x^2$ direction changes the $C_{01}$ form to the RR 3-form $C_3$, giving the standard $i \int C_3$ term. On the other hand, the second term gets reduced to $-2 \pi \ell_s^2  \int dx^0 dx^1 dx^2 C_0 F_{12}$, where I have used exercise \textbf{8.13} to write $\tan \theta = -2\pi\ell_s^2 F_{12}$. So we get a leading coupling to the three-form and a sub-leading coupling (in $\ell_s^2$) to the one-form. This is a hint of the \emph{Meyers effect}.
 
+	\item For the D2 brane the CP odd terms are $C_3$, $C_1 \wedge \mathcal F$ and $-C_1 \wedge \frac{(2\pi \ell_s)^4}{48} [p_1(\mathcal T) - p_1(\mathcal N)]$. In the frame described by exercise \textbf{7.26}, $C_3$ transforms trivially under $A$ transformations, and under its own gauge transformations it only adds an exact term which does not modify the CS action. 
+	
+	$\mathcal F$ transforms trivially under $A$ transformations and under $B$ transformations only modifies the action by a closed term again. 
+	
+	Equation \textbf{I.14} is not in any standard frame. The Dilaton plays no role here. The 
+	
+	\textbf{I feel I am missing something.}
+	
+	\item Gauge transformations of the axion $C_0$ are just shifts $C_0 \to C_0 + a$. $C_0$ couples to $F_2$ through the Chern-Simons term:
+	\[
+		\int C_0 \wedge \Tr e^{\mathcal F} \wedge \mathcal G
+	\]
+	Because of the Bianchi identity, $\dd \mathcal F = 0$, and the same holds for any trace of any polynomial of $F$. Similarly $\mathcal G$ is also a closed form. Therefore shifting $C_0$ gives an integrand term $\Tr e^{\mathcal F} \wedge \mathcal G$ which is closed.
+	
+	\item For trivial flat-space background $\eta_{\mu \nu}$, we have $g_{ab} = \d_a X_\mu \d_b X^\mu$. Take $M_{ab} = \d_a X_\mu \d_b X^\mu +  2\pi \ell_s^2 F_{ab}$ and $M = \det M_{ab}$. Taking the DBI variation w.r.t. $X_\mu^a$ and $A_a$ respectively gives:
+	\[
+	\begin{aligned}
+		\frac{T}{2} \d^a \left( \sqrt{-M} M^{-1}_{ab} \d_b X^\mu \right) = 0\\
+		 \frac{2 \pi \ell_s^2 T}{2} \d^a \left(\sqrt{-M} M^{-1}_{ab} \right) = 0
+	\end{aligned}
+	\]
+	Its rather nasty to evaluate that inverse matrix. On the other hand, taking $X^9$ to be the only nontrivial function of the $\xi$, and depending only on the radial distance $r$ from a central point, and setting all $A_i = 0$ with $A_0$ a function of $r$ alone, we get $M = 1 + \delta_{a=r, b=r} (\d_r X^9)^2 + 2 \pi \ell_s^2 (\delta_{a=r, b=0} - \delta_{a=0, b=r}) E$. We take $E = \d_r X^9$. The determinant is then $(\nabla X^9)^2 (1 + 2\pi \ell_s^2)$. 
+	
+	Note that if the second equation of motion holds, the first equation of motion implies that  we would want for $\d^r \d_r X^9 = 0$, namely that $X^9$ is a harmonic function of $r$. On a $p$ brane this is $X^9 = \frac{C_p}{r^{p-2}}$. In this case, the determinant, as well as $M^{-1}$ will vanish when covariantly differentiated by $\d^r$, giving us our desired second equation of motion. 
+	
+	This solution is known as a BI-on (BI for Born-Infeld). It represents an infinitely long open string ending on our $p$-brane. 
+	
+	\item Let's have $G, B, \Phi, C_2$ trivial. We get
+	\[
+		S = \frac{1}{2\pi \ell_s^2 g} \int d^2 \xi \sqrt{1-(2\pi \ell_s^2 F_{01})^2} + \frac{1}{2\pi \ell_s^2} \int d^2 \xi \, C_0 (2 \pi \ell_s^2) F_{01}
+	\]
+	Pick the gauge $A_0 = 0$. Our variable is then $A_1$. From this, we get a canonical momentum conjugate to $A_1$ equal to:
+	\[
+		-\frac{1}{2 \pi \ell_s^2 g} \frac{(2 \pi \ell_s^2)^2 F_{01}}{\sqrt{1-(2\pi \ell_s^2 F_{01})^2}} + C_0 F_{01}
+	\]
+	Consider putting the D1 brane in a circle. Now since $C_0$ acts as a $\theta$ term, consider putting an integer $m$ for $C_0$. The momentum is quantized, and in particular there is a gap between the zero momentum ground state and the next state up. We get:
+	\[
+		\frac{2\pi \ell_s^2 F_{01}}{\sqrt{1- (2 \pi \ell_s^2 F_{01})^2}} = g m \Rightarrow 2 \pi \ell_s^2 F_{01} = \frac{g m}{\sqrt{1 + m^2 g^2}}
+	\]
+	We have a Hamiltonian
+	\[
+		\mathcal H = \frac{1}{2 \pi \ell_s^2 g} \frac{1}{\sqrt{1-(2\pi \ell_s^2 F_{01})^2}} 
+	\]
+	And from the quantization condition on the electric field we obtain from the Hamiltonian a set of quantized tensions
+	\[
+		T = \frac{1}{2\pi \ell_s^2 g} \sqrt{1 + m^2 g^2}
+	\]
+	
+	
+	\item The D3-D$_{-1}$ system has $\#$ND$=4$ and so preserves $1/4$ supersymmetry ($1/2$ the SUSY of the D3 brane itself). Similarly, the instanton configurations satisfying $\star F_2 = \pm F_2$. The supersymmetric variation of the gaugino is $\delta \lambda \propto F_{\mu \nu} \Gamma^{\mu \nu}$. The $\Gamma^{\mu \nu}$ are generators of $\SO(4) = \SU(2) \times \SU(2)$, and the (A)SD conditions on $F_2$ will ensure that only half the generators (the first or second $\SU(2)$) will appear in the variation. Thus instanton configurations are also 1/2 BPS on the worldvolume.
+	
+	To confirm that these instantons really \emph{are} D$_{-1}$ branes, note that the CS term contains $\frac12 (2\pi \ell_s^2)^2 T_3 \int C_0 F_2 \wedge F_2$. For a nontrivial instanton configuration we get $\int F_2 \wedge F_2 = 8 \pi^2$. Thus the instanton coupling to $C_0$ is $(2 \pi \ell_s)^4 T_3 = T_{-1}$, exactly the charge of the D$_{-1}$ brane. \textbf{Does this exclude the possibility of objects with the same charge and BPS properties as $D_{-1}$ branes, but that don't have interpretations as endpoints of open strings?}
+	
+	 I expect the moduli space to have dimension $4 n$, corresponding to the space (technically Hilbert scheme) of $n$ points on $\mathbb R^4$.
+	
+	\item This configuration is invariant under $x^1$ translations as well as under time $x^0$. The exact same BPS properties discussed in the previous question apply here. The state is half-BPS on the worldvolume both from the POV of string theory and from the POV of the low energy SYM theory having half the gaugino variations vanish. 
+	
+	The same instanton action argument in the previous question gives us that $\frac12 (2\pi \ell_s^2)^2 T_4 \int C_1 F_2 \wedge F_2$ yields a coupling $(2\pi \ell_s)^4 T_4 = T_0$ to the $C_1$ form.  
+	
+	For $N$ D5 branes the low-energy effective theory is $\SU(N)$ SYM, and we obtain the moduli space of $SU(N)$ instantons. The dimension now becomes $4 N k$ \textbf{justify} . I expect that the moduli spaces of D1-D5 bound states are identical to the moduli space in the previous problem. 
+	
+	\item First, the pair of 5-branes in the 12345 and 12367 dimensions are parallel in the 123 directions and $90\degree$ rotated in two directions. This gives 2 sets of $ND$ and 2 sets of $DN$ boundary conditions, on the strings which gives us $\nu = 4$. In this case, following Polchinski the spinor $\beta = {\beta^{\perp}}^{-1} {\beta^\perp}'$ has an equal number of eigenvalues $-1$ and $1$. So half of the original $16$ spinors preserved by the first D-brane will be preserved by the combination of both. 
+	
+	Now take a third $D$-brane in the 12389 direction, perpendicular to both the first two. The same argument shows that we brane another half of the supersymmetry, giving $4$ supersymmetries left in this configuration. In other words it is $\frac18$ BPS. \textbf{Confirm}
+	
+	\item Adding a D1 string gives 4 ND boundary conditions with each of the other D-branes. This breaks the supersymmetry in half again, preserving $2$ supersymmetries now. It is $\frac{1}{16}$ BPS. 
+	
+	If I were to add it along direction 4 it would have 5 ND boundary conditions with the second two branes, which preserves no SUSY, so the latter configuration has nothing preserved. 
+	
+	\item Note this is $\mathrm O(2)$ and not $\SO(2)$, so instead of getting one $D$-brane at $\theta \tilde R$ and the other at $-\theta \tilde R$, we get one ``half'' D8 brane at $x^9 = 0$ (the location of one orientifold plane) and its image at $\pi \tilde R$ (the location of the other).
+	
+	
+	\item % Any symplectic matrix has a Bloch-Messiah decomposition $A = O Z O'$, where $Z$ is a diagonal matrix of the form $(D, D^{-1})$.
+	We work with the compact real form $\mathrm{USp}(2N) = \mathrm{Sp}(2N) \cap \mathrm U(2N)$. In this case any symplectic matrix can again be diagonalized to be of the form $(e^{i \theta_1}, e^{-i\theta_1}, \dots )$. Again we interpret this as D-branes on both sides $\pm \theta_i \tilde R$ of the orientifold plane. The generic gauge group is $U(1)^{2N}$. If $m$ branes lie at either orientifold plane we get an enhancement $\mathrm{Sp}(2m)$. When all $N$ branes and their images lie on one of the orientifold planes, we recover the full symmetry. 
+	
+	\item Due to the negative tension, an excitation on it has even lower energy, corresponding to a negative norma state which is forbidden in a unitary theory by positivity. \textbf{What more can I say? }
+	
+	\item There is a mistake in Kiritsis' equation \textbf{G.8}. We should have $A = -H^{-1}(\rho)$ not $-H(\rho)$. The way to see that is by noting that $-H^{-1}(\rho) = -\frac{\rho}{\rho+Q} = -\frac{r-Q}{r} = 1 + \frac{Q}{r}$. The constant $1$ is gauge and hence irrelevant, while the second term is the proper electric potential that will give rise to a $F_{tr} = \frac{Q}{r^2}$.
+	
+	Also, this problem asks us to work in $\mathcal N =2, D = 4$ SUGRA, so the appropriate equations should be that the variation of \emph{each} dilatino by a Killing spinor is zero. In this SUGRA, there are two Majorana gravitinos $
+\psi_{\mu, A}, A=1,2$ with four components each, for a total of $8$ SUSYs. Consequently, the variations involve two Majorana spinor parameters $\epsilon_{A}, A=1,2$. We will use lower indices to indicate chiral and upper indices to indicate anti-chiral fermions. The gravitino variation is then (c.f. Freedman \emph{Supergravity} Section 22.4)
+\begin{equation}\label{eq:SUSYvar}
+		\delta \psi_{\mu, A} = \nabla_\mu \epsilon_A - \frac14 F_{\nu \rho} \gamma^{\nu \rho} \gamma_\mu \epsilon_{AB} \epsilon^B
+\end{equation}
+	Because of the chirality we can replace $F$ with $F^-$ in the above equation. Now, if we use spatial coordinates $\vec x, |x| = \rho$, the metric takes the form
+	\[
+		ds^2 = -H^{-2} dt + H^2 d\vec x^2 
+	\]
+	Take the frame fields $e^{\hat 0} = H^{-1} dt, e^{\hat i} = H dx^i$. We will use hats to denote frame indices $a,b$. Our spin connection is then:
+	\[
+		\omega_{0i} = - H^{-2} \d_i \log H dt, \quad \omega_{ij} = \d_j \log H dx^i -\d_i \log H dx^j
+	\]
+	Now because the solution is static, $\d_t$ is killing and we expect that $\d_t \epsilon_A = 0$. Looking at $\mu = 0$, equation~\eqref{eq:SUSYvar} becomes. We only care about $\omega^{\hat 0 \hat i}$ since only this has a lower $\mu = 0$ index corresponding to $dt$. Similarly for the second term we only care about $\nu,\rho = 0,i$ because of there only being an electric field. We note $\gamma^{i \hat 0} \gamma_{0} = H^{-1} \gamma^i$
+	\[
+	\begin{aligned}
+		-\frac12 H^{-2} \, \partial_i \log H \gamma^{\hat i} \gamma^{\hat 0} \epsilon_A &+ \frac12 H^{-1} \partial_i A_0 \gamma^{\hat i} \varepsilon_{AB} \epsilon^B = 0\\
+		 \Rightarrow \partial_i H^{-1} \; \gamma^{\hat i} \gamma^{\hat 0} \epsilon_A &= \partial_i A_0 \, \gamma^{\hat i} \varepsilon_{AB} \epsilon^B
+	\end{aligned}
+	\]
+	We thus need (up to an irrelevant gauge constant) $A_0 = \pm H^{-1}$ and $\epsilon_A = \mp \gamma^{\hat 0} \varepsilon_{AB} \epsilon^B$. Since we require $-H^{-1}$ to match the potential $A$, and so that it is asymptotically unity, we have $H = (1 - \frac{Q}{r})^{-1} = \frac{\rho+Q}{\rho} = 1 + \frac{Q}{\rho}$. This verifies (and in fact derives) the extremal RN solution. 
+	
+	Because the constraint $\epsilon_A = \mp \gamma^{\hat 0} \varepsilon_{AB} \epsilon^B$ applies to half the space of spinors at any given point, we have that the extremal RN solution is half-BPS. 
+	
 	\item 
+	Again take coordinates $x_i$ so that
+	\[
+		ds^2 = -\frac{dt^2}{H^2(\rho)} + H^2(\rho) (dx_i^2)
+	\]
+	 Upon the choice $\epsilon_A = -\mp \gamma^{\hat 0} \varepsilon_{AB}  \epsilon^B$, we had the relation $\d_i H^{-1} = \d_i A_0 = F_{i0}$. The field equation $\d \star F = 0$
+	 \[
+	 	\d_i \sqrt{-g} g^{00} g^{ii} F_{i0} = \d_i H^2 \d_i H^{-1} = \d_i^2 H(x_i)
+	 \]
+	 Thus we have that $H$ is a harmonic function of the \emph{flat} Laplacian in transverse space. 
+	
+	We see that $H$ from the previous problem takes the simple form $1+ \frac{Q}{|x|}$, which is obviously harmonic in 3+1 dimensions.
+	
+	A more general solution allowing for for multiple charged extremal black holes amounts to nothing more than replacing $H$ with $1 + \sum_i \frac{Q_i}{|x - x_i|}$, which remains harmonic, and thus preserves half supersymmetry. This looks like a bunch of extremal black holes whose pairwise electric repulsions cancel their gravitational attractions.
+	
+	\item Again we are working in $\mathcal N = 2$ SUGRA. The metric takes the form
+	\[
+		ds^2 = Q^2 \left[ \frac{-dt^2 + d\rho^2}{\rho^2} + d \Omega_2^2 \right]
+	\]
+	This corresponds to 2D AdS times a sphere of \emph{constant radius}. Both spaces have radius $Q$. The spinor equation is as before, now with $T_{\mu \nu} = -\frac{1}{L} g_{\mu \nu}$. Consider just AdS$_{2}$. Define the operator 
+	\[
+		\hat D_{\mu} \epsilon_A = \nabla_\mu \epsilon_A - \frac{1}{2 Q} \gamma_{\mu} \varepsilon_{AB} \epsilon^B
+	\]
+	Consider now
+	\[
+		[\hat D_{\mu}, \hat D_\nu] \epsilon_A = (\frac14 R_{\mu \nu a b} \gamma^{a b} + \frac1{2Q^2}) \epsilon
+	\]
+	And since AdS$_{2}$ is a maximally symmetric space $R_{\mu \nu a b} = - (e_{a\mu} e_{b\nu} - e_{a \nu} e_{b \mu})/L^2$ and so the commutator vanishes identically. This is the integrability condition we need. At each point, the spinor bundle is dimension $\mathcal N \times 2^{[D/2]}$ - for $\mathcal N=2$ AdS2 this is $4$. We see that any spinor can be transported by the connection $\hat D_{\mu}$ to define a spinor field on all of AdS$_{2}$, and thus we get that the space is maximally supersymmetric.
+	
+	The exact same arguments (with $Q \to -Q$) apply for the positively curved 2-sphere of the same radius. 
+	
+	The product of two maximally supersymmetric spaces is maximally supersymmetric \textbf{Confirm}. We get $8$ Killing spinors. 
+	We now see that the Bertotti-Robertson universe preserves full supersymmetry, and thus the extremal RN black hole plays the role of a \emph{half-BPS soliton} that interpolates between two fully supersymmetric backgrounds (flat space and AdS$_{2} \times S^2$). 
+	
+	% \[
+	% 	\delta \psi_A = D_\mu \epsilon_A  - \frac{1}{2 Q} \gamma_\mu \varepsilon_{A B} \epsilon^{B} = (\d_\mu + \frac14 \omega_{\mu ab} \gamma^{ab}) \epsilon_A - \frac{1}{2 Q} \gamma_\mu \epsilon_{AB} \epsilon^B
+	% \]
+	
+	
+	
+	\item The variation of $\frac{1}{2(p+2)!} F_{p+2}^2 = F_{p+2} \wedge \star F_{p+2}$ directly gives $\star F_{p+2} = 0$. 
+	
+	Varying the dilaton gives 
+	\[
+	\begin{aligned}
+		0 = -2 e^{-2 \Phi} [R + 4 (\nabla \Phi)^2] - \nabla (e^{-2 \Phi} 8 \nabla \Phi) &= -2 e^{-2 \Phi} [R + 4 (\nabla \Phi)^2] + 16 e^{-2 \Phi} (\nabla \Phi)^2 - 8 e^{-2 \Phi} \Box \Phi\\
+		&\Rightarrow R = 4 (\nabla \Phi)^2 - 4 \Box \Phi
+	\end{aligned}	
+	\]
+	Finally, writing the metric explicitly in the action
+	\[
+		\sqrt{-g} e^{-2\Phi} [g^{\mu \nu} R_{\mu \nu} + 4 g^{\mu \nu} \d_\mu \Phi \d_\nu \Phi] - \frac{1}{2(p+2)!} \sqrt{-g} F^2_{p+2}
+	\]
+	Let's look how each term changes when we vary $\frac{1}{\sqrt{-g}} \frac{\delta}{\delta g^{\mu \nu}}$.
+	\begin{itemize}
+		\item $\sqrt{-g} e^{-2\Phi} R$
+		 \[
+		 \begin{aligned}
+		 &\to (R_{\mu \nu} + g_{\mu \nu} \Box - \nabla_\mu \nabla_\nu) e^{-2\Phi}  - \frac12 g_{\mu \nu} e^{-2\Phi} R\\
+		 &= e^{-2\Phi} \Big(R_{\mu \nu} - \frac12 g_{\mu \nu} R + g_{\mu \nu} (-2 \Box \Phi + 4 (\d \Phi)^2) - (-2 \nabla_\mu \nabla_\nu \Phi + 4 \d_\mu \Phi \d_\nu \Phi) \Big) 
+		 \end{aligned}
+		\]
+		\item $\sqrt{-g} e^{-2\Phi} 4 g^{\mu \nu} \d_\mu \Phi \d_\nu \Phi \to 4 e^{-2\Phi} \d_\mu \Phi \d_\nu \Phi - 2 e^{- 2 \Phi} (\d \Phi)^2$
+		\item $- \frac{1}{2(p+2)!} \sqrt{-g} g^{\mu_1 \nu_1} \dots g^{\mu_{p+2} \nu_{p+2}} F_{\mu_1 \dots \mu_{p+2}} F_{\nu_1 \dots \nu_{p+2}} \to - \frac{1}{2 (p+1)!} F_{\mu \nu}^2 + \frac{1}{4(p+2)!} g_{\mu \nu} F^2$. Here $F_{\mu \nu}^2 = F_{\mu \dots} F^{\nu \dots}$
+	\end{itemize}
+	Combining these all together and using the dilaton equations of motion gives
+	\[
+		e^{-2\Phi} R_{\mu \nu} + 2 \nabla_\mu \nabla_\nu \Phi - \frac{1}{2 (p+1)!} F_{\mu \nu}^2 + \frac{1}{4(p+2)!} g_{\mu \nu} F^2 = 0 \Rightarrow R_{\mu \nu} + 2 \nabla_\mu \nabla_\nu \Phi = \frac{e^{2\Phi}}{2(p+1)!} \Big(F_{\mu \nu}^2 - \frac{g_{\mu \nu}}{2 p+2} F^2\Big)
+	\]
+	exactly as required. 
+	
+	\item
+		 This problem was very time-consuming to do out explicitly. The only resource that was of any help for cross-checking was Or\'tin's ``\emph{Gravity and Strings}''. 
+	
+	First consider the possibility of $\Phi = 0$, $F = 0$. In this case we have no stress tensor and are left with static vacuum Einstein equations, spherically symmetric in $10-p$ dimensions and translationally invariant in $p$ dimensions. In that case we know that our solution is nothing more than the Schwarzschild solution in $10-p$ dimensions times a transverse $p$-dimensional space:
+	\[
+		ds^2 = - f(r) dt^2 + dx_i^2 + \frac{1}{f(r)} dr^2 + r^2 d\Omega_{8-p}^2
+	\]
+	Reproducing the arguments from black holes in 4D, we see that 
+	\[
+		\frac{d}{dr} (r^{8-p} f(r) \frac{d}{dr} \log(f)) = \frac{d}{dr}(r^{8-p} f'(r)) = 0 
+	\]
+	ie $f(r)$ must be harmonic in the transverse dimension. After rescaling coordinates to have appropriate asymptotic behavior, we  get:
+	\[
+		f(r)  = 1 - \frac{r_0^{7-p}}{r^{7-p}}
+	\]
+	for some constant $r_0$ related to the ADM mass of the solution. So we see that $H(r) = 1$ when the dilaton and $p+2$-form field strength are turned off. The curvature is $R = 0$. Now let's turn on $\Phi$. We expect small $\Phi$ will correspond to small $H$. 
+	
+	To do this, let's look at the simplest case, $p=0$. Take the Ansatz (which you can convince yourself to be completely general given the symmetry of the problem)
+	\[
+		ds^2 = - \lambda(r) dt^2 + \frac{dr^2}{\mu(r)} + R(r)^2 d\Omega_{d-2}^2
+	\]
+	We will later set $d=10, \lambda = \mu = f(r)/\sqrt{H}$. Let's explicitly calculate the Christoffel symbols. There are three categories: $\Gamma$s involving just $r, t$ $\Gamma$s involving mixed $r, \Omega$, and $\Gamma$s involving just the $\Omega$ variables. I will use $a,b,c$ to index the angular variables $\psi_a$, whose metric is $R^2 d\Omega^2_{ab} = q_{a} \delta_{ab}$, and I use $'$ to denote ordinary partial differentiation w.r.t. $r$. 
+	\begin{center}
+			$\Gamma^r_{tt} = \frac12 \mu \lambda'$  \qquad $\Gamma^t_{tr} = \frac12 \lambda^{-1} \lambda'$ \qquad $\Gamma^r_{rr} = -\frac12 \mu^{-1} \mu'$\\
+			$\Gamma^a_{rb} = \delta^a_b \frac{R'}{R}$ \qquad $\Gamma^r_{ab} = \delta_{ab} \mu (R^2)' \frac{q_a}{R^2}$ \\
+			
+		$\Gamma^{a}_{bc} = \theta_{b>c} \delta^a_b \cot \psi_b +  \delta_{c>b} \theta_{ac} \cot \psi_c - \theta_{b>a} \delta_{bc} \cot \psi_a \frac{q_b}{q_a}$
+	\end{center}
+	That last Christoffel symbol looks particularly nasty. Thankfully, by using the fact that the sphere is a symmetric space, we will not need to use it explicitly. 
+	
+	Now let's directly compute the Ricci tensor.
+	\[
+		R_{\mu \nu} = \d_{\rho} \Gamma^{\rho}_{\mu \nu} - \d_\mu \Gamma^{\rho}_{\rho \nu} + \Gamma^{\rho}_{\rho \sigma} \Gamma^\sigma_{\mu \nu} - \Gamma_{\mu \rho}^\sigma \Gamma^\rho_{\sigma \nu}
+	\]
+	In what follows, it is useful to recall the identity $\Gamma^\mu_{\mu \nu} = \d_\nu \log \sqrt{-g}$. 
+	The nonzero terms will be $R_{tt}, R_{rr}, R_{ab}$. Respectively they are:
+	\[
+	\begin{aligned}
+		R_{tt} &= \d_{r} \Gamma^{r}_{tt} - \cancel{\d_t \Gamma^{\rho}_{\rho t}} + \Gamma^{\rho}_{\rho r} \Gamma^r_{t t} - \Gamma_{t \rho}^\sigma \Gamma^\rho_{\sigma t}\\
+		& = \frac12 (\mu \lambda' )' + \d_r \log \sqrt{g} \, (\mu \lambda') - 2 \frac12 \frac{\lambda'}{\lambda} \frac12 \mu \lambda' \\
+		&= \frac12 \frac{\lambda}{\sqrt g} \d_r \Big(\sqrt{-g} \mu \frac{\lambda'}{\lambda} \Big) = \frac12 \lambda \nabla^2 \log \lambda
+	\end{aligned}
+	\]
+	
+	It's important for this next one to note that $q_a/R^2$ is independent of $r$. It's equally important to appreciate that the final combination of $\Gamma$ symbols is the only thing that would appear in the absence of $r$ dependence in $R$. In this case, because the $d-2$ sphere is a symmetric space, we'd have $R_{ab} = \frac{d-3}{R^2} g_{ab}$. Indeed, this is exactly what the final term gives. We thus get
+	\[
+	\begin{aligned}
+		R_{ab} &= \d_{r} \Gamma^{r}_{ab} - \cancel{\d_a \Gamma^{\rho}_{\rho b}} + \Gamma^{\rho}_{\rho r} \Gamma^r_{a b} - \Gamma_{a \rho}^\sigma \Gamma^\rho_{\sigma b} 
+		\\ &= -\frac12 \delta_{ab} \d_r \Big(\mu (R^2)' \frac{q_a}{R^2}\Big) + \d_r \log \sqrt{-g} \, \delta_{ab} \mu (R^2)' \frac{q_a}{R^2} + \frac{d-3}{R^2} q_a \delta_{ab} \\
+		&= g_{ab} (- \nabla^2 \log R  +  \frac{d-3}{R^2}) 
+	\end{aligned}
+	\]
+	The next one is a bit different. Less cancelation. The last term will sum over $(\sigma, \rho) = (r,r), (t,t), (a,a)$. Also note $\sqrt{-g} = \sqrt{\lambda/\mu} R^{d-2}$.
+	\[
+	\begin{aligned}
+		R_{rr} &= \d_r \Gamma^{r}_{rr} - \d_r \Gamma^{\rho}_{\rho r} + \Gamma^{\rho}_{\rho \sigma} \Gamma^\sigma_{r r} - \Gamma_{r \rho}^\sigma \Gamma^\rho_{\sigma r} 
+		\\ &= \cancel{- \frac12 (\mu^{-1} \mu')'} - \d_r^2 \log(\sqrt{\lambda/\cancel{\mu}} R^{d-2}) - \frac12 \d_r \log(\sqrt{\lambda/\mu} R^{d-2})  \; (\mu^{-1} \mu')  -\frac14 \frac{(\lambda')^2}{\lambda^2}  - \frac14 \mu^2 (\mu')^2 - (d-2) \frac{(R')^2}{R^2}\\
+		&= - \frac12 \d_r^2 \log(\lambda) - \frac{d-2}{R} R'' -\frac12 (d-2) \frac{R'}{R} \d_r \log\sqrt{\lambda/\mu}\\
+		&= -\frac12 \mu^{-1} \nabla^2 \log \lambda - \frac{d-2}{R} \sqrt{\frac{\lambda}{\mu}} \left(R' \sqrt{\frac{\mu}{\lambda}} \right)'
+	\end{aligned}
+	\]
+	Altogether we get a Ricci scalar: 
+	\[
+		R = -\nabla^2 \log(\lambda R^{d-2}) + \frac{(d-2)(d-3)}{R^2} - \frac{d-2}{R} \sqrt{\lambda \mu} \left(R' \sqrt{\frac{\mu}{\lambda}} \right)'
+	\]
+	Now let's take $\lambda = \mu = f(r)/\sqrt{H}$ and $R = H^{1/4}$, $\sqrt{-g} = H^{(d-2)/4}$. 
+	\[
+		 -\nabla^2 \log(f(r) r^{d-2} H^{\frac{d-4}{4}}) + \frac{(d-2)(d-3)}{r^2 H^{1/2}} - (d-2) \frac{f(r)}{r H^{3/4}} (r H^{1/4})''
+	\]
+	The Laplacian takes the form $\frac{\d_r[ H^{(d-4)/4} r^8 f(r) \d_r ]}{r^{d-2} H^{(d-2)/2}}$ which simplifies the above to:
+	\[
+		 - \frac{\d_r^2 (f(r) r^{d-2} H^{(d-4)/4})}{r^{d-2} H^{(d-2)/2}} + \frac{(d-2) (d-3)}{r^{d-2} H^{1/2}} % + \frac{(d-2)}{2} \frac{f(r) H'(r)}{r H^{3/2}}
+	\]
+	The dilaton equation of motion is
+	\[
+		R = 4 (\nabla \Phi)^2 - 4 \nabla^2 \Phi
+	\]
+	Since a nonzero $\Phi$ is what gives an $H$ away from $1$, we might hypothesize a relationship $\log H \propto \Phi$, meaning we should replace $\Phi$ with $\log(H^{\alpha})$ in the dilaton equation. Let's also take $f(r)$ to be \emph{not different} from the Schwarzschild solution: $f(r) = 1- \frac{r_0^{d-3}}{r^{d-3}}$. 
+	So far we will not be so bold as to assume \emph{anything} about $H$. We also at this point need to specialize to $d=10$, otherwise no nice simplification occurs. Straightforward algebra then gives:
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/nonextremal"}
+	\end{center}
+	
+	To get rid of the term quadratic in $H'(r)$ we need $3 + 8(1-2\alpha) \alpha = 0 \Rightarrow \alpha = 3/4$. 
+
+	After that, these will only be equal if
+	\[
+		8 H' - r H'' = 0 \Rightarrow H = 1 - \frac{L^7}{r^7}
+	\]
+	The above solution is the most general given that $H \to 1$ as $r \to \infty$. 
+	
+	Now let us generalize this to higher dimensions. We add $p$ $x_i$ in the parallel dimensions of the solution.
+	\[
+		ds^2 = - \lambda(r) dt^2 + \nu(r) d\vec x_i^2 + \frac{dr^2}{\mu(r)}  + R(r)^2 d\Omega_{d-2}^2
+	\]
+	 This gives two new Christoffels. Here is a complete list
+	\begin{center}
+			$\Gamma^r_{tt} = \frac12 \mu \lambda'$  \qquad $\Gamma^t_{tr} = \frac12 \lambda^{-1} \lambda'$ \qquad $\Gamma^r_{rr} = -\frac12 \mu^{-1} \mu'$\\
+			$\Gamma^a_{rb} = \delta^a_b \frac{R'}{R}$ \qquad $\Gamma^r_{ab} = \delta_{ab} \mu (R^2)' \frac{q_a}{R^2}$ \\
+			
+		$\Gamma^{a}_{bc} = \theta_{b>c} \delta^a_b \cot \psi_b +  \delta_{c>b} \theta_{ac} \cot \psi_c - \theta_{b>a} \delta_{bc} \cot \psi_a \frac{q_b}{q_a}$\\
+		$\Gamma^r_{ij} = -\frac12 \delta_{ij} \mu \nu'$  \qquad $\Gamma^i_{rj} = \frac12 \delta^i_j \nu^{-1} \nu'$
+	\end{center}
+	Our nonzero Ricci components are now $R_{tt}, R_{rr}, R_{ab}, R_{ij}$. The primary way that the new dimensions will contribute is by modifying $\sqrt{-g}$ We get:
+	\[
+		R_{tt} = R_{tt}^{(10-p)} - \frac14 p \mu \lambda' (\log \nu)'
+	\]
+	\[
+		R_{ab} = R_{ab}^{(10-p)} - \frac12 p g_{ab} \mu (\log \nu)' (\log R)'
+	\]
+	\[
+		R_{rr} = R_{rr}^{(10-p)} + \frac12 p (\mu \nu)^{-1/2} ((\mu \nu)^{1/2} (\log \nu)')'
+	\]
+	\[
+		R_{ij} =  \frac12 \delta_{ij} \nu \nabla^2 \nu
+	\]
+	This gives a Ricci curvature of:
+	\[
+		R = R^{(10-p)} + \frac12 p (-\nabla^2_{10-p} \log \nu - \nu^{-1} \nabla^2 \nu + \frac12 \mu ((\log \nu)')^2)
+	\]
+	Making the necessary replacements we get
+	\[
+	\begin{aligned}
+		&- \frac{\d_r^2 (f(r) r^{d-2} H^{(d-4)/4})}{r^{d-2} H^{(d-2)/2}} + \frac{(d-2) (d-3)}{r^{d-2} H^{1/2}}\\
+		& + \frac12 p \Bigg(-\frac{\d_r [f r^{8-p} H^{(6-p)/4} \d_r \log H^{-1/2}]}{r^{8-p} H^{(8-p)/4}}  - \frac{\sqrt{H}}{r^{8-p} H^{(8-2p)/4}} \d_r [f r^{8-p} H^{(6-2p)/4} \d_r H^{-1/2} ]  + \frac12 \frac{f}{H^{1/2}} (\d_r \log H^{-1/2})^2  \Bigg)
+	\end{aligned}
+	\]
+	It makes sense to take the ansatz $f(r) = 1 - \frac{r_0^{7-p}}{r^{7-p}}$ and $H = 1 + \frac{L^{7-p}}{r^{7-p}}$. Further, the relationship between $H$ and $\Phi$ can be guessed from reasoning in the $p = 0$ case to go as $\Phi \propto H^{(3-p)/4}$, or alternatively we can establish this from first principles by algebra
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/nonextremal2"}
+	\end{center}
+	This immediately gives that the dilaton term will equal the scalar curvature only when $\alpha = (3-p)/4$.
+	
+	We have thus proved the form of $f, H, \Phi$. Let's finally look at the RR field.
+		%
+	% This problem is really difficult if you try to calculate the scalar curvature directly. Moreover, it is made more difficult because by contrast to the the ansatz taken in almost all papers (eg Horowitz, Strominger):
+	% \[
+	% 	e^{A(r)} dx_{p+1}^2 + e^{B(r)} dx_i^2
+	% \]
+	% which makes calculation of all of these quantities a good deal easier.
+
+	
+	
+		%
+	%  The trick to do some clever dimension hopping combined with conformal transformation of the metric, given that we know from \textbf{C.17} that in $D$ dimensions when $g' = e^{\phi} g$, that
+	% \[
+	% 	R' = e^{-\phi} [R - (D-1) \nabla^2 \phi - \frac{(D-1)(D-2)}{4} (\nabla \phi)^2]
+	% \]
+	% Now there are four steps. Starting from the ansatz \textbf{8.8.4} that the metric takes the form
+	% \[
+	% 	ds_{10}^2 = \frac{-f(r) dt^2 + d\vec x^2}{\sqrt{H_p(r)}} + \sqrt{H_p(r)} \Big(\frac{dr^2}{f(r)} + r^2 d\Omega^2 \Big)
+	% \]
+	% Taking $H = e^{2\phi}$ we do a conformal transformation by $\sqrt{H} = e^{\phi}$, which gives
+	% \[
+	% 	ds_{10}^2 = -f(r) dt^2 + d\vec x^2+ H_p(r) \Big(\frac{dr^2}{f(r)} + r^2 d\Omega^2_{8-p} \Big)
+	% \]
+	% And the curvature of this metric is
+	% \[
+	% 	R_{\mathrm{\mathbf{ii}}} = e^{-\phi} [R_{\mathrm{\mathbf{i}}} - 9 \nabla^2 \phi  - 18 \nabla \phi^2 ]
+	% \]
+	% given that this is a product of a nontrivial geometry with a spacelike $p$-plane, we can ignore those $p$ dimensions and retain the same scalar curvature. Then upon doing a conformal transformation again by $H^{-1} = e^{-2\phi}$ (now in $10-p$ dimensions) we obtain a vaguely familiar-looking form:
+	% \[
+	% 	- \frac{f(r)}{H} dt^2 + \frac{dr^2}{f(r)} + r^2 d \Omega^2_{8-p}
+	% \]
+	% The scalar curvature of the original 10D solution is a differential function of $H$ added to the scalar curvature of this solution.
+	%
+	%
+	% Keeping this form for $f$, letting $\phi$ be arbitrary gives the curvature for the solution $-\frac{f(r) dt}{e^{2\phi}} + \frac{dr^2}{f(r)} + r^2 d \Omega_{8-p}^2$ to be:
+	% \[
+	% 	2 \nabla^2 \phi - \nabla^2 \log f
+	% \]
+	% Note this laplacian is taken w.r.t. the metric involving $f, \phi$ so e.g. there will be terms quadratic in $\phi$.
+	%
+	% % \[
+	% % 	\frac{\phi'(r)}{r} \left(2 (8-p) + \frac{r_0^{7-p}}{r^{7-p}} \right) + 2 f(r) [\phi''(r) - (\phi'(r))^2]
+	% % \]
+	% In terms of $10D$, the curvature of this is
+	% \[
+	% \begin{aligned}
+	% 	R_{\mathrm{\mathbf{iii}}} &= e^{2\phi} \left[ e^{-\phi} [R_{\mathrm{\mathbf{i}}} - 9 \nabla^2 \phi  - 18 (\nabla \phi)^2 ] + 2 (9-p) {\nabla'}^2 \phi - 4 \frac{(9-p)(8-p)}{4} (\nabla' \phi)^2 \right]\\
+	% 	&= e^{\phi} \left[ R_{10D} - 9 \nabla^2 \phi  - 18 (\nabla \phi)^2 + 2(9-p) {\nabla}^2 \phi - 2 (9-p)(8-p) (\nabla \phi)^2 - 4 \frac{(9-p)(8-p)}{4} (\nabla \phi)^2 \right]\\
+	% 	&= e^{\phi} [R_{10D} + (9-2p) \nabla^2 \phi - 3 [(9-p)(8-p) + 6] (\nabla \phi)^2 ]
+	% \end{aligned}
+	% \]
+	%
+	% Look at the $\nabla^2 \phi$ term. Up to corrections higher order in $\phi$ this is exactly $2 \nabla^2 \phi$ in this geometry. Performing a Weyl transformation by $H = e^{2\phi}$ into \textbf{ii} will (again to leading order in $\phi$) gives
+	% \[
+	% 	R_{\mathrm{\mathbf{ii}}} = e^{-2\phi} (2 \nabla^2 \phi - 2 (9-p) \nabla^2 \phi)
+	% \]
+	% Then performing another Weyl transformation by $\sqrt{H}^{-1} = e^{-\phi}$ gives
+	% \[
+	% 	R_{\mathrm{\mathbf{iii}}} = e^{-\phi} (2 \nabla^2 \phi - 2 (9-p) \nabla^2 \phi + 9 \nabla^2 \phi) = - (7-2p) e^{-\phi} \nabla^2 \phi
+	% \]
+	%  	\textbf{I want $6-2p$ what is going wrong?}
+	%
+	% The equation for the dilaton in 10D reads
+	% \[
+	% 	R_{\mathbf{{i}}} =  4 f(r) e^{-\phi} \Phi'(r)^2 - 4  f(r) e^{-\phi} \left(\Phi''(r) + \frac{f'(r)}{f(r)} \Phi'(r) + (3-p) \phi'(r) \Phi'(r) + \frac{8-p}{r} \Phi'(r) \right)
+	% \]
+	% At leading order in $\Phi, \phi$ we see this goes as $-4 \nabla^2 \Phi$.
+	% Comparing these two, we see that the only way we can have equality of these two expressions is if
+	% \[
+	% 	\Phi = \frac{3-p}{2} \phi + c_0 \Rightarrow e^{2 \Phi} = g_s^2 H^{(3-p)/2}(r)
+	% \]
+	% In fact Mathematica confirms in all relevant dimensions that these match exactly so long as $H = 1 + \frac{L^{7-p}}{r^{7-p}}$. \textbf{I am unhappy with this. Although it is true that Mathematica confirms it, I want to see how to get it from first principles}.
+	
+	For now let us ignore the issues with self-duality at $p=3$. Take the the $p+1$ form has flux in the radial but not angular directions in transverse space.  The only nonzero component of $F_{p+2}$ is given by $F_{r 0 \dots p}$. The equation of motion gives:
+	\[
+		\d_r\left(\sqrt{-g} g^{\mu_0 \nu_0} g^{\dots} F_{\mu_0 \dots} \right) = 0 
+	\]
+	Now we already have $\sqrt{g} = r^{8-p} H^{(4-p)/2}$, while we will have raising for each index $0 \dots p$ as well as $r$, giving a factor of $f(r) H^{(p+1)/2} H^{-1/2} / f(r) = H^{p/2}$. Altogether the differential equation becomes:
+	\[
+		\d_r r^{8-p} H^2 H^r
+	\]
+	Immediately we must have $F = \frac{\kappa/r^{8-p}}{H^2}$. This means that $F$ is proportional to $H'(r)/H(r)^2$. 
+	
+	I don't know how to easily get this constant of proportionality without knowing the decay properties of $R_{\mu \nu}$ as $r \to \infty$ \textbf{Return to this}. I know it must scale roughly as a positive power of $L$. It turns out to be:
+	\[
+		F_{r 0\dots p} = - \sqrt{1- \frac{r_0^{7-p}}{L^{7-p}}} \frac{H'_p(r)}{H^2_p(r)}
+	\]
+	
+	
+	\textbf{OK NOW DO EVERYTHING AGAIN BUT JUST BY BOOSTING}
+	
+	\item From the expression \textbf{8.8.9} of the electric field in terms of $H$ we have (assuming $p < 7$)
+	\[
+		E_r = (7-p) L^{(7-p)/2} \sqrt{L^{7-p} + r_0^{7-p}} \frac{r^{6+p}}{(r^{7} + L r^{p})^2} \to (7-p) L^{(7-p)/2} \sqrt{L^{7-p} + r_0^{7-p}} r^{p-8}
+	\]
+	Integrating this over the $8-p$ sphere will give
+	\[
+		T_p N = \frac{\Omega_{8-p} (7-p)}{2 \kappa_{10}^2} L^{(7-p)/2} \sqrt{L^{7-p} + r_0^{7-p}}.
+	\]
+	
+	\item Using the standard ADM formula (cf, eg Carrol)
+	\[
+		M = \frac{1}{2 \kappa_{10}^2} \int_{S^8-p} g^{\mu \nu} (g_{\mu \alpha, \nu} - g_{\mu \nu, \alpha}) n^\alpha dS
+	\]
+	Then for a metric that looks like $g_{\mu \nu} = \eta_{\mu \nu} + h_{\mu \nu}$ with $h_{\mu \nu} = \frac{c_{\mu \nu}}{r^{7-p}}$.
+	\[
+	\begin{aligned}
+		M = T_{00} V_p & = \frac{\Omega_{8-p}}{2 \kappa_{10}^2} ((7-p) c_{00} - \eta_{00} \eta^{ab} c_{ab} )\\
+		& = \frac{\Omega_{8-p} V_p}{2 \kappa_{10}^2} ( (7-p) (r_0^{7-p} + \frac12 L^{7-p}) + r_0^{7-p} + \frac12 L^{(7-p)/4} )\\
+		&= \frac{\Omega_{8-p} V_p}{2 \kappa_{10}^2} ((8-p) r_0^{7-p} + (7-p) L^{7-p} )
+	\end{aligned}
+	\]
+	% And expanding $\sqrt{H}, $ etc. to linear order, we get \textbf{I can't get agreement :( } that the ADM mass per unit volume parallel to the brane is
+	% \[
+	% 	\frac{\Omega_{8-p}}{2 \kappa_{10}^2} ((8-p) r_0^{7-p} + (7-p) L^{7-p})
+	% \]
+	% We can compactify the $p$ spatial components and multiply the above through by $V_p$ to get the correct result.
+	
+	\item Note that
+	\[
+		f_-(\rho) = 1 - \frac{L^{7-p}}{r^{7-p} + L^{7-p}} = \frac{1}{1+ L^{7-p}{r^{7-p}}} = \frac1{H(r)}
+	\]
+	Similarly
+	\[
+		f_+(\rho) = 1 - \frac{r_0^{7-p} + L^{7-p}}{r^{7-p} + L^{7-p}} = \frac{r^{7-p} + r_0^{7-p}}{r^{7-p} + L^{7-p}} = \frac{f(r)}{H(r)}
+	\]
+	This confirms that the $dt$ and $d\vec x$ terms are indeed consistent, and that the $f^{-1/2}_-(\rho)$ in front of the transverse part is our desired $\sqrt{H}$. Next note that:
+	\[
+		f_-(\rho)^{\frac{1}{7-p}} = \left[\frac{\rho^{7-p} - L^{7-p}}{\rho^{7-p}} \right]^{1/(7-p)} = \frac{r}{\rho} \Rightarrow \rho^2 f_-(\rho)^{1-\frac{5-p}{7-p}} = \rho^2 \frac{r^2}{\rho^2} = r^2
+	\]
+	So the angular part is consistent. Lastly, $f_+/f_- = f(r)$ which is the required coefficient for $dr^2$. It remains to cancel the jacobian:
+	\[
+		dr  = \frac{\rho^{6-p}} {r^{6-p}} d\rho = f_-^{-\frac{6-p}{7-p}} d\rho \Rightarrow dr^2 = f_-^{-\frac{12-2p}{7-p}} d \rho^2 = f_-^{-1-\frac{5-p}{7-p}} d \rho^2
+	\]
+	So
+	\[
+		\frac{\sqrt{H(r)}}{f(r)} dr^2 = f_-^{-1/2} \frac{f_-}{f_+} f_-^{-1-\frac{5-p}{7-p}} d \rho^2 = f_-^{-\frac12 - \frac{5-p}{7-p}} \frac{d\rho^2}{f_+(\rho)}
+	\]
+	
+	\item Given all of the work we've done in calculating various curvature terms for the \emph{non-extremal} situation, this problem isn't too challenging.
+	First $R$ is given by:
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/R"}
+	\end{center}
+	This can be rewritten as
+
+	\item Thankfully the extremal brane metric is in a particularly simple form. 
+	
+	\item
+	
+	\item
+	
+	\item
+	
+	\item
+	
+	\item Transverse to the NS5 brane is precisely the extremal Kerr solution (which preserves half SUSY). Parallel to it is flat space (which preserves all SUSYs). The product therefore preserves half.
 	
 	\item 
 	
+	\item
+	
+		
 \end{enumerate}
 
 % section chapter_8_d_branes (end)	
