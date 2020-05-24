@@ -16,6 +16,7 @@
 \usepackage{relsize}
 \usepackage{xcolor}
 \usepackage{stmaryrd}
+\usepackage{slashed}
 \usepackage{tikz-feynman}
 \usepackage{kiritsis}
 \geometry{margin = 0.5in}
@@ -704,7 +705,7 @@
 	Also, this problem asks us to work in $\mathcal N =2, D = 4$ SUGRA, so the appropriate equations should be that the variation of \emph{each} dilatino by a Killing spinor is zero. In this SUGRA, there are two Majorana gravitinos $
 \psi_{\mu, A}, A=1,2$ with four components each, for a total of $8$ SUSYs. Consequently, the variations involve two Majorana spinor parameters $\epsilon_{A}, A=1,2$. We will use lower indices to indicate chiral and upper indices to indicate anti-chiral fermions. The gravitino variation is then (c.f. Freedman \emph{Supergravity} Section 22.4)
 \begin{equation}\label{eq:SUSYvar}
-		\delta \psi_{\mu, A} = \nabla_\mu \epsilon_A - \frac14 F_{\nu \rho} \gamma^{\nu \rho} \gamma_\mu \epsilon_{AB} \epsilon^B
+		\delta \psi_{\mu, A} = \nabla_\mu \epsilon_A - \frac14 F_{\nu \rho} \gamma^{\nu \rho} \gamma_\mu \varepsilon_{AB} \epsilon^B
 \end{equation}
 	Because of the chirality we can replace $F$ with $F^-$ in the above equation. Now, if we use spatial coordinates $\vec x, |x| = \rho$, the metric takes the form
 	\[
@@ -1018,7 +1019,7 @@
 	\]
 	
 	
-	\textbf{OK NOW DO EVERYTHING AGAIN BUT JUST BY BOOSTING}
+	\textbf{Can I do this all by somehow ``boosting'' Schwarzschild?}
 	
 	\item From the expression \textbf{8.8.9} of the electric field in terms of $H$ we have (assuming $p < 7$)
 	\[
@@ -1041,6 +1042,7 @@
 		&= \frac{\Omega_{8-p} V_p}{2 \kappa_{10}^2} ((8-p) r_0^{7-p} + (7-p) L^{7-p} )
 	\end{aligned}
 	\]
+	\textbf{Revisit- something seems off}
 	% And expanding $\sqrt{H}, $ etc. to linear order, we get \textbf{I can't get agreement :( } that the ADM mass per unit volume parallel to the brane is
 	% \[
 	% 	\frac{\Omega_{8-p}}{2 \kappa_{10}^2} ((8-p) r_0^{7-p} + (7-p) L^{7-p})
@@ -1068,24 +1070,156 @@
 		\frac{\sqrt{H(r)}}{f(r)} dr^2 = f_-^{-1/2} \frac{f_-}{f_+} f_-^{-1-\frac{5-p}{7-p}} d \rho^2 = f_-^{-\frac12 - \frac{5-p}{7-p}} \frac{d\rho^2}{f_+(\rho)}
 	\]
 	
-	\item Given all of the work we've done in calculating various curvature terms for the \emph{non-extremal} situation, this problem isn't too challenging.
-	First $R$ is given by:
-	\begin{center}
-		\includegraphics[scale=0.5]{"Figures/R"}
-	\end{center}
-	This can be rewritten as
+	\item Before doing any supersymmetric manipulations, we should know the spin connection.
+	
+	Take the extremal $p$-brane metric to be of the form
+	\[
+		ds^2 = e^{2 A(r)} dx^\mu dx^\nu \eta_{\mu \nu} + e^{2 B(r)} dx^i dx^j \delta_{ij}
+	\]
+	We will shortly set $A = - B = \frac12 \log H(r)$. Take the frame fields
+	\[
+		e^{\hat \mu} = e^A dx^\mu, \quad e^{\hat i} = e^B dx^{i}
+	\]
+	Then
+	\[
+		\begin{aligned}
+			\dd e^{\hat \mu} &= \d_r A e^{A} \dd r \wedge \dd x^\mu = \sum_i \d_i A e^A \dd x^i \wedge dx^\mu = e^{\hat i} \wedge \omega^{\hat \mu}_{\;\; \hat i} \Rightarrow  \omega_{\hat \mu \hat \nu} = 0, \; \omega_{\hat \mu \hat i} = \d_i A \; e^{A - B} \dd x^\mu \\
+			\dd e^{\hat i} &= \d_r B e^{B} \dd r \wedge \dd x^i = \sum_j \d_i B e^B \dd x^j \wedge dx^i = e^{\hat j} \wedge \omega^{\hat i}_{\; \hat j}
+			\Rightarrow \omega_{\hat i \hat j} = \d_j B \dd x^i - \d_i B \dd x^j \\
+		\end{aligned}
+	\]
+	Using our extremal form of the solution, I can further write
+	\[
+		e^{\Phi} = g_s^2 H^{(3-p)/4} = e^{(3-p) A}, \quad F_{r01\dots p} = \mp \frac{H'}{H^2} = \mp \kappa \frac{A'}{e^{4A}}
+	\]
+	Here I have appropriately absorbed $g_s^2$ into the definition of $A$. I expect $F_{p+2} = \mp H'/H^2$ to be proportional (with an appropriate choice of $\kappa$ that we will find) to what we have above.
+	
+	
+	In $\mathcal N = 2$ SUGRA coupled to matter, represent the Killing spinor as $\epsilon = {\epsilon^1 \choose \epsilon^2}$. We have the gravitino and dilatino variations:
+	\[
+	\begin{aligned}
+		0 &=
+		 \delta \psi_{\mu, A} & = & \; (\d_\mu + \frac14 \omega_{\mu}^{ab} \Gamma_{ab}) \epsilon - \frac{e^\Phi}{16} \slashed{F} \Gamma_\mu \mathcal P_{p+2} \epsilon \\
+		0 &= \delta \lambda & =& \; \slashed{\d} \Phi \epsilon  + \frac{e^{\Phi}}{8} (-1)^p (3-p) \slashed F \mathcal P_{p+2} \epsilon
+	\end{aligned}
+	\]
+	Here we are following the democratic formulation of Kiritsis Appendix \textbf{I.4}, setting all fields equal to zero except for the dilaton and relevant RR $p+2$ field strength. As written there, for IIA we have $\mathcal P_n = (\Gamma_11)^{n/2} \sigma^1$ and for IIB we have $\mathcal P_n = \sigma^1$ for $\frac{1+n}{2}$ even and $i \sigma^2$ for $\frac{1+n}{2}$ odd. 
+	
+	Let's first look at the dilatino variation. We get
+	\[
+	\begin{aligned}
+		&(3-p) A' \Gamma^r \epsilon \mp e^{A(3-p)} (-1)^{p} (3-p) \frac{A'}{e^{4A}} \Gamma^{r 0 \dots p} \mathcal P_{p+2} \epsilon = 0\\
+		& \Rightarrow (1 \mp (-1)^{p} e^{-A (1 + p)} \Gamma^{0 1 \dots p} \mathcal P_{p+2}) \epsilon = 0\\
+		& \Rightarrow (1 \mp (-1)^{p} \Gamma^{\hat 0 \hat 1 \dots \hat p} \mathcal P_{p+2}) \epsilon = 0
+	\end{aligned}
+	\]
+	Here the $\Gamma$ matrices with hatted (vielbein) indices are the familiar 10D Dirac matrices, as in Freedman and Van Proyen \emph{Supergravity}\footnote{Here I'm off by two in the second factor unless I use Blumenhagen's conventions (not democratic)}. 
+	Locally, this is a linear algebraic constraint on the space of spinors at a given point, which half of the spinors will satisfy. 
+	
+	Now let's look at \emph{longitudinal} the gravitino variation. 
+	\[
+	\begin{aligned}
+		& \d_i \epsilon + \frac14 \omega_i^{ab} \Gamma_{ab} \epsilon \mp \frac{e^{A(3-p)}}{16} \frac{4 A'}{e^{4 A}} \Gamma^{r 0 \dots p} \Gamma_i \mathcal P_{p+2}\\
+		&=  \d_i \epsilon + \frac12 \d^k B\, \Gamma_{k i}  \epsilon \pm (-1)^p \frac{e^{A(3-p)}}{4} \frac{A'}{e^{4 A}} \Gamma^{0 \dots p} \mathcal P_{p+2}
+	\end{aligned}
+	\]
 
-	\item Thankfully the extremal brane metric is in a particularly simple form. 
+	\item We write again the spin connection found in the last problem:
+	\[
+		e^{\hat \mu} = e^A dx^\mu, \quad e^{\hat i} = e^B dx^{i}
+	\]
+	Hatted indices always denote the vielbein indices.
+	
+	Then
+	\[
+		\begin{aligned}
+			\dd e^{\hat \mu} &= \d_r A e^{A} \dd r \wedge \dd x^\mu = \sum_i \d_i A e^A \dd x^i \wedge dx^\mu = e^{\hat i} \wedge \omega^{\hat \mu}_{\;\; \hat i} \Rightarrow  \omega_{\hat \mu \hat \nu} = 0, \; \omega_{\hat \mu \hat i} = \d_i A \; e^{A - B} \dd x^\mu \\
+			\dd e^{\hat i} &= \d_r B e^{B} \dd r \wedge \dd x^i = \sum_j \d_i B e^B \dd x^j \wedge dx^i = e^{\hat j} \wedge \omega^{\hat i}_{\; \hat j}
+			\Rightarrow \omega_{\hat i \hat j} = \d_j B \dd x^i - \d_i B \dd x^j \\
+		\end{aligned}
+	\]
+	From this, we can get the Riemann curvature using $\mathbf{R}_{\hat \alpha \hat \beta} = \dd \boldsymbol{\omega}_{\alpha \beta} + \boldsymbol{\omega}_{\alpha \gamma} \wedge \boldsymbol{\omega}^\gamma_\beta$. First $\mathbf{R}_{\hat \mu \hat \nu}$ is the easiest:
+	\[
+		\mathbf{R}_{\hat \mu \hat \nu} = \cancel{\dd \omega_{\hat \mu \hat \nu}} + \omega_{\hat \mu \hat i} \wedge \omega^{\hat i}_{\; \hat \nu} = e^{2(A-B)} (\d A)^2 dx^\mu \wedge dx^\nu = \mathbf{R}_{\mu}^{\;\; \nu}
+	\]
+	Note that last expression is unhatted. 
+	
+	Next is $\mathbf{R}_{\hat \mu \hat i}$
+	\[
+	\begin{aligned}
+		\mathbf{R}_{\hat \mu \hat i} &= \dd \omega_{\hat \mu \hat i} &+& \omega_{\hat \mu \hat j} \wedge \omega^{\hat j}_{\; \hat \nu}\\ 
+		&= [\d_j \d_i A e^{A-B} + \d_i A (\d_j A - \d_j B)] dx^j \wedge dx^\mu & - & \d_i A e^{A-B} \d_j B dx^\mu \wedge dx^i + \d_j A e^{A-B} \d_i B dx^\mu \wedge d x^j\\
+ 	\end{aligned}
+	\]
+	\[
+			= e^{A-B}[(\d_i \d_j A + \d_i A \d_j A - \d_i B \d_j A - \d_j B \d_i A)] dx^j \wedge dx^\mu - e^{A-B} \d_j A \d_j B dx^\mu \wedge d x^i
+	\]
+	We can get $R_{\mu}^{;i}$ (note unhatted) by multiplying this by $e^{A-B}$ and $R_{i}^{\; \mu}$ by multiplying this by $- e^{B-A}$. 
+	
+	Finally $\mathbf{R}_{\hat i \hat j}$:
+	\[
+	\begin{aligned}
+		\mathbf{R}_{\hat i \hat j} &= \dd \omega_{\hat i\hat j} \qquad \qquad +  \cancel{\omega_{\hat i \hat \mu} \wedge \omega^{\hat \mu}_{\; \hat j}} &+& \omega_{\hat i \hat k} \wedge \omega^{\hat k}_{; \hat j} \\ 
+		&= \d_k \d_j B dx^k \wedge dx^i - \d_k \d_i B dx^k \wedge dx^j & + & \d_k B \d_j B dx^i \wedge dx^k - \d_k B \d_i B dx^j \wedge dx^k - (\d B)^2 dx^i \wedge dx^j \\
+ 	\end{aligned}
+	\]
+	\[
+		= -(\d B)^2 dx^i \wedge dx^j + (\d_k \d_i B - \d_k B \d_i B) dx^j \wedge dx^k - (\d_k \d_j B - \d_k B \d_j B) dx^i \wedge dx^k = \mathbf{R}_i^{;j}
+	\]
+	\textbf{Find Kreschtman}
+	
+	To get the Ricci tensor, we must to the appropriate contractions:
+	\[
+		R_{\mu \nu} = R_{\mu \rho \nu}^{\; \quad \rho} + R_{\mu i \nu}^{\; \quad i} = - \eta_{\mu \nu} e^{2(A-B)} \Big( (p+1) (A')^2 + A'' + \frac{8-p}{r} A' + A' B' (9-p - 2) \Big)
+	\]
+	Here $A' = \d_r A$ is differentiation with respect to the radial coordinate. The Ricci tensor has no components mixing transverse and longitudinal directions: 
+	\[
+		R_{\mu i} = \cancel{R_{\mu \rho i}^{\; \quad \rho}} + \cancel{ R_{\mu j i}^{\; \quad j}} = 0 
+	\]
+	Finally the annoying one: 
+	\[
+		R_{ij} = R_{i \mu j}^{\; \quad \mu} + R_{i k j}^{\; \quad k}
+	\]
+	\textbf{FINISH}
+	
+	We can evaluate this directly in Mathematica. For $R_{\mu \nu} R^{\mu \nu}$ and $R$ we get:
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/Curvature Invariants"}
+	\end{center}
+	The last line is in agreement with the expression for $R$ in Kiritsis \textbf{8.8.31}
+	
+	
+	\item Exercise 7.7 shows that, upon $T$-dualizing along the $x^9$ direction we get
+	\[
+		\tilde C^{(p+1)}_{\mu_1 \dots \mu_p 9} = C^{(p)}_{\mu_1 \dots \mu_p}, \quad \tilde C^{(p)}_{\mu_1 \dots \mu_p} = \tilde C^{(p+1)}_{\mu_1 \dots \mu_p 9} 
+	\]
+	In transverse space, our $(p+1)$-form $C$ has components only along the longitudinal directions. Upon T-dualizing, we pick up the $9$ index in the $C$ form, and thus get that our brane has a $(p+2)$ form charge. We thus expect this to be a $p+1$ brane wrapping that additional $x^9$ direction. I'm unsure if this wants us to explicitly give the form of that solution, since doing it in a compact space seems a bit harder. 
+	
+	\item Let's assume $p<7$. When $\lambda \gg 1$ the perturbative stringy description is no longer valid. For an extremal p-brane, we know from problem 40 that:
+	\[
+		L^{7-p} = \frac{2\kappa_{10}^2 T_p N}{(7-p) \Omega_{8-p}} \Rightarrow  \left(\frac{L}{2\pi \ell_s} \right)^{7-p} = \frac{g_s N}{7-p} \frac{\Gamma(\frac{9-p}{2})}{2 \pi^{\frac{9-p}{2}}}
+	\]
+	So $\lambda = 2\pi g_s N \gg 1$ gives that $L \gg \ell_s$, meaning that the throat size is macroscopic. We can thus probe it without having to see distances smaller than the string scale. 
+	
+	When $p > 3$ we see from our  calculation of $R$ in problem \textbf{44} that $R$ blows up as $\frac{L^{2(7-p)}}{r^{(p-3)/2}}$ as $r \to 0$. This will become order $\ell_s^{-2}$ at 
+	\[
+		r \approx \left(\frac{\ell_s^2}{L^{(7-p)/2}}\right)^{2/(p-3)}
+	\]	
+	When $p < 3$ the formula for $R$ indeed is seen to go to zero. On the other hand the string coupling grows as
+	\[
+		e^{\Phi} = g_s H^{(3-p)/4} = g_s \left(1 + \frac{L^{7-p}}{r^{7-p}} \right)^{(3-p)/4}
+	\]
+	So if $g_s$ is the string coupling ``at infinity'' which we can take to initially be small, then it will become appreciable at
+	\[
+		r = L (-1 + g_s^{-4/(3-p)})^{1/(p-7)}
+	\]
+	so for $g_s$ sufficiently small, the quantity in parentheses will be quite large and be raised to a negative power, so that this is a small fraction of the throat size. 
 	
 	\item
 	
 	\item
 	
-	\item
-	
-	\item
-	
-	\item Transverse to the NS5 brane is precisely the extremal Kerr solution (which preserves half SUSY). Parallel to it is flat space (which preserves all SUSYs). The product therefore preserves half.
+	\item Transverse to the NS5 brane is precisely the extremal BH solution in 5D, which preserves half SUSY by the same arguments as before. Parallel to it is flat space (which preserves all SUSY). The product therefore preserves half.
 	
 	\item 
 	
