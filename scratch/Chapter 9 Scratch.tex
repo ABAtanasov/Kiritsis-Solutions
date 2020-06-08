@@ -1,0 +1,25 @@
+\section{Problem 1} % (fold)
+\label{sec:problem_1}
+
+		The other representation of the theta function is as an sum over fermion number (measured relative to the ground state) $n$. At fixed $n$, the lowest energy state is give by the lowest $n$ oscillators $b_{1/2}^\dagger b^\dagger_{3/2} \dots b^\dagger_{n-1/2}$, giving energy $\frac{1}{2} \theta^2 + \sum_{r=1}^n (n+\theta-1/2)  = \frac12 (n+\theta)^2$. Above this, we can create fermion-anti fermion pairs giving $p(m)$ excitations at fixed fermion number of arbitrarily high energies. This gives the factor of $\eta^{-1}$:
+		\[
+			\Tr_{\theta} [e^{2\pi i \phi F} q^{H}] = q^{-1/24} e^{\pi i \phi \theta} \sum_{n \in \mathbb Z} \frac{q^{\frac12 (n + \theta)^2} e^{2\pi i n \phi}}{\prod_{m=1}^\infty (1-q^m)} = e^{\pi i \theta \phi}\, \frac{\theta \twist{-2\theta}{-2\phi}}{\eta}
+		\]
+		This gives us the NSNS contribution. Let's get the other three. Keep in mind we need a combination that is modular invariant. A simple guess is to take $\theta \to \theta - 1/2$ and $\phi \to \phi-1/2$.
+		Giving
+		\[
+			\Tr_{a-2\theta} [e^{-2\pi i ( \frac{b}{2} - \phi) F} q^{H}] = \eta^{-1} \sum_{n=-\infty}^\infty q^{\frac12 (n + \theta - a/2)^2} e^{2\pi i (n + \theta - \frac{a}{2}) (\phi - b/2)}
+		\]
+
+		This is clear from noting that for antiperiodic boundary conditions, the partition function may be written as a sum over excitations with fermion number $n$. At fixed $n$, the lowest energy state is give by the lowest $n$ oscillators $b_{1/2}^\dagger b^\dagger_{3/2} \dots b^\dagger_{n-1/2}$, giving energy $\sum_{r=1}^n (n-1/2) = \frac12 n^2$. Above this, we can create fermion-anti fermion pairs giving $p(m)$ excitations at fixed fermion number of arbitrarily high energies. This gives the factor of $\eta^{-1}$:
+		\[
+			\Tr_{NS} [e^{\pi i b N_F} e^{2 \pi i \nu N_F} q^{L_0-1/24}] = q^{-1/24} \sum_{n \in \mathbb Z} \frac{q^{\frac12 n^2} e^{2 \pi i (\nu + \frac{b}{2}) n}}{\prod_{m=1}^\infty (1-q^m)}
+		\]
+		When we do not have antiperiodic boundary conditions, we no longer have $n \in \mathbb Z$, and consequently the fermion number $n$ gets shifted by $a$ giving in full generality:
+		\[
+			\Tr_a [e^{\pi i b N_F} q^{L_0-1/24}] = q^{a^2/8 - 1/24} \sum_n \frac{e^{2 \pi i (\nu + \frac{b}{2}) n} q^{\frac12 (n+\frac{a}{2})^2}}{{\prod_{m=1}^\infty (1-q^m)}} = q^{a^2/8} \frac{\theta \twist{-a}{-b}}{\eta}
+		\]
+		
+
+		% section problem_1 (end)
+		

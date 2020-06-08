@@ -1,0 +1,105 @@
+\documentclass[11pt, class=article, crop=false]{standalone}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd}
+\usepackage{mathabx}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{simpler-wick}
+\usepackage{hyperref}
+\usepackage{ytableau}
+\usepackage{cancel}
+\usepackage{listings}
+\usepackage{relsize}
+\usepackage{xcolor}
+\usepackage{stmaryrd}
+\usepackage{slashed}
+\usepackage{tikz-feynman}
+\usepackage{kiritsis}
+\geometry{margin = 0.5in}
+
+
+\begin{document}
+\section*{Chapter 11: Duality Connections and Nonperturbative Effects} % (fold)
+\label{sec:chapter_11_duality_connections_and_nonperturbative_effects}
+\begin{enumerate}
+	\item Taking the expression for a toroidal heterotic compactification from exercise \textbf{9.1} 
+	\[
+		\left[\frac{R}{\sqrt{\tau_2} \eta \bar \eta^{17}} \sum_{m,n} e^{-\frac{\pi R^2}{\tau_2} |m + n \tau|^2} e^{-i \pi \sum_I n Y^I (m + n \bar \tau) Y^I Y^I}\frac12 \sum_{a,b=0}^1  \prod_{i=1}^{16} \bar \theta \twist ab (Y^I (m + \bar \tau n) | \bar \tau) \right] \times \frac{1}{\tau_2^{7/2} \eta^7 \bar \eta^7} \frac12 \sum_{a,b = 0}^1 \frac{\theta^4 \twist a b}{\eta^4}
+	\]
+	Using $\theta$ function identites as in the second equation in appendex \textbf{E}, we get
+	\[
+		\Gamma_{1,17}(R, Y) = \frac{R}{\sqrt{\tau_2}} \sum_{m,n} e^{-\frac{\pi R^2}{\tau_2} |m + n \tau|^2} \frac12 \sum_{a,b=0}^1 e^{i \pi m Y^I Y^I n - i \pi b n Y^I} \bar \theta \twist{a - 2n Y^I}{b - 2m Y^I}
+	\]
+	Now take $Y^I = 0$ for $I = 1 \dots 8$ and $Y^I = 1/2$ for $I = 1 \dots 16$. Then
+	\[
+		\prod_I e^{i \pi m Y^I Y^I n - i \pi b n Y^I}  = e^{i \pi m \sum_I (Y^I)^2 - i \pi b \sum_I Y^I} = 1
+	\]
+	and we can ignore this term. Similarly because we are taking a product over 16 $\bar \theta$, no phases will interfere with us replacing $\theta\twist uv$ with $\theta \twist{-u}{-v}$ for integer $u, v$. This gives us the desired first step
+	\[
+		\Gamma_{1,17}(R, Y) = R \sum_{m,n} e^{-\frac{\pi R^2}{\tau_2} |m + n \tau|^2} \frac12 \sum_{a,b=0}^1 \bar \theta \twist ab^8 \bar \theta \twist{a+n}{b+m}^8
+	\]
+	Now again because we have enough $\theta \twist{a+n}{b+m}$ that phases do not interfere, we see that we only care about $n,m$ modulo $2$ in the fermion term. We know how to divide the partition function of the compact boson into parity odd and even blocks by doing the $\mathbb Z^2$ stratification corresponding to the $\pi R$ translation orbifold of the circle. This gives our desired answer:
+	\[
+		\frac12 \sum_{h,g} \Gamma_{1,1}(2R) \twist hg \frac12 \sum_{a,b} \bar \theta \twist ab^8 \bar \theta \twist{a+h}{b+g}^8
+	\]
+	with 
+	\[
+		\Gamma_{1,1} (2R) = 2R \sum_{m,n} \exp\left[\frac{-\pi R^2}{\tau_2} |2m + g + (2n + h)\tau|^2 \right]
+	\]
+	
+	\item As before, take the ansatz
+	\[
+		ds^2 = e^{2A(r)} \eta_{\mu \nu} dx^\mu dx^\nu + e^{2B(r)} dx^i \cdot dx^i, \qquad A_{012} = \pm e^{C(r)} \Rightarrow G_{r 012} = \pm C'(r)\, e^{C(r)}
+	\]
+	
+	Let's look at $G$'s equation of motion: 
+	\[
+		\dd G = 0, \qquad \frac{1}{3!} \dd \star G + \frac{3}{(144)^2} \epsilon^{MNOPQRST} G_{MNOP} G_{QRST} = 0
+	\]
+	By assumption, the term quadratic in $G$ vanishes. What remains gives us:
+	\[
+		\d_r (e^{3A+8B} e^{-3A - B}  C'(r) e^C) = 0
+	\]
+	
+	The BPS states in 11D require only the gravitino variation to vanish:
+	\[
+		\delta \psi_M = \d_M \epsilon + \frac14 \omega_{M}^{PQ} \Gamma_{PQ} \epsilon + \frac{1}{2 \cdot 3! \cdot 4!} G_{PQRS} \Gamma^{PQRS}  \Gamma_M \epsilon - \frac{8}{2 \cdot 3! \cdot 4!} G_{MQRS} \Gamma^{QRS} \epsilon
+	\]
+	We have worked out $\omega$ in \textbf{8.43}.
+	\[
+		\omega_{\hat \mu \hat \nu} = 0,\quad \omega_{\hat \mu \hat i} = (-)^{\mu = 0} \d_i A e^{A-B} dx^\mu, \quad \omega_{\hat i \hat j} = \d_j B dx^i - \d_i B dx^j
+	\]
+	Let's look first at $M = \mu$ parallel. Since $\epsilon$ is killing we expect no longitudinal variation and we get
+	\[
+	\begin{aligned}
+		0 &= \cancel{\d_\mu \epsilon} + \frac12 A' \, e^{A - B} \Gamma^{\hat \mu \hat r} + \frac{1}{2 \cdot 3!} C'(r) e^{C} \Gamma^{r 0 12} \Gamma_\mu - \frac{1}{3!} C'(r) e^{C} \Gamma_\mu \Gamma^{r 0 1 2}\\
+		&= \frac12 A' \, e^{A - B} \Gamma^{\hat \mu \hat r} - \frac{1}{2\cdot 3!} C' e^{C-B-2A} \Gamma^{\hat \mu \hat r \hat 0 \hat 1 \hat 2 }\\
+		&= \frac12 A' \, e^{A - B} - \frac{1}{2\cdot 3!} C' e^{C-B-2A} \Gamma^{\hat 0 \hat 1 \hat 2 }
+	\end{aligned}
+	\] 
+	For $M = i$ transverse, we recall $\Gamma_{ij}$ generates rotations, so assuming rotational invariance in the transverse space, we'll cancel this. We get
+	\[
+	\begin{aligned}
+		\d_i \epsilon + \cancel{\frac14 \omega_{r}^{jk} \Gamma_{jk} \epsilon} + \frac{1}{2 \cdot 3!} G_{r012} \Gamma^{r 012} \Gamma_r \epsilon - \frac{1}{3!} G_{r012} \Gamma^{012} \epsilon = 0
+	\end{aligned}
+	\]
+	I'm happy with this. I could use Mathematica to show that the EOMs:
+	\[
+		R_{MN} - \frac12 g_{MN} R = \kappa^2 T_{MN}, \quad \kappa^2 T_{MN} = \frac{1}{2 \cdot 4!} \left(4 G_{M P Q R} G_{N}^{PQR} - \frac12 g_{MN} G^2\right)
+	\]
+	\[
+		\dd G = 0, \qquad \frac{1}{3!} \dd \star G + \frac{3}{(144)^2} \epsilon^{MNOPQRST} G_{MNOP} G_{QRST} = 0
+	\]
+	are satisfied - but this is barely different from what I've done several times before for the D-branes and fundamental string solutions in chapter 8. 
+	
+	As before, this generalizes straightforwardly to multi-membrane configurations
+	
+\end{enumerate}
+
+% section chapter_11_duality_connections_and_nonperturbative_effects (end)
+\end{document}
+	

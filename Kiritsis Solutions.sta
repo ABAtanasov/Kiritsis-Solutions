@@ -20,4 +20,13 @@
 \subpreamble{"Chapter 8".tex}
 \usepackage {amsmath,amssymb,amsfonts,amsthm}\usepackage {enumitem}\usepackage {fancyhdr}\usepackage {tikz-cd}\usepackage {mathabx}\usepackage {geometry}\usepackage {natbib}\usepackage {braket}\usepackage {graphicx}\usepackage {simpler-wick}\usepackage {hyperref}\usepackage {ytableau}\usepackage {cancel}\usepackage {listings}\usepackage {relsize}\usepackage {xcolor}\usepackage {stmaryrd}\usepackage {slashed}\usepackage {tikz-feynman}\usepackage {kiritsis}\geometry {margin = 0.5in}
 \endsubpreamble
+\subpreamble{"Chapter 9".tex}
+\usepackage {amsmath,amssymb,amsfonts,amsthm}\usepackage {enumitem}\usepackage {fancyhdr}\usepackage {tikz-cd}\usepackage {mathabx}\usepackage {geometry}\usepackage {natbib}\usepackage {braket}\usepackage {graphicx}\usepackage {simpler-wick}\usepackage {hyperref}\usepackage {ytableau}\usepackage {cancel}\usepackage {listings}\usepackage {relsize}\usepackage {xcolor}\usepackage {stmaryrd}\usepackage {slashed}\usepackage {tikz-feynman}\usepackage {kiritsis}\geometry {margin = 0.5in}
+\endsubpreamble
+\subpreamble{"Chapter 10".tex}
+\usepackage {amsmath,amssymb,amsfonts,amsthm}\usepackage {enumitem}\usepackage {fancyhdr}\usepackage {tikz-cd}\usepackage {mathabx}\usepackage {geometry}\usepackage {natbib}\usepackage {braket}\usepackage {graphicx}\usepackage {simpler-wick}\usepackage {hyperref}\usepackage {ytableau}\usepackage {cancel}\usepackage {listings}\usepackage {relsize}\usepackage {xcolor}\usepackage {stmaryrd}\usepackage {slashed}\usepackage {tikz-feynman}\usepackage {kiritsis}\geometry {margin = 0.5in}
+\endsubpreamble
+\subpreamble{"Chapter 11".tex}
+\usepackage {amsmath,amssymb,amsfonts,amsthm}\usepackage {enumitem}\usepackage {fancyhdr}\usepackage {tikz-cd}\usepackage {mathabx}\usepackage {geometry}\usepackage {natbib}\usepackage {braket}\usepackage {graphicx}\usepackage {simpler-wick}\usepackage {hyperref}\usepackage {ytableau}\usepackage {cancel}\usepackage {listings}\usepackage {relsize}\usepackage {xcolor}\usepackage {stmaryrd}\usepackage {slashed}\usepackage {tikz-feynman}\usepackage {kiritsis}\geometry {margin = 0.5in}
+\endsubpreamble
 \endstandalonepreambles

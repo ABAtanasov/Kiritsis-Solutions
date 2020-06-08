@@ -1,0 +1,347 @@
+\documentclass[11pt, class=article, crop=false]{standalone}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd}
+\usepackage{mathabx}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{simpler-wick}
+\usepackage{hyperref}
+\usepackage{ytableau}
+\usepackage{cancel}
+\usepackage{listings}
+\usepackage{relsize}
+\usepackage{xcolor}
+\usepackage{stmaryrd}
+\usepackage{slashed}
+\usepackage{tikz-feynman}
+\usepackage{kiritsis}
+\geometry{margin = 0.5in}
+
+
+\begin{document}
+\section*{Chapter 9: Compactification and Supersymmetry Breaking} % (fold)
+\label{sec:chapter_9_compactification_and_supersymmetry_breaking}
+	
+\begin{enumerate}
+	\item We compactify the heterotic string along just one dimension, making it a compact circle of radius $R$ with all $16$ Wilson lines turned on. 
+	
+	Each noncompact boson contributes
+		\[
+			\frac{1}{\sqrt \tau_2 \eta \bar \eta }
+		\]
+	The fermions on the supersymmetric side contribute
+		\[
+			\sum_{a,b=0}^1 (-1)^{a+b+ab} \frac{\theta\twist{a}{b}^4}{\eta^4}
+		\]
+	The $(p,p)$ compact bosons and $16$ complex right-moving fermions that can be written as the pair $\psi^I(\bar z), \bar \psi^I(\bar z)$ have the action as in \textbf{E.1} (setting $\ell_s = 1$)
+		\[		\hspace{-.3in}
+			\frac{1}{4\pi} \int d^2 \sigma \sqrt{\det g} g^{ab} G_{\alpha \beta} \d_a X^\alpha \d_b X^\beta + \frac{1}{4\pi} \int d^2 \sigma \epsilon^{ab} B_{\alpha \beta}\d_a X^\alpha \d_b X^\beta + \frac{1}{4\pi} \int d^2 \sigma \sqrt{- \det g} \sum_I \psi^I [\bar \nabla + Y_\alpha^I \bar \d X^\alpha] \bar \psi^I
+		\]
+		Here $\alpha, \beta$ are the toral coordinates for the compact spacetime and $Y^I_\alpha$ is the Wilson line along torus cycle $\alpha$. To evaluate the path integral, as we did in the purely bosonic case, we have a factor of
+		\[
+			\frac{\sqrt{\det G}}{\tau_2^{p/2} (\eta \bar \eta)^{p}}
+		\] 
+		coming from evaluating the determinant $(\det \nabla^{2})^{-1/2}$ of the bosons. This multiplies a sum over instanton contributions labelled by $m^\alpha, n^\alpha$ taking values in a $(p,p)$-signature lattice with classical action 
+		\[
+			\sum_{m^\alpha, n^\alpha} e^{-\frac{\pi}{\tau} (G+B)_{\alpha \beta} (m + \tau n)^\alpha (m + \bar \tau n)^\beta} \times \text{fermions}.
+		\]
+		The fermion contribution depends via the Wilson lines on the configuration of the $X^\alpha$. In each such instanton sector, the fermion path integral with a constant background Wilson line is equivalent to a free fermion with twisted boundary conditions. For simplicity, let's compactify just on $S^1$, and denote $\theta^I = Y^I n, \phi^I = -Y^I m$. We get boundary conditions: 
+		\[
+		\begin{aligned}
+			\psi^I (\sigma + 1, \sigma_2) &= -(-1)^{a} e^{2 \pi i \theta^I} \\
+			\psi^I (\sigma, \sigma_2 + 1) &= -(-1)^{b} e^{-2\pi i \phi^I}
+		\end{aligned}
+		\]
+		where $a,b = 0,1$ denotes anti-periodic/periodic boundary conditions respectively. We know that (in the absence of Wilson lines) the determinant of $\d$ acting on complex fermions is:
+		\[
+			\text{det}_{a,b}\, \d = \frac{\theta \twist{a}{b}}{\eta}
+		\]
+		Let us now investigate the twisted boundary conditions. For simplicity its enough to take $a= b = 0$ (all antiperiodic). We have two different ways to write the partition function. As a product over modes, we have $\psi_m, \bar \psi_m$ modes, with respective weights $m-\frac12 -\theta, m-\frac12+\theta$ and respective fermion numbers $\pm1$ \emph{relative to the ground state}. The fermion number of the ground state has no canonical value (as far as I can see). On the other hand, the ground state energy is given by the standard mneumonic to be $-\frac{1}{24} + \frac12 \theta^2$. This gives:
+		\[
+			\Tr_{\theta} [e^{2 i \pi \phi F} q^{H}] = q^{\frac{\theta^2}{2} - \frac{1}{24}} \prod_{m=1}^\infty (1 + q^{m -1/2 + \theta} e^{2\pi i \phi}) (1 + q^{m -1/2 - \theta} e^{-2\pi i \phi}) = q^{\theta^2/2}\frac{\theta\twist00 (\phi + \theta \tau | \tau)}{\eta}
+		\]
+		For other boundary conditions, we can apply the same logic to get 
+		\[
+			q^{\theta^2/2} \frac{\theta \twist a b (\phi + \theta \tau | \tau)}{\eta}
+		\]
+		The overall phase is still a mystery. Writing $\theta \twist a b \twist \theta \phi$ as a new theta function, we can fix the phase by requiring modular invariance 
+		\begin{equation}\label{eq:thetaproperties}
+			\footnotesize
+		\begin{aligned}
+			\theta \twist 0 0 \twist \theta \phi (\tau+1) &= \theta \twist 0 0 \twist{\theta}{\phi+\theta} (\tau)
+			&\quad&
+			 \theta \twist 0 1 \twist \theta \phi (\tau+1) = \theta \twist 0 0 \twist{\theta}{\phi+\theta}(\tau)\\
+			 \theta \twist10 \twist \theta \phi (\tau+1) &= e^{i \pi /4} \theta \twist11 \twist{\theta}{\phi+\theta}(\tau)
+			 &\quad&
+			 \theta \twist11 \twist \theta \phi (\tau+1) = e^{i\pi/4} \theta \twist10 \twist{\theta}{\phi+\theta}(\tau)
+		\end{aligned}
+		\end{equation}
+		Even from the first of these conditions, we see that we need a term going as $e^{i \theta \phi}$ out front. After adding this in, all other transformations will hold automatically. The $\tau \to -1/\tau$ transformation will thus hold automatically. \textbf{Interpret this as an anomaly? Yes, Narain, Witten do this in Section 3 of their paper. It seems careful anomaly analysis is not enough and one must indeed impose modular invariance by hand.} 
+		
+		Altogether then the 16 complex antiholomorphic fermions contribute in each instanton sector: 
+		\[
+			e^{-i \pi \sum_I \theta^I (\phi^I + \bar \tau \theta^I)} \frac12 \sum_{a,b=0}^1 \prod_{i=1}^{16} \frac{\bar \theta \twist ab (\phi + \bar \tau \theta  | \bar \tau)}{\bar \eta}
+		\]
+		Giving a total partition function as in the second (unnumbered) equation of \textbf{Appendix E}:
+		\[
+			\left[\frac{R}{\sqrt{\tau_2} \eta \bar \eta^{17}} \sum_{m,n} e^{-\frac{\pi R^2}{\tau_2} |m + n \tau|^2} \underline{e^{-i \pi \sum_I n Y^I (m + n \bar \tau) Y^I Y^I}\frac12 \sum_{a,b=0}^1  \prod_{i=1}^{16} \bar \theta \twist ab (Y^I (m + \bar \tau n) | \bar \tau)} \right] \times \frac{1}{\tau_2^{7/2} \eta^7 \bar \eta^7} \frac12 \sum_{a,b = 0}^1 \frac{\theta^4 \twist a b}{\eta^4}
+		\]
+		From the properties of the theta functions in Equation~\eqref{eq:thetaproperties}, the underlined fermionic sum has the exact same transformation properties as a sum of $\theta^{16}$ terms and thus makes the full partition function modular invariant.
+		
+		Each theta function can be written in sum form as: 
+		\[
+			\theta \twist ab \twist \theta \phi = e^{\pi i \theta \phi} q^{\theta^2/2} \sum_{n\in \ZZ} q^{\frac12 (n- \frac a2)^2} e^{2\pi i (n- \frac a2) (\phi + \tau \theta - \frac b2)} = \sum_{n \in \ZZ} q^{\frac12 (n + \theta - \frac a2)^2} e^{2\pi i  \phi (n + \frac12 \theta - \frac a2) - \pi i b (n- \frac a2)}
+		\]
+		Then we get the following expression for the underlined fermionic term: 
+		\[
+		\begin{aligned}
+			&\frac12 \sum_{a,b=0}^1 \prod_{I = 1}^{16} \sum_{k\in \ZZ} \bar q^{\frac12 (k + n Y^I - \frac a2)^2} e^{-2\pi i m Y^I  (k + \frac12 n Y^I - \frac a2) + \pi i b (k- \frac a2)} \\
+			&= \frac12 \sum_{a,b=0}^1
+			 \sum_{q^I \in \ZZ^{16}} \bar q^{\frac12 (q^I + n Y^I - \frac a2)^2} e^{-2\pi i m Y^I  (q^I + n Y^I - \frac a2) + \pi i b (k- \frac a2)} \\
+			&= \frac12 \sum_{q^I \in \ZZ^{16}} \left[ \bar q^{\frac12 (q^I + n Y^I)^2} e^{-2\pi i m Y^I  (q^I + \frac12 n Y^I) } (1 + (-1)^{\sum_I q^I})
+			+ \bar q^{\frac12 (q^I + n Y^I- \frac12)^2} e^{-2\pi i m Y^I  (q^I + \frac12 n Y^I - \frac12) } (1 + (-1)^{\sum_I (q^I - \frac12)}) \right]\\
+			&= \sum_{q^I \in \Lambda^{16}} q^{(q^I + n Y^I)^2} e^{-2 \pi i m Y^I (q^I + \frac12 n Y^I)}
+		\end{aligned}
+		\]
+		We note that the second-to last line is indeed the sum over the roots of $O(32)$ augmented with one of the spinor weight lattices. Altogether the compact dimensions contribute:
+		\[
+			\frac{R}{\sqrt{\tau_2} \eta \bar \eta^{17}} \sum_{m\in \ZZ,n \in \ZZ ,q^I \in \Lambda^{16}} \exp\left[\frac{\pi R^2}{\tau_2} (m + n \tau) (m + n \bar \tau) + \pi i \tau (q^I + n Y^I)^2 - 2 \pi i m Y^I (k + \frac12 Y^I) \right]
+		\]
+		To put this whole thing into Hamiltonian form, we proceed as in the bosonic case and perform a Poisson summation over $m$. The terms that contribute are:
+		\[
+		\hspace{-.3in}
+		\begin{aligned}
+			e^{-\frac{\pi R^2}{\tau_2} n^2 \tau_1^2 - n^2 \pi R^2 \tau_2}&\sum_{m} e^{-\frac{\pi R^2}{\tau_2} m^2 - 2\pi i m Y^I (q^I + \frac12 n Y^I)- i\frac{n R^2 \tau_1}{\tau_2}} \\
+			&= e^{-\frac{\pi R^2}{\tau_2} n^2 \tau_1^2 - n^2 \pi R^2 \tau_2}\frac{\sqrt{\tau_2}}{R} \sum_{m} e^{-\frac{\pi \tau_2}{R^2} (m + Y^I (q^I + \frac12 n Y^I) - i n \frac{R^2 \tau_1}{\tau_2} )^2}\\
+			&= e^{-\frac{\pi R^2}{\tau_2} n^2 \tau_1^2 - n^2 \pi R^2 \tau_2} \frac{\sqrt{\tau_2}}{R} \sum_{m} e^{-\frac{\pi \tau_2}{R^2} (m + Y^I (q^I + \frac12 n Y^I) )^2 
+			+ \pi R^2 \frac{\tau_1^2}{\tau_2} n^2
+			+ 2 \pi i (m + q^I + \frac12 n Y^I) n  \tau_1}\\
+			&= e^{- n^2 \pi R^2 \tau_2} \frac{\sqrt{\tau_2}}{R} \sum_{m}
+			 e^{-\frac{\pi \tau_2}{R^2} (m + Y^I (q^I + \frac12 n Y^I) )^2 
+			+ 2 \pi i (m + q^I + \frac12 n Y^I) n  \tau_1}\\
+		\end{aligned}
+		\]
+		Together with the other terms this gives us
+		\[
+		\begin{aligned}
+			&\frac{1}{\eta \bar \eta^{17}} \sum_{n, m, q^I} q^{\frac12 (q^I + n Y^I)^2}  e^{- n^2 \pi R^2 \tau_2}  e^{-\frac{\pi \tau_2}{R^2} (m + Y^I (q^I + \frac12 n Y^I) )^2 
+			+ 2 \pi i (m + q^I + \frac12 n Y^I) n  \tau_1 } \\
+			&= \frac{1}{\eta \bar \eta^{17}} \sum_{n, m, q^I} q^{\frac12 (q^I + n Y^I)^2} q^{\frac12 (\frac{1}{R} (m - Y^I (q^I + \frac12 n Y^I) + n R)^2} \bar q^{\frac12 ( \frac{1}{R} (m - Y^I (q^I + \frac12 n Y^I) - n R)^2}
+		\end{aligned}
+		\]
+		where I've flipped $m \to -m$ at the end there. We get momenta 
+		\[
+		\begin{aligned}
+			k_L &= \frac{1}{R}(m - q^I Y^I - \frac12 n Y^I Y^I) + n R = \frac{m}{R} + n (R - \frac12 Y^I Y^I) - q^I Y^I \\
+			k_R &= \frac{1}{R}(m - q^I Y^I - \frac12 n Y^I Y^I ) - n R = \frac{m}{R} - n (R + \frac12 Y^I Y^I) - q^I Y^I\\
+			k_R^I &= q^I + n Y^I 
+		\end{aligned}
+		\]
+		consistent with Polchinski with $m \leftarrow n_m, n \leftarrow w^n, Y^I \leftarrow R A^I$ and $\alpha' = 0$ \textbf{(might be off by a factor of $2$ for $k_R^I$ rel. to Polchinski but I think I'm consistent with Ginsparg)}. We only care about the $SO(1,1, \ZZ)$ T-duality group coming from the compact $x^9$. This does not act on the $Y^I$ as far as I can see \textbf{CHECK}
+		
+		The $\mathrm{SO}(16, \ZZ)$ on the other hand acts on the $Y^I$ as in the standard vector representation. 
+	
+	
+	\item I am going to re-do the computations of appendix F Hatted indices denote the 10D terms. Greek indices from the start of the alphabet denote compact 10-$D$-dimensional indices while greek indices from the middle of the alphabet denote noncompact $D$-dimensional indices.
+	
+	The 10D action is
+	\[
+		\int d^{10} x \sqrt{-\hat G_{10}} \,  e^{-2\hat \Phi} [\hat R + 4 (\nabla \hat \Phi)^2 - \frac{1}{12} \hat H^2 - \frac14 \Tr \hat F^2] + O(\ell_s^2)
+	\]
+	with $\hat F^I_{\mu \nu} = \d_\mu \hat A^I_\nu - \d_\nu \hat A^I_\mu$ and $\hat H_{\mu \nu \rho} = \d_\mu \hat B_{\nu \rho} - \frac12 \sum_I \hat A_{\mu}^I \hat  F^I_{\nu \rho} + 2 \perms $. Here $I$ is the internal $16$-dimensional index for the heterotic string. 
+	
+	We take the 10-bein ($r, a$ denote $D$ and $10-D$ 10-bein indices, hatted indices $\hat r, \hat \mu$ should not be confused for 10-bein indices!!)
+	\[
+		e_{\hat \mu}^{\hat r} = \begin{pmatrix}
+			e^r_\mu & A^\beta_\mu E^a_\beta\\
+			0 & E^a_\alpha
+		\end{pmatrix}\qquad
+		e_{\hat r}^{\hat \mu} = \begin{pmatrix}
+			e_r^\mu & -e_r^\nu A^\alpha_\nu\\
+			0 & E_a^\alpha
+		\end{pmatrix}
+	\]
+	This gives us the metric:
+	\[
+		G_{\hat \mu, \hat \nu} = \begin{pmatrix}
+			G_{\mu \nu} - A_\mu^\alpha G_{\alpha \beta} A_\nu^\beta &  G_{\alpha \beta} A_\mu^\beta\\
+			G_{\alpha \beta} A_\nu^\beta & G_{\alpha \beta}
+		\end{pmatrix}
+	\]
+	As we've done before in chapter 7, we then define 
+	\[
+		\phi = \Phi - \frac14 \log \det G_{\alpha \beta}, \qquad F^A_{\mu \nu} = \d_\mu A_\nu - \d_\nu A_\mu
+	\]
+	With this, the compactification of $R + 4 (\nabla \phi)^2$ is clear:
+	\[
+		\int d^D \sqrt{g} e^{-2\phi} [R + 4 \d_\mu \phi \d^\mu \phi + \frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta} - \frac14 G_{\alpha \beta} {F^A_{\mu \nu}}^\alpha {F^A_{\mu \nu}}^\beta]
+	\]
+	The first and second terms are clear. The third term makes up for the redefinition of $\Phi$ in terms of $\phi$ while the last term is the standard KK mechanism generating a gauge field strength from the compact dimensions. 
+	
+	Next, let's look $\hat H$. Because we have no sources for the $H$ field, $\hat H$ is on the compact cycles. We can define the $D$-dimensional fields using the 10-bein as:
+	\begin{align}
+		H_{\mu \alpha \beta} &= e^r_\mu e_r^{\hat \mu} \hat H_{\hat \mu \alpha \beta} = \hat H_{\mu \alpha \beta} \label{eq:H1}\\
+		H_{\mu \nu \alpha} &= e^r_\mu e^s_\nu e_r^{\hat \mu} e_s^{\hat \nu} H_{\hat \mu \hat \nu \alpha} = \hat H_{\mu \nu \alpha} - A_\mu^\beta \hat H_{\nu \alpha \beta} + A_\nu^\beta \hat H_{\mu \alpha \beta} \label{eq:H2}\\
+		H_{\mu \nu \rho} &= e^r_\mu e^s_\nu  e^t_\rho e_r^{\hat \mu} e_s^{\hat \nu} e_t^{\hat \rho} \hat H_{\hat \mu \hat \nu \hat \rho} = 
+		\hat H_{\hat \mu \hat \nu \hat \rho} + [- A_\mu^\alpha \hat H_{\alpha \nu \rho} + A_{\mu}^\alpha A_\nu^\beta \hat H_{\alpha \beta \rho} + 2 \perms] \label{eq:H3}
+	\end{align}
+	The point of defining these coordinates in terms of the 10-bein coordinate is that now, we can just directly separate the $\hat H_{\hat \mu \hat \nu \hat \rho} \hat H^{\hat \mu \hat \nu \hat \rho}$ sum into terms without worrying about the metric, and yield directly:
+	\[
+		\int d^D \sqrt{-g} e^{- 2 \phi} [-\frac{1}{12} H_{\mu \nu \rho} H^{\mu \nu \rho} - \frac{3}{12} H_{\mu \nu \alpha} H^{\mu \nu \alpha} - \frac{3}{12} H_{\mu \alpha \beta} H^{\mu \alpha \beta} ]
+	\]
+	
+	The method is the same for the $F$ tensor. We define new Wilson lines and field strengths:
+	\[
+	\begin{aligned}
+		Y^I_\alpha = A^I_\alpha, \qquad A^I_\mu = e_\mu^r e^{\hat \mu}_r \hat A^I_{\hat \mu} = \hat A_\mu^I - Y^I_\alpha A^\alpha_\mu
+	\end{aligned}
+	\]
+	I can define $F$ in the standard $F_{\mu \nu}^I = \d_\mu A_\nu^I - \d_\nu A_\mu^I$, $\tilde F_{\mu \alpha}^I = \d_\mu Y_\alpha^I$. This gives me
+	$\hat F_{\mu \nu}^I = F_{\mu \nu}^I + \d_\mu (Y_\alpha^I A_\nu^\alpha) - \d_\nu (Y_\alpha^I A_\nu^\alpha)$. By redefining 
+	\[
+		\tilde F^I_{\mu \nu} = F^I_{\mu \nu} + Y^I_\alpha F^{A, \alpha}_{\mu \nu}
+	\]
+	we can equate this with $\hat F_{\mu \nu}^I$. For the compact coordinates its more simple and I take $\tilde F_{\mu \alpha} = \d_\mu Y^I_\alpha$. Again $\tilde F_{\alpha \beta}$ vanishes since we cannot have internal sources. This yields directly
+	\[
+		\int d^D x \sqrt{-g} e^{-2\phi}[-\frac14 \sum_I^{16} \tilde F^{I}_{\mu \nu} \tilde F^{I, \mu \nu} - \frac{2}{4} \tilde F^{I}_{\mu \alpha} \tilde F^{I, \mu \alpha}]
+	\]
+	
+	Its not good enough for us to write everything in terms of an abstract $H$ 3-form. We want to relate $H$ to $B$ and $Y$. From our relationship in $10$D we can directly write:
+	\[
+	H_{\mu \alpha \beta} = \d_\mu B_{\alpha \beta} + \frac12 \sum_{I} (Y^I_\alpha \d_\mu Y^I_\beta - Y^I_\beta \d_\mu Y^I_\alpha)
+	\]
+	Taking $C_{\alpha \beta} = \hat B_{\alpha \beta} - \frac12 \sum_I Y^I_\alpha Y^I_\beta$ we get
+	\[
+		H_{\mu \alpha \beta} = \d_\mu C_{\alpha \beta} + \sum_I Y^I_\alpha \d_\mu Y^I_\beta
+	\]
+	Next
+	\[
+		H_{\mu \nu \alpha} = \d_\mu B_{\nu \alpha} - \d_\nu B_{\mu \alpha} + \frac12 \sum_I (\hat A_\nu^I \d_\mu Y^I_\alpha - \hat A^I_\mu \d_\nu Y^I_\alpha - Y^I_\alpha F^I_{\mu \nu})
+	\]
+	We define the $B$ field using not just the vielbein but also the gauge connection:
+	\[
+		B_{\mu \alpha} := \hat B_{\mu \alpha} + B_{\alpha \beta} A^\beta_\mu + \frac12 \sum_I Y^I_\alpha A^I_\mu, \qquad F^B_{\mu \nu} = \d_\mu B_\nu - \d_\nu B_\mu
+	\]
+	Then using \eqref{eq:H2} we get
+	\[
+		H_{\mu \nu \alpha} = F^B_{\alpha \mu \nu} - C_{\alpha \beta} {F^{A}_{\mu \nu}}^\beta - \sum_I Y^I_\alpha F^I_{\mu \nu}
+	\]
+	Finally, using both vielbein and connection
+	\[
+		B_{\mu \nu} = \hat B_{\mu \nu} + \frac12 [A_\mu^\alpha B_{\nu \alpha} + \sum_{I} A_\mu^I A^\alpha_\nu Y^I_\alpha - (\nu \leftrightarrow \mu)] - A_\mu^\alpha A_\nu^\beta B_{\alpha \beta}
+	\]
+	And this gives us 
+	\[
+		H_{\mu \nu \rho} = \d_\mu B_{\nu \rho} - \frac12 L_{ij} A^i_\mu F^j_{\nu \rho} + 2 \perms
+	\]
+	where $L_{ij}$ is the $(10-D, 26 - D)$-invariant metric and we have combined $A^\alpha_\mu, B_{\alpha \mu}, A^I_\mu$ into a length $36-2D$ vector.
+	
+	Now the full action is:
+	\[
+	\begin{aligned}
+		\int d^D \sqrt{g} e^{-2\phi} [&R + 4 \d_\mu \phi \d^\mu \phi  -\frac{1}{12} H_{\mu \nu \rho} H^{\mu \nu \rho}\\
+		& 
+		- \frac{1}{4} G^{\alpha \beta} H_{\mu \nu \alpha} H^{\mu \nu \beta} - \frac14 G_{\alpha \beta} {F^{A}_{\mu \nu}}^{\alpha} {F^A}^{\mu \nu \beta}  -\frac14 \tilde F^{I}_{\mu \nu} \tilde F^{I, \mu \nu} \\
+		&  - \frac{1}{4} H_{\mu \alpha \beta} H^{\mu \alpha \beta} + \frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta} - \frac{1}{2} \tilde F^{I}_{\mu \alpha} \tilde F^{I, \mu \alpha}]
+	\end{aligned}
+	\] 
+	Using our expressions for $H_{\mu \nu \alpha}$ and $\tilde F_{\mu \nu}^A$, the middle line can be combined into
+	\[
+		-\frac14 \begin{pmatrix}
+			G + C^T G^{-1} C + Y^T Y & -C^T G^{-1}  &  C^T G^{-1} Y^T + Y^T\\
+			-G^{-1} C & G^{-1} & -G^{-1} Y^T  \\ 
+			Y G^{-1} C + Y & -Y G^{-1} & 1 + Y G^{-1} Y^T
+		\end{pmatrix}_{ij} F_{\mu \nu}^i F^{\mu \nu\, j}
+	\]
+	here $F^i = ({F^A}^\alpha, {F^B}_\alpha, F^I)$. Call the matrix $M^{-1}$ and notice that $L M L = M^{-1}$, and indeed we get $M$ transforms in the adjoint of $\SO(26-D, 10-D)$. 
+	
+	Similar arguments would give that the last line becomes $\frac18 \Tr \d_\mu M \d^\mu M^{-1}$ (Too much algebra).
+	
+	From this, its immediate that any $\SO(10-D, 26-D)$ transformation on the scalar matrix (adjoint rep) and array of vector bosons (vector rep) will preserve both of these last two terms. It will also preserve $H$ since it depends on the invariant $B_{\nu \rho}$ and $\SO$-invariant combination $L_{ij} A^i_\mu F_{\nu \rho}^j$. 
+	
+	\item The action for IIA in the string frame is
+	\[
+		\frac{1}{2 \kappa_{10}^2} \int d^{10} x \sqrt{-\hat G} \left[e^{-2\hat \Phi} [\hat R + 4 (\nabla \hat \Phi)^2  - \frac{1}{12} \hat H_{\hat \mu \hat \nu \hat \rho} \hat H^{\hat \mu \hat \nu \hat \rho}] - \frac{1}{4} F_2^2 - \frac{1}{2 \cdot 4!} F_4^2 \right] + \frac{1}{4 \kappa^2} \int B_2 \wedge \dd C_3 \wedge \dd C_3
+	\]
+	Doing the same reduction as before, the $\hat R + 4 (\nabla \hat \Phi)^2 - \frac{1}{12} H^2$ term becomes:
+	\[
+	\begin{aligned}
+		& \int d^4 \sqrt{-g} e^{-2\phi} \Big[R + 4 \d_\mu \phi \d^\mu \phi  - \frac14  {F^{A}_{\mu \nu}}^{\alpha} {F^A}^{\mu \nu}_\alpha  + \frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta}  -\frac{1}{12} H_{\mu \nu \rho} H^{\mu \nu \rho}   - \frac{1}{4} H_{\mu \alpha \beta} H^{\mu \alpha \beta} - \frac{1}{4} G^{\alpha \beta} H_{\mu \nu \alpha} H^{\mu \nu \alpha} \Big]\\
+		&= \int d^4 \sqrt{-g} e^{-2\phi} \Big[R + 4 \d_\mu \phi \d^\mu \phi  -\frac{1}{12} H_{\mu \nu \rho} H^{\mu \nu \rho}  - \frac14 M_{ij}^{-1} F_{\mu \nu}^{i} F^{\mu \nu\, j} + \frac18 \Tr[\d_\mu M \d^\mu M^{-1}]\Big]
+	\end{aligned}
+	\] 
+	Here we used $H$ as in the last problem and the matrix $M$ consisting of the 21 $G_{\alpha \beta}$ and 15 $B_{\alpha \beta}$. The $F^i$ are the field strengths of the $6+6$ $U(1)$ vectors coming from $G$ and $B$ compactification.
+	\[
+		H_{\mu \nu \rho} = \d_\mu B_{\mu \rho} - \frac12 L_{ij} A^i_\mu  F^j_{\nu \rho} + 2 \perms
+		 \qquad M^{-1} = \begin{pmatrix}
+			G + B^T G^{-1} B & - B^T G^{-1}\\
+			- G^{-1} B G^{-1} & G
+		\end{pmatrix}
+	\]
+	
+	
+	The $H_{\mu \nu \rho}$ can be dualized to provide a \emph{sixteenth} scalar coming from the $B$ field. By analogy to \textbf{9.1.13}, in the string frame I would expect to write:
+	\[
+		e^{-2\phi} H_{\mu \nu \rho} = E_{\mu \nu \rho \sigma} \nabla^\sigma a
+	\]
+	The $B_{\mu \nu}$ equations $\nabla^\mu (e^{-2\phi} H_{\mu \nu \rho})$ are now automatically satisfied. The axion EOMs come from the Bianchi identity:
+	\[
+		E^{\mu \nu \rho \sigma} \d_\mu H_{\nu \rho \sigma } = - \frac12 L_{ij} E^{\mu \nu \rho \sigma} F^i_{\rho \sigma} F^j_{\mu \nu} = - L_{ij} \tilde F^{i}_{\mu \nu} F^{j\, \mu \nu}, \qquad \tilde F_{\mu \nu}^i  = \frac12 E^{\mu \nu \rho \sigma} F_{\rho \sigma}
+	\]
+	Here we have defined the dual 2-form as required. This can now be recast as the equation of motion for the axion (contracting the $E$s gives a $4$):
+	\[
+		\nabla^\mu (e^{2 \phi} \nabla_\mu a) = -\frac14 L_{ij} F^i_{\mu \nu} \tilde F^{j\, \mu \nu}
+	\]
+	With this, we can dualize the action in terms of the axion to yield:
+	\[
+		\int d^4 \sqrt{-g} e^{-2\phi} \Big[R + 4 \d_\mu \phi \d^\mu \phi  -\frac12 e^{4\phi} (\d a)^2+ \frac14 e^{2\phi} a L_{ij} F^i_{\mu \nu} \tilde F^{j\, \mu \nu}  - \frac14 M_{ij}^{-1} F_{\mu \nu}^{i} F^{\mu \nu\, j} + \frac18 \Tr[\d_\mu M \d^\mu M^{-1}]\Big]
+	\]
+	We could also do this in the Einstein frame and get \emph{exactly} the same action as in \textbf{9.1.15} with the $M$ matrix as we have it (no sum over heterotic internals). 
+	
+	The only thing left is the RR fields. We follow Kiritis' treatment of the 4-form field strength. We use the 10-bein to get: 
+	\[
+		\begin{aligned}
+			C_{\alpha \beta \gamma} &= \hat C_{\alpha \beta \gamma}\\
+			C_{\mu \alpha \beta} &= \hat C_{\mu \alpha \beta} - C_{\alpha \beta \gamma} A^\gamma_\mu\\
+			C_{\mu \nu \alpha} &= \hat C_{\mu \nu \alpha} + \hat C_{\mu \alpha \beta} A^\beta_\nu  - \hat C_{\nu \alpha \beta} A^\beta_\mu + C_{\alpha \beta \gamma} A^\beta_\mu A^\alpha_\nu\\
+			C_{\mu \nu \rho} &= \hat C_{\mu \nu \rho} - (A_{\mu}^\alpha \hat C_{\nu \rho \alpha} + A_\mu^\alpha A_\nu^\beta C_{\alpha \beta \rho} + 2 \perms) - C_{\alpha \beta \gamma} A^\alpha_\mu A^\beta_\nu A^\gamma_\rho
+		\end{aligned}
+	\]
+	Let's now define the field strengths. Now we must have $F_{\alpha \beta \gamma \delta}= 0$ since the internal dimensions do not contain sources for the field. What remains is
+	\[
+	\begin{aligned}
+		F_{\mu \alpha \beta \gamma} &= \d_\mu C_{\alpha \beta \gamma}\\
+		F_{\mu \nu \alpha \beta} &= \d_\mu C_{\nu \alpha \beta} - \d_\nu C_{\mu \alpha \beta} + C_{\alpha \beta \gamma} F_{\mu \nu}^\gamma\\
+		F_{\mu \nu \rho \alpha} &= \d_\mu C_{\nu \rho \alpha} + C_{\mu \alpha \beta} F^{\beta}_{\nu \rho} + 2 \perms\\
+		F_{\mu \nu \rho \sigma} &= (\d_\mu C_{\alpha \beta \gamma} + 3 \perms) + (C_{\sigma \rho \alpha} F^\alpha_{\mu \nu} + 5 \perms)\\
+	\end{aligned}
+	\]
+	Then this gives the contribution (here all two-lower one-upper index $F_{\mu \nu}^\alpha$ are taken to mean $F^A$):
+	\[
+		S_{RR}^{(4)} = -\frac{1}{2 \cdot 4!} \int d^4 \sqrt{-g} \sqrt{\det G_{\alpha \beta}} [F_{\mu \nu \rho \sigma} F^{\mu \nu \rho \sigma} + 4 F_{\mu \nu \rho \alpha} F^{\mu \nu \rho \alpha} + 6 F_{\mu \nu \alpha \beta} F^{\mu \nu \alpha \beta} +4 F_{\mu \alpha \beta \gamma} F^{\mu \alpha \beta \gamma}]
+	\]
+	It is important to realize that in 4-D the 4-form field strength coming from the 3-form has \emph{no} dynamical degrees of freedom. It plays the role of a cosmological constant \textbf{Check w/ Alek}.
+	
+	The two-spacetime-index term can be directly dualized. It corresponds to $6 \times 5/3= 15$ vectors.	The three-spacetime-index term can be dualized to become the kinetic term for $6$ scalar axions $a_\alpha$ with no interaction term.
+	
+	The $F_{\mu \alpha \beta \gamma}$ correspond to kinetic terms of the $6 \times 5 \times 4/3! = 20$ scalars $C^{(4)}_{\alpha \beta \gamma}$.
+	
+	Let's do a similar thing for the $2$-form field strength. There, we get $C_\alpha = \hat C_\alpha, C_\mu = \hat C_\mu - C_{\alpha} A^\alpha_\mu$. The corresponding field strength is $F_{\alpha \beta} = 0, F_{\mu \alpha} = \d_\mu C_\alpha$ and $F_{\mu \nu} = \d_\mu C_{\nu} - \d_\nu C_{\mu} + C_{\alpha} F^\alpha_{\mu \nu}$. We then get contribution 
+	\[
+		S_{RR}^{(2)} = -\frac{1}{4} \int d^4 \sqrt{-g} \sqrt{\det G_{\alpha \beta}} [F_{\mu \nu} F^{\mu \nu} + 2 F_{\mu \alpha} F^{\mu \alpha}]
+	\]
+	Again $F_{\mu \nu}$ can be written in terms of dual fields $\tilde F^{(2)}_{\mu \nu} = E_{\mu \nu \rho \sigma} F^{(2) \, \rho \sigma}$. This is one gauge fields and six further scalars. 
+	
+	\textbf{Return and think about the effect of the CS terms. I bet they  make the RR field equations non-free.}
+
+	\item 
+	
+\end{enumerate}
+
+% section chapter_9_compactification_and_supersymmetry_breaking (end)
+\end{document}
+	
