@@ -56,47 +56,156 @@
 		ds^2 = e^{2A(r)} \eta_{\mu \nu} dx^\mu dx^\nu + e^{2B(r)} dx^i \cdot dx^i, \qquad A_{012} = \pm e^{C(r)} \Rightarrow G_{r 012} = \pm C'(r)\, e^{C(r)}
 	\]
 	
-	Let's look at $G$'s equation of motion: 
-	\[
-		\dd G = 0, \qquad \frac{1}{3!} \dd \star G + \frac{3}{(144)^2} \epsilon^{MNOPQRST} G_{MNOP} G_{QRST} = 0
-	\]
-	By assumption, the term quadratic in $G$ vanishes. What remains gives us:
-	\[
-		\d_r (e^{3A+8B} e^{-3A - B}  C'(r) e^C) = 0
-	\]
-	
 	The BPS states in 11D require only the gravitino variation to vanish:
 	\[
 		\delta \psi_M = \d_M \epsilon + \frac14 \omega_{M}^{PQ} \Gamma_{PQ} \epsilon + \frac{1}{2 \cdot 3! \cdot 4!} G_{PQRS} \Gamma^{PQRS}  \Gamma_M \epsilon - \frac{8}{2 \cdot 3! \cdot 4!} G_{MQRS} \Gamma^{QRS} \epsilon
 	\]
 	We have worked out $\omega$ in \textbf{8.43}.
 	\[
-		\omega_{\hat \mu \hat \nu} = 0,\quad \omega_{\hat \mu \hat i} = (-)^{\mu = 0} \d_i A e^{A-B} dx^\mu, \quad \omega_{\hat i \hat j} = \d_j B dx^i - \d_i B dx^j
+		\omega_{\hat \mu \hat \nu} = 0,\quad \omega_{\hat \mu \hat i} = (-)^{\mu = 0}\, \d_i A \, e^{A-B} dx^\mu, \quad \omega_{\hat i \hat j} = \d_j B dx^i - \d_i B dx^j
 	\]
-	Let's look first at $M = \mu$ parallel. Since $\epsilon$ is killing we expect no longitudinal variation and we get
+	Let's look first at $M = \mu$ parallel. Since $\epsilon$ is Killing we expect no longitudinal variation and we get
 	\[
 	\begin{aligned}
-		0 &= \cancel{\d_\mu \epsilon} + \frac12 A' \, e^{A - B} \Gamma^{\hat \mu \hat r} + \frac{1}{2 \cdot 3!} C'(r) e^{C} \Gamma^{r 0 12} \Gamma_\mu - \frac{1}{3!} C'(r) e^{C} \Gamma_\mu \Gamma^{r 0 1 2}\\
-		&= \frac12 A' \, e^{A - B} \Gamma^{\hat \mu \hat r} - \frac{1}{2\cdot 3!} C' e^{C-B-2A} \Gamma^{\hat \mu \hat r \hat 0 \hat 1 \hat 2 }\\
-		&= \frac12 A' \, e^{A - B} - \frac{1}{2\cdot 3!} C' e^{C-B-2A} \Gamma^{\hat 0 \hat 1 \hat 2 }
+		0 &= \cancel{\d_\mu \epsilon} + \frac12 A' \, e^{A - B} \Gamma^{\hat \mu \hat r} \epsilon \pm \frac{1}{2 \cdot 3!} C'(r) e^{C} \cancel{\Gamma^{r 0 12} \Gamma_\mu} \epsilon \mp \frac{1}{3!} C'(r) e^{C} \Gamma_\mu \Gamma^{r 0 1 2} \epsilon\\
+		&= \frac12 A' \, e^{A - B} \Gamma^{\hat \mu \hat r} \epsilon \mp \frac{1}{3!} C' e^{C-B-2A} \Gamma^{\hat \mu \hat r \hat 0 \hat 1 \hat 2 } \epsilon \\
+		& \Rightarrow 0 = A' \epsilon \mp \frac{1}{3} C' e^{C-3A} \Gamma^{\hat 0 \hat 1 \hat 2 } \epsilon\\
 	\end{aligned}
 	\] 
+	If we would like these two terms to be proportional, then we should take $C= 3 A$, and we get the following condition for $\epsilon$
+	\[
+		(1 \mp \Gamma^{\hat 0 \hat 1 \hat 2}) \epsilon = 0
+	\]
+	So half the dimension of the space of spinors satisfies this at any given point. We thus get 
+	
 	For $M = i$ transverse, we recall $\Gamma_{ij}$ generates rotations, so assuming rotational invariance in the transverse space, we'll cancel this. We get
 	\[
 	\begin{aligned}
-		\d_i \epsilon + \cancel{\frac14 \omega_{r}^{jk} \Gamma_{jk} \epsilon} + \frac{1}{2 \cdot 3!} G_{r012} \Gamma^{r 012} \Gamma_r \epsilon - \frac{1}{3!} G_{r012} \Gamma^{012} \epsilon = 0
+		&\d_r \epsilon + \cancel{\frac14 \omega_{r}^{jk} \Gamma_{jk} \epsilon} +\cancel{\frac{1}{2 \cdot 3!} G_{r012} \Gamma^{r 012} \Gamma_r \epsilon} \mp \frac{1}{3!} G_{r012} \Gamma^{012} \epsilon = 0\\
+		\Rightarrow& \d_r \epsilon \mp \frac{1}{3!} G_{r012} \Gamma^{012} \epsilon = 0\\
+		\Rightarrow& \d_r \epsilon \mp \frac{e^{-3A}}{3!} C' e^C \Gamma^{\hat 0 \hat 1 \hat 2} \epsilon
 	\end{aligned}
 	\]
-	I'm happy with this. I could use Mathematica to show that the EOMs:
+	Solving this gives us that 
 	\[
-		R_{MN} - \frac12 g_{MN} R = \kappa^2 T_{MN}, \quad \kappa^2 T_{MN} = \frac{1}{2 \cdot 4!} \left(4 G_{M P Q R} G_{N}^{PQR} - \frac12 g_{MN} G^2\right)
+		\epsilon(r) = e^{C(r)/6} \epsilon_0
 	\]
+	for $\epsilon_0$ some constant spinor. We still do not have a relationship between $C$ and $B$. This can be obtained by not assuming rotational invariance but rather imposing cancelation of the second and third terms above as follows:
+	\[
+	\begin{aligned}
+		&\frac12 \d_j B \, \Gamma^{\hat i \hat j} \epsilon  \pm \frac{1}{2 \cdot 3!} \d_j C \, e^{C} \, \Gamma^{j012} \Gamma_i \epsilon \\
+		&= \frac12 \d_j B \, \Gamma^{\hat i \hat j} \epsilon  \pm \frac{1}{2 \cdot 3!} \d_j C \, e^{C-3A} \, \Gamma^{\hat i \hat j \hat 0 \hat 1 \hat 2} \epsilon\\
+		& \Rightarrow  \d_j B + \frac{1}{3!} \d_j C = 0
+	\end{aligned}
+	\]
+	where we have used the condition on $\epsilon$ already obtained. Thus $C = 3A = -6B$. Finally 
+	Let's look at $G$'s equation of motion: 
 	\[
 		\dd G = 0, \qquad \frac{1}{3!} \dd \star G + \frac{3}{(144)^2} \epsilon^{MNOPQRST} G_{MNOP} G_{QRST} = 0
 	\]
-	are satisfied - but this is barely different from what I've done several times before for the D-branes and fundamental string solutions in chapter 8. 
+	By assumption, the term quadratic in $G$ vanishes. What remains gives us:
+	\[
+		0 = \d_r (e^{3A+8B} e^{-6A - 2B}  C'(r) e^C) = \d_r (e^{-3A + 6B + C} C') = \d_r (C' e^{-C}) \Rightarrow \d_r^2 e^{-C} = 0
+	\]
+	So we have that $e^{-C} = H(r)$ as required, where
+	\[
+		H(r) = 1 + \frac{L^6}{r^6}
+	\]
+	I'm happy with this. I could use Mathematica to show that the other EOM:
+	\[
+		R_{MN} - \frac12 g_{MN} R = \kappa^2 T_{MN}, \quad \kappa^2 T_{MN} = \frac{1}{2 \cdot 4!} \left(4 G_{M P Q R} G_{N}^{PQR} - \frac12 g_{MN} G^2\right)
+	\]
+	is satisfied - but this is barely different from what I've done several times before for the D-branes and fundamental string solutions in chapter 8. 
 	
-	As before, this generalizes straightforwardly to multi-membrane configurations
+	As before, this generalizes straightforwardly to multi-membrane configurations. 
+	
+	The charge of the M2 brane with $H = 1 + \frac{32 \pi^2 N \ell_s^6}{r^6}$ is given by integrating $\frac{\star G}{2\kappa_{11}^2}$ on a seven-sphere at infinity. Here $2 \kappa_{11}^2 = (2\pi)^8 \ell_{11}^9$ Asymptotically we will get the field strength going as
+	\[
+		\frac{32 \times 6 \pi^2 N \ell_{11}^6}{r^6}
+	\]
+	Altogether, using $\Omega_7 = \frac{\pi^4}{3}$ this gives a total charge of
+	\[
+		\frac{\pi^4}{3} \frac{32 \times 6 \pi^2 N \ell_{11}^6}{(2\pi)^8 \ell_{11}^9} = \frac{N}{(2\pi)^2 \ell_{11}^2}
+	\]
+	This is exactly consistent with \textbf{11.4.10-13}, with $\mu = N = 1$ corresponding to a single M2 brane. 
+	
+	Calculating the Ricci scalar curvature gives a divergence going as $1/r^2$ as we approach $r = 0$. 
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/M2 Ricci"}
+	\end{center}
+	Finally, we can take the near-horizon limit and get
+	\[
+	\begin{aligned}
+		ds^2 &= \frac{r^4}{L^4} \eta_{\mu \nu} dx^\mu dx^\nu + \frac{L^2}{r^2} dx^i \cdot dx^i\\
+		 &= \frac{r^4}{L^4} \eta_{\mu \nu} dx^\mu dx^\nu + \frac{L^2}{r^2} dr^2  + L^2 d \Omega_7^2
+	\end{aligned}
+	\]
+	Take now $r = L/\sqrt{z}$ to get the first term to look like $1/z^2$ while not affecting the second term much:
+	\[
+		\frac{1}{z^2} (\eta_{\mu \nu} dx^\mu dx^\nu + 4 L^2 dz^2) + L^2 d \Omega_7^2
+	\]
+	We can rescale $z, x^\mu$ and see that  this geometry is AdS$_4 \times S^7$ 
+	
+	\item The M5 brane is now magnetically charged under $C_3$. Now the equations of motion $\dd \star \dd C = 0$ are trivially satisfied but the Bianchi identity is nontrivial, giving
+	\[
+		\d^2_r H = 0 \Rightarrow H = 1 + \frac{L^3}{r^3}
+	\]
+	The metric form can be fixed by analyzing the gravitino variation similar to before. Longitudinally:
+	\[
+	\begin{aligned}
+		0 &= \frac12 A' e^{A-B} \Gamma^{\hat \mu \hat r} + \frac{1}{2 \cdot 3!} C' e^{C+A-4B} \Gamma^{\hat \theta_1 \hat \theta_2 \hat \theta_3 \hat \theta_4 \hat \mu}\\
+		&\Rightarrow A' \epsilon + \frac{1}{3!} C' e^{C-3B} \Gamma^{\hat r \hat \theta_1 \hat \theta_2 \hat \theta_3 \hat \theta_4 } \epsilon
+	\end{aligned}
+	\]
+	We see that we must take $C = 3B$ and $A=-C/6$, and we get the half-BPS condition:
+	\[
+		(1 - \Gamma^{\hat 7 \hat 8 \hat 9 \hat{10} \hat{11}}) \epsilon = 0
+	\]
+	 The transverse components will give the profile for $\epsilon$.
+	\[
+		\d_r \epsilon + \frac{1}{2 \cdot 3!} C' e^{C-3B} \Gamma^{\hat \theta_1 \hat \theta_2 \hat \theta_3 \hat \theta_4 \hat r}  \epsilon
+	\] 
+	and this gives a profile 
+	\[
+		\epsilon = e^{-C/12} \epsilon_0
+	\]
+	The membrane charge is given by integrating $G$ on a $4$-sphere whose area is given by $8\pi^2/3$, so we get
+	\[
+		\frac{8\pi^2}{3} \frac{3 \pi N \ell_{11}^3}{(2\pi^8) \ell_{11}^9} = \frac{N}{(2\pi \ell_{11})^5 \ell_{11}}
+	\]
+	We again get a quadratic divergence of the Ricci curvature scalar 
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/M5 Ricci"}
+	\end{center}
+	Taking the near-horizon limit we arrive at
+	\[
+		ds^2 = \frac{r}{L}  \eta_{\mu \nu} dx^\mu dx^\nu + \frac{L^2}{r^2} dx^i \cdot dx^i = \frac{r}{L} \eta_{\mu \nu} dx^\mu dx^\nu + \frac{L^2}{r^2} dr^2 + L^2 d\Omega_4^2
+	\]
+	Now take $r = L/z^2$ yielding 
+	\[
+		\frac{1}{z^2}  (\eta_{\mu \nu} dx^\mu dx^\nu  + 4 L^2 dr^2) + L^2 d\Omega_4^2
+	\]
+	so again after rescaling the same was as before we get AdS$_7 \times S^4$.
+	
+	As before, a solution can consist of an arbitrary number of $M5$ branes at different places, in which case we get
+	\[
+		H(r) = 1 + \sum_{i} \frac{L_i}{|r-r_i|^3}
+	\]
+	This remains half-bps.
+
+	\item First look at the field strengths. The general M5 brane solution 
+	 For a uniform distribution of M5 charges, we know that in the transverse (3D) space the potential must now decay as
+	\[
+		H = 1 + \int dx^{11} \frac{L}{|\vec r - x^{11} \hat e_{11}|^2} = 1 + \frac{2L}{r_{10D}^2}
+	\]
+	where $L$ depends on the density of the distribution \textbf{work out explicitly}. Then the $3$-form field strength in 10D will just be
+	\[
+		(dB)_{abc} = \epsilon_{abce} \d_e H
+	\]
+	
+	 Given this source in 10D, we have already worked out Einstein's equations in \textbf{Chapter 8}. Another way to see this is that we remain half-BPS. 
+	
+	The dilaton comes from $G_{11,11} = H^{2/3}$
 	
 \end{enumerate}
 

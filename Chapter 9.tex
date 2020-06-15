@@ -338,6 +338,76 @@
 	
 	\textbf{Return and think about the effect of the CS terms. I bet they  make the RR field equations non-free.}
 
+	\item First note that using the OPE
+	\[
+		\Sigma^I(z) \bar \Sigma^J(w) = \frac{\delta^{IJ}}{(z-w)^{3/4}} + (z-w)^{1/4} J^{IJ}(w)
+	\]
+	 the $\braket{J^{II} \Sigma^J \bar \Sigma^J}$ correlator can be evaluated as
+	\[
+		\braket{J^{II}(z_1) \Sigma^J(z_2) \bar \Sigma^J(z_3)} =  (\delta^{IJ} - \tfrac14) \frac{z_{23}^{1/4}}{z_{12} z_{13}}
+	\]
+	Taking $z_1 \to z_2$ we see a singularity going as $\frac{(\delta^{IJ} - \tfrac14)}{z_{12}} z_{23}^{-3/4}$. Meanwhile taking the $J \Sigma$ OPE gives
+	\[
+		q \frac{\braket{\Sigma(z_2) \bar \Sigma(z_3)}}{z_{12}} = \frac{q}{z_{12}} z_{23}^{-3/4}
+	\]
+	So we see that under $J^I$ the charge of $\Sigma^J$ is $3/4$ if $I=J$ and $-1/4$ otherwise. We have $4$ $J^{II}$, and notice that the total charge under all four of each $\Sigma^I$ is always zero. Consider the following combination of charges, which provides a basis for the $\Sigma^I$ charge space
+	\[
+		\begin{aligned}
+			\tilde J^1 &= J^{11} + J^{22} - J^{33} - J^{44}\\
+			\tilde J^2 &= J^{11} - J^{22} + J^{33} - J^{44}\\
+			\tilde J^3 &= J^{11} - J^{22} - J^{33} + J^{44}\\
+		\end{aligned}
+	\]
+	Under each of $\tilde J^i$ we have the following charges 
+	\[
+	\begin{aligned}
+		&\Sigma^1 \to (\tfrac12, \tfrac12, \tfrac12), \quad &\Sigma^2 \to (\tfrac12, -\tfrac12, -\tfrac12), \quad  &\Sigma^3 \to (-\tfrac12, \tfrac12, -\tfrac12), \quad &\Sigma^4 \to (-\tfrac12, -\tfrac12, \tfrac12)& \\
+		&\bar \Sigma^1 \to (-\tfrac12,-\tfrac12,-\tfrac12), \quad &\bar \Sigma^2 \to (-\tfrac12, \tfrac12, \tfrac12), \quad &\bar \Sigma^3 \to (\tfrac12, -\tfrac12, \tfrac12), \quad &\bar \Sigma^4 \to (\tfrac12, \tfrac12, -\tfrac12) &\\
+	\end{aligned}
+	\]
+	These are exactly all combinations, and we can define the three bosonic fields $\phi_i$ with $T = \sum_i \frac12(\d \phi_i)^2$ so that
+	\[
+		\Sigma^1 = \exp\left[i (\tfrac12 \phi_1 + \tfrac12 \phi_2 + \tfrac12 \phi_3) \right], \quad \Sigma^2 = \exp\left[i (\tfrac12 \phi_1 - \tfrac12 \phi_2 - \tfrac12 \phi_3) \right], \quad \text{etc.}
+	\]
+	Each of these $\Sigma^I, \bar \Sigma^I$ has dimension $3/8$ as required.
+	
+	Let's look at the supercurrent $G^{int}$. It can be written in terms of an eigenbasis of the commuting $\tilde J^i$. In particular look at $\tilde J^1$. 
+	\[
+		G^{int} = \sum_q e^{i q \phi_1} T^{(q)} 
+	\]
+	 Now consider the OPEs $G^{int} \cdot \Sigma^1$ and $G^{int} \cdot \bar \Sigma^1$. As observed in the chapter, both of these have only the singular term going as $(z-w)^{-1/2}$. Together both of these require that $q$ in $G$ can only be $\pm 1$. We can repeat this argument for $\tilde J^2, \tilde J^3$ to see that $G^{int}$ must be a sum of $6$ terms:
+	 \[
+	 	 e^{i q_1 \phi_1} Z_1 + e^{-i q_1 \phi_1} \bar Z_1 + e^{i q_2 \phi_2} Z_2 + e^{-i q_2 \phi_2} \bar Z_2 + e^{i q_3 \phi_3} Z_3 + e^{-i q_3 \phi_3} \bar Z_3
+	 \]
+	 Each $Z_i, \bar Z_i$ must be dimension one operators, so they are themselves bosonic fields $i \d X^i_\pm$. We thus have that $G^{int} = \sum_{i=1, \pm}^3 \psi_i^\pm \d X^i_{\pm}$. This is exactly the supercurrent for six free boson-fermion systems and will give (under anticommutator) the stress tensor of a six free boson-fermion systems. This is exactly a toroidal CFT.
+	\item The relevant partition function is not difficult to compute, as we can follow $9.4$'s example but not do the twist on the internal $(0,16)$ part. Firstly the fermions on the left-moving (SUSY) side have orbifold blocks under the shifts as before:
+	\[
+		Z_{\psi}\twist{h}{g} = \frac12 \sum_{a,b=0}^1 (-1)^{a+b+ab} \frac{\theta^2 \twist{a}{b} \theta \twist{a+h}{b+g} \theta \twist{a-h}{b-g}}{\eta^4}
+	\]
+	Similarly we've already constructed the bosonic blocks before. They are given by \textbf{4.12.10} as:
+	\[
+		Z_{4,4}\twist00 = \frac{\Gamma_{2,2}}{\eta^4 \bar \eta^4}, \quad Z_{4,4} \twist{h}{g} = 2^4 \frac{\eta^2 \bar \eta^2}{\theta^2 \twist{1-h}{1-g} \bar \theta^2 \twist{1-h}{1-g}}
+	\]
+	Then the $(2,2)$ part is untouched, yielding $\frac{\Gamma_{2,2}}{\eta^2 \bar \eta^2}$ as is the $(0,16)$ part. We get the partition function
+	\[
+		Z^{het} = \frac12 \sum_{h,g=0}^1 \frac{\Gamma_{2,2} Z_{4,4} \twist{h}{g}}{\tau_2 \eta^4 \bar \eta^4} \times \frac12 \sum_{a,b=0}^1 (-1)^{a+b+ab} \frac{\theta^2 \twist{a}{b} \theta \twist{a+h}{b+g} \theta \twist{a-h}{b-g}}{\eta^4} \times \frac{\left(\frac12 \sum_{a,b=0}^1 \bar \theta \twist ab^8 \right)^2}{\bar \eta^{16}}
+	\]
+	
+	Under $\tau \to -1/\tau$
+	
+	Under $\tau \to \tau + 1$
+	
+	\item Now the partition function is given by
+	\[
+		Z^{het}_{N=2} = \frac12 \sum_{h,g=0}^1 \frac{\Gamma_{2,2} Z_{4,4} \twist{h}{g}}{\tau_2 \eta^4 \bar \eta^4} 
+		\times \frac12 \sum_{a,b=0}^1 (-1)^{a+b+ab} \frac{\theta^2 \twist{a}{b} \theta \twist{a+h}{b+g} \theta \twist{a-h}{b-g}}{\eta^4}
+		\times \frac12 \sum_{\gamma,\delta=0}^1 \frac{\bar \theta^6 \twist{\gamma}{\delta} \bar \theta \twist{\gamma+h}{\delta+g} \bar \theta \twist{\gamma-h}{\delta-g}}{\bar \eta^8} 
+		 \times \frac{\frac12 \sum_{a,b=0}^1 \bar \theta \twist ab^8 }{\bar \eta^{8}}
+	\]
+	Let's check under $\tau \to -1/\tau$
+	
+	Next under $\tau \to \tau + 1$
+	
 	\item 
 	
 \end{enumerate}
