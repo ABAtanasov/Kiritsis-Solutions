@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     55513,       1537]
-NotebookOptionsPosition[     51131,       1455]
-NotebookOutlinePosition[     51469,       1470]
-CellTagsIndexPosition[     51426,       1467]
+NotebookDataLength[     55435,       1532]
+NotebookOptionsPosition[     51097,       1452]
+NotebookOutlinePosition[     51434,       1467]
+CellTagsIndexPosition[     51391,       1464]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1316,8 +1316,6 @@ Cell[BoxData[
  CellLabel->
   "In[2148]:=",ExpressionUUID->"dd365957-33be-4a1a-ba14-719d06228cbd"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  TagBox[
   RowBox[{
@@ -1451,10 +1449,9 @@ Cell[BoxData[
   3.799693365665653*^9, 3.799693373869507*^9}},
  CellLabel->
   "Out[2153]=",ExpressionUUID->"29c51eaa-cb90-4b7a-b4a0-2114530834a7"]
-}, Open  ]]
 },
 WindowSize->{1119, 655},
-WindowMargins->{{28, Automatic}, {36, Automatic}},
+WindowMargins->{{Automatic, 0}, {Automatic, 22}},
 FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1535,10 +1532,8 @@ Cell[41946, 1198, 2174, 65, 196, "Input",ExpressionUUID->"9b2eb75b-a456-49ff-a6a
 Cell[44123, 1265, 302, 5, 34, "Output",ExpressionUUID->"d8ec523d-d1c9-4bb9-b9c0-373d3120e2cb"]
 }, Open  ]],
 Cell[44440, 1273, 1636, 43, 73, "Input",ExpressionUUID->"dd365957-33be-4a1a-ba14-719d06228cbd"],
-Cell[CellGroupData[{
-Cell[46101, 1320, 3257, 84, 279, InheritFromParent,ExpressionUUID->"cc370b58-a9a1-4677-b2cb-b024fd16a30f"],
-Cell[49361, 1406, 1754, 46, 77, "Output",ExpressionUUID->"29c51eaa-cb90-4b7a-b4a0-2114530834a7"]
-}, Open  ]]
+Cell[46079, 1318, 3257, 84, 279, "Input",ExpressionUUID->"cc370b58-a9a1-4677-b2cb-b024fd16a30f"],
+Cell[49339, 1404, 1754, 46, 77, "Output",ExpressionUUID->"29c51eaa-cb90-4b7a-b4a0-2114530834a7"]
 }
 ]
 *)

@@ -25,7 +25,11 @@
 \begin{document}
 \section*{Chapter 9: Compactification and Supersymmetry Breaking} % (fold)
 \label{sec:chapter_9_compactification_and_supersymmetry_breaking}
-	
+\begin{center}
+	\vspace{-.05in}
+	\textbf{In collaboration with Alek Bedroya}
+	\vspace{-.05in}
+\end{center}
 \begin{enumerate}
 	\item We compactify the heterotic string along just one dimension, making it a compact circle of radius $R$ with all $16$ Wilson lines turned on. 
 	
@@ -60,7 +64,7 @@
 		\[
 			\text{det}_{a,b}\, \d = \frac{\theta \twist{a}{b}}{\eta}
 		\]
-		Let us now investigate the twisted boundary conditions. For simplicity its enough to take $a= b = 0$ (all antiperiodic). We have two different ways to write the partition function. As a product over modes, we have $\psi_m, \bar \psi_m$ modes, with respective weights $m-\frac12 -\theta, m-\frac12+\theta$ and respective fermion numbers $\pm1$ \emph{relative to the ground state}. The fermion number of the ground state has no canonical value (as far as I can see). On the other hand, the ground state energy is given by the standard mneumonic to be $-\frac{1}{24} + \frac12 \theta^2$. This gives:
+		Let us now investigate the twisted boundary conditions. For simplicity its enough to take $a= b = 0$ (all antiperiodic). We have two different ways to write the partition function. As a product over modes, we have $\psi_m, \bar \psi_m$ modes, with respective weights $m-\frac12 -\theta, m-\frac12+\theta$ \textbf{Check against Polch 16.1.16} and respective fermion numbers $\pm1$ \emph{relative to the ground state}. The fermion number of the ground state has no canonical value (as far as I can see). On the other hand, the ground state energy is given by the standard mneumonic to be $-\frac{1}{24} + \frac12 \theta^2$. This gives:
 		\[
 			\Tr_{\theta} [e^{2 i \pi \phi F} q^{H}] = q^{\frac{\theta^2}{2} - \frac{1}{24}} \prod_{m=1}^\infty (1 + q^{m -1/2 + \theta} e^{2\pi i \phi}) (1 + q^{m -1/2 - \theta} e^{-2\pi i \phi}) = q^{\theta^2/2}\frac{\theta\twist00 (\phi + \theta \tau | \tau)}{\eta}
 		\]
@@ -386,29 +390,262 @@
 	\]
 	Similarly we've already constructed the bosonic blocks before. They are given by \textbf{4.12.10} as:
 	\[
-		Z_{4,4}\twist00 = \frac{\Gamma_{2,2}}{\eta^4 \bar \eta^4}, \quad Z_{4,4} \twist{h}{g} = 2^4 \frac{\eta^2 \bar \eta^2}{\theta^2 \twist{1-h}{1-g} \bar \theta^2 \twist{1-h}{1-g}}
+		Z_{4,4}\twist00 = \frac{\Gamma_{4,4}}{\eta^4 \bar \eta^4}, \quad Z_{4,4} \twist{h}{g} = 2^4 \frac{\eta^2 \bar \eta^2}{\theta^2 \twist{1-h}{1-g} \bar \theta^2 \twist{1-h}{1-g}}
 	\]
 	Then the $(2,2)$ part is untouched, yielding $\frac{\Gamma_{2,2}}{\eta^2 \bar \eta^2}$ as is the $(0,16)$ part. We get the partition function
 	\[
-		Z^{het} = \frac12 \sum_{h,g=0}^1 \frac{\Gamma_{2,2} Z_{4,4} \twist{h}{g}}{\tau_2 \eta^4 \bar \eta^4} \times \frac12 \sum_{a,b=0}^1 (-1)^{a+b+ab} \frac{\theta^2 \twist{a}{b} \theta \twist{a+h}{b+g} \theta \twist{a-h}{b-g}}{\eta^4} \times \frac{\left(\frac12 \sum_{a,b=0}^1 \bar \theta \twist ab^8 \right)^2}{\bar \eta^{16}}
+		Z^{het} = \underbrace{\frac{\Gamma_{2,2}}{\eta^2 \bar \eta^2}}_{\mathbf{1}}
+		 \times \underbrace{\frac12 \sum_{h,g=0}^1 \frac{Z_{4,4} \twist{h}{g}}{\tau_2 \eta^2 \bar \eta^2}}_{\mathbf{2}} 
+		\times \underbrace{\frac12 \sum_{a,b=0}^1 (-1)^{a+b+ab} \frac{\theta^2 \twist{a}{b} \theta \twist{a+h}{b+g} \theta \twist{a-h}{b-g}}{\eta^4}}_{\mathbf{3}} 
+		\times \underbrace{\frac{\left(\frac12 \sum_{a,b=0}^1 \bar \theta \twist ab^8 \right)^2}{\bar \eta^{16}}}_{\mathbf{4}}
 	\]
+	Let's see how each term transforms under $\tau \to -1/\tau$. \textbf{1} stays invariant. \textbf{2} have $Z_{4,4} \twist{h}{g} \to Z_{4,4} \twist{g}{h}$ with  $\tau_2 \eta^2 \bar \eta^2$ invariant. \textbf{3} is the only nontrivial one. We will do it explicitly in the next step. % it will have $\theta^2 \twist ab \to \theta^2 \twist ba$ and $\theta \twist{a+h}{b+g} \theta \twist{a-h}{b-g} \to \theta \twist{b+g}{-a-h} \theta \twist{b-g}{-a+h}$. Redefining $g \leftrightarrow h$, $a\leftrightarrow b$ we get the sum
+ % 	\[
+ % 		\sum_{a,b} (-1)^{a+b+ab} \frac{\theta^2 \twist ab \theta \twist{a+h}{-b-g} \theta \twist {a-h}{-b+g}}{\eta^4}  = \sum_{a,b} (-1)^{a+b+ab} \frac{\theta^2 \twist ab \theta \twist{a+h}{b+g} \theta \twist {a-h}{b-g}}{\eta^4} \cancel{(-1)^{(a+h)(b+g) + (a-h)(-b+g)}}
+ % 	\]
+ % 	In this last step we recognize that $-b-g$ is always $0,-1,-2$. To get $b+g$ we must take add $2$ to $-b-g$ when it's odd, and this gives an extra $(-1)^{(a+h)(b-g)}$, with the other theta function contributing similarly.
+	\textbf{4} will remain invariant. 
+		
+	Under $\tau \to \tau + 1$, we must be careful, as $\theta\twist10$ picks up an $e^{i \pi /4}$ while $\theta \twist{-1}{0}$ picks up $e^{-3 i \pi /4}$. The other two nonzero theta functions simply do $\theta \twist{a}{b} \to \theta \twist{a}{a+b-1}$
 	
-	Under $\tau \to -1/\tau$
+	\textbf{1}, \textbf{2}, remain invariant, with \textbf{2} making us change variables $g',h' = g, h+g-1$. The $\eta$ functions in the denominators of \textbf{3} and \textbf{4} leave over an $1/\bar \eta^{12}$ which contributes a $-$ sign. 
 	
-	Under $\tau \to \tau + 1$
+	Let's look at $3$. First when $h=0,g=0$ we have $(-1)^{a+b+ab} \theta^4 \twist ab$ and $\tau + \tau +1$ will send this to $-$ itself as required to cancel the $\bar \eta^{12}$ $-$ sign. 
+	
+	The other terms looks like (after canceling $\theta \twist11$)
+	\[
+	\footnotesize
+	\begin{aligned}
+		h=0, h=0:\;& \theta\twist00^4 - \theta\twist10^4 - \theta\twist01^4 - \theta\twist11^4 = 0\\
+		h=1, g=0:\;& \theta \twist00^2 \theta\twist10 \theta \twist{-1}{0} - \theta \twist10^2 \theta \twist20 \theta \twist00 - \cancel{\theta \twist01^2 \theta \twist11 \theta \twist{-1}1} - \cancel{\theta \twist11^2 \theta \twist21 \theta \twist01} = \theta \twist00^2 \theta\twist10^2 - \theta \twist10^2 \theta \twist00^2 = 0 \\
+		h=0, g=1:\;& \theta \twist00^2 \theta\twist01 \theta \twist0{-1} - \cancel{\theta \twist10^2 \theta \twist11 \theta \twist1{-1}} - \theta \twist01^2 \theta\twist02 \theta \twist00 - \cancel{\theta\twist11^2 \theta\twist12 \theta\twist10} = \theta \twist00^2 \theta\twist01 \theta \twist01 -   \theta \twist01^2 \theta \twist00^2  = 0 \\
+		h=1, g=1:\;& \cancel{\theta \twist00^2 \theta\twist11 \theta \twist{-1}{-1}} - \theta \twist10^2 \theta \twist21 \theta \twist0{-1} - \theta \twist01^2 \theta \twist12 \theta \twist{-1}0 - \cancel{\theta \twist11^2 \theta\twist22 \theta\twist00} = - \theta\twist10^2 \theta\twist01^2 + \theta\twist01^2 \theta\twist10^2 = 0
+	\end{aligned}
+	\]
+	Ok, so in fact this partition function is zero. This should not be surprising, since naively we are just breaking supersymmetry in half, and so we should still expect fermions and bosons to run in loops such that the vacuum energy vanishes. Naively, then we would again say ``zero is modular invariant'' and be done with it- but not so fast. There are still phases we can pick up, say from  $\tau \to \tau + 1$ that would not be visible given the vanishing of the partition function, but would nonetheless spoil modular invariance. 
+	
+	One way around this is to turn on the chemical potential $\nu_i$ in the theta functions to prevent vanishing. Effectively, then, we ignore the Jacobi identity and don't just set $\theta\twist11 = 0$. Then, let's look at how each term transforms under $\tau \to \tau+1$. Again, the terms not involving $\theta\twist11$ will cancel independently of $\nu_i = 0$ or not, and after simplifying things ,we have
+	\[
+	\footnotesize
+	\hspace{-.5in}
+	\begin{aligned}
+		(0,0):\;&  \theta\twist00^4 - \theta\twist10^4 - \theta\twist01^4 - \theta\twist10^4 \to \theta\twist01^4 + \theta\twist10^4 - \theta\twist00^4 + \theta\twist11^4 \Leftarrow - (0,0)\\
+		(1,0):\;&   - 2 \theta \twist01^2  \theta \twist11^2 \to -2 i\, \theta \twist00^2  \theta \twist11^2  \Leftarrow i \times (1,1) \\
+		(0,1):\;&  2 \theta \twist10^2 \theta \twist11^2
+		\to -2 \theta \twist10^2 \theta \twist11^2 \Leftarrow -(0,1) \\
+		(1,1):\;&  -2\theta \twist00^2 \theta\twist11^2  \to -2 i \theta \twist01^2 \theta\twist11^2 \Leftarrow i \times (1,0)
+	\end{aligned}
+	\]
+	So we see $(0,1)$ (ie the projected part of the untwisted sector) goes to its negative as required. On the other hand, the twisted sector has $(1,0)$ and $(1,1)$ swap, but with a factor of $i$ instead of $-1$. This is not good enough for modular invariance. 
+	
+	Under $\tau \to -1/\tau$ the sectors appropriately get sent to one another except for the twisted projected sector which picks up a factor of $-1$ from the $\theta \twist11^2$, so this too is not modular invariant.
+	
+	It is worth adding that Polchinski remarks in 16.1 that for abelian orbifolds (of the type $T^n/H$ with $H$ and abelian group), the only obstruction to modular invariance is $\tau \to \tau+1$ 
+	
+	Indeed, we see that this twist violates \textbf{16.1.28} of Polchinski, where we hae $r_2=0, r_3=r_4=1$ and so $\sum_{i=2}^4 r_i - \sum_{k=1}^{16} s_k 2 \neq 0 \text{ mod } 2N$ when $N = 2$.
 	
 	\item Now the partition function is given by
-	\[
-		Z^{het}_{N=2} = \frac12 \sum_{h,g=0}^1 \frac{\Gamma_{2,2} Z_{4,4} \twist{h}{g}}{\tau_2 \eta^4 \bar \eta^4} 
-		\times \frac12 \sum_{a,b=0}^1 (-1)^{a+b+ab} \frac{\theta^2 \twist{a}{b} \theta \twist{a+h}{b+g} \theta \twist{a-h}{b-g}}{\eta^4}
-		\times \frac12 \sum_{\gamma,\delta=0}^1 \frac{\bar \theta^6 \twist{\gamma}{\delta} \bar \theta \twist{\gamma+h}{\delta+g} \bar \theta \twist{\gamma-h}{\delta-g}}{\bar \eta^8} 
-		 \times \frac{\frac12 \sum_{a,b=0}^1 \bar \theta \twist ab^8 }{\bar \eta^{8}}
+	\[\hspace{-.2in}
+		Z^{het}_{N=2} = \underbrace{\frac{\Gamma_{2,2}}{\eta^2 \bar \eta^2}}_{\mathbf{1}} 
+		\times \underbrace{\frac12 \sum_{h,g=0}^1 \frac{Z_{4,4} \twist{h}{g}}{\tau_2 \eta^2 \bar \eta^2} }_{\mathbf{2}}
+		\times \underbrace{\frac12 \sum_{a,b=0}^1 (-1)^{a+b+ab} \frac{\theta^2 \twist{a}{b} \theta \twist{a+h}{b+g} \theta \twist{a-h}{b-g}}{\eta^4}}_{\mathbf{3}}
+		\times \underbrace{\frac12 \sum_{\gamma,\delta=0}^1 \frac{\bar \theta^6 \twist{\gamma}{\delta} \bar \theta \twist{\gamma+h}{\delta+g} \bar \theta \twist{\gamma-h}{\delta-g}}{\bar \eta^8} }_{\mathbf{4}}
+		 \times \underbrace{\frac{\frac12 \sum_{a,b=0}^1 \bar \theta \twist ab^8 }{\bar \eta^{8}}}_{\mathbf{5}}
 	\]
-	Let's check under $\tau \to -1/\tau$
+	Things will still remain invariant under $\tau \to -1/\tau$ for the reasons given above, now applied to both \textbf{3} and \textbf{4}. The only important subtlety is now in the $(1,1)$ sector the $E_8$ $\bar \theta^6 \twist11$ will contribute a $-1$ sign, as necessary to cancel the twisted projected left-moving fermion sector. 
 	
-	Next under $\tau \to \tau + 1$
+	Next, under $\tau \to \tau+1$, the exact same arguments apply to \textbf{3} and \textbf{4}, namely the untwisted sector of the left-handed fermions picks up $-1$ phase as required to cancel with the $\bar \eta$. The twisted sectors look like:
+	\[
+		\footnotesize
+		\hspace{-.5in}
+		\begin{aligned}
+			(0,0):\;&  \bar \theta\twist00^8 + \bar \theta\twist10^8 + \bar \theta\twist01^8 + \bar \theta\twist10^8 \to \bar \theta\twist01^4 + \bar \theta\twist10^4 + \bar \theta\twist00^4 +\bar \theta\twist11^4 \Leftarrow (0,0)
+			\\
+			(1,0):\;& \bar \theta\twist00^6 \bar \theta \twist10^2 + \bar \theta\twist10^6 \bar \theta \twist 00^2 + \bar\theta \twist01^6  \bar \theta \twist11^2 + \bar \theta \twist11^6 \bar \theta\twist01^2 \to -i \bar \theta\twist01^6 \bar \theta \twist10^2 - i \bar \theta\twist10^6 \bar \theta \twist 01^2 - i \bar\theta \twist00^6  \bar \theta \twist11^2 - i \bar \theta \twist11^6 \bar \theta\twist00^2  \Leftarrow i \times (1,1) 
+			\\
+			(0,1):\;&  \bar \theta\twist00^6 \bar \theta \twist01^2 
+			- \bar \theta\twist10^6 \bar \theta \twist 11^2
+			+ \bar\theta \twist01^6  \bar \theta \twist00^2 
+			- \bar \theta \twist11^6 \bar \theta\twist10^2 
+			\to  \bar \theta\twist01^6 \bar \theta \twist00^2 
+			- \bar \theta\twist10^6 \bar \theta \twist 11^2 
+			+ \bar\theta \twist00^6  \bar \theta \twist01^2 
+			- \bar \theta \twist11^6 \bar \theta\twist10^2  \Leftarrow  (0,1)
+			\\
+			(1,1):\;&  - \bar \theta\twist00^6 \bar \theta \twist11^2 - \bar \theta\twist10^6 \bar \theta \twist 01^2 
+			- \bar\theta \twist01^6  \bar \theta \twist10^2 
+			- \bar \theta \twist11^6 \bar \theta\twist00^2 
+			\to i \bar \theta\twist01^6 \bar \theta \twist11^2 
+			+i \bar \theta\twist10^6 \bar \theta \twist 01^2 
+			+ i \bar\theta \twist00^6  \bar \theta \twist11^2 
+			+ i \bar \theta \twist11^6 \bar \theta\twist00^2  \Leftarrow i \times (0,1) 
+		\end{aligned}
+	\]
+	So we get that the untwisted sector remains the same, while each of the two twisted sector components change by a factor of $i$. This combines with what we know about the left-moving fermions to make \emph{every} combined contribution change with a $-$ phase which exactly cancels the $\eta$-functions. The result is modular invariant.
+	
+	To verify the spectrum, as remarked in the text when we act by orbifold on the $E_8 \times E_8$ we break down $[120]\oplus [128]$ of $\mathrm O(16)$. We get: $[120] \to [3,1,1] \oplus [1,3,1] \oplus [1,1,66] \oplus [2,1,12] \oplus [1,2,12]$ and $128 \to [2,1,32] \oplus [1,\bar 2, 32]$ in $\SU(2) \times \SU(2) \times \mathrm O(12)$.
+	
+	The $\ZZ_2$ action takes the spinors of the two $\SU(2)$ subgroups to minus themselves, keeping the conjugate spinors in variant. Projecting by this keeps $[3,1,1] \oplus [1,3,1] \oplus [1,1,66], [1,\bar 2, 32]$. This organizes into $[3,1] \oplus [1,133] \oplus [2,56] \in \SU(2) \times E_7$. Here $56$ is the fundamental representation and $133$ is the adjoint representation of $E_7$.
+	
+	Now let's organize our coordinates into $\mu = 2,3$ indicating the spatial coordinates in lightcone gauge, and pair the remaining $6$ coordinates into $Z^i = \frac1{\sqrt 2} (X^{2i} \pm i X^{2i+1} ), \, i = \{2,3,4\}$. Let's organize the different sector contributions based on how they transform under the $\ZZ_2$ twist:
+	\begin{itemize}
+		\item Untwisted Sector
+			\begin{itemize}
+				\item Left-handed side: 
+				% For the bosons we have
+				% \[
+				% 	\begin{aligned}
+				% 		&+: \quad \alpha^\mu_n, \alpha^4_n, \alpha^5_n\\
+				% 		&-: \quad \alpha^{6,7,8,9}_n
+				% 	\end{aligned}
+				% \]
+				\begin{itemize}
+					\item NS - The zero-point energy is $-1/2$ and we thus have massless states coming from single fermion excitations. 
+					\[
+					\begin{aligned}
+						&+: \psi_{-1/2}^\mu, \psi_{-1/2}^{4,5} \\
+						&-: \psi_{-1/2}^{6,7,8,9}
+					\end{aligned}
+					\]
+					\item R - The zero-point energy is $0$ from equal number of bosons and fermions and our massless excitation comes from the ground state. Under the rotation $e^{2\pi i (s_2 \phi_2 - s_3 \phi_3)}$ the ground states organize as follows:
+					\[
+					\begin{aligned}
+						&+: \quad \ket{\tfrac12, \tfrac12, \tfrac12, \tfrac12}, 
+						\ket{-\tfrac12, -\tfrac12, \tfrac12, \tfrac12}, 
+						\ket{\tfrac12, \tfrac12, -\tfrac12, -\tfrac12}, 
+						\ket{-\tfrac12, -\tfrac12, -\tfrac12, -\tfrac12}  \\
+						&-: \quad \ket{\tfrac12, -\tfrac12, \tfrac12, -\tfrac12}
+						\ket{\tfrac12, -\tfrac12, -\tfrac12, \tfrac12}
+						\ket{-\tfrac12, \tfrac12, \tfrac12, -\tfrac12}
+						\ket{-\tfrac12, \tfrac12, -\tfrac12, \tfrac12} \\
+					\end{aligned}
+					\]
+					Note we only have an even number of $+$ signs in any of the ground states by GSO projection. \emph{These won't matter for the massless bosonic spectrum}.
+				\end{itemize}
+				\item Right-handed side
+
+				The zero-point energy is $-1$, so we either have a bosonic excitation:
+				\[
+					\begin{aligned}
+						&+: \quad \tilde \alpha_{-1}^\mu, \alpha_{-1}^{4,5}\\
+						&-: \quad \tilde \alpha_{-1}^{6,7,8,9}\\
+					\end{aligned}
+				\]
+				Or a weight 1 excitation from the current algebra:
+				\[
+					\begin{aligned}
+						&+:\quad \ket{a^+} \in [3,1,1] \oplus [1,133,1] \oplus [1,1,128]\\
+						&-:\quad \ket{a^-} \in [2,56,1]
+					\end{aligned}
+				\]
+			\end{itemize}
+			
+			So, the untwisted bosonic massless states must be the $\ZZ_2$-invariant combinations of left (NS) and right movers. We get
+			\begin{itemize}
+				\item $\psi_{-1/2}^\mu \tilde \alpha_{-1}^\nu$: $G_{\mu \nu}, B_{\mu \nu}, \Phi$. 
+				\item $\psi_{-1/2}^\mu \ket{a^+}$ - vector boson in the adjoint of $\SU(2) \times E_7 \times E_8$. This combines together with $\psi_{-1/2}^\mu \tilde \alpha_{-1}^{4,5}$ and $\psi_{-1/2}^{4,5} \tilde \alpha_{-1}^\mu$ to produce an extra $U(1)^4$. 
+				\item $\psi_{-1/2}^{4,5} \ket a \cup \psi_{-1/2}^{4,5} \tilde \alpha_{1}^{4,5}$ - complex scalar transforming in the adjoint of $U(1)^4 \times \SU(2) \times E_7 \times E_8$
+				\item $\psi_{-1/2}^{6,7,8,9} \tilde \alpha_{-1}^{6,7,8,9}$ - 16 neutral real scalars.
+				\item $\psi_{-1/2}^{6,7,8,9} \ket{a^-}$ 4 real scalars transforming in the $[2, 56, 1]$ representation of $\SU(2) \times E_7 \times E_8$
+			\end{itemize} 
+			Here Kiritsis does not mention the presence of the dilaton with the other 16 real scalars. I assume this is an accidental omission. 
+		\item Twisted Sector
+		
+		For the transformation $g$, we have $4$ points on each $T^2$ that are equivalence classes with the transformed point $g x$. This means that we have $4 \times 4$ equivalence classes that we must include in the spectrum for the twisted sector. This will be the same as looking at the spectrum for $1$  class of twist and taking it $16$-fold.
+		
+		Equivalently, because fixed points correspond to the equivalence classes in this case, note that our transformation has fixed points given by $(0, \frac12, \frac{\tau_2}2, \frac12 + \frac{ \tau_2}2) \times (0, \frac12, \frac{\tau_3}2, \frac12 + \frac{\tau_3}2)$ on the respective $T^2$s. The products give 16 fixed points. So we will have 16 copies of the spectrum at the fixed point $(0,0)$ on our $T^4$ \textbf{Appreciate this. Are you sure its not 32?}
+		
+		\begin{itemize}
+			\item Left side
+			The bosonic oscillators will be shifted by $1/2$ 
+			
+			The fermionic oscillators will also be shifted by $1/2$. 
+			\begin{itemize}
+				\item NS - The zero-point energy is now $-\frac14 +\frac14 = 0$ and so we get only one ground state - the vacuum.
+				
+				\item R - The zero-point energy remains zero. The zero modes that give the vacuum are now obtained from $\psi^{2,3,4,5}$. We thus get $2$ ground states after GSO projection, which will end up giving us the two requisite gravitinos
+			\end{itemize}
+			
+			\item Right side:
+			
+			This is the hardest part. We use complex fermion language for the current algebra. We separate it into two parts $\lambda^{\pm, 1 \dots 8}, \lambda^{\pm, 9 \dots 16}$. We get massless states from the $(R, NS)$ and $(NS, NS)$ states.
+			\begin{itemize}
+				\item (NS,NS) Here the ground state energy is $-1/2$. We thus get the following states contributing: 
+				\[
+					\alpha_{-1/2}^{6,7,8,9}, \quad \lambda^{\pm 3\dots 8}_{-1/2}
+				\]
+				The first one will get GSO projected out (as will anything with an even number of fermions). 
+				
+				The second one will transform as the $[12]$ of $\SO(12)$. In line with this, we can also construct three other copies of $[12]$ (or $[\overline{12}]$):
+				\[
+					\lambda^{\pm 3\dots 8}_{-1/2} \lambda_0^{\pm 1} \lambda_0^{\pm 2}
+				\]
+				\textbf{ISNT THIS 5?}
+				
+				The other state we can build that does \emph{not} get GSO projected out is:
+				\[
+					\alpha_{-1/2}^{6,7,8,9} \lambda_0^{\pm, 1,2}
+				\]
+				This gives $4 \times 2$ copies of the $[2]$ of $\SU(2)$.
+				
+				\item (R, NS) Here the ground state energy is $0$. We have zero modes coming from the $12$ fermions $\lambda^{\pm, 3 \dots 8}$ giving $2^6$ ground states giving the $32$ and $\overline{32}$ spinors of $\SO(12)$, one of which will get projected out by GSO. 
+				
+				$\alpha_0$ alone will get GSO projected out, so does not contribute to the spectrum.
+			\end{itemize}
+			Together the two copies of $[32] + [12] + [12]$ of $\SO(12)$ combine together to form the two copies of the $[56]$ of $E_7$ and we get $8$ copies of the $2$ of $\SU(2)$.
+			
+			Altogether our gauge multiplets lie in $2 \times [1,56,1]$ and $8 \times [2,1,1]$.
+			
+		\end{itemize}
+		Thus we get the twisted bosonic states coming from $\ket{0}_{NS} \ket{a}$ giving us $32$ scalars in the $[1,56, 1]$ and $128$ scalars in the $[2,1,1]$. 
+		
+		The zero-point energy calculations are here:
+		\begin{center}
+			\includegraphics[scale=0.5]{"Figures/Z2 Orbifold"}
+		\end{center}
+	\end{itemize}
+	
+	\item Under $\tau \to \tau+1$ its quick to see that compactifying on any $(d, d+16)$ Lorentzian lattice and orbifolding by a $\ZZ_n$ shift symmetry of $\epsilon/N$ will give a transformation 
+	\[ 
+		\tau \to \tau+1 :  Z^N \twist hg = e^{4\pi i/3} e^{\frac{i \pi h^2 \epsilon^2}{N^2}} Z^N \twist{h}{h+g}
+	\]
+	where the first exponential factor comes from the $\bar \eta^{-16}$ and the second factor  comes from shifting $p^2_L - p^2_R$ which is otherwise even by $\epsilon h/N$ which gives $\frac{h^2}{N^2} (\epsilon^2_L - \epsilon^2_R) = h^2 \epsilon^2/N^2$. 
+	
+	The $\tau \to -1/\tau$ phase
+	\[
+		\tau \to -1/\tau : Z^N\twist hh  \to e^{-\frac{2\pi i h g \epsilon^2}{N}} Z^N \twist{g}{-h}
+	\]
+	can similarly be proven from straightforward Poisson resummation. 
+	
+	This problem specializes to $N=2$.
+	
+	For $\epsilon^2/2=1 \text{ mod } 4$ the twisted sector picks up a phase under $\tau \to \tau +1$ and one can see that this phase is $+i$, just as in the last problem. This is what was necessary to combine with the left-moving fermions to give a modular invariance. Note this happens \emph{only} when $\epsilon^2/2 = 1 \text{ mod } 4$. 
+	
+	Under $\tau \to -1/\tau$ the twisted sector's projected part picks up a factor of $-1$, exactly what we need to cancel the $-1$ on the left-moving side.
+	
+	\item \textbf{Alek has this}
+	
+	\item The gravitini can only come from the untwisted left-moving R sector (spinor spacetime index) tensored with an $\tilde \alpha^{2,3}_{-1}$ on the right (vector spacetime index). The zero-point energy of the left-moving R sector is $0$ from equal numbers of bosons and fermions. Because our group acts on the (bosonized) fermions the same way it acts on the bosons, we get that $\ZZ_2^2$ gives the three nontrivial elements given by rotations $e^{2 \pi i (s_1 \phi_1 - s_2 \phi_2)}, e^{2 \pi i (s_1 \phi_1 - s_3 \phi_2)}, e^{2 \pi i (s_2 \phi_1 - s_3 \phi_2)}$, with $\phi_0$ corresponding to the spacetime fermions not appearing. We see that the only spinors which are invariant under these three transformations take the form
+	\[
+		\ket{\pm \tfrac12, \tfrac12, \tfrac12, \tfrac12}, \ket{\pm \tfrac12, -\tfrac12, -\tfrac12, -\tfrac12}
+	\]
+	And we must have an even number of signs by GSO projection, so we in fact get two supersymmetries preserved: $\tilde \alpha^{2,3}_{-1} \ket{\frac12,\frac12,\frac12,\frac12}, \tilde \alpha^{2,3}_{-1} \ket{-\frac12,-\frac12,-\frac12,-\frac12}$ , providing the $\pm 3/2$ states only \emph{one} gravitino. 
 	
 	\item 
+	
+	\item As before, the twist acts the same way on the bosons and (left moving) fermions. Already at this level, we see that the only invariant states $\ket{s_1, s_2, s_3, s_4}$ must satisfy $s_2 = s_3 = s_4$ so we will have the (GSO projected) possibilities:
+	\[
+		\ket{\tfrac12, \tfrac12, \tfrac12, \tfrac12}, \ket{-\tfrac12, -\tfrac12, -\tfrac12, -\tfrac12}
+	\]
+	providing again the $\pm 3/2$ states of a \emph{single gravitino}.
+	
+	To avoid anomaly from ground state energy mismatch, we need the condition of Polchinski \textbf{16.1.28}
+	\[
+		\sum_{i=2}^4 r_i^2 - \sum_{I=1}^{16} s_I^2 = 0 \text{ mod } 2N
+	\]
+	Here $N = 6$. Note that our $r_i = (1,1,-2)$ already sums to $6$, so we must have the same for our $s_i$ that determines the $\Gamma_{16}$ action. 
+	
+	I am confused why Kiritsis is saying there is only one such action of $\ZZ_3$ on $\Gamma_{16}$. As long as $\sum s_i^2= 0 \text{ mod } 6$ we should get a consistent theory, as shown in \textbf{Table 16.1} of Polchinski. 
 	
 \end{enumerate}
 
