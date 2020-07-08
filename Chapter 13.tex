@@ -1,0 +1,278 @@
+\documentclass[11pt, class=article, crop=false]{standalone}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd}
+\usepackage{mathabx}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{simpler-wick}
+\usepackage{hyperref}
+\usepackage{ytableau}
+\usepackage{cancel}
+\usepackage{listings}
+\usepackage{relsize}
+\usepackage{xcolor}
+\usepackage{stmaryrd}
+\usepackage{slashed}
+\usepackage{tikz-feynman}
+\usepackage{kiritsis}
+\geometry{margin = 0.5in}
+
+
+\begin{document}
+\section*{Chapter 13: Black Holes and Entropy in String Theory} % (fold)
+\label{sec:chapter_13_black_holes_and_entropy_in_string_theory}
+\begin{enumerate}
+	\item We begin with
+	\[
+		ds^2 = - F(r) C(r) dt^2 + \frac{dr^2}{C(r)} + H(r) r^2 d\Omega_2^2
+	\]
+	and $C(r)$ vanishes at the horizon $r = r_0$ while all other functions are positive for $r \geq r_0$ and everything asymptotes to $1$ as $r \to \infty$. Now, let's do a wick rotation $t \to i \tau$ with $\tau$ Euclidean time. We get
+	\[
+		F(r) C(r) dt^2 + \frac{dr^2}{C(r)} + H(r) r^2 d\Omega_2^2
+	\]
+	Now at $r = r_0 + \epsilon$ we see that the geometry takes the form
+	\[
+		F(r_0) C'(r_0) (r-r_0) dt^2 + \frac{dr^2}{C'(r_0) (r-r_0)} + r_0^2 d\Omega_2^2
+	\]
+	The last term is simply the expected metric on a 2-sphere of fixed radius $r_0$. The other two terms give a metric
+	\[
+		ds^2 = F(r_0) C'(r_0) \epsilon dt^2 + \frac{d \epsilon^2}{C'(r_0) \epsilon}
+	\]
+	Take $u = \frac{2 \sqrt{\epsilon}}{\sqrt{C'(r_0)}}$ then $du = \frac{d\epsilon}{\sqrt{C'(r_0) \epsilon}}$ giving us
+	\[
+		ds^2 = F(r_0) \frac{C'(r_0)^2}{4} u^2 dt^2 + du^2
+	\]
+	This describe a conical deficit geometry in polar coordinates. In order to obtain a smooth geometry, we need the requirement that 
+	\[
+		\tau + 2 \pi \times \frac{2}{C'(r_0) \sqrt{F(r_0)}}  = \tau 
+	\]
+	Giving an inverse temperature of 
+	\[
+		\frac1T = \beta =  \frac{4 \pi}{C'(r_0) \sqrt{F(r_0)}}
+	\]
+	This formula generalizes directly to higher-dimensional black holes. \textbf{Confirm.}
+	
+	\item 
+	In what follows, recall the area formula for a general KN Black hole of mass charge and spin $(M, Q, J)$ is:
+	\[
+		A = 4 \pi (r_+^2 + a^2), \quad r_+ = M + \sqrt{M^2 - a^2 - Q^2}, \quad a = J/M
+	\]
+	In particular an extremal Kerr black hole has area $8 \pi M^2$. 
+	
+	\begin{enumerate}
+		\item The areas of the individual Schwarzschild black holes are 
+	\[
+		4 \pi (2 M_i)^2 = 16 \pi M_i^2
+	\]
+	each. The area of their composite must then be $\geq 16 \pi (M_1^2 + M_2^2)$. Because they start as almost stationary, the total angular momentum in the center of mass frame is zero, so the final black hole will be (essentially) Schwarzschild. So we get 
+	\[
+		M_f^2 \geq M_1^2 + M_2^2
+	\]
+	If the initial masses were equal, we'd get $M_f \geq \sqrt{2} M$ so that $E = 2 M - \sqrt 2 M$ and $E/(M_1 + M_2) = 1- 1/\sqrt{2}$. Let's write WLOG $M_2 = \gamma M_1$ with $\gamma \leq 1$ then 
+	\[
+	\begin{aligned}
+		M_f^2 \geq (1+\gamma^2) M_1^2  &\Rightarrow E = (1+\gamma) M_1 - \sqrt{1+\gamma^2} M_1\\ 
+		&\Rightarrow \frac{E}{M_1 + M_2} = \frac{(1+\gamma) M_1 - \sqrt{1+\gamma^2} M_1}{(1+\gamma) M_1} = 1 -\frac{\sqrt{1+\gamma^2}}{(1+\gamma)} \geq 1 \leq 1 - \frac{1}{\sqrt 2}
+	\end{aligned}
+	\]
+	as required. 
+	\item For two extremal RN black holes we have $r_+ = M$ so each has area $4 \pi M^2$. They will collide to form a neutral (perhaps rotating) black hole. The area law gives us 
+	\[
+		4 \pi ((M_f + \sqrt{M_f^2 - a^2})^2 + a^2) \geq 2 \times 4 \pi M^2.
+	\]
+	This bound is sharpest if we take the final state to be extremal Kerr $a = M$, giving
+	\[
+		 8 \pi M_f^2 \geq 8 \pi M^2 \Rightarrow M_f \geq M
+	\]
+	We get 
+	\[
+		E \leq 2M - M \Rightarrow \frac{E}{2M} \leq \frac12.
+	\]
+	
+	\item Such a decay would look like 
+	\[
+		2 M_f^2  \geq M^2 \Rightarrow \sqrt{2} M_f \geq M  \Rightarrow M - 2 M_f \leq (\sqrt{2} - 2) M_F < 0.
+	\]
+	This is a contradiction. 
+	
+	\end{enumerate}
+	
+	\item We have that $n = \frac{1}{\sqrt{g_{rr}}} \d_r = \sqrt{f(r)} \d_r$ so that
+	\[
+		K_{\mu \nu} = \frac12  \frac{1}{\sqrt{g_{rr}}} \d_r G_{\mu \nu} = \frac{\sqrt{f(r)}}{2} \text{diag}\Big(f'(r), -\frac{f'(r)}{f(r)}, 2r, 2r \sin^2 \theta \Big)
+	\]
+	Contracting with the $3 \times 3$ boundary inverse metric $h^{\mu \nu} = \text{diag}(f(r)^{-1}, r^{-2}, r^{-2} \sin^{-2} \theta)$ which has \emph{no $r$ component} gives
+	\[
+		K =  \frac{\sqrt{f}}{2} \left(\frac{f'}{f} + \frac{4}{r} \right) = \sqrt{f} \, \frac{r f' + 4 f}{2 r f} \Big|_{r = r_0}
+	\]
+	where $r_0$ is large and formally infinite. We can then evaluate 
+	\[
+		\frac{1}{8 \pi G} \int_{\d M} \sqrt{h} K = \frac{4 \pi r^2 \beta \sqrt{f}}{8 \pi G} K\Big|_{r=r_0} = \beta \frac{r}{4G} (r f' + 4 f)\Big|_{r=r_0} 
+	\]
+	Directly evaluating this for $f(r) = 1 - \frac{2 G M}{r} + \frac{Q^2}{r^2}$ gives
+	\[
+		\frac{\beta}{2 G} \left(\frac{Q^2}{r_0^2} + 2 r_0 - 3 G M \right)
+	\]
+	This is the gravitational boundary term contribution to the classical action. 
+	 The gravitational bulk term is zero since the Ricci scalar vanishes for the RN solution. The electromagnetic contribution is
+	\[
+		\frac{1}{16 \pi G} \int_M \sqrt{g} F_{\mu \nu} F^{\mu \nu} = \frac{1}{8 \pi G} \int_0^\beta d\tau \int d\Omega_2 \int_{r_+}^{r_0} r^2 dr \frac{Q^2}{r^4} = \beta \frac{4 \pi Q^2}{8 \pi G} \left(\frac{1}{r_+} - \frac{1}{r_0} \right) = \frac{\beta}{2G} Q^2 \left(\frac{1}{r_+} - \frac{1}{r_0}\right)
+	\]
+	All together, as $r_0 \to \infty$ we get action:
+	\[
+		S_{RN} = -\frac{\beta}{2G} \left(2 r_0 - 3 G M + \frac{Q^2}{r_+} \right)
+	\]
+	Note that there is one divergent term, namely the one linear in $r_0$ in the boundary action, but this is insensitive to the properties of the RN black hole and is also present in flat space. It is then sensible to define a regularized (renormalized) action by subtracting this term off. In doing this subtraction, there is an ambiguity of how we should define the inverse temperature of the reference flat space subtraction. The appropriately redshifted temperature \textbf{Justify} is $\beta \sqrt{f}$, giving reference action:
+		\[
+			S_{flat} =  -\frac{\beta}{G} r_0 \sqrt{f(r_0)} = - \frac{\beta}{2G} (2 r_0 - 2 G M + O(1/r_0))
+		\]
+	The renormalized Euclidean action is thus 
+	\[
+		I_{RN} = S_{RN} - S_{flat} = \frac{\beta}{2} (M - \frac{Q^2}{G r_+}) = \frac{\beta}{2} (M -  \mu Q) = \beta \mathcal F
+	\]
+	\item The specific heat $C$ is given by the coefficient in
+	\[
+		dM = M C dT
+	\]
+	For Schwarzschild, $T = (8 \pi G M)^{-1}$ so this is 
+	\[
+		dM = - M C \frac{dM}{8 \pi G M^2} \Rightarrow C = -8 \pi G M
+	\]
+	Which is negative. This should not be so surprising, given that by increasing the energy (ie mass) of the Schwarzschild black hole we make a larger one which thus have \emph{lower} temperature. It is worth noting that, including units, this is proportional to $\frac1\hbar$.
+	
+	\item First off, at $a = 0$ Kerr-Newman reproduces the RN black hole, which we already know is a solution of the Einstein-Maxwell system. 
+	
+	Further, it is quick to check using Mathematica that at $Q=0$ the Kerr metric is itself Ricci-Flat: $R_{\mu \nu} = 0$ so is indeed a solution of the vacuum Einstein equations (away from $r = 0$). 
+	
+	\hspace{-.5in}
+	\includegraphics[scale=0.5]{"Figures/Kerr"}
+	When $Q \neq 0$ we get a nonzero Ricci tensor (the Ricci scalar still vanishes since classical electrodynamics is conformal). 
+	
+	\hspace{-.5in}
+	\includegraphics[scale=0.5]{"Figures/Kerr-Newman"}
+	The Ricci tensor must correspond to an electromagnetic stress-energy tensor. It comes from an electric potential of the form $A_\mu = (\frac{r Q}{\Sigma}, 0, 0, - \frac{a r Q \sin^2 \theta}{\Sigma})$
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/T-Ricc"}
+	\end{center}
+	
+	For $r$ very large we get an electric field going as $q r^2/\Sigma^2 \sim q/r^2$ corresponding to the electric field for a charge $q$, and we also get a magnetic field dying off as $a \cos \theta/r^3$ corresponding to the field from a spinning charged source. Said another way, we see that $\frac{1}{4\pi} \int \star F = q$ and $\frac{1}{4\pi} \int F = 0$ asymptotically, so we have just an electric charge $q$. 
+	
+	We can verify mass and angular momentum using the killing vectors $\d_t$ and $\d_\phi$ respectively using the formulas in \textbf{Wald 12.3.8-9}
+	\[
+	\begin{aligned}
+		- \frac{1}{8\pi G} \int \epsilon_{abcd} \nabla^c (\d_t)^d &= M
+		\frac{1}{16\pi G} \int \epsilon_{abcd} \nabla^c (\d_\phi)^d &= a M
+	\end{aligned}
+	\]
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/verify M J"}
+	\end{center}
+	
+	For the KN black hole metric, the only singularities can come from $\Sigma = 0$ or $\Delta = 0$. $\Sigma$ is only zero for $a > 0$ when $r= 0, \theta = \pi/2$. This corresponds to the curvature singularity of the black hole (in fact despite deceptive coordinate choice, this takes the form of a ring $S_1 \times \RR$ as is revealed in Kerr-Schild coordinates). The horizons come from $g_{rr}$ becoming singular, namely $\Delta = 0$ which occurs at
+	\[
+		r^2 - 2 G M r + a^2 + Q^2 = 0 \Rightarrow r_\pm = M \pm \sqrt{M^2 - a^2 - Q^2}.
+	\]
+	These give the outer and inner horizons. 
+	
+	The horizon area is given by 
+	\[
+		\int_0^\pi d\theta \int_0^{2\pi} d\phi \sqrt{g_{\theta \theta} g_{\phi \phi}}\Big|_{r = r_+}  = 2 \pi \int_0^\pi d\theta \sin \theta \sqrt{(r^2_+ + a^2)^2 - \Delta a^2 \sin^2 \theta}
+	\]
+	But $\Delta = 0$ at the horizon so this trivializes to
+	\[
+		4 \pi (r_+^2 + a^2) = 4 \pi ((m + \sqrt{m^2 - a^2 - Q^2})^2 + a^2)
+	\]
+	The entropy of the black hole is then
+	\[
+		S = \frac{A}{4} = \pi (r_+^2 + a^2)
+	\]
+	Taking care to write things in terms of  $J$ and not $a$ now, by holding $J, Q$ fixed, let's vary $M$ and get
+	\begin{center}
+		\includegraphics[scale=0.4]{"Figures/Hawking T"}
+	\end{center}
+	The Hawking temperature is thus
+	\[
+		T_H = \frac{1}{2\pi} \frac{\sqrt{M^2 - a^2 - Q^2}}{r_+^2 + a^2}
+	\]
+	Now let's fix $S$ and $Q$. We get 
+	\begin{center}
+		\includegraphics[scale=0.4]{"Figures/J pot"}
+	\end{center}
+	Which gives us that 
+	\[
+		\Omega = \Big(\frac{\d M}{\d J}\Big)_{Q,S} = -\left(\frac{dS}{dJ}\right)_{Q,M} \left(\frac{dS}{dM}\right)^{-1}_{Q,J} = \frac{a}{r_+^2 + a^2}
+	\]
+	Finally let's hold $S, J$ fixed and do the same procedure, giving
+	\begin{center}
+		\includegraphics[scale=0.4]{"Figures/Q pot"}
+	\end{center}
+	\[
+		\mu = \Big(\frac{\d M}{\d Q}\Big)_{J,S} = -\left(\frac{dS}{dQ}\right)_{J,M} \left(\frac{dS}{dM}\right)^{-1}_{Q,J} = \frac{Q r_+}{r_+^2 + a^2}
+	\]
+	
+	The full form of the first law is then
+	\[
+		dM = T dS + \Omega dJ + \mu dQ
+	\]
+	
+	We obtain an extremal black hole when $M = a^2 + Q^2$, as this is the minimum value of $M$ where $r_+$ is a well-defined radius. At this value, $r_+=  r_-$. 
+	
+	Thermodynamic stability comes from minimizing the Gibbs free energy:
+	\[
+		G = M - T S - \Omega J - \mu Q
+	\]
+	Note that for flat space, $G = 0$, so if $G > 0$ for any of these black holes, thermal fluctuations will eventually drive their decay to flat space.
+	
+	Plugging in what we have gives  
+	\begin{center}
+		\includegraphics[scale=0.4]{"Figures/Gibbs BH"}
+	\end{center}
+	Notice that if $J>0$ then this will \emph{always} be greater than zero, by virtue of the fact that $M > Q$ always. If we take $J = 0$, we get that this is still thermodynamically unstable unless $Q = M$ and the black hole is extremally charged.
+	
+	\item The Hawking evaporation rate gets modified as
+	\[
+		\Gamma_H = \frac{\sigma_{abs}(\omega)}{\exp(\beta (\hbar \omega - \vec s \cdot \vec \Omega - q \Phi))\mp 1} \frac{d^3 k}{(2\pi)^3}
+	\]
+	where $\vec s \cdot \vec \Omega$ is the angular momentum product (orientation of $\vec s$ relative to $\vec \Omega$ matters). The $\mp$ is for bosons and fermions respectively. 
+	
+	\textbf{Return to understand how this generalizes to systems more broadly}
+	
+	\item 
+	
+	\item The D5 and D5 branes are both BPS. We know that, upon toroidal compactification, 
+	
+	In $D=10$ have the D1 stretch $x_0 = t, x_5 = \gamma$ and the D5 stretch $x_0, \dots, x_5$, where we write $\gamma^a, a=1 \dots 4$ to be the new D5 directions. These will form the direction of the $T^4$.
+	
+	Upon compactifying on $T^4 \times S^1$, the logic we used to for the $10$D solution will still carry over to $5$D. We will still write the extremal metric in terms of functions $H_{1,5}$ that must be harmonic w.r.t. the flat metric of the 4D transverse space.
+	
+	Then the D1 brane solution gives
+	\[
+		ds^2_{D1}= \frac{-dt^2 + d\gamma^2}{\sqrt{H_1}} + \sqrt{H_1} d \gamma^a \cdot d \gamma^a + \sqrt{H_1}\, dx^i \cdot dx^i, \quad H_1 = 1 + \frac{r_1^6}{r^6}, \quad e^{-2\Phi} = H_1^{-1}, \quad F_{05i} = -\d_i (H_1^{-1})
+	\]
+	While the D5 brane gives
+	\[
+		ds^2_{D5} = \frac{-dt^2 + d\gamma^2}{\sqrt{H_5}} + \frac{d \gamma^a \cdot d \gamma^a}{\sqrt{H_5}} + \sqrt{H_5} \, dx^i \cdot dx^i, \quad H_5 = 1 + \frac{r_5^2}{r^2}, \quad e^{-2\Phi} = H_5^2
+	\]
+	
+	We are also assuming here that at $r \to \infty$ we asymptote to the $g_s= 1$ vacuum solution of string theory.
+	
+	
+	The dilaton and field strength contributions add while the metric contributions get multiplied \textbf{Justify}.
+	
+	The combined solution thus gives:
+	\[
+		\frac{-dt^2 + d\gamma^2}{\sqrt{H_1 H_5}}
+	\]
+	 
+	
+	\textbf{Finish}
+	
+\end{enumerate}
+% section chapter_13_black_holes_and_entropy_in_string_theory (end)
+
+\end{document}
+	

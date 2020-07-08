@@ -316,25 +316,106 @@
 	
 	\textbf{The only thing is I think I'm assuming that the D3 brane is the only object charged under $C_3$ at leading order in $\ell_s$. Can I safely assume this?}
 	
-	\item We should go to the Einstein frame, ie multiply the D1 solution by $H^{-1/4}$. The D$_1$ solution is:
+	\item We should go to the Einstein frame, ie multiply the F1 solution by $H^{1/4}$. The F1 solution is then:
 	\[
-		ds^2_E = H^{-3/4} \eta_{\mu \nu} dx^\mu dx^\nu + H^{1/4} d \vec x \cdot d \vec x, \qquad H = 1 + \frac{L^6}{r^6}
+		ds^2_E = H^{-3/4}(-dt^2 + (dx^1)^2)+ H^{1/4} d \vec x \cdot d \vec x, \qquad H = 1 + \frac{L^6}{r^6}
 	\]
-	Note this is the same metric as the F$_1$ solution, and indeed the metric will stay the same for all $(p,q)$ strings. The $C_0$ field has been set to zero. For D$_1$ the dilaton is
+	Here $L^6 = \frac{2 \kappa_{10}^2 T_p}{6 \Omega_7} = 32 \ell_s^6 \pi^2$ % where $N \in \ZZ$ is the $B_2$ charge, interpretable as the number of fundamental strings.
+	Note this is the same metric as the D1 solution, and indeed the metric will stay the same for all $(p,q)$ strings.
+	
+	The $C_0$ field has been set to zero. For F1 the dilaton and $B$-field have the profile
 	\[
-		e^{\Phi} = g_s H^{1/2}
+		e^{\Phi} = g_s H^{-1/2}, \quad B_{01} = H^{-1}(r)
 	\]
-	and indeed it is the inverse of this for the F$_1$. Now note in $\SL_2(\ZZ)$ we have $ad-bc$, implying $d,c$ are relatively prime. 
-	
+	and indeed the dilaton has the inverse of this for the D1 while $B$ and $C$ exchange. Indeed, consider the $\SL_2(\ZZ)$ action 
 	\[
-		S = \frac{p - i q H^{1/2}}{i q H^{1/2} + p}
+		\Lambda = \begin{pmatrix}
+			a & b \\  c & d
+		\end{pmatrix}.
+	\]
+	Here, we have $ad-bc = 1$, implying $c, d$ are relatively prime. Further $\mathcal S = C_0 + i e^{-\phi}$ and $C_2, B_2$ transform as
+	\[
+		\mathcal S \to \frac{a \mathcal S + b}{c \mathcal S + d}, \qquad \begin{pmatrix}
+			B_2\\C_2
+		\end{pmatrix} \to (\Lambda^T)^{-1} \cdot \begin{pmatrix}
+			B_2 \\ C_2
+		\end{pmatrix} = \begin{pmatrix}
+			d & -c\\ -b & a
+		\end{pmatrix}   \begin{pmatrix}
+			B_2 \\ C_2
+		\end{pmatrix}
+	\]
+	There is only one subtlety in the problem, which gives us the unique $\Lambda$ we should take, which I got from reading arXiv:hep-th/9508143. We need to fix the dilaton's asymptotic value as $r \to \infty$ so as to define the vacuum of our string theory. First, consider $\phi, C_0 = 0$ asymptotically, ie $\mathcal S \to i$. We then stay within the $\SO(2) \subset  \SL_2(\RR)$ that fixes $\mathcal S = i$. We want to take $(1,0)$ to the string $p, q$. This is now uniquely determined:
+	\[
+		\Lambda = \frac{1}{\sqrt{q_1^2 + q_2^2}} \begin{pmatrix}
+			p & -q\\
+			q & p
+		\end{pmatrix}
+	\]
+	Applying this to $B_2, C_2$ gives
+	\[
+		\begin{pmatrix}
+					B_2\\ C_2
+				\end{pmatrix} = \frac{H^{-1}}{\sqrt{p^2 + q^2}} \begin{pmatrix}
+					p\\q
+				\end{pmatrix}
+	\]
+	Upon doing this, the $B_2, C_2$ fluxes will have coefficients that get modified from just $p, q$ by a factor of $\frac{1}{\sqrt{p^2 + q^2}}$, so will no longer be integers satisfying the quantization condition. We can fix this by modifying $T \to T_{p,q} = \sqrt{p^2 + q^2} T$. Since this only serves to modify $L$, which was an arbitrary parameter of the classical solution, we still remain in a solution.
+	
+	This means: $H_{p,q} = 1 + \frac{L^6_{p,q}}{r^6}$, $L_{p,q}^6 = \frac{2 \kappa^2 T_{p,q}}{6 \Omega_7} = \sqrt{q_1^2 + q_2^2}\,  \frac{2 \kappa^2 T_{1,0}}{6 \Omega_7} = \sqrt{q_1^2 + q_2^2} L^6$.
+	
+	Our solution is now:
+	\[
+		ds^2_E = H_{p,q}^{-3/4} (-dt^2 + (dx^1)^2) + H_{p,q}^{1/4} d\vec x \cdot d \vec x \qquad \begin{pmatrix}
+			B_2\\ C_2
+		\end{pmatrix} = \frac{H_{p,q}^{-1}}{\sqrt{p^2 + q^2}} \begin{pmatrix}
+			p\\q
+		\end{pmatrix}\qquad \mathcal S = \frac{i p H_{p,q}^{-1/2} - q}{i q H_{p,q}^{-1/2} + p}
+	\]
+	Now, let us generalize this for different asymptotic values of the dilaton and axion. After applying $\Lambda$, compose with:
+	\[
+		\Lambda' = \begin{pmatrix}
+			e^{-\phi_0 / 2} & \chi_0 e^{\phi_0/2}\\
+			0 & e^{\phi_0/2}
+		\end{pmatrix}
+	\]
+	$\mathcal S$ originally asymptotes to $i$, and now it asymptotes to
+	\[
+		\frac{e^{-\phi_0/2} i + \chi_0 e^{\phi_0/2}}{0 + e^{\phi_0/2}} = \chi + i e^{-\phi_0}
+	\]
+	exactly as we want. To get this to play well with the field strengths, we should make our first $\Lambda$ take the form
+	\[
+		(\Lambda^T)^{-1} = \begin{pmatrix}
+			\cos \theta & -\sin \theta\\
+			\sin \theta & \cos \theta
+		\end{pmatrix}
+	\]
+	Again, applying this will break our quantization condition. The asymptotic value of the charges of $B_2, C_2$ is given by $(p, q)/\Delta^{1/2}_{p,q}$ where $\Delta_{p,q}$ is the invariant
+	\[
+		\Delta_{p,q} = \begin{pmatrix}
+			p & q
+		\end{pmatrix} \;
+		\mathcal S_2^{-2}
+		\begin{pmatrix}
+			|\mathcal S|^2 & \mathcal S_1\\
+			\mathcal S_1 & 1
+		\end{pmatrix}\begin{pmatrix}
+			p \\ q
+		\end{pmatrix}  = e^{\phi_0} (p - q \chi_0)^2 + e^{-\phi_0} q^2
+	\]
+	\textbf{Worth working out a bit more explicitly?}
+
+	This gives in full generality:
+	\[
+		T_{p,q} = \sqrt{e^{\phi_0} (p - q \chi_0)^2 + e^{-\phi_0} q^2} \; T_{F1}
 	\]
 	
+	Because (aside from redefining $L$) the metric is unchanged, the singularity structure of $(p,q)$ strings is no different from $(1,0)$ or $(0,1)$ strings. Neither of these has a regular horizon.
 	
 	
-	\textbf{Finish}
+	\item
 	
-	\item The 11-D SUGRA Lagrangian is
+	The 11-D SUGRA Lagrangian is
 	\[
 		L_{D=11} = \frac{1}{2\kappa_{11}^2}\left[R - \frac12 |G_4|^2 + G_4 \wedge G_4 \wedge \hat C_3 \right]
 	\]

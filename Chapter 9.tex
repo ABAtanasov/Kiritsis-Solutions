@@ -623,13 +623,56 @@
 	
 	Under $\tau \to -1/\tau$ the twisted sector's projected part picks up a factor of $-1$, exactly what we need to cancel the $-1$ on the left-moving side.
 	
-	\item \textbf{Alek has this}
+	\item The partition function for our general heterotic $\mathcal N=2$ compactification takes the form:
+	\[
+		Z_{N=2}^{het} = \frac12 \sum_{h,g=0}^1 \frac{\Gamma_{2,18} \twist hg \Gamma_{4,4} \twist hg}{\tau_2 \eta^{8} \bar \eta^{24}} \frac12 \sum_{a,b=0}^1 \frac{\theta^2 \twist ab \theta\twist{a+h}{b+g} \theta\twist{a-h}{b-g}}{ \eta^4}
+	\]
+	 We seek to compute $\tau_2 B_2$ where $B_2 = \Tr[(-1)^{2\lambda} \lambda^2]$ over our string's Hilbert space. To do this, consider the following \emph{helicity generating} partition function:
+	\begin{equation} \label{eq:helgen}
+			\mathcal Z(\nu, \bar \nu) = \Tr[q^{L_0} \bar q^{\bar L_0} e^{2\pi i \nu \lambda_L - 2\pi i \bar \nu \lambda_R}] =  \frac12 \sum_{h,g=0}^1 \frac{\Gamma_{2,18} \twist hg \Gamma_{4,4} \twist hg}{\tau_2 \eta^{8} \bar \eta^{24}} \xi(\nu) \bar \xi(\bar \nu) \frac12 \sum_{a,b=0}^1 \frac{\theta\twist ab(\nu) \theta \twist ab \theta\twist{a+h}{b+g} \theta\twist{a-h}{b-g}}{ \eta^4}
+	\end{equation}
+	Here
+	\[
+		\xi(\nu) = \prod_{n=1}^\infty \frac{(1-q^n)^2}{(1-q^n e^{2\pi i n \nu}) (1-q^n e^{-2\pi i n \nu})} = \frac{\sin \pi \nu}{\pi} \frac{\theta'_1(\nu)}{\theta_1(\nu)}
+	\]
+	plays the role of exchanging the traces over the bosons in the non-compact spatial (3,4) directions with traces that involve the helicity. 
+	
+	I apply formula \textbf{D.21} in Kiritsis to simplify the theta functions to:
+	\begin{equation}\label{eq:thetaid}
+		\frac12 \sum_{a,b=0}^1 \frac{\theta\twist ab(\nu) \theta \twist ab \theta\twist{a+h}{b+g} \theta\twist{a-h}{b-g}}{ \eta^4} = \frac{\theta^2 \twist11 (\frac \nu2) \theta \twist{1-h}{1-g} (\frac \nu2) \theta \twist{1+h}{1+g} (\frac \nu2)}{\eta^4}
+	\end{equation}
+	This vanishes at least as fast as $\nu^2$
+	
+	We must now take \eqref{eq:helgen} this and apply
+	\[
+		\Big(\frac{1}{2\pi i} \d_\nu - \frac{1}{2\pi i} \bar \d_{\bar \nu}\Big)^2  \mathcal Z(\nu, \bar \nu).
+	\]
+	Because our generating function \eqref{eq:helgen} vanishes as $\nu^2$ thanks to \eqref{eq:thetaid}, we only need to look at $\d_\nu^2$.
+	
+	To obtain a nonzero result we thus need to act with $\d_\nu^2$. On these terms for each $h,g$. First note that for $h=g=0$ \eqref{eq:thetaid} vanishes as $\nu^4$ so will not contribute. For $(h,g) \neq (0,0)$, the terms vanish as $\nu^2$ due to the $\theta^2 \twist11$, exactly cancellable by taking two derivatives on that term. Thus, we need only worry about the zeroth order behavior of everything else: $\xi \sim 1$ and $\theta\twist{1-h}{1-g} \theta \twist{1+h}{1+g} (\nu/2) \sim \theta\twist{1-h}{1-g} \theta \twist{1+h}{1+g} (0)$. We are left with 
+	\[
+	\begin{aligned}
+		&-\frac{\pi^2}{4} \frac{1}{(2 \pi)^2} \frac12 \sum_{h,g \neq (0,0)} \frac{\Gamma_{2,18} \twist hg}{\tau_2 \eta^{8} \bar \eta^{20}} \frac{ 16 \eta^2 \bar \eta^2}{\theta^2 \twist{1-h}{1-g} \bar \theta^2 \twist{1-h}{1-g}} \theta\twist{1-h}{1-g} \theta \twist{1+h}{1+g} \big(\d_\nu \theta \twist11_{\nu = 0}\big)^2\\
+		&= -\frac{4 \eta^6}{2 \tau_2 \eta^6 \bar \eta^{18}} \left[\frac{\Gamma_{2,18} \twist11 }{\bar \theta^2 \twist00} + \frac{\Gamma_{2,18} \twist10 }{\bar \theta^2 \twist01} -
+		\frac{\Gamma_{2,18} \twist01 }{\bar \theta^2 \twist10} \right]
+	\end{aligned}
+	\]
+	Where we have used $\theta \twist 12 = - \theta \twist10$, as well as $\theta_1'|_{\nu = 0} = 2 \eta^3$ 
+	We now use the identity
+	\[
+		\bar \theta_2 \bar \theta_3 \bar \theta_4 = 2 \bar \eta^3
+	\]
+	
+	and recover
+	\[
+		\tau_2 B_2 = - \frac{\Gamma_{2,18} \twist11 \bar \theta_2 \bar \theta_3}{\bar \eta^{24}} - \frac{ \Gamma_{2,18} \twist 10 \bar \theta_2 \bar \theta_3}{\bar \eta^{24}} +\frac{ \Gamma_{2,18} \twist 01 \bar \theta_3 \bar \theta_4}{\bar \eta^{24}}.
+	\]
 	
 	\item The gravitini can only come from the untwisted left-moving R sector (spinor spacetime index) tensored with an $\tilde \alpha^{2,3}_{-1}$ on the right (vector spacetime index). The zero-point energy of the left-moving R sector is $0$ from equal numbers of bosons and fermions. Because our group acts on the (bosonized) fermions the same way it acts on the bosons, we get that $\ZZ_2^2$ gives the three nontrivial elements given by rotations $e^{2 \pi i (s_1 \phi_1 - s_2 \phi_2)}, e^{2 \pi i (s_1 \phi_1 - s_3 \phi_2)}, e^{2 \pi i (s_2 \phi_1 - s_3 \phi_2)}$, with $\phi_0$ corresponding to the spacetime fermions not appearing. We see that the only spinors which are invariant under these three transformations take the form
 	\[
 		\ket{\pm \tfrac12, \tfrac12, \tfrac12, \tfrac12}, \ket{\pm \tfrac12, -\tfrac12, -\tfrac12, -\tfrac12}
 	\]
-	And we must have an even number of signs by GSO projection, so we in fact get two supersymmetries preserved: $\tilde \alpha^{2,3}_{-1} \ket{\frac12,\frac12,\frac12,\frac12}, \tilde \alpha^{2,3}_{-1} \ket{-\frac12,-\frac12,-\frac12,-\frac12}$ , providing the $\pm 3/2$ states only \emph{one} gravitino. 
+	And we must have an even number of signs by GSO projection, so we in fact get two supersymmetries preserved: $\tilde \alpha^{2,3}_{-1} \ket{\frac12,\frac12,\frac12,\frac12}, \tilde \alpha^{2,3}_{-1} \ket{-\frac12,-\frac12,-\frac12,-\frac12}$, providing the $\pm 3/2$ states only \emph{one} gravitino. 
 	
 	\item 
 	
@@ -646,6 +689,26 @@
 	Here $N = 6$. Note that our $r_i = (1,1,-2)$ already sums to $6$, so we must have the same for our $s_i$ that determines the $\Gamma_{16}$ action. 
 	
 	I am confused why Kiritsis is saying there is only one such action of $\ZZ_3$ on $\Gamma_{16}$. As long as $\sum s_i^2= 0 \text{ mod } 6$ we should get a consistent theory, as shown in \textbf{Table 16.1} of Polchinski. 
+	
+	The simplest such twist (aside from the trivial one that leaves the $E_8 \times E_8$ untouched) would be to act on the first 3 complex fermions of forming the first $E_8$ group in the same way as we act on the complexified bosons and left-moving fermions, namely by
+	\[
+		\tilde \lambda^{\pm, 1,2,3} \to e^{\pm 2\pi i \beta_{1,2,3}} \tilde \lambda^{\pm, 1,2,3}, \quad \beta_1 = \beta_2 = \tfrac13, \beta_3 = -\tfrac23
+	\]
+	while the remaining $\lambda^{\pm, 4\dots 16}$ are left untouched. Let's now get the massless spectrum under $\ZZ_3 = \{1, r, r^2\}$
+	\begin{itemize}
+		\item Untwisted
+		\begin{itemize}
+			 \item Left-moving
+			 The bosons are labeled by
+		\end{itemize}
+			
+			
+			
+		
+		\item Twisted by $r$
+		
+		\item Twisted by $r^2$
+	\end{itemize}
 	
 \end{enumerate}
 
