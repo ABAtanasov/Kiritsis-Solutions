@@ -1467,13 +1467,39 @@ guess for the non-extremal version of this would be to keep the dilaton and NS f
 	\]
 	where $f(r) = 1 - \frac{r_0^6}{r^6}$. I have not checked this, but it seems right based on experience at this point. s
 	
-	\item Orbifolding by this symmetry indeed leaves invariant a 5 plane given by $x_0 \dots x_5$ where $x_6 \dots x_9$ were the coordinates that were reflected under the orbifold. The twisted sector must thus localize on that invariant 5-plane. 
+	\item Let's start with IIB. The untwisted sector will contain closed string states that are invariant under the $\mathcal I_4 (-1)^{\mathbf{F}_L}$ combination. The twisted sector will localize to the 5-plane left invariant by the inversion. Let's say that this is labeled by $x_0 \dots x_5$ and $x_6 \dots x_9$ are the coordinates reflected under the orbifold. The supersymmetries $Q_L = Q, Q_R = \tilde Q$ both transform in the $\mathbf{8}_s$ representation. On the 5-plane, this decomposes under $\SO(4)_\parallel \times \SO(4)_\perp$ as
+	\[
+		\mathbf{8}_s \to [2_\parallel \times 2_\perp] + [\bar 2_{\parallel} \times \bar 2_{\perp}]
+	\]
+	Here $\mathcal I_4$ acts with $-$ on the $2 \otimes \bar 2$ vector representation of $\SO(4)_\perp$, leaving the $2 \otimes \bar 2$ $\SO(4)_\parallel$ alone. We take $\mathcal I_4$ to flip the sign of only the $2_\perp$ spinor. $(-1)^{\mathbf{F}_L}$  acts with a $-$ sign on only $Q$. Together, this leaves
+	\[
+		Q \in 2_\parallel \times 2_\perp, \quad \tilde Q \in \bar 2_\parallel \times \bar 2_\perp
+	\]
+	invariant. These preserved generators give $(1,1)_6$ supersymmetry. The exact same argument would give that the IIA twisted sector has $(2,0)_6$ SUSY. These rigid supersymmetries have a unique massless representation, namely the vector and tensor multiplets respectively, so this is what we would expect to get.
 	
-	\textbf{I will come back to this problem - it should not be too difficult once I know what I'm doing. In some way this is relating the NS5 brane wordvolume theory to the theory of type I strings}
+	 Let's check this explicitly for the twisted sector of the IIB orbifold. The parallel $\alpha^\mu$ do not get twisted boundary conditions, but the transverse $\alpha^i$ get acted on by a $-$ from the $\mathcal I$, so will get half-integrally modded. For the fermions, the $\psi^\mu$ are affected by the $(-1)^{\mathbf{F}_L}$ and so will become integrally modded in the NS sector and half-integrally modded in the R sector. The $\psi^i$ are additionally affected the $\mathcal I$ and so remain half-integrally modded in the NS sector and integrally modded in the R sector. 
+
+	In both R \emph{and} NS sectors, we have the same number of periodic and anti-periodic bosons and fermions, so the ground state energy vanishes in both sectors. Massless excitations are described purely in terms of the ground states of the system. The bosonic ground state is unambiguous. In the NS sector there are four $\psi^i_0$ transforming in the $\SO(4)_\perp$ vector representation while in the R sector there are four $\psi^\mu_0$ transforming in the $\SO(4)_\parallel$ vector representation. These lead to ground states transforming as $2 + \bar 2$. 
 	
-	The IIB NS5 brane has $(1,1)$ SUSY and contains a vector multiplet
+	The effect of the $(-1)^{\mathbf{F}_L}$ is to change the \emph{left-moving} GSO projection in the twisted sector (c.f. exercise \textbf{11.29}). Thus in both NS-NS and R-R we get GSO projections:
+	\[
+		\frac14 (1 - (-)^{\mathbf{F}_L}) (1 + (-)^{\mathbf{F}_R}) 
+	\]
+	For NS-NS this means:
+	\[
+		(2_\perp^L + \bar 2_\perp^L) \otimes (2_\perp^R + \bar 2_\perp^R) \to \bar 2_\perp^L \otimes  2_\perp^R
+	\]
+	% these are the only terms consistent with the action of inversion together with $(-1)^{F_L}$. GSO will project out one of them.
+	This transforms in the vector representation of $\SO(4)_\perp$ and can thus be interpreted as 4 scalars with $\SO(4)$ R-symmetry.
+
+	For R-R we get the same:
+	\[
+		(2_\parallel^L + \bar 2_\parallel^L) \otimes (2_\parallel^R + \bar 2_\parallel^R) \to \bar 2_\parallel^L \otimes  2_\parallel^R
+	\]
+	This is a vector with little group $\SO(4)$.
 	
-	The IIA NS5 brane has $(2,0)$ SUSY and contains a \emph{tensor} multiplet with \emph{six} scalars. 
+	So the NS-NS states give 4 scalars and the RR states give the vector. These are consistent with the spectrum of a single NS5 brane in type IIB, and the same logic holds for IIA. \textbf{Understand how this connects with Sen's articles on non-BPS particles} 
+	
 	
 		
 \end{enumerate}

@@ -710,6 +710,53 @@
 		\item Twisted by $r^2$
 	\end{itemize}
 	
+	\item The Nijenhuis tensor is defined in terms of the almost-complex structure $(1,1)$ tensor $J^i_j$ as
+	\[
+		N_{ij}^k = J^l_i (\d_{l} J^k_{j} - \d_j J^k_l) - J_{j}^l (\d_l J^k_i - \d_i J^k_l)
+		 = J^l_i (\d_{[l} J^k_{j]}) - J_{j}^l (\d_{[l} J^k_{i]}) = J^l_i (\nabla_{[l} J^k_{j]}) - J_{j}^l (\nabla_{[l} J^k_{i]})
+	\]
+	We are able to replace partial derivatives with covariant derivatives and vice versa because the non-tensoriality can only enter through the Christoffel symbols $\Gamma$, as follows
+	\[
+		J^l_i (\Gamma_{r[l}^k J_{j]}^r - \cancel{\Gamma_{[lj]}^q J_q^k} ) - J^l_j (\Gamma_{r[l}^k J_{i]}^r - \cancel{\Gamma_{[li]}^q J_q^k} ) =  \Gamma_{r[l}^k J_{j]}^r J^l_i - \Gamma_{r[l}^k J_{i]}^r  J^l_j = (-)^2 \cancel{(\delta^r_i \Gamma^k_{rj}  - \delta^r_j \Gamma^k_{ri})} + \cancel{\Gamma_{rl}^k (J^r_j J^l_i - J^l_j J^r_i)} =0
+	\]
+	So we see because everything is antisymmetrized that the Nijenhuis tensor is indeed a tensor. 
+	
+	
+	\item It is easiest to directly construct coordinate patches on $\CP^N$. We define $N$ such patches to consist of $N$ complex coordinates $z_1 = Z_1/Z_i \dots z_{i-1} = Z_{i-1}/Z_{i}, z_{i+1} = Z_{i+1}/Z_i, \dots z_N = Z_N/Z_i$ that are valid for all parts of $\CP^N$ where $Z_i \neq 0$. It is clear that these coordinates cover the whole manifold, since one $Z_i$ is always not equal to zero, so any given point is always in a coordinate patch. 
+	
+	Moreover, the transition functions between different patches $U, U'$ are simply fractional linear transformations of the $z_i, z_i'$, so are holomorphic. This is enough to give a globally defined complex structure (vanishing $N_{ij}^k$) the the manifold. 
+	
+	\item We begin with the existence of a Killing spinor 
+	\[
+		[\nabla_m, \nabla_n]\xi = R_{rs, mn} \gamma^{rs} \xi  =0
+	\]
+	Now, multiplying by $\gamma^n$, we get
+	\[
+		0 = \gamma^{n} \gamma^{rs} R_{rs, mn} \xi = (\gamma^{nrs} + g^{nr} \gamma^s - g^{ns} \gamma^r) R_{rs, mn} \xi 
+	\]
+	The first term vanishes by the Bianchi identity. The other two terms give:
+	\[
+		2 R_{ns} \gamma^s \xi = 0
+	\]
+	Now we can multiply by $\bar \xi \gamma_r$ to get
+	\[
+		0 = R_{ns} \bar \xi \gamma_r \gamma^s \xi = R_{ns} J^r_s
+	\]
+	Since the complex structure is invertible, this gives $R_{ns} = 0$, so indeed our space is Ricci flat.
+	
+	\item To verify the masslessness of the graviton, it is enough to look at linearized gravity and confirm that the perturbations satisfy the massless spin 2 condition. 
+	
+	To
+	
+	\item 
+	
+	\item 
+	
+	\item 
+	
+	
+	 % Its easiest to do this by induction. We already know $\CP^1$, the Riemann sphere, has complex structure most easily constructed through two complex coordinate charts patching the northern hemisphere with the southern hemisphere.
+	
 \end{enumerate}
 
 % section chapter_9_compactification_and_supersymmetry_breaking (end)
