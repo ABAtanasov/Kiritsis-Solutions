@@ -731,7 +731,7 @@
 	\]
 	Summing these all together gives the standard $\SL(2, \RR)$ invariant bilinear form.  Thus, $\SL(2,\RR)$ acts by electric magnetic duality, transforming the tuple $(G, \star G)$ in the \textbf{2} representation. 
 	
-	\textbf{Slightly incomplete, understand the origin of the action better.}
+	\textbf{Slightly incomplete, understand the origin of the action better. Look at 9506011}
 	
 	\item Taking IIB down to 5D and looking at conserved vectors (coupling to point-like objects). First, note we can wind any of the $(p,q)$ strings around any of the $5$ cycles of $T^5$, giving $10$ vector currents. We also get 5 KK currents from the dimensional reduction that are $T$-dual to the string modes and together forms a $10$ of $\SO(5,5)$. We also have the D3 brane winding around any ${5 \choose 3} = 10$ cycles. Finally, the D5-brane \emph{and} NS5 can wrap the torus giving an additional $2$ charges. The NS5 is a singlet of $\SO(5,5)$. The D-branes are all T-dual and give a 16-dimensional representation, which is either the spinor or conjugate spinor depending on whether we start from IIA or IIB. 
 	
@@ -788,7 +788,7 @@
 	
 	Naively we could apply the same argument to D5 branes, which would then violate the D1-D5 Dirac quantization by a factor of 2.
 	
-	However, from an analysis of the cylinder amplitude for 59 and 95 strings with orientation projection, we get the constraint $\epsilon^2_{59} \zeta_5 \zeta_9 = 1$. By consistency of interactions of 59 strings with 55 and 99 strings, we get $\epsilon_{59}^2 = \epsilon_{55}^2 = \epsilon_{99}^2 = -1$. Consequently, the D5 brane will have opposite orientation projection than the D9 brane, namely the symplectic one. Taking the determinant of $\gamma = \zeta \gamma^T$ however gives $\zeta^N = 1$, so $\zeta = -1$ will only work for $N$ even. Another way to say this is: ``sympletically projected branes must move in pairs''. 
+	However, from an analysis of the cylinder amplitude for 59 and 95 strings with orientation projection, we get the constraint $\epsilon^2_{59} \zeta_5 \zeta_9 = 1$. By consistency of interactions of 59 strings with 55 and 99 strings, we get $\epsilon_{59}^2 = \epsilon_{55}^2 = \epsilon_{99}^2 = -1$. Consequently, the D5 brane will have opposite orientation projection than the D9 brane, namely the symplectic one. Taking the determinant of $\gamma = \zeta \gamma^T$ however gives $\zeta^N = 1$, so $\zeta = -1$ will only work for $N$ even. Another way to say this is: ``symplectically projected branes must move in pairs''. 
 	
 	Thus, the ``fundamental'' D5 brane should be thought of as a D5 with $\Sp(2)$ index $a=1,2$. Repeating the cylinder amplitude calculation gives a factor of $2^2$, which translates to a tension of $2 \times \frac{T_5^{II}}{\sqrt2} = \sqrt2 T_5^{II}$.
 	
@@ -885,13 +885,114 @@
 	
 	\item Start with the heterotic E theory and compactify on a circle. $n$ units of KK momentum on this circle will be T-dualized to $n$ units NS flux in the O(32) theory, ie a string wrapping the circle $n$ times. Upon S-duality, this will correspond to a D1 brane wrapping the circle in type I $n$ times. We T-dualize again to get a D0 brane in the type I' theory carrying $n$ units of charge. In the strong coupling limit, this is understood as $n$ units of momentum in the eleventh direction.  
 	
-	\item The coupling to a single boundary is given by
+	\item 
+	The bosonic part of the vector multiplet on a single boundary is given by
 	\[
 		-\frac{1}{4 \lambda^2} \int d^{10} x \sqrt{-g_{10}} \,\Tr[F^2]
 	\]
-	At first glance, $\lambda$ would appear arbitrary. Anomaly cancelation will yield an exact value for it in terms of the eleven-dimensional gravitational coupling.
+	At first glance, $\lambda$ would appear arbitrary. Anomaly cancelation will yield an exact value for it in terms of the eleven-dimensional gravitational coupling. Kiritsis writes explicitly $\lambda^2 = 2 \pi (4 \pi \kappa_{11}^2)^{2/3}$, which gives that the dimensionless ratio $\lambda^6/\kappa_{11}^4 = (2 \pi)^3 (4 \pi)^2 = 128 \pi^5$. This is as in Horava and Witten, but it is not obvious that this is how $\lambda$ is determined from $\kappa_{11}$ from first principles. 
 	
-	In the presence of a boundary, the 11D Chern-Simons terms spoil gauge invariance.
+	Let's recall anomaly cancelation in 10D. Recall that for the type I supergravity theories, it was crucial to have enough 10D vector multiplets to cancel the $\Tr[R^6]$ terms, giving $n=496$
+	
+	We can view the M-theory orbifold $\RR^{11}/\ZZ_2$ as giving rise to two twisted sectors (as in string theory). In 11D we have
+	\[
+		\Gamma^1 \dots \Gamma^{11} = 1
+	\]
+	 The supersymmetries preserved by the $\ZZ_2$ action are those that satisfy (WLOG) $\Gamma^{11} \epsilon = \epsilon$. This means that in the 10D perspective, this gives rise to chiral fermions in the $16_+$. Although in the smooth part of the bulk, there cannot be a gravitational anomaly, the incorporation of a boundary (or more) can. A general diffeomorphism in the bulk will not lead to any anomalous variation $\delta \Gamma$ of the effective action. WLOG, take a diffeomorphism on $\RR^{10}$ and pull it back to the orbifold by making it constant along the interval $S^1/\ZZ_2$. The anomaly is the standard one in 10D. The boundaries must therefore contribute massless multiplets. The only such candidate is a vector multiplet. By symmetry, each must contribute the same number of vector multiplets. The prior paragraph then shows that each must contribute 248.  
+	 
+	 In order to apply Green-Schwarz, we crucially need a two-form $B$, that we are guaranteed in all 10D string theories. The answer here comes from the pullback of the 3-form $A_3$ to the boundaries $H_1, H_2$ giving $B_2, B_2' = A_{\mu \nu 11}\big|_{H_1, H_2}$ respectively. 	The anomaly polynomial in 10D of the form $I_4 \wedge X_8$ leads to $\int B \wedge X_8$, but one can see that $X_8$ for $E_8 \times E_8$ involves no cross terms from either $E_8$, and can in fact be written as 
+	 \begin{align}
+	 	I_{12}(R, F_1, F_2)&= \hat I_{12}(R, F_1) + \hat I_{12}(R, F_2)\\
+		\hat I_{12}(R, F_i) &= \hat I_4(R, F_i) \hat I_8(R, F_i)\\
+		\hat I_4(R, F) &= \frac12 \tr R^2 - \frac12 \tr F^2\\
+		\hat I_8(R, F) &= - \frac12 \hat I_4 (R, F)^2 + \big(-\frac18 \tr R^4 + \frac{1}{32} (\tr R^2)^2 \big) \label{eq:I8}
+	 \end{align}
+	 Here $\tr = \frac{1}{30} \Tr_{adj}$ for $E_8$.
+	 This gives Chern-Simons terms of the form:
+	 \[
+	 	\int_{H_1} B_2 \wedge I_8(R, F_1) + \int_{H_2} B_2' \wedge I_8(R, F_2)
+	 \]
+	 This does not quite go far enough, in that we would not be able to recover $\lambda^6/\kappa_{11}^2$ from this. 
+	 
+	\textbf{This next part I got from Horava and Witten 9603142}
+	 First note that we would like our boundary theory to be \emph{locally} supersymmetric. As it stands, it is not. The standard way in SUGRA (although I did not know this because I don't know enough SUGRA at this point) is to add the gravitino interaction with the supercurrent to the Lagrangian: 
+	 \[
+		-\frac{1}{4 \lambda^2} \int d^{10} x \sqrt{-g} \bar \psi \mathcal S_{YM} = -\frac{1}{4 \lambda^2} \int d^{10} x \sqrt{-g} \bar \psi_A \Gamma^A \slashed{F}^a \chi^a
+	 \]
+	 After some work, we see that the only term with uncanceled supersymmetric gauge variation is
+	 \[
+	 	\frac{1}{16 \lambda^2} \int d^{10} x\sqrt{-g} \bar \psi_A  \Gamma^{ABCDE} F_{BC}^a F_{DE}^a \epsilon
+	 \]
+	 The only way to cancel this is to modify the 11D Bianchi identity. The reason is that, in checking invariance under local supersymmetry for the 11D Lagrangian, there is an integration by parts that involves the Bianchi identity $dG = 0$. If one instead modifies it to
+	 \[
+	 	dG_{11 \, A B C D} = - 3 \sqrt2 \frac{\kappa^2}{\lambda^2} \delta(x^11) \tr (F_{[AB} F_{CD]})
+	 \]
+	 We can then locally write 
+	 \begin{align}
+	 	G_{11, ABC} &= \d_{11} C_{ABC} + \frac{\kappa^2}{\sqrt2 \lambda^2} \delta(x^{11}) \Omega_{ABC}^{CS} \label{eq:anom1}\\
+		 \Omega_{ABC}^{CS} &= \tr(A_A F_{BC} + \frac23 A_A [A_B, A_C] + \perms) \label{eq:anom2} \\
+		 &\Rightarrow \dd \Omega^{CS} = 6 \tr (F_{[AB} F_{CD]}) \label{eq:anom3}\\
+		 \delta_{\epsilon} \Omega^{CS} &= \dd \tr [\epsilon F] \label{eq:anom4}\\
+		&\Rightarrow \delta_{\epsilon} C_{11, AB} = - \frac{\kappa^2}{6\sqrt2 \lambda^2} \delta(x^{11}) \tr (\epsilon F) \label{eq:anom5}
+	 \end{align}
+	 
+	 Note that the anomalous variation in equation~\eqref{eq:anom5} is similar to the $\delta B \sim \tr [\epsilon F]$ for the string theory 2-form. This gives that the 11D Chern-Simons 11D interaction has variation 
+	 \[
+	 	\frac{1}{3!} \int  C \wedge G \wedge G \to \frac{1}{2!} \frac{\kappa^2}{6\sqrt2 \lambda^2}  \int_{H} \tr[\epsilon F] \wedge G \wedge G
+	 \]
+	 The value of $G_{ABCD}$ on one of the hyperplanes is quickly seen to be 
+	 \[
+	 	G_{ABCD}|_H = -\frac{3 \kappa^2}{\sqrt{2}\lambda^2} \tr[ F_{[AB} F_{CD]}]
+	 \]
+	 Altogether the anomalous variation looks like
+	 \[
+	 	- \frac{\kappa^4}{128 \lambda^6} \int \tr[\epsilon F] \tr [F^2]^2
+	 \]
+	 On the other hand, the variation from the 10D chiral fermions in the vector multiplet gives
+	 \[
+	 	\frac12 \frac{1}{(4 \pi)^5 5!} \int \Tr [\epsilon F^5]
+	 \]
+	 where the trace is taken in the adjoint. 
+	 
+	 It is \emph{only} for $E_8$ that we have the nice identity $\Tr X^6 = \frac{(\Tr X^2)^2}{7200}$ and similarly $\Tr[\epsilon F^5] = \frac{\Tr \epsilon \Tr F^5}{7200}$. After identifying $\tr = \Tr/30$, we can write $\Tr X^6 = \frac{15}{4} (\tr X^2)^3$ etc. We get
+	 \[
+	 	\frac{15}{8 (4 \pi)^5 5!} \int \Tr [\epsilon F^5]
+	 \]
+	 This will cancel exactly when $\kappa$ and $\lambda$ are related as required. 
+	 
+	 	 %
+	 % Another way to say this as that the Bianchi identity for the 11-dimensional 4-form is violated. Its violation is a five-form supported on both boundaries $x^{11}_i = 0, \pi$.
+	 % \[
+	 % 	dG \propto \sum_{i=1,2} \delta(x^{11} - x^{11}_i) dx^{11} \hat I_4
+	 % \]
+	 %
+	 % \textbf{Get $X_8$ from $I_8$}
+	 Thus, we see that the Green-Schwarz term already present in 11D SUGRA plays a crucial role in canceling the gauge anomaly. We needed the GS terms to be bulk objects, as if they were simply $\delta$-function supported on the boundary this would a) not seem very much like quantum gravity, and b) give gauge variations of boundary interactions proportional to $\delta(0)$.
+	 
+	 Note that the CS term for the gauge field in the supergravity action was classical (as opposed to the 10D superstrings, where they are 1-loop effects). Consequently, a classical theory with the SUGRA multiplet in the bulk and the gauge multiplet on each boundary is \emph{classically inconsistent.}
+	 
+	 Given our understanding of 10D anomalies, we then expect (correctly) that the full gauge \emph{and} gravity variation will modify the Bianchi identity as:
+	 \[
+	 dG_{11 \, A B C D} = - 3 \sqrt2 \frac{\kappa^2}{\lambda^2} \delta(x^11) \Big(\tr (F_{[AB} F_{CD]}) - \frac12 \tr (R_{[AB} R_{CD]}) \Big)	
+	 \]
+	These $\tr R^2$ terms are not required from classical 11D SUGRA, so they must arise as \emph{quantum effects} of M-theory.
+	 
+	 The anomaly cancelation term usually takes the form:
+	 \[
+	 	\int C \wedge I_8
+	 \]
+	 Note the suggestive way $I_8$ is written in equation \eqref{eq:I8}.
+	Because we have seen that $G \propto I_4$ on the boundary, the Chern-Simons term $C \wedge G \wedge G$ on the boundary reduces to $C \wedge I_4^2$. This is a part of $I_8$. We thus expect the remaining part to take the form:
+	\[
+		\frac{\sqrt{2}}{(4 \pi)^3 (4 \pi \kappa^2)^{1/3}} \int C \wedge \left(-\frac18 R^4 + \frac{1}{32} (\tr R^2)^2 \right)
+	\]
+	Again, this is a purely quantum effect of M-theory. 
+		%
+	% Upon dimensional reduction to IIA, this gives the interaction
+	% \[
+	% 	\int B \wedge X_8
+	% \]
+	% which is indeed a 1-loop effect in that theory (c.f. question \textbf{35}).
 	
 	\item Here $M$ is a $20 \times 20$ matrix. It is quick to see that $M L M = L$ for the $20 \times 20$ matrix 
 	\[
@@ -941,25 +1042,25 @@
 	The EOMs for $\Phi$ give respectively:
 	\[
 	\begin{aligned}
-		&\nabla^2 \Phi + e^{-2\Phi} |H|^2  + \frac{e^{-\Phi}}{2} |F|^2\\
-		&\nabla^2 \Phi + e^{-2\Phi} |H|^2  - \frac{e^{\Phi}}{2} |F|^2
+		&\text{Het E:} & \nabla^2 \Phi + e^{-2\Phi} |H|^2  + \frac{e^{-\Phi}}{2} |F|^2 = 0\\
+		&\text{IIA:} & \nabla^2 \Phi + e^{-2\Phi} |H|^2  - \frac{e^{\Phi}}{2} |F|^2 = 0
 	\end{aligned}
 	\]
 	
 	The EOMs for the $A_\mu$ give respectively:
 	\[
 	\begin{aligned}
-		& e^{-2 \Phi} (\star H) \wedge F - \dd(e^{-\Phi} M_{ij} \star F^j) = 0\\
-		& -\dd(e^{\Phi} M_{ij} \star F^j) + H \wedge F  = 0
+		& \text{Het E:}& e^{-2 \Phi} (\star H) \wedge F - \dd(e^{-\Phi} M_{ij} \star F^j) = 0\\
+		& \text{IIA:}&-\dd(e^{\Phi} M_{ij} \star F^j) + H \wedge F  = 0
 	\end{aligned}
 	\]
 	This is equivalent under $\Phi \to - \Phi, e^{-2\Phi} H = \star H'$.
 	
-	The EOMs for the $B_{\mu \nu}$ give respectively 
+	The EOMs \emph{and} Bianchi identity for the $B_{\mu \nu}$ give respectively 
 	\[
 	\begin{aligned}
-		& -\dd (e^{-2 \Phi} \star H) = 0, \qquad &\dd H - F \wedge F = 0\\
-		& -\dd (e^{-2 \Phi} \star H) + F \wedge F = 0, \qquad &\dd H = 0
+		& \text{Het E:}& -\dd (e^{-2 \Phi} \star H) = 0, &\qquad &\dd H - F \wedge F = 0 &\\
+		& \text{IIA:}& -\dd (e^{-2 \Phi} \star H) + F \wedge F = 0, &\qquad  &\dd H = 0 &
 	\end{aligned}
 	\]
 	The fact that the $H$ duality exchanges the Bianchi identity and the EOMs speaks to the fact that it is an \emph{electric-magnetic duality of strings}.
@@ -1001,7 +1102,33 @@
 	\textbf{Did Kiritsis mean to write $N$?}
 	
 
-	\item 
+	\item We have seen that to apply the GS mechanism, the heterotic B-field must have a modification of its Bianchi identity from
+	\[
+		H = dB - \Omega_3^{YM}(A) + \frac{\kappa^2}{g^2} \Omega_3^{GR}(\omega), \quad \Omega_3(A) = \Tr \Big[A \wedge dA - \frac{2i}3 A \wedge A \wedge A\Big]
+	\]
+	I have absorbed the factor of $\frac{\kappa^2}{g^2}$ into these fields. This will cancel the anomalous change in B
+	\[
+		\delta B = \frac{\kappa^2}{g^2} \Tr[\Lambda F_0 - \Theta R_0]
+	\]
+	required to have a GS term $\int B \wedge X_8$ cancel the full anomaly. The modified Bianchi identity is
+	\[
+		dH = -\tr[F \wedge F] + \tr[R \wedge R]
+	\]
+	Here $\tr$ is taken always in the fundamental. The second addition important for the cancelation of \emph{gravitational anomalies}.
+		%
+	% When we compactify the heterotic string the 6D, $F$ gets additional indices, but in any case the pontryagin class represented by $dH$ must be trivial.
+	% In 6D, this anomaly polynomial is simpler. We take $\int B \wedge X_8$ and reduce on K3. Only the $\tr B \wedge (R \wedge R)$ term survives.
+	%
+	Following the logic in question \textbf{33}, by duality, a modification of the Bianchi identity in heterotic string requires a modification in the $B$ equations of motion on the heterotic side corresponding to the addition to the action of a term:
+	\[
+		-\int B \wedge R \wedge R
+	\]
+	The CS terms are thus:
+	\[
+		% \frac{1}{2 \pi \ell_s^2} \int \hat L_{ij} \; B \wedge \frac{F^i \wedge F^j}{(4\pi)^2} - \int B \wedge \frac{R \wedge R}{(4 \pi)^2} \sim
+		\int B \wedge (\tr(F \wedge F) - \tr(R \wedge R))
+	\]
+	 Further, Vafa and Witten confirm this term from a 1-loop calculation using the elliptic genus on the IIA side in \href{https://arxiv.org/pdf/hep-th/9505053.pdf}{9505053}. This gives a nontrivial 1-loop test of the 6D string-string duality. This problem only asks me to assume the duality in performing the match.
 	
 	\item In our case, wrapping 3-branes around 2-cycles give rise to two-forms. As one 2-cycle shrinks $B$ to zero size, we get a tensionless string, of tension approximately $|\text{Vol}(B)|/g_s$. For each isolated singularity of K3 (type ADE) there is such a tensionless string theory. Note that this is not yet the (2,0) SCFT, since we have not taken any sort of IR limit that would lead us to expect that the theory is conformal. We still have mass scales. This is an interacting QFT of light strings. 
 	
@@ -1025,22 +1152,112 @@
 	
 	\textbf{Check against literature.}
 	
-	\item I'll start from the Einstein frame in 6D. Taking $\sigma = \frac12 \det G_{\alpha \beta}$ we get for heterotic: 
+	\item 
+	To simplify this problem, I will reduce the heterotic theory directly from 10D and keep in mind that reduction on tori commutes. In the string frame I get
 	\[
-		\int d^4 x \sqrt{-G} e^{\sigma } \left(R + |\nabla \sigma|^2 + \frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta} - |\nabla \Phi|^2 - \frac{e^{-2\Phi}}{2} |H_3|^2 - \frac{e^{-2\Phi}}{2} G^{\alpha \beta} F^B_\alpha F^B_\beta - \frac{e^{-\Phi}}{2} |F_2|^2 + \frac18 \Tr[\d M \d M^{-1}] \right)
+		\int d^4 x \sqrt{-g} e^{-2\phi} \left[R + 4 (\d \phi)^2 - \frac12 |H_3|^2 - \frac14 {M^{-1}}_{ij} F_{\mu \nu}^i F^{j\, \mu \nu} + \frac18 \Tr[\d_\mu M^{ij} \d^\mu M_{ij}] \right]
 	\]
-	The $M$ matrix will combine with the $G_{\alpha \beta}$ to parameterize a $\SO(6,22)$ coset. Rescaling $G \to e^{-\sigma/2} G$ we get:
+	Upon taking $g \to e^{2\phi} g$ we get the Einstein frame:
 	\[
-		\int d^4 x \sqrt{-G} \left(R  - |\nabla \Phi|^2 - \frac{e^{-2\Phi + \sigma}}{2} |H_3|^2 - \frac{e^{-\Phi + \sigma}}{2} |F_2|^2 + \frac18 \Tr[\d M \d M^{-1}] \right)
+		\int d^4 x \sqrt{-g} \left[R - 2 (\d \phi)^2 - \frac{e^{-4 \phi}}{2} |H_3|^2 - \frac{e^{-2 \phi}}{4} {M^{-1}}_{ij} F_{\mu \nu}^i F^{j\, \mu \nu} + \frac18 \Tr[\d_\mu M^{ij} \d^\mu M_{ij}] \right]
 	\]
+	Here the $M_{ij}$ scalar matrix lives in the $\SO(6, 22)$ coset, and there are $28$ fields $F^i$. We can dualize the $H_3$ to a scalar axion through the relation (as in \textbf{9.1.12)}
+	\[
+		e^{-4\phi} H = \star \d C_0 \Rightarrow e^{-4 \phi} |H|^2 = e^{4 \phi} (\d C_0)^2
+	\]
+	In performing this dualization, the $B$ equations of motion are automatically satisfied.
+	\[
+		\nabla^\mu (e^{-4 \phi} H_{\mu \nu \rho}) = \nabla^\mu(\varepsilon_{\mu \nu \rho}^{\ \ \ \ \sigma} \d_\sigma C_0) = 0
+	\]
+	The Bianchi identity for $H$ must now be imposed by hand 
+	\[
+		\varepsilon^{\mu \nu \rho \sigma} \d_\mu H_{\nu \rho \sigma} = - L_{ij} F^i_{\mu \nu} \tilde F^{j\ \mu \nu} 
+	\]
+	This corresponds to adding the term 
+	\[
+		\frac14 C_0\, L_{ij} F^i_{\mu \nu} \tilde F^{j\ \mu \nu}
+	\]
+	to the Lagrangian. 
+	We then combine the axion with $\phi$ to give:
+	\[
+		\int d^4 x \sqrt{-g} \left[R - \frac12 \frac{\d \S \d \bar \S}{\S_2^2}  - \frac{1}{4} \S_2\, {M^{-1}}_{ij} F_{\mu \nu}^i F^{j\, \mu \nu} + \frac14 S_1 L_{ij} F_{\mu \nu}^i \tilde F^{j\ \mu \nu} + \frac18 \Tr[\d_\mu M^{ij} \d^\mu M_{ij}] \right]
+	\]
+	where here $\S = C_0 + i e^{-2\phi}$ (note the $2 \phi$, by contrast with 10D).
 	
-	For the IIA side we get something similar:
+	% I'll start from the Einstein frame in 6D. Taking $\sigma = \frac12 \det G_{\alpha \beta}$ we get for heterotic:
+% 	\[
+% 	\begin{aligned}
+% 		\int d^4 x \sqrt{-G} e^{\sigma } \Big(R &+ |\d \sigma|^2 + \frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta} - |\d \Phi|^2\\
+% 		&- \frac{e^{-2\Phi}}{2} |\mathcal S_1|^2 - \frac{e^{-2\Phi}}{4} G^{\alpha \beta} H_{2 \alpha} H_{2\beta} - \frac{e^{-2\Phi-2\sigma}}{2} |H_1|^2\\
+% 		& - \frac{e^{-\Phi}}{2} |F_2|^2 - e^{-\Phi} G^{\alpha \beta} F_{1 \alpha} F_{1\beta}+ \frac18 \Tr[\d M \d M^{-1}]\\
+% 		& + \frac12  \mathcal S_1 L_{IJ} F^I \wedge \tilde F^J \Big)
+% 	\end{aligned}
+% 	\]
+% 	The $M$ matrix will combine with the $G_{\alpha \beta}$ to parameterize a $\SO(6,22)$ coset. Rescaling $G \to e^{-\sigma} G$ we get:
+% 	\[
+% 		\int d^4 x \sqrt{-G} \left(R  - |\d \Phi|^2 - \frac{e^{-2\Phi +  2 \sigma}}{2} |H_3|^2 - \frac{e^{-\Phi - \sigma}}{2} |F_2|^2 + \frac18 \Tr[\d M \d M^{-1}] \right)
+% 	\]
+	
+	For the IIA side we get:
 	\[
 	\begin{aligned}
-		&\int d^4 x \sqrt{-G} e^{\sigma } \left(R + |\nabla \sigma|^2 + \frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta} - |\nabla \Phi|^2 - \frac{e^{-2\Phi}}{2} |H_3|^2 - \frac{e^{-\Phi}}{2} |F_2|^2 + \frac18 \Tr[\d M \d M^{-1}] \right)\\
-		&=
+		\int d^4 x \sqrt{-G} e^{\sigma } \Big(&R + |\d \sigma|^2 + \frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta} - |\d \Phi|^2 - \\
+		&\quad  \frac{e^{-2\Phi}}{2} |H_3|^2 - \frac{e^{-2\Phi}}{4} G^{\alpha \beta} H_{\alpha\, \mu \nu} H_\beta^{\ \mu \nu} - \frac12 e^{-2\Phi -2 \sigma} (\d_\mu B_{\alpha \beta})^2\\
+		& \quad - \frac{e^{\Phi}}{2} {M^{-1}}_{ij} F_{\mu \nu}^i F^{j\, \mu \nu}
+		- \frac{e^{\Phi}}{2} {M^{-1}}_{ij} G^{\alpha \beta} F_{\mu \alpha}^i F^{j\, \mu \beta}
+		+ \frac18 \Tr[\d M \d M^{-1}]  \Big)
+		% = \int d^4 x \sqrt{-G} \Big(&R - \frac12 |\d \sigma|^2 + \frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta} - |\d \Phi|^2 - \\
+		% & \quad  \frac{e^{-2\Phi+2\sigma}}{2} |H_3|^2 - \frac{e^{\Phi + \sigma}}{2}{M^{-1}}_{ij} F_{\mu \nu}^i F^{j\, \mu \nu} + \frac18 \Tr[\d M \d M^{-1}] + \dots \Big)
 	\end{aligned}
 	\]
+	We take this to the Einstein frame $g \to e^{-\sigma} g$ giving
+	\[
+	\begin{aligned}
+		\int d^4 x \sqrt{-g} \Big(&R - \frac12 |\d \sigma|^2 + \frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta} - |\d \Phi|^2 - \\
+		&\quad  \frac{e^{-2\Phi + 2 \sigma}}{2} |H_3|^2 - \frac{e^{-2\Phi + \sigma}}{4} G^{\alpha \beta} H_{\alpha\, \mu \nu} H_\beta^{\ \mu \nu} - \frac12 e^{-2\Phi -2 \sigma} (\d_\mu B_{\alpha \beta})^2\\
+		& \quad - \frac{e^{\Phi + \sigma}}{2} {M^{-1}}_{ij} F_{\mu \nu}^i F^{j\, \mu \nu}
+		- \frac{e^{\Phi}}{2} {M^{-1}}_{ij} G^{\alpha \beta} F_{\mu \alpha}^i F^{j\, \mu \beta}
+		+ \frac18 \Tr[\d M \d M^{-1}]  \Big)
+	\end{aligned}
+	\]
+	
+	In this case, the dilaton and axion fields enter the mass matrix $M$, as does the torus complex modulus, whose kinetic term is the third term in the action above. The complexified K\"ahler modulus parameters of the torus remain \textbf{Why? This part needs elaboration}. Altogether, including the CS term, this reduces to
+	\[
+		\int d^4 x \sqrt{-g} \Big(R - \frac12 |\d \sigma|^2 - \frac12 e^{-2\sigma} (\d_\mu B)^2  - \frac{e^\sigma}{4} \, {M^{-1}}_{ij} F_{\mu \nu}^i F^{j\, \mu \nu}  + \frac18 \Tr[\d_\mu M^{ij} \d^\mu M_{ij}] + \frac14 B L_{ij} F_{\mu \nu}^i \tilde F^{j\ \mu \nu}  \Big)
+	\] 
+	Defining the parameter $T = B + i e^\sigma$ we get
+	\[
+		\int d^4 x \sqrt{-G} \Big(R - \frac12 \frac{\d T \d \bar T}{T_2^2} - \frac{1}{4} T_2\, {M^{-1}}_{ij} F_{\mu \nu}^i F^{j\, \mu \nu}  + \frac14 T_1\, L_{ij} F_{\mu \nu}^i \tilde F^{j\ \mu \nu}  + \frac18 \Tr[\d_\mu M^{ij} \d^\mu M_{ij}] \Big)
+	\]
+	
+	Comparing the above action with the heterotic one we identify $\S$ with $T$, giving (unprimed indicates heterotic, primed indicates IIA)
+	\[
+	\begin{aligned}
+		C_0 = B_{\alpha \beta}' \text{ (external SL$_2$)}, &\quad C_{0}' = B_{\alpha \beta}' \text{ (internal)}\\
+		e^{-2\phi} = e^{\sigma'}  \text{ (external SL$_2$)}, &\quad e^{-2 \phi'} = e^{\sigma} \text{ (internal)}
+	\end{aligned}
+	\]
+	This makes us also identify $g = g'$ and $M = M'$ as well as all the gauge fields descending from 6D $A_\mu^i = (A_\mu^i)'$ and the two descending from the $T^2$ metric $A_\mu^\alpha = (A_\mu^\alpha)'$.
+	
+	Electric-magnetic duality acts least trivially on $H_{\mu \nu \rho}$ in 6D. Consequently, it will act nontrivially on its axion and scalar descendants $B, C_0$ (as we have seen). The 2-form field strength $F^B$ remains. From 6D we have $e^{-2\phi} H = \star H'$. This descends to
+	\[
+		e^{-2\phi} G^{\alpha \beta} (F_{\beta, \mu \nu}^B  - L_{ij} Y^i_{\beta} F^j_{\mu \nu} - C_{\beta \gamma} F^{A, \gamma}_{\mu \nu} ) - \frac12 a \star F^A = \frac12 \frac{\epsilon_{\mu \nu}^{\ \ \rho \sigma} \varepsilon^{\alpha \beta}}{\sqrt{g}} (F^B_{\beta, \rho \sigma})'
+	\]
+	where we see on the heterotic side we have additional terms due to how $\hat H_{\mu \nu \rho}$ is defined in that case \textbf{account for additional axion term there}. 
+	
+	\textbf{Relatively unfinished.}
+	
+	%  This can be seen by the fact that they act as $M_{ij}^{-1}$ factors on $F_2$. Parameterizing the torus by complex modulus $\tau = \tau_1 + i \tau_2$ we get the action:
+	% \[
+	% 	\int d^4 x \sqrt{-G} \left(R - \frac12 \frac{\d \tau \d \bar \tau}{\tau_2^2} - \frac{1}{2} |F_2|^2 + \frac18 \Tr[\d M \d M^{-1}] + \dots \right)
+	% \]
+	%
+	% In the Einstein frame, we expect duality to preserve the metric. The simplest way for the $M$ matrix terms to match is if we identify the matrices directly $M = M'$. This implies that we identify the internal Wilson lines $Y_{\alpha}^i$ and $G_{\alpha \beta}, B_{\alpha \beta}$. as well as gauge fields $A_\mu^i, A_\mu^\alpha$.
+	%
+	% Duality now requires
+	% \[
+	% 	-\Phi + \sigma/2 = \Phi' + \sigma'/2 \Rightarrow e^{-2 \Phi} \sqrt{G_{\alpha \beta}} = e^{2 \Phi'} \sqrt{G_{\alpha \beta}'}
+	% \]
 	
 	\item I will just demonstrate this on the Bosonic sector. $(-1)^{\mathbf{F}_L}$ sends the RR fields to minus themselves (ie $C_0, C_2, C_4$), while $S$ swaps $B_2, C_2$ and flips the axion part of the axio-dilaton $\tau \to -\bar \tau$. Conjugating $(-1)^{\mathbf{F}_L}$ by $S$ will flip the sign of $C_4$ and $B_2$ and also take $\tau \to -\bar \tau$. The untwisted sector will thus be without $B_2, C_0, C_4$ leaving only $G, \phi, C_2$. This is the closed-string sector of type I. 
 	
@@ -1069,14 +1286,14 @@
 	\item
 	 Because $A_3$ is odd under the $\ZZ_2$ transformation, we must wrap it on either a 1-cycle or a 3-cycle to have things survive. There are 5 1-cycles giving 5 vectors and ${5 \choose 2} = 10$ 2-cycles giving 10 $0$-forms in 6D. Further, the internal metric has $5 \times 6/2 = 15$ even terms that survive. Altogether we get 5 2-forms, 25 scalars, and 10 vectors. 
 	
-	This is $N=(2,0)$ (chiral) supergravity consisting of the supergravity multiplet and five tensor multiplets, each of which contains an anti-self-dual two-form field (the 5 self-dual parts are part of the SUGRA multiplet). Cancelation of anomalies \textbf{prove and understand compared to the $N = (1,0)$ case} require $N_T = 21$. We are missing \emph{sixteen} tensor multiplets.  
+	This is $N=(2,0)$ (chiral) supergravity consisting of the supergravity multiplet and five tensor multiplets, each of which contains an anti-self-dual two-form field (the 5 self-dual parts are part of the SUGRA multiplet). Cancelation of anomalies \textbf{(prove and understand compared to the $N = (1,0)$ case)} require $N_T = 21$. We are missing \emph{sixteen} tensor multiplets.  
 	
 	
 	The orbifold has $2^5 = 32$ fixed points which we expect will lead to twisted sectors. We shouldn't be too sure of how things go, though, because we don't know how to deal with twisted sectors of M-theory. It initially looks paradoxical that we need 16 extra tensor multiplets but have 32 fixed points. This is resolved in \href{https://arxiv.org/pdf/hep-th/9512219.pdf}{Witten 9512219}. The solution is to recognize the fixed points as 32 magnetic sources of charge $-1/2$ for the $G_4$ field. The constraint that the total charges should vanish is satisfied when 16 of these sources have a five-brane on top of them of $+1$ magnetic charge. Each fivebrane can be seen to support a single tensor multiplet, giving our desired 16. We interpret the five scalar in each multiplet as describing the position of the fivebrane inside $T^5/\ZZ_2$. 
 	
 	This now gives the massless spectrum of type IIB on K3. 
 	
-	The question is how to arrange the fivebranes in such a way that we can see the duality to IIB on K3. The equivalence implies that when \emph{any} circle shrinks \textbf{show more rigorously}, we would expect to recover weakly coupled IIB on K3. The naive guess I had is to arrange them in an alternating ``checkerboard'' pattern. Witten confirms this. Now, in the limit where any circle shrinks to zero size, the opposite charge sources cancel, giving zero 4-form field strength in the 6D spacetime, consistent with the fact that the 3-form has been projected out on the M-theory side and doesn't exist on the IIB side. 
+	The question is how to arrange the fivebranes in such a way that we can see the duality to IIB on K3. The equivalence implies that when \emph{any} circle shrinks \textbf{show more rigorously}, we would expect to recover weakly coupled IIB on K3. The naive guess I have is to arrange them in an alternating ``checkerboard'' pattern. \textbf{(Witten confirms this.)} Now, in the limit where any circle shrinks to zero size, the opposite charge sources cancel, giving zero 4-form field strength in the 6D spacetime, consistent with the fact that the 3-form has been projected out on the M-theory side and doesn't exist on the IIB side. 
 	
 	As a second check, we can further compactify on $S^1$. We get IIA on $T^5/\ZZ_2$ vs IIB on $S^1 \times K^3$. T-dualizing the latter along $S^1$ (the only 1-cycle!) gives IIA on $S^1 \times K^3$ which is equivalent to heterotic on $S^5$. S-dualizing this gives type I on $S^5$ which is T-dual to IIA on $T^5/\ZZ_2$  as an \emph{orientifold} \textbf{(why do we need to act with $\Omega$ too?)}
 	
