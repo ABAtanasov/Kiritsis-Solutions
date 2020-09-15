@@ -1,0 +1,383 @@
+\documentclass[11pt, class=article, crop=false]{standalone}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd}
+\usepackage{mathabx}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{simpler-wick}
+\usepackage{hyperref}
+\usepackage{ytableau}
+\usepackage{cancel}
+\usepackage{listings}
+\usepackage{relsize}
+\usepackage{xcolor}
+\usepackage{stmaryrd}
+\usepackage{slashed}
+\usepackage{tikz-feynman}
+\usepackage{kiritsis}
+\geometry{margin = 0.5in}
+
+
+\begin{document}
+\section*{Chapter 14: The Bulk/Boundary (Holographic) Correspondence} % (fold)
+\label{sec:chapter_14_the_bulk_boundary_holographic_correspondence}
+
+\begin{enumerate}
+	\item The two diagrams are as follows:
+	
+	\begin{center}
+		\textbf{Insert drawing}
+	\end{center}
+	
+	\item Let us focus on vacuum diagrams. We will rescale the fundamental field (call it $\phi$) so that the action has a leading factor going as $N$. Schematically this is:
+	\[
+		N\left(\frac{1}{\lambda} \Tr F^2 + \tr (D \phi)^2  \right)
+	\]
+	 By the same argument as for fermions in QED, any fermion worldline will give a closed curve, which we interpret at giving a boundary of the Riemann surface. Moreover, each fundamental field loop will contain exactly as many propagators as vertices (except for the trivial disconnected loop). 
+	
+	Each fundamental vertex will contribute $N$ while each propagator will contribute $\frac{1}{N}$. The connected fundamental loops could be viewed as \emph{not} contributing $N$ because each fundamental line will join with gauge boson lines which are already traced over. The fact that the fundamental loops do not contribute a face is consistent with their interpretation as enclosing boundaries of a Riemann surface. Thus, the introduction of each fundamental loop is equivalent to including a cycle with no interior, so we will \emph{not} count the face, and the vertices and edges don't contribute either. The  counting is then unmodified
+	\[
+		\left(\frac{\lambda}{N} \right)^E \left(\frac{N}{\lambda} \right)^V N^F  = N^{\chi}\, \lambda^{E - V}
+	\]
+	
+	\begin{center}
+		\textbf{Insert drawing}
+	\end{center}
+	
+	\item I think that the normalization of this operator (which is the same as in MAGOO) is just wrong. I think it should be $\Phi_a = \Tr[\prod_i X_i^{n_i}]$
+	\textbf{McGreevy confirms this}.
+	
+	Our single trace operator is a product over the distinct $X_i$ fields
+	\[
+		\Phi_a = \Tr \prod_{i} X_i^{n_i}
+	\]
+	Each such insertion has $\sum_i n_i$ external legs.
+		
+	For $\Phi_a$ distinct, we consider:
+	\[
+		S = N \frac{1}{\lambda} \Tr[d X^i d X^j + c_{ijk} X^i X^j X^k + \dots] + \sum_{a=1}^m N g_a(x)  \Phi_a (x)
+	\]
+	Here the $g_a$ are taken to be functions of $x$. % Note that the factor of $N$ out front of the last term comes from our choice of normalization of the $\Phi_a$.
+	
+	We then compute:
+	\[
+		\braket{ \prod_{a=1}^m \Phi_a(x_a)} = \frac{1}{N^m} \frac{\delta}{\delta g_1(x_1)} \dots \frac{\delta}{\delta g_m(x_m)}   \log \mathcal Z[\{g_a\}]
+	\]
+	We can compute vacuum bubbles for this modified action as before. We now get a new vertex type involving the single-trace operator $\Phi_a$. Because it still appears with a coefficient $N$ in the action, we can still apply the same counting logic to the calculation of $\log \mathcal Z$. The spherical contribution dominates.
+	
+	Thus, again the leading contributions to the free energy goes as $N^{2}$, and we get that the correlator expression behaves as $N^{2-m}$. In particular, the three-point function vanishes as $1/N$, as said in the text. 
+	
+	% This also justifies our normalization convention - this way the two-point functions are normalized to be $N$-independent in the large $N$ limit.
+	
+	\item 
+	Again, let's take the operator without the $\frac{1}{N^2}$ out front. To add in a double-trace operator requires two factors of $N$ out front. 
+	
+	We thus add to the action the term:
+	\[
+		S_{new} = \sum_{a=1}^N N^2 g_a(x) \Psi_a(x)
+	\]
+	We get $m$-point correlators by differentiating $m$ times by $N^2 g_a$. With our choice of $S_{new}$, $\log Z$ still satisfies the same Euler characteristic rules as before, and has a dominant contribution going as $N^2$. We see that the two-point function then goes as $N^{-2}$. Normalizing the two-point function two $1$ requires that we look at the fields $\tilde \Psi_a = N \Psi_a$. The three point function then goes as $N^{-1}$.
+	
+	\textbf{Understand the Silverstein paper about the connecting $S^2$s contributing for double twist.}
+	
+	\item We add to the action the following (schematic) terms:
+	\[
+		N \Tr[(D q)^2 + (D \bar q)^2 + q \bar q + q \bar q \Phi + \dots ]
+	\]
+	Again the propagators will give $1/N$ and the vertices will give $N$, so we can apply the same analysis to get that planar diagrams dominate. For the two point correlator of $q \bar q$, we must introduce a quark loop into our worldsheet. The lowest-genus such surface is the disk, with two $q \bar q$s inserted on the boundary. This is genus $1$. Differentiating with respect to $N$ twice I get a two-point function going as $N^{-1}$. To get this to be unity I must rescale my mesons operator to be $\sqrt{N} q \bar q$. Now the $m$-point correlation function goes as $N^{m/2} N^{1-m}$.
+	We thus get scaling behavior behavior $N^{1-m/2}$ for mesons. In particular the 3-point function goes as $1/\sqrt{N}$. 
+	
+	% I can write the mesons as $\phi = \tr q \bar q$ where the trace is in the fundamental representation. Adding $\int N g(x) \phi(x)$ to the action and differentiating
+	% \[
+	% 	\frac{1}{N^m} \frac{\delta}{\delta g(x_1)} \dots \frac{\delta}{\delta g(x_m)} \log \mathcal Z
+	% \]
+	% we get contributions from $m$ insertions of the meson traces. This corresponds to a Riemann surface with $m$ boundaries. This gives correlation functions going as $N^{2 - m}$
+	
+	\item It is important that in this case, for both $\SO(N)$ and $\Sp(2N)$, the fundamental representation $\mathbf{F}$ is real. Consequently, the adjoint can be written (up to $1/N$ corrections) as the antisymmetrized (resp symmetrized) part of $\mathbf{F} \otimes \mathbf{F}$. In double-line notation we can understand the gluons as being labeled by two ``fundamental lines''. Because there is no difference between $\mathbf{F}$ and $\overline{\mathbf{F}}$, there is no inherent orientation to the strips, and we can twist to form unoriented surfaces. Thus, the string theory that these would correspond to must necessarily be non-oriented. 
+	
+	The difference between the orthogonal and symplectic projection will be in the relative sign of a propogator with intermediate twist between $\O(2N)$ and $\Sp(2N)$. For $\O(2N)$ we have the same sign contribution between the propagator and the propagator-with-crosscap. For $\Sp(2N)$, we have the opposite sign.
+	
+	\textbf{Draw this}
+	
+	We can talk about a large $N$ expansion of diagrams identically. The only additional ingredient is incorporating points where edges swap. These play roles identical to cross-caps. The diagrams we can draw will have $V$ vertices with $N/\lambda$ coefficient, $E$ edges with $\lambda/N$ coefficient, $F$ faces, with $N$ coefficient, and $C$ ``cross-caps'' with $N^{-1}$ coefficient. Altogether these gives 
+	\[
+		N^{V-E+F-C} \lambda^{E-V} = N^{\chi} \lambda^{E-V}
+	\]
+	generalizing the prior discussion.
+	
+	\item Take $L = 1$. The relationships \textbf{14.4.7} become:
+	\[
+		\ell_s = \lambda^{-1/4} = (4 \pi g_s N)^{-1/4}
+	\]
+	and
+	\[
+		G_N = \frac{(2 \pi)^7 \ell_s^8}{16 \pi} g_s^2 = \frac{(2 \pi)^7 \ell_s^8}{16 \pi} \frac{1}{(4 \pi \ell_s^4 N)^2} = \frac{\pi^4}{4 N^2}.
+	\]
+	
+	\item 
+	 Starting with IIB the gravitational constant is $16 \pi G_N = (2\pi)^7 \ell_s^8 g_s^2$. The volume of $S^5$ is $\pi^3 L^3$. We get:
+	 \[
+	 	G_5 = \frac{8 \pi^3 \ell_s^8}{L^5} g_s^2
+	 \]
+	 Recall in AdS/CFT, the coupling constant $\lambda$ is the 4th power of $L$ in string units: 
+	 	\[
+	 		\frac{L^4}{\ell_s^4} = 4 \pi g_s N
+	 	\]
+		Substituting this gives:
+		\[
+			G_5 = \frac{8 \pi^3 L^3}{(4 \pi N)^2} = \frac{\pi L^3}{2 N^2}
+		\]
+		This is a nice relationship, independent of the string length, and only dependent on the size of AdS and the number of D-branes. 
+	
+	\item \textbf{Massless and massive vector fields in AdS}
+	\begin{enumerate}
+		\item \textbf{Massless Case} Let $A_M (z, \vec x) = z^{\Delta} f_M(\vec x)$. The equations of motion for the Maxwell theory give:
+		\[
+			0 = \partial_M (\sqrt{-g} F^{MN}) = \partial_M (\sqrt{-g} g^{M A} g^{N B} \partial_{\small[ A} A_{B\small]}) \propto \partial_{z} \left( \frac{1}{z^{d+1}} z^{4} \partial_{z} (z^{\Delta} f_M(\vec x)) \right) + \dots
+		\]
+		 where $\dots$ are terms with higher powers of $z$. Altogether this is:
+		 \[
+		 	[(-d+3)\Delta + \Delta(\Delta-1)] z^{\Delta - d} f(x^M) = \Delta(\Delta - (d - 2)) = 0.
+		 \]
+		 This implies that either $\Delta = 0$ or $\Delta = d-2$.
+		
+		 
+		We can get the true scaling dimension by looking at how the invariant field $A = A_\mu dx ^\mu$ falls off at infinity. The reason for the discrepancy is that $dx^\mu$ is not a unit vector, but rather has length $R/z$. The scaling of $A$ is $|A| = \sqrt{g^{\mu \nu} A_\mu A_\nu} \to \sqrt{\frac{z^2}{R^2}} z^{d-2} = z^{d-1}$.
+		
+		This gives a scaling dimension of $d-1$, exactly what we want for a conserved current. 
+		It does not matter which one we use to find the dimension of $J^\mu$, so long as we apply the consistent procedure that we have just done. 
+		
+		\item \textbf{Massive case} Now again we have:
+		\[
+		\begin{aligned}
+			0 = \partial_M (\sqrt{-g} F^{MN}) - \sqrt{-g} m^2 A^N\\
+			& = \partial_M (\sqrt{-g} g^{MA} g^{NB} \partial_{\small[ A} A_{B\small]}) - \sqrt{-g} m^2 A_M\\
+			 &\propto \partial_{z} \left( \frac{1}{z^{d+1}} z^{4} \partial_{z} (z^{\Delta} f_M(\vec x)) \right) - R^{-2} m^2 z^{\Delta-d} f_M + \dots
+		\end{aligned}
+		\]
+		Then this gives a new quadratic equation for $\Delta$:
+		\[
+			0 = \Delta (\Delta + 2 - d) - m^2 \Rightarrow \Delta = \frac{d-2}{2} \pm \sqrt{\frac{(d-2)^2}{4} + \frac{m^2}{R^2}} 
+		\]
+		 As before, looking at $|A| \propto \sqrt{\frac{z^2}{R^2}} z^\Delta \to z^{\Delta + 1}$ gives a conformal dimension of one higher:
+		\[
+			\tilde \Delta = \frac{d}{2} \pm \sqrt{\frac{(d-2)^2}{4} + \frac{m^2}{R^2}} 
+		\]
+		We see that the massive field picks up an $A_z$ component which cannot be gauged away, as the mass term is not gauge invariant. Because gauge invariance is lost, we see that the corresponding operator in the CFT does not have dimension $d-1$ anymore and no longer gives rise to a conserved current (see next problem). 
+		
+	\end{enumerate}
+	
+	\item Taking $A_\mu \to A_\mu + \d_\mu \epsilon$ gives:
+	\[
+		W[A_\mu] \to W[A_\mu + \d_\mu \epsilon] = \braket{e^{\int d^d x\, J^\mu A_\mu - \int d^d x\, \epsilon \d_\mu J^\mu }} = W[A_\mu]
+	\]
+	here $A_\mu$ is the source for the boundary $J^\mu$ current in the CFT. So the partition function is invariant under any local gauge transformation of $A_\mu$. This gives us that a global $U(1)$ in the CFT corresponds to a gauged $U(1)$ on the boundary.
+	
+	\item We couple our CFT stress tensor $T^{\mu \nu}$ to an external field $h_{\mu \nu}$. Note that under any shift $h_{\mu \nu} + \d_\mu \epsilon_\nu + \d_\nu \epsilon_\mu$ we get:
+	\[
+		W[h_{\mu \nu}] \to W[h_{\mu \nu} + \d_\mu \epsilon_\nu + \d_\nu \epsilon_\mu] = \braket{e^{\int d^d x\, T^{\mu \nu} h_{\mu \nu}- 2 \int d^d x\, \epsilon_\nu \d_\mu T^{\mu \nu}}} = W[h_{\mu \nu}]
+	\]
+	
+	Thus, the translation invariance given by $\d_\mu T^{\mu \nu} = 0$ of the CFT$_d$ has given diffeomorphism invariance in the bulk. This is gravity. 
+	
+	\item In global coordinates the metric is
+	\[
+		ds^2 = \frac{L^2}{\cos^2 \theta} \left(-d\tau^2 + d \theta^2 + \sin^2 \theta d\Omega_3^2 \right)
+	\]
+	Let's find $u$ by integrating:
+	\[
+		\int_0^{\theta'} \frac{d\theta}{\cos \theta} = \int_0^{u'} \frac{2 du}{(1-u^2)} \Rightarrow u = \tan \tfrac\theta2
+	\]
+	Consequently,
+	\[
+		\frac{4 u^2}{(1-u^2)^2} = \tan^2 \theta = \frac{\sin^2 \theta}{\cos^2 \theta}
+	\]
+	so we get agreement for the $du, d\Omega_3$ terms. Finally
+	\[
+		\frac{(1+u^2)^2}{(1-u^2)^2} = \frac{1}{\cos^2 \theta}
+	\]
+	and we get agreement for the $d\tau$ term, without having to rescale $\tau$. Since $0 < \theta < \pi/2$ we have $0 < u < 1$ as required. 
+	
+	\item Take $d\tau = 0$. First, take the points to be on opposite sides of the AdS cylinder. We get a distance equal to
+	\[
+		\int_{1-\epsilon}^{1+\epsilon} \frac{2 du}{1-u^2} = 2 \log\left(\frac{2-\epsilon}{\epsilon}\right) \approx 2 \log\left(\frac{2}{\epsilon}\right)
+	\]
+	Given that AdS is a homogenous space, we can use symmetry arguments from group theory to get the general formula, replacing $2$ with $|x_1 - x_2|$. For finding the geodesic distance through direct methods, a better coordinate system would be global coordinates. In AdS$_3$ this looks like:
+	\[
+	\begin{aligned}
+		X_{-1} &= L \cosh \rho \cos T\\
+		X_{0} &= L \cosh \rho \sin T\\
+		X_{1} &= L \sinh \rho \cos \theta\\
+		X_{2} &= L \sinh \rho \sin \theta\\
+	\end{aligned}
+	\] 
+	this generalizes directly to AdS$_{p+2}$. The argument will be the same there. Note 
+	\[
+		ds^2 = L^2 (-\cosh^2 \rho dT^2 + d\rho^2 + \sinh^2 \rho d\theta^2).
+	\]
+	Now take $dT= 0$. The Lagrangian takes the form:
+	\[
+		\mathcal L = L \sqrt{\dot \rho^2 + \sinh^2 \rho \, \dot \theta^2}
+	\]
+	Take $\tau = \rho$ so that the EOM for $\theta$ quickly gives:
+	\[
+		\theta' = \frac{c}{\sinh \rho \sqrt{\sinh^2 \rho - c^2}}
+	\]
+	Take $c = \sinh \rho_0$. In AdS this corresponds to the minimum distance $\rho$ that the geodesic will approach, since there we have $\theta' = \infty \Rightarrow d\rho/d\theta = 0$.
+	
+	\textbf{Insert figure}
+	
+	To get $\Delta \theta$, we integrate this, giving
+	\[
+		\Delta \theta = 2 \arctan \frac{\cosh \rho\, \sqrt{2} \sinh \rho_0}{\sqrt{\cosh 2 \rho - \cosh 2 \rho_0}} + c_0
+	\]
+	The factor of $2$ comes from the fact that we need to do the $\rho$ integration twice to get the full geodesic curve. Now we must take $\rho \to \infty$ to approach the boundary of AdS. In this case, the equation for $\Delta \theta$ simplifies to:
+	\[
+		\tan \frac{\Delta \theta - c}{2}  = \sinh \rho_0
+	\]
+	Taking $\theta \to 0$ (corresponding to $\rho_0 \to \infty$) shows that $c = -\pi /2$. This gives
+	\[
+		\tan \frac{\Delta \theta }{2}  = \frac{1}{\sinh \rho_0}
+	\]
+	The total length of the trajectory is:
+	\[
+		L \int d\rho \sqrt{1 + \sinh^2 \rho
+		\, (\theta'(\rho))^2} = L \int d\rho \frac{\sinh \rho}{\sqrt{\sinh^2 \rho - \sinh^2 \rho_0}} = 2 L  \log\left(\frac{\cosh \rho_f}{\cosh \rho_0}  +  \sqrt{\frac{\sinh^2 \rho_f - \sinh^2 \rho_0}{\cosh^2 \rho_0}}\right)
+	\]
+	Take $\rho_f \to \infty$. The leading behavior of this goes as
+	\[
+		2 L \log \frac{2 e^{\rho_f}}{\cosh \rho_0} = 2 L \log \left(2 e^{\rho_f} \sin \frac{\theta}{2} \right)
+	\]
+	Now note that for $x, y$ coordinates in $\RR^{d+2}$ lying on the unit $S^{d+1}$, we have 
+	\[
+		|x-y|^2 = (\cos^2 \theta - 1)^2 + \sin^2 \theta = 4 \sin^2 \frac{\theta}{2} \Rightarrow |x-y| = 2 \sin \frac{\theta}{2}.
+	\]
+	Finally, $\sinh \rho_f = \tan \theta_f$. This gives $\theta_f = \pi/2 - \epsilon$, with $\epsilon = e^{-\rho_f}$. Then $\tilde u = \tan \frac{\theta_f}{2} \approx 1-\epsilon$. So indeed we get the final entropy formula:
+	\[
+		A = 2 L \log (|x_1-x_2|/\epsilon)
+	\]
+	
+	\item The volume element goes as
+	\[
+		16 L^4 \int_0^{1-\epsilon} \frac{u^3}{(1-u^2)^4} du d\Omega_3 \approx \frac{16 L^4}{6 \epsilon^3} 2 \pi^2 = \frac{16 \pi^2 L^4}{3 \epsilon^3}
+	\]
+	The $\epsilon^3$ scaling valid in the small $\epsilon$ limit is exactly area scaling.
+	
+	\item Because of a horizon, particles approaching this horizon will be arbitrarily redshifted. This implies that the frequencies reaching the boundary can be shifted to arbitrarily low values, giving a continuum of states above the vacuum state with no mass gap.
+	
+	\item Yes (Maldacena already does this in his seminal paper). Take the branes to be separated by a distance $r$. The supergravity solution will look like
+	\[
+		ds^2 = \frac{1}{\sqrt{H}} dx_{\parallel}^2 + \sqrt{H} dx_\perp^2, \quad H = 1 + \frac{4 \pi g N \ell_s^4}{r^4}
+	\]
+	and take $\ell_s, r \to 0$ while holding $U = r/\ell_s^2$ fixed (we've done this type of near-horizon analysis in chapter 11). This keeps the masses of the stretched strings fixed even as we bring the branes together. If all the branes are coincident, the coordinate $r$ in the supergravity solution gives an equivalent coordinate $U = r/\ell_s^2$, giving the metric
+	\[
+		ds^2 = \ell_s^2 \left[ \frac{U^2}{\sqrt{4 \pi g N}} dx_\parallel^2 + \sqrt{4 \pi g N} \frac{dU^2}{U^2} + \sqrt{4 \pi g N} d\Omega_5^2 \right]
+	\]
+	Now, pulling $M$ of the $N$ D3 branes off by a distance $W$ gives a supergravity solution:
+	\[
+			ds^2 = \ell_s^2 \left[ \frac{U^2}{\sqrt{4 \pi g} \sqrt{N - M + \frac{M U^4}{|U - W|^4}}} dx_\parallel^2 + \sqrt{4 \pi g} \frac{dU^2}{U^2} \sqrt{N - M + \frac{M U^4}{|U - W|^4}} + \sqrt{4 \pi g N} d\Omega_5^2 \right]
+	\]
+	As long as $U \gg W$ we still effectively see $AdS_5 \times S_5$. For smaller values of $U$, this splits into two separated AdS backgrounds, with two different near-horizon limits. We can trust these limits when both $M$ and $N$ are large, but splitting off single branes gives geometries with singular curvatures that we cannot trust. 
+	
+	But since finite $U$ already means that we have taken the near-horizon limit, the entire moduli space $\RR^{6N}/S_N$ is visible at that level.
+	
+	\item The eigenvalues of the Laplacian on a 5-sphere of radius $L$ are in correspondence with the quadratic casimir of $\SO(6)$ for the $(0, k, 0)$ representations, giving:
+	\[
+		\frac{k(k+5)}{L^2}
+	\]
+	For a proof of this, consider a homogenous harmonic function of degree $k$. Any such homogenous harmonic function takes the form $f = |x|^{k} \sum_{m_i} Y^k_{m_i}(\gamma)$. Look then at the Laplacian
+	\[
+		f = -\nabla^2 (|x|^{-k} f) = k (k + 6 - 2) |x|^{-(k+2)} f + x^{-s} \cancel{\nabla^2 f}
+	\]
+	Thus the spherical harmonics on a unit $S^5$ have eigenvalue $k(k+4)$. Rescaling the sphere will contravariantly rescale these eigenvalues by $L^{-2}$ as required.
+	
+	
+	\item The wave equation for a massive scalar field is quickly seen to be:
+	\[
+		\nabla^2 \phi = \frac{u^2}{L^2} \left[\d_u^2 - \frac{p}{u} \d_u - \d_t^2 + \d \cdot \d \right] \phi = m^2 \phi 
+	\]
+	Upon Fourier transforming
+	\[
+		\phi(u, x) = \int \frac{d^{p+1} q}{(2 \pi)^{p+1}} \phi(u, q) e^{i q \cdot x}, \quad q \cdot x = - q^0 t + \vec q \cdot \vec x
+	\]
+	we get
+	\[
+		 \left[\d_u^2 - \frac{p}{u} \d_u - q^2 + \d \cdot \d - \frac{m^2 L^2}{u^2} \right] \phi(u, q) = 0
+	\]
+	solving this in Mathematica directly yields two solutions
+	\[
+		\phi_\pm(u, q) = A u^{\frac{1+p}{2}} J_\nu ( i q u ) + B u^{\frac{1+p}{2}} Y_\nu ( i q u ), \quad \nu = \frac12 \sqrt{(p+1)^2 + 4 m^2 L^2}
+	\]
+	We can rewrite this in terms of modified Bessel functions as:
+	\[
+		A u^{\frac{1+p}{2}} I_\nu (  q u ) + B u^{\frac{1+p}{2}} K_\nu ( i q u )
+	\]
+	These two solutions have the desired scaling dimensions of $\Delta_\pm$ respectively ($K$ will have to be defined differently from how it is defined in mathematica and wikipedia).
+	
+	Now WLOG take $x' = 0$. Rotating to Euclidean space, it is a quick check to see that the bulk-to-boundary propagator as written in \textbf{L.51} does indeed satisfy the massive Laplace equation precisely when $\Delta (\Delta - p - 1) = m^2 L^2$.
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/Bulk-to-Boundary"}
+	\end{center}
+	
+	Next, we see that
+	\[
+		\int d^{p+1} x \, f(u, x; 0) = \int d^{p+1} x\, \frac{u^\Delta}{(u^2 + x^2)^\Delta} = u^{p+1-\Delta} \int d^{p+1} y \frac{1}{(1+\zeta^2)^\Delta} = u^{p+1-\Delta} \Omega_{p} \int_0^\infty \frac{\zeta^p d\zeta}{(1 + \zeta^2)^\Delta}
+	\]
+	This last integral can easily be evaluated using $\Gamma$-functions. The final result is then:
+	\[
+		u^{p+1-\Delta} \Omega_{p} \frac{\Gamma(\frac{1+p}{2}) \Gamma(\Delta - \frac{1+p}{2})}{2\Gamma(\Delta)} = u^{p+1-\Delta} \pi^{\frac{p+1}{2}} \frac{\Gamma(\Delta - \frac{1+p}{2})}{\Gamma(\Delta)}
+	\]
+	Thus, the normalized bulk-to-boundary propagator is:
+	\[
+		\frac{\Gamma(\Delta)}{pi^{\frac{p+1}{2}}  \Gamma(\Delta -  \frac{1+p}{2})} \frac{u^\Delta}{(u^2 + |x-x'|^2)^\Delta}.
+	\]
+	In the above, we pick $\Delta = \Delta_+$. By convolving a boundary configurations $\phi_0(x)$ with this propagator, we obtain a field $\phi$ in AdS satisfying the massive Laplace equation. 
+	\[
+		\phi(u, x) = \frac{\Gamma(\Delta)}{pi^{\frac{p+1}{2}}  \Gamma(\Delta -  \frac{1+p}{2})} \int d^{p+1} x' \frac{u^\Delta}{(u^2 + |x-x'|^2)^\Delta} \phi_0(x')
+	\]
+	This is clear. It is also quick to see that as $u \to 0$ the leading behavior comes from the bulk-to-boundary propagator going as $u^{p+1-\Delta}  \phi_0(x) = u^{\Delta_-} \phi_0(x)$. This is exactly proportional to the leading solution, which asymptotes with the lower power $\Delta_-$.
+	
+	\item The extrinsic curvature $K$ is defined as
+	\[
+		K_{\mu \nu} = \frac12 (\nabla_\mu n_\nu + \nabla_\nu n_\mu), \quad K = h^{\mu \nu} K_{\mu \nu}
+	\]
+	where $n_\mu$ is the normal vector and $h$ is the pullback of the metric $g$ to $\d M$. When the coordinate system is hypersurface-orthogonal, then this simplifies nicely to 
+	\[
+		K_{\mu \nu} = \frac12 n^\rho \d_\rho G_{\mu \nu}
+	\]
+	For the poincare patch, we have the normal vector $-\frac{1}{\sqrt g_{uu} }\d_u = -\frac{u}{L} \d_u$. Note the minus sign, because $u \to 0$ gives the boundary, which is the opposite from the outward normal orientation. The contraction gives:
+	\[
+		K_{\mu \nu} = \frac12 ((-)^2 \frac{2}{L} h_{\mu \nu}) \Rightarrow K = \frac{p+1}{L}
+	\]
+	as required.
+	
+	\item This problem is done for $p=3$, but I will solve it for general $p$. The subleading order equation of motion for $\phi$ of the form $u^{\Delta} (\phi_0 + u^2 \phi_2)$ is
+	\[
+		u^\Delta \Delta (\Delta -p-1) \phi_0 -  u^{\Delta} m^2 L^2 \phi_0 + u^{\Delta + 2} \Box \phi_0  + u^{\Delta + 2} (\Delta+2) (\Delta - p + 1)  \phi_2 + u^{\Delta - 2} m^2 L^2 \phi_2 = 0
+	\]
+	At leading $u^{\Delta}$ order we get the quadratic constraint on $\Delta$, giving $\Delta_\pm$ as solutions. Solving for $\phi_2$ at subleading order gives:
+	\[
+		\phi_2 = - \frac{\Box \phi_0}{(\Delta+2)(\Delta-p+1) + m^2 L^2}
+	\]
+	Plugging in for $\Delta = \Delta_-$ yields:
+	\[
+		\phi_2 = - \frac{\Box \phi_0}{4 \Delta_- + 2 - 2p}
+	\]
+	This is consistent with what is written when $p=3$. Taking now $\Delta \to p+1 - \Delta$ gives
+	\[
+		A_2 = \frac{\Box \phi_0}{4 \Delta_- - 6 - 2 p}
+	\]
+	Again, taking $p = 3$ gives the correct $4 (\Delta_- - 3)$ denominator.
+	
+	\item 
+	
+\end{enumerate}
+
+% section chapter_14_the_bulk_boundary_holographic_correspondence (end)
+
+\end{document}
+	

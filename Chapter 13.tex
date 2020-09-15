@@ -472,54 +472,85 @@
 		\]
 	\end{enumerate}
 	
-	\item The KK reduction is not too bad. Following appendix F directly gives
+	\item The KK reduction is not too bad:
 	\[
 	\begin{aligned}
 		\int d^5 x \, \sqrt{\det g} \, \Big(e^{-2\phi} \Big[R &+ 4 \d_\mu \phi \d^\mu \phi + \frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta} - \frac14  G_{\alpha \beta} F_{\mu \nu}^\alpha F^{\mu \nu\, \beta} \Big] \\
-		& - \frac14 G^{\alpha \beta} G^{\gamma \delta} H_{\mu \alpha \gamma} H^\mu_{\gamma \delta} - \frac14 G^{\alpha \beta} H_{\mu \nu \alpha} H^{\mu \nu}_\beta - \frac{1}{12} H_{\mu \nu \rho} H^{\mu \nu \rho}  \Big)
+		& - \frac14 \sqrt{G} G^{\alpha \beta} G^{\gamma \delta} H_{\mu \alpha \gamma} H^\mu_{\ \gamma \delta} - \frac14 \sqrt{G} G^{\alpha \beta} H_{\mu \nu \alpha} H^{\mu \nu}_\beta - \frac{1}{12} \sqrt{G} H_{\mu \nu \rho} H^{\mu \nu \rho}  \Big)
 	\end{aligned}
 	\]
-	with $\phi = \Phi - \frac14 \log \det G_{\alpha \beta}$.
-	Here $H$ comes from the \emph{two form} not from the $B$ field. We can rewrite this as
+	with $\phi = \Phi - \frac14 \log \det G_{\alpha \beta}$. 
+	Here $H$ comes from the \emph{two form} not from the $B$ field.\textbf{I'm almost certain that the formula in Kiritsis is wrong }
+	
+	 We can rewrite this as
 	\[
 	\begin{aligned}
-			\int d^5 x \, \sqrt{\det g} \, \Big(e^{-2\phi} \Big[R &+ 4 \d_\mu \phi \d^\mu \phi - \frac14 G^{\alpha \beta} G^{\gamma \delta} \big(  \d G_{\alpha \gamma} \d G_{\beta \delta} - \d C_{\alpha \gamma} \d C_{\beta \delta}  \big) -  \frac14  G_{\alpha \beta} F_{\mu \nu}^\alpha F^{\mu \nu\, \beta} \Big] \\
-			& - \frac14 \sqrt{G} G^{\alpha \beta} H_{\mu \nu \alpha} H^{\mu \nu}_\beta - \frac{1}{12} H_{\mu \nu \rho} H^{\mu \nu \rho}  \Big)
+			\int d^5 x \, \sqrt{\det g} \, \Big(e^{-2\phi} \Big[R &+ 4 \d_\mu \phi \d^\mu \phi - \frac14 G^{\alpha \beta} G^{\gamma \delta} \big(  \d G_{\alpha \gamma} \d G_{\beta \delta} - e^{2\phi} \sqrt{G} \d C_{\alpha \gamma} \d C_{\beta \delta}  \big) -  \frac14  G_{\alpha \beta} F_{\mu \nu}^\alpha F^{\mu \nu\, \beta} \Big] \\
+			& - \frac14 \sqrt{G} G^{\alpha \beta} H_{\mu \nu \alpha} H^{\mu \nu}_\beta - \frac{1}{12} \sqrt{G} H_{\mu \nu \rho} H^{\mu \nu \rho}  \Big)
 		\end{aligned}
 	\]
 	Now we must take this to the Einstein frame. We perform a Weyl rescaling $g \to e^{4\phi/3} g$. This rescales fields (and changes the kinetic $\phi$ term) to give us the requisite action
 	\[
 	\begin{aligned}
-		S_5 = \frac{1}{2 \kappa_5^2} \int \sqrt{-g} \Big[R &- \frac43 (\d \phi)^2 - \frac14 G^{\alpha \beta} G^{\gamma \delta} (\d G_{\alpha \gamma} \d G_{\beta \delta} + e^{2\phi} \d C_{\alpha \gamma} \d C_{\beta \delta})\\
-		& - \frac{e^{-4 \phi/3}}{4} G_{\alpha \beta} F_{\mu \nu}^\alpha F^{\mu \nu\, \beta} - \frac{e^{2\phi /3}}{4} \sqrt{G} G^{\alpha \beta} H_{\mu \nu \alpha} H^{\mu \nu}_\beta - \frac{e^{4 \phi/3}}{12} H_{\mu \nu \rho} H^{\mu \nu \rho}  \Big]
+		S_5 = \frac{1}{2 \kappa_5^2} \int \sqrt{-g} \Big[R &- \frac43 (\d \phi)^2 - \frac14 G^{\alpha \beta} G^{\gamma \delta} (\d G_{\alpha \gamma} \d G_{\beta \delta} + e^{2\phi} \sqrt{G} \d C_{\alpha \gamma} \d C_{\beta \delta})\\
+		& - \frac{e^{-4 \phi/3}}{4} G_{\alpha \beta} F_{\mu \nu}^\alpha F^{\mu \nu\, \beta} - \frac{e^{2\phi /3}}{4} \sqrt{G} G^{\alpha \beta} H_{\mu \nu \alpha} H^{\mu \nu}_\beta - \frac{e^{-2 \phi/3}}{12} \sqrt{G} H_{\mu \nu \rho} H^{\mu \nu \rho}  \Big]
 	\end{aligned}
 	\]
 	
-	\textbf{equations of motion}
+	Each of the field strengths will obey:
+	\[
+		\begin{aligned}
+			\dd\star [e^{-4 \phi/3} G_{\alpha \beta} \, F^{\alpha}_{\mu \nu} ]&= 0\\
+			\dd\star [e^{2 \phi/3} \sqrt{G} G^{\alpha \beta}\,  H_{\alpha\, \mu \nu} ]&= 0\\
+			\dd\star [e^{-2 \phi/3} \sqrt{G}\,  H_{\mu \nu \rho} ]&= 0\\
+			\nabla^{\mu} [G^{\alpha \beta} G^{\gamma \delta} e^{2 \phi} \sqrt{G} \d_\mu C_{\beta \delta}] &= 0
+		\end{aligned}
+	\]
+	The dilaton will obey:
+	\[
+		\frac83 \Box \, \phi - \frac12 e^{2\phi} \sqrt G \, G^{\alpha \beta} G^{\gamma \delta} \d C_{\alpha \gamma} \d C_{\beta \delta} + \frac{4}{3}  e^{-4 \phi}{3} G_{\alpha \beta} F^{\alpha}_{\mu \nu} F^{\beta\, \mu \nu} - \frac{1}{6} e^{2\phi/3} \sqrt{G} G^{\alpha \beta} H_{\mu \nu \alpha} H^{\mu \nu \beta} + \frac{1}{18} e^{-2\phi/3} \sqrt{G} H_{\mu \nu \rho} H^{\mu \nu \rho}
+	\]
+	Finally, the metric will obey:
+	\[
+		R_{\mu \nu} - \frac12 g_{\mu \nu} R - \frac43 \d_\mu \phi \d_\nu \phi - \frac14  G^{\alpha \beta} G^{\gamma \delta}( \d_\mu G_{\alpha \gamma} \d_\nu G_{\beta \delta} + e^{2 \phi} \sqrt{G} \d)
+	\]
+	
+	The solution in question has nonzero (magnetic) $H_{\mu \nu \rho}$ and (electric) $H_{\mu \nu}$, which are functions of $r$ alone.
+	\textbf{Finish}
 	
 	\textbf{show solution}
 	
 	\item Write $G_{\alpha \beta} = \sqrt{\frac{H_1}{H_2}} (\delta_{\alpha \beta} + h_{\alpha \beta})$
 	
+	\textbf{Finish}
 	
-	\item This problem definitely has some errors in the typesetting of equation 13.7E. 
+	\item 
+	Here we only take the two-form field strengths $H_{5 \mu \nu}$ $F^5_{\mu \nu}$ to be nontrivial. 
 	
-	By redefining $\tilde \phi = \phi-\frac12 \nu_5, \lambda = -\frac12 \phi + \frac34 \nu_5$, we get
+	By redefining $\tilde \phi = \phi+\frac12 \nu_5, \lambda = -\frac12 \phi + \frac34 \nu_5$, we get
 	\[
 		- (\d \tilde \phi)^2 - \frac43 (\d \lambda)^2 = - \frac43 (\d \phi)^2 - (\d \nu_5)^2
 	\]
-	The $\nu_5$ kinetic term exactly reproduces the expected $-\frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta }$
+	The $\phi$ term matches, and the $\nu_5$ kinetic term together with the four $(\d \nu)^2$ terms exactly reproduces the expected $-\frac14 \d_\mu G_{\alpha \beta} \d^\mu G^{\alpha \beta }$. Let's look at the field strengths
+	\[
+	\begin{aligned}
+		&e^{-2\phi/3} \sqrt G H_{\mu \nu \rho}^2 = e^{-2\phi/3 + \nu_5 + 4 \nu} H_{\mu \nu \rho}^2 = e^{\frac43 \lambda + 4 \nu}  H_{\mu \nu \rho}^2\\
+		& e^{2\phi/3} \sqrt G  G^{55} H_{5 \nu \rho}^2 = e^{2\phi/3 - \nu_5 + 4 \nu} H_{5 \nu \rho}^2 = e^{-\frac43 \phi + 4 \nu} H_{5 \nu \rho}^2\\
+		& e^{-4 \phi/3} G_{55} (F^5_{\mu \nu})^2 = e^{-4\phi/3 + 2 \nu_5}  (F^5_{\mu \nu})^2 = e^{\frac83 \lambda} (F^5_{\mu \nu})^2
+	\end{aligned}
+	\]
+	These all exactly match. Note that these scalars \emph{have} a potential- they are not minimally coupled. Consequently, at the horizon, where the field strengths diverge, we expect that the values of these scalars will be fixed by the equations of motion. 
 	
 	\item This is direct:
 	\begin{center}
 		\includegraphics[scale=0.5]{"Figures/BH Scattering"}
 	\end{center}
-	Importantly, the derivative of the inner $R$ profile goes as $O(r_0^2)$, which makes it subleading in determining $B$. Thus, $B$ is $O(r_0^2)$. On the other hand, this derivative's $r_0^2$ dependence is important for determining the incoming flus $\Im (h r^3 R^* \d_r R)$. For completeness I will add this part of the notebook as well: 
+	Importantly, the derivative of the inner $R$ profile goes as $O(r_0^2)$, which makes it subleading in determining $B$. Thus, $B$ is $O(r_0^2)$. On the other hand, this derivative's $r_0^2$ dependence is important for determining the incoming flux: $\mathrm{Im} (h r^3 R^* \d_r R)$. For completeness I will add this part of the notebook as well: 
 	\begin{center}
 		\includegraphics[scale=0.5]{"Figures/BH Scattering 2"}
 	\end{center}
 	
-	\item Redefining $K$ to be unitless, e have a relationship 
+	\item Redefining $K$ to be unitless, we have a relationship 
 	\[
 		e^{i x \cos \theta} = K \frac{e^{- i \omega x}}{x^{3/2}} Y_{000} + \text{higher moments}
 	\]
@@ -538,9 +569,9 @@
 	as required. 
 	
 	\item 
-	Even in higher spacetime dimension $d+1$, nothing stops me from writing the metric as
+	In spacetime dimension $d+1$, one can write a black hole metric as:
 	\[
-		ds^2 = - f^{-1+1/(d-1)} h dt^2 + f^{1/(d-1)} \left[\frac{dr^2}{h} + r^2 d \Omega_{d-1}^2 \right] \Rightarrow \sqrt{-g} = f^{1/(d-1)} r^3, \quad h = 1 - \frac{r_0^{d-1}}{r^{d-1}}
+		ds^2 = - f^{-1+1/(d-1)} h dt^2 + f^{1/(d-1)} \left[\frac{dr^2}{h} + r^2 d \Omega_{d-1}^2 \right] \Rightarrow \sqrt{-g} = f^{1/(d-1)} r^{d-1}, \quad h = 1 - \frac{r_0^{d-1}}{r^{d-1}}
 	\]
 	I will ignore the details of $f$ for now, since it depends a lot on the dimension and charges. $h$ is simply what reproduces the Schwarzschild solution for a totally uncharged black hole. What does matter is that the horizon is at $r = r_0$, giving a horizon area $A = \Omega_{d-1} r_0^{(d-1)} f(r_0)^{1/2}$, meaning that to leading order as $r \to r_0$ we have
 	\[
@@ -552,6 +583,25 @@
 	\[
 		\left[\frac{h}{r^{d-1}} \d_r \left(h r^{d-1} \d_r \right) + \omega^2 f \right] R_\omega (r) = 0
 	\]
+	For $r$ small and close to $r_0$ define the coordinate $\sigma$ by
+	\[
+		d\sigma = \frac{dr}{h(r) r^{d-1}} \Rightarrow \d_\sigma = h(r) r^{d-1} \d_r
+	\]
+	This give us that the wave equation becomes
+	\[
+		[\d_\sigma^2 + \omega^2 r^{d-1} f(r)] R_\omega (r) = 0
+	\]
+	Now, in the $r \to r_0$ limit this simplifies to
+	\[
+		[\d_\sigma^2 + \omega^2 R_H^{2(d-1)}] R_\omega(r) = 0 \Rightarrow R = \tilde A e^{-i \omega \sigma R_H^{d-1}} \approx \tilde A ( 1 - i \omega \sigma R_H^{d-1})
+	\]
+	where we have picked the sign in the exponent so that the wave in the near region is purely incoming. In the final approximation, we're looking at the extreme near-horizon limit. Further, keeping $r \omega$ small but looking at large $r$ compared to $r_0$ we see that the behavior of $\sigma$ is given by $\sigma \approx -\frac{r^{-d+2}}{d-2}$, yielding 
+	\begin{equation}\label{eq:near_zone}
+		 R(r) \approx \tilde A (1 - i \omega \frac{R_H^{d-1}}{(d-2) r^{d-2}})
+	\end{equation}
+	
+	Now for the far region:
+	
 	Redefining $\psi = r^{\frac{d-1}{2}} R$ and introducing the tortoise coordinate $dr_* = dr/h$ so that $\d_{r_*} = h \d_r$ we get
 	\[
 		\Big[- \frac{d^2}{dr_*^2} + \underbrace{\frac{(d-1)(d-3)}{4 r^2} \left(1 - \frac{r_0^{d-2}}{r^{d-2}} \right) \left(1+ \frac{d-1}{d-3} \frac{r_0^{d-2}}{r^{d-2}}\right) - \omega^2 f(r)}_{V(r_*)} \Big] \psi(r) = 0
@@ -565,20 +615,56 @@
 	\]
 	This has a solution in terms of Bessel functions:
 	\[
-		\psi = \sqrt{\frac{\pi \rho}{2}} [A J_{-1+d/2} (\rho) + B Y_{-1+d/2} (\rho)] \Rightarrow R \approx \frac{1}{r^{(d-1)/2}} [e^{i \omega r} (A e^{i (1 - d)  \frac \pi4} - B e^{i (3 - d)  \frac \pi4}) + e^{-i \omega r} (A e^{-i (1 - d)  \frac \pi4} - B e^{-i (3 - d)  \frac \pi4})]
+		\psi = \sqrt{\frac{\pi \rho}{2}} [A J_{-1+d/2} (\rho) + B Y_{-1+d/2} (\rho)]
 	\]
-	Taking $\rho = r \omega \ll 1$ at $r = r_m$ for matching, the Bessel functions will instead become at leading order:
+	This implies that asymptotically:
 	\[
-		R = \frac{1}{r^{(d-1)/2}}\sqrt{\frac{\pi \omega r}{2}} \left(A \frac{2^{1-d/2}}{\Gamma(d/2)} (r\omega)^{-1+d/2} + B \frac{2^{(d-2)/2}\omega^{2-d}}{\Gamma(2-d/2) r^{(d-1)/2}} \right) % \to  \sqrt{\frac{\pi \omega^{d-1}}{2}} A \frac{2^{1-d/2}}{\Gamma(d/2)}
+	  R \approx \frac{1}{r^{(d-1)/2}} [e^{i \omega r} e^{-i \pi/4} e^{-i (d-2)/4} (A - B e^{i (d-2)  \frac \pi2}) + e^{-i \omega r} e^{i \pi/4} e^{i (d-2)/4} (A - B e^{-i (d-2)  \frac \pi2})]
+	  \]
+  	The absorption probability is then
+  	\[
+  		\Gamma = 1 - \Bigg|\frac{1 + \frac{B}{A} e^{i \frac12 (d-2)}}{1 + \frac{B}{A} e^{-i\frac12 (d-2)}} \Bigg|^2.
+  	\]
+	We need an odd number of spatial dimensions for this to work, reflecting the fact that the Bessel functions degenerate in these cases. \textbf{There is probably a cleaner way here.}
+	  
+	Taking $\rho = r \omega \ll 1$ at $r = r_m$ for matching, the Bessel functions will become at leading order:
+	\begin{equation}
+		\begin{aligned}\label{eq:far_zone}
+				R &\approx \frac{1}{(\omega r)^{(d-1)/2}}\sqrt{\frac{\pi \omega r}{2}} \left(A \frac{2^{1-d/2}}{\Gamma(d/2)} (r\omega)^{-1+d/2} + B \frac{2^{(d-2)/2}}{\Gamma(2-d/2) (r \omega)^{d/2-1}} \right)\\
+				&=  A \frac{\sqrt{\pi} 2^{(1-d)/2}}{\Gamma(d/2)}  + B \frac{\sqrt\pi 2^{(d-3)/2}}{\Gamma(2-d/2) (\omega r)^{d-1}} 
+		\end{aligned}
+	\end{equation}
+
+	Now let us match \eqref{eq:far_zone} onto \eqref{eq:near_zone}. This is direct, and gives:
+	\[
+		\frac{A}{\tilde A} = \frac{\Gamma(d/2)}{2^{(1-d)/2} \sqrt\pi}, \qquad  \frac{B}{\tilde A} = i \frac{\Gamma(2-d/2) (\omega R_H)^{d-1} 2^{(3-d)/2}}{\sqrt\pi (2-d) } \Rightarrow \frac{B}{A} = i \frac{2^{2-d} \Gamma(2-d/2) (\omega R_H)^{d-1} }{(2-d) \Gamma(d/2)}
+	\]
+	We will then get in the $\omega \to 0$ limit:
+	\[
+		\Gamma = \Big|\frac{2^{3-d} \Gamma(2-d/2) (\omega R_H)^{d-1}}{(d-2) \Gamma(d/2)} \Big|
 	\]
 	
-	
-	For $r$ near the horizon, at \emph{zeroth order} keeping only the incoming (positive frequency wave), I see that the equations become:
+	Now, following the discussion of \textbf{13.18}, we must account for  the conversion factor $K$ from partial waves to plane waves. In $d$ spatial dimensions we get this to be
 	\[
-		\Big[ \frac{d^2}{dr_*^2} +  \frac{\omega^2 R_H^{2 (d-1)}}{r_0^{2(d-1)}}  \Big] \psi(r) \Rightarrow \psi = \frac{1}{r^{(d-1)/2}} e^{-i \omega r_* \frac{R_H^{d-1}}{r_0^{d-1}}}  \approx \frac{1}{r^{(d-1)/2}} (1 - i \omega R_H^{d-1} / (d-2) r^{(d-2)} )
-		% \frac{h}{r^{d-1}} \d_r [h r^{d-1} \d_r] + \frac{\omega^2 R_H^{2 (d-1)}}{r_0^{2(d-1)}}
+		K = \sqrt{\frac{(2\pi)^{d-1}}{\omega^{d-1} \Omega_{d-1}}} 
 	\]
-	It is not obvious that zeroth order is good enough to do the matching between the near-field and far-field at the intermediate $r = r_m$. One can, however argue, that any corrections of this zeroth order equation for $\psi$ will receive corrections that are subleading in $r_0$, which will translate over to the matching conditions. We will therefore continue with our zeroth order solution.
+	This gives
+	\[
+	\begin{aligned}
+		\sigma_{abs} &= \Gamma |K|^2 = \Big|\frac{(2\pi)^{d-1} \Gamma(\frac d2)}{\omega^{d-1} 2 \pi^{d/2}} \frac{2^{3-d} \Gamma(2-d/2) (\omega R_H)^{d-1}}{(d-2) \Gamma(d/2)} \Big|\\
+		 &= \Big|\frac{2 \pi^{d/2-1} R_H^{d-1} \Gamma(2-d/2)}{(d-2)} \Big| = \Big|\frac{2 \pi^{d/2-1} R_H^{d-1} \pi}{(d-2) \Gamma(d/2 - 1) \sin(d/2-1)} \Big|\\
+		 &= \frac{\mathbf{2} \pi^{d/2} R_H^{d-1}}{\Gamma(d/2)} = A_H.
+	\end{aligned}
+	\]
+	as required. \textbf{Literally after all that I'm off only by a factor of $2$}.
+	
+
+	% For $r$ near the horizon, at \emph{zeroth order} keeping only the incoming (positive frequency wave), I see that the equations become:
+	% \[
+	% 	\Big[ \frac{d^2}{dr_*^2} +  \frac{\omega^2 R_H^{2 (d-1)}}{r_0^{2(d-1)}}  \Big] \psi(r) \Rightarrow \psi = \frac{1}{r^{(d-1)/2}} e^{-i \omega r_* \frac{R_H^{d-1}}{r_0^{d-1}}}  \approx \frac{1}{r^{(d-1)/2}} \Big(1 - i \omega \frac{R_H^{d-1}}{(d-2) r^{(d-2)}} \Big)
+	% 	% \frac{h}{r^{d-1}} \d_r [h r^{d-1} \d_r] + \frac{\omega^2 R_H^{2 (d-1)}}{r_0^{2(d-1)}}
+	% \]
+	% It is not obvious that zeroth order is good enough to do the matching between the near-field and far-field at the intermediate $r = r_m$. One can, however argue, that any corrections of this zeroth order equation for $\psi$ will receive corrections that are subleading in $r_0$, which will translate over to the matching conditions. We will see that this will give us the horizon area for $\sigma_{abs}(\omega = 0)$ as a nontrivial check. In other words - the deep near-horizon geometry really is \emph{all} that matters. We will therefore continue with this zeroth order solution.
 		%
 	% Solving this gives
 	%
@@ -590,7 +676,6 @@
 % 	\]
 	% The same analysis will give $B = 0$ for the reflected wave. We get
 
-	\textbf{Finish}
 
 	
 
@@ -614,13 +699,132 @@
 	%
 	
 	
-	\item 
+	\item We have seen that the Ricci scalar for a D$p$ brane solution takes the exact form:
+	\[
+		R = \frac{L^{2(7-p)}}{4 r^{\frac{p-3}{2}}} \frac{(p+1) (p-3) (p-7)^2}{(r^{7-p} + L^{7-p})^{5/2}}
+	\]
+	For $p = 3$, this vanishes identically. On the other hand, the dilaton EOM yields
+	\[
+		R = 4 (\nabla \Phi)^2 - 4 \Box\, \Phi
+	\]
+	since the solution $\Phi$ is a constant, at leading order about a classical solution, this equation reads
+	\[
+		\Box \Phi = 0.
+	\]
+	Thus, the dilaton is indeed minimal. We do not expect such nice simplification for other D$p$ branes. 
 	
-	\item For $N=0$ $(T^4)^N/S_N$ is just a point which has trivial cohomology ring with dimension $0$. For $N=1$ we recover $T^4$ which has $4 \times 4$ cocycles generated as an alternating algebra by the elements $dx^i, i = 1 \dots 4$, giving dimension $16$. For $N=2$ we get $T^{8}/S_2$ identifying points of two separate $T_4$s. Each individual $T_4$ has all of its cycles remaining intact, giving $2 \times 2^4 = 32$ cycles untouched. The remaining $2^8 - 2^4$ cycles are half-killed, giving $2 \times 2^4 + (2^8 - 2 \times 2^4)/2 = 144$.
-	Finally, let's do $N=3$, the first case where $S_N$ becomes nonabelian. 
+	Now, let us calculate cross section per unit D3 brane volume.
+	We consider $s$-wave scattering. This wave equation in the D3 background $g_{rr} = \sqrt{H(r)}, \sqrt g = r^5 \sqrt{H(r)}$ translates to
+	\[
+		0 = \Big(\frac{1}{\sqrt g} \d_r g^{rr} \sqrt{g} \d_r  + \omega^2 g^{tt} \Big) R(r)  = \left( \frac{1}{r^5 \sqrt{H}} \d_r r^5 \d_r + \omega^2 \sqrt{H}  \right) R \Rightarrow \frac{1}{r^5} \d_r r^5 \d_r R + \omega^2 \left(1 + \frac{L^4}{r^4} \right) 
+	\]
+	As before, lets redefine $\psi = r^{5/2} R$. We get the equation
+	\[
+		0 = \psi''(r) + \left[\omega^2 \left(1 + \frac{L^4}{r^4}\right)  - \frac{15}{4 r^2} \right] \psi(r) \Rightarrow V_{eff} = \frac{15}{4 r^2} - \omega^2 \left(1 + \frac{L^4}{r^4}\right)
+	\]
+	Again, this does not look like it has an analytic solution (actually apparently it does and its a Matthieu function, but we don't really know that). Taking $\rho = \omega r$ and looking at $\rho \gg 1$, we drop the $L^4/\rho^4$ term and obtain solutions
+	\[
+		\psi = \sqrt{\frac{\pi \rho}{2}} \left[A J_2 (\rho) + B Y_2(\rho)\right]
+	\]
+	For large $\rho$ these asymptote to
+	\[
+		R \approx \frac{1}{2 r^{5/2}} [e^{i r \omega} (A - i B ) e^{3 i \pi/4} + e^{-i r \omega} (A  + i B) e^{-3i \pi/4}]
+	\]
+	For the small $r$ limit, on the other hand, we get
+	\[
+		\psi = \sqrt{\frac{\pi \rho}{2  (L \omega)^2}} \left[\tilde A J_2 (\frac{(L \omega)^2}{\rho}) + \tilde B Y_2(\frac{(L \omega)^2}{\rho}) \right]
+	\]
+	For this to be an incoming wave in this region, we require the combination 
+	\begin{equation} \label{eq:D3inc}
+		R = \tilde A \frac{(L \omega)^4}{\rho^2} \left[ J_2 (\frac{(L \omega)^2}{\rho}) + i Y_2(\frac{(L \omega)^2}{\rho}) \right]
+	\end{equation}
+	We want to match this at an intermediate value of $r$. Take $\rho \ll 1$, and look at low frequencies. This will allow us to write the first solution as
+	\[
+		R = \frac{1}{r^{5/2}} \sqrt{\frac{\pi \rho}{2}} (A J_2(\rho) + B J_2(\rho)) \approx \frac18 \sqrt{\frac{\pi \omega^5}{2}} A - \frac{2}{r^4 \sqrt{\omega^3 \pi/2}} B
+	\]
+	We see that for small $r$, the second term blows up, and we expect that for matching to hold, we must take $B=0$. 
 	
-	\textbf{Finish}
+	Meanwhile, equation \eqref{eq:D3inc} for small $r$ gives in the $\omega \to 0$ limit an expansion: 
+	\[
+		R \approx - \frac{4 i \tilde A}{\pi}
+	\]
+	For these to match we must have:
+	\[
+		\frac18 \sqrt{\frac{\pi \omega^5}{2}} A = - \frac{4 i \tilde A}{\pi} \Rightarrow \frac{\tilde A}{A} = \frac{1}{32} \sqrt{\frac{\omega^5 \pi^3}{2}} i
+	\]
+	The conserved flux is 
+	\[
+		\mathcal F = \frac{1}{2 i} \left[r^5 R^* \d_r R - c.c. \right] 
+	\]
+	For the incoming wave this is $\mathcal F_{in} = -\omega |A/2|^2$. For the absorbed one, a quick Mathematica computation gives
+	 $\mathcal F_{abs} = -\frac{2 L^8 \omega^4}{\pi} |\tilde A|^2$
+\begin{center}
+	\includegraphics[scale=0.5]{"Figures/Rabs"}
+\end{center}
+	This gives
+	\[
+		R_{abs} = \frac{\mathcal F_{abs}}{\mathcal F_{in}} = \frac{|\tilde A|^2}{|A|^2} \frac{8 L^8 \omega^3}{\pi} = \frac{\pi^2 (L \omega)^8}{(16)^2}
+	\]
+	Now, following the discussion of \textbf{13.18}, we must account for  the conversion factor $K$ from partial waves to plane waves. In $D$ spatial dimensions we get this to be
+	\[
+		K = \sqrt{\frac{(2\pi)^{D-1}}{\omega^{D-1} \Omega_{D-1}}} \to 32 \pi^2
+	\]
+	in our case of $D = 6$. Altogether we get
+	\[
+		\sigma_{abs} = K^2 R_{abs} = \frac{\pi^4 L^8 \omega^3}{8}
+	\]
+	as required.
 	
+	The fact that the $B$ coefficient did not come into play confirms once again that the near-horizon regime is all that matters in the calculation of $\sigma_{abs}$
+	
+	For higher partial waves, the Bessel functions involved take the form $J_{\ell+2}$. The outer region will continue to have $B = 0$ enforced, and look like
+	\[
+		\frac{A}{\rho^2} J_{2 + \ell}(\rho)
+	\]
+	while the inner region will look like
+	\[
+		\tilde A \frac{(L \omega)^2}{\rho^2} \Big[ J_{2+\ell}(\frac{(L \omega)^2}{\rho})+ i Y_{2+\ell}(\frac{(L \omega)^2}{\rho}) \Big]
+	\]
+	This will give a match like $\tilde A \sim (\omega L)^{-2 \ell} A$. This makes it so that their ratio squared goes as $(\omega L)^{4 \ell}$. The flux calculations remain the same. Altogether we expect $\sigma_{abs}$ to scale as $L^8 \omega^3 (L \omega)^{2\ell}$ for higher partial waves.
+	
+	Finally, the Hawking emission rate remains zero, since it involves a factor of $e^{-\beta \omega}$ and $\beta = 1/T = \infty$ for an extremal $p$-brane. There are likely corrections to this \emph{beyond} the semiclassical level of analysis.
+	
+	\item Let's expand:
+	\[
+		\prod_{n=1}^\infty \frac{(1+q^n)^8}{(1-q^n)^8} = 1 + 16 q + 144 q^2 + 960 q^3 + 5264 q^4 + \dots
+	\]
+	
+	For $N=0$ $(T^4)^N/S_N$ is just a point which has trivial cohomology ring with dimension $1$. 
+	
+	For $N=1$ we recover $T^4$ which has $4 \times 4$ cocycles generated as an alternating algebra by the elements $dx^i, i = 1 \dots 4$, giving dimension $16$. Note that we should view $dx^i$ as \emph{fermionc elements} corresponding to the odd cohomology, and even elements such as $1, dx^i \wedge dx^j, dx^1 \wedge dx^2 \wedge dx^3 \wedge dx^3$ as bosonic.
+	
+	For $N=2$ we get $T^{8}/S_2$ identifying points of two separate $T_4$s. Each individual $T_4$ has all of its cycles remaining intact, giving $2 \times 2^4 = 32$ cycles untouched. The remaining $2^8 - 2^4$ cycles are half-killed, giving $2 \times 2^4 + (2^8 - 2 \times 2^4)/2 = 144$. Although this gives the right answer, I see that its not the most generalizable way to look at things. There will always be an untwisted sector of this orbifold, as well as twisted sectors in 1-1 correspondence with conjugacy classes of $S_N$. The untwisted sector simply considers $N$ particle states on $T^4$. There are $8$ fermionic elements and $8$ bosonic elements in the cohomology. The types of 2-particle states are thus:
+	\[
+		\underbrace{\frac{8 \times 9}{2}}_{\text{bose-bose}}  + \underbrace{\frac{8 \times 7}{2}}_{\text{fermi-fermi}} + 	\underbrace{8 \times 8}_{\text{bose-fermi}} = 128
+	\]
+	The twisted sector here is a single copy of $T^4$, and any cycle is allowed. We thus get an additional $16$ terms, giving $144$ as desired. 
+	
+	Now let's look at $N=3$, the first case where $S_N$ becomes nonabelian. We expect an untwisted sector, corresponding to the system of $3$ point particles on $T^4$. This gives 
+	\[
+		\frac{8 \times  9 \times 10}{3!} + \frac{8 \times  7 \times 6}{3!} + \frac{8 \times 9}{2!} \times 8 + \frac{8 \times 7}{2!} \times 8 = 688
+	\]
+	 as well as two twisted sectors, in 1-1 correspondence with the conjugacy classes $(123)$ and $(12)(3)$ of $S_3$. The former gives a single $T^4$, whose cohomology is $16$. The other gives two (independent!) $T^4$s, whose cohomology then is $16 \times 16$. Altogether we get:
+	 \[
+	 	688 + 16^2 + 16 = 960
+	 \]
+	 as required.
+	 
+	 Let's finally do $N=4$. 
+	 \begin{center}
+	 	\includegraphics[scale=0.5]{"Figures/T4 cohomo"}
+	 \end{center}
+	
+	The generating function, for a manifold $M$ with $f$ odd cycles and $b$ even cycles, consists of taking the generators of $H^*(M)$ to be $\alpha_{-1}^a, a = 1 \dots \dim H^* (M)$. For each $S_n$ twisted sector of $n$ copies of $M$, we introduce ``twisted modes'' $\alpha_{-n}^a$.
+	
+	Then, the generating function consists of taking products over all $n$ so that for a given $S_N$, the full orbifold is built up from taking all the ways one can partition $N$ in terms of subsectors twisted by $n_i, \sum n_i = N$. Thus, we look for the $q^N$ coefficient in:
+	\[
+		\prod_{i=1}^\infty \frac{(1+q^n)^f}{(1-q^n)^b}.
+	\]
 	
 	\item A derivation of Cardy's Formula: 
 	
@@ -660,10 +864,10 @@
 	\]
 	
 	\item
-	As we've seen before, a single free boson the partition function is $\Tr(e^{-\beta L_0}) = \eta^{-1}$ while for a two free fermions, bosonization give the identical result. For a single free fermion then, it is $\eta^{-1/2}$. For $n_f$ copies of this system we simply exponentiate to obtain
-	\[
+	As we've seen before, a single free boson the partition function is $\Tr(e^{-\beta L_0}) = \eta^{-1}$ while for a two free fermions, bosonization give the identical result. For a single free fermion then, at leading order (which means just retaining the same central charge) this gives $\eta^{-1/2}$. For $n_f$ copies of this system we simply exponentiate to obtain the leading piece:
+	\begin{equation}\label{eq:susypart}
 		\left(\prod_{n=1}^\infty \frac{1}{1-e^{-\beta n/R}} \right)^{\frac32 n_f}
-	\]
+	\end{equation}
 	This can be directly written using $q = e^{-\beta/ R}$ ie $\tau = i \beta /2 \pi R$
 	\[
 		\left(\frac{q^{1/{24}}}{\eta(\tau)}\right)^{\frac32 n_f}
@@ -673,11 +877,29 @@
 	\[
 		\eta(\beta n/R \to 0) = \sqrt{\frac{2 \pi R}{\beta n}}\, e^{-\frac{(2 \pi)^2 R}{24 \beta}}
 	\]
-	The square-root term is also subleding and we obtain to leading order
+	The square-root term is also subleading and we obtain to leading order
 	\[
 		\log Z = \frac32 n_f \frac{(2\pi)^2 R}{24 \beta}
 	\]
 	which is exactly what we want, once we remove units from $R$, $R \to \ell_s R$.
+	
+	In general, we also have fermionic contributions modifying the numerator in equation \eqref{eq:susypart}. Here, again $\tau = i \beta / 2 \pi R$. For a single periodic \emph{or} antiperiodic fermion we will have traces that gives partition functions of the form:
+	\[
+	\begin{aligned}
+		\Tr_{P} [e^{-\beta L_0/2\pi R}]  = \prod_{n = 0}^\infty (1 + q^{\frac{\beta}{2 \pi R} n})  = \sqrt{\frac{q^{1/24} \theta_{2}(\tau)}{\eta}}\\
+		\Tr_{A} [e^{-\beta L_0/2\pi R}]  = \prod_{n = 0}^\infty (1 + q^{\frac{\beta}{2 \pi R} (n+1/2)})  = \sqrt{\frac{q^{1/24} \theta_{3}(\tau)}{\eta}}
+	\end{aligned}
+	\]
+	Taking the infinite temperature limit sets $\tau \to 0, q \to \infty$ giving respectively
+	\[
+		\begin{aligned}
+			\sqrt{ \frac{\theta_4 (-1/\tau)}{\eta(-1/\tau)}} \approx e^{\frac{2 \pi i}{48 \tau}} = e^{\frac{(2 \pi)^2 R}{48 \beta}}\\
+			\sqrt{ \frac{\theta_3 (-1/\tau)}{\eta(-1/\tau)}} \approx e^{\frac{2 \pi i}{48 \tau}} = e^{\frac{(2 \pi)^2 R}{48 \beta}}
+		\end{aligned}
+	\]
+	So in both cases we retain the same contribution as the $\eta^{-1/2}$ divergence, with sub-leading terms being different. 
+	
+	
 	
 \end{enumerate}
 % section chapter_13_black_holes_and_entropy_in_string_theory (end)
