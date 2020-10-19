@@ -135,39 +135,43 @@
 	
 	\item \textbf{Massless and massive vector fields in AdS}
 	\begin{enumerate}
-		\item \textbf{Massless Case} Let $A_M (z, \vec x) = z^{\Delta} f_M(\vec x)$. The equations of motion for the Maxwell theory give:
+		\item \textbf{Massless Case} Take the gauge $A_u = 0$. Let $A_\mu (u, \vec x) = u^{\Delta - 1} A_\mu (\vec x)$. Note that this way $A_\mu dx^\mu$ has scaling dimension $u^\Delta$. The equations of motion for the Maxwell theory give:
 		\[
-			0 = \partial_M (\sqrt{-g} F^{MN}) = \partial_M (\sqrt{-g} g^{M A} g^{N B} \partial_{\small[ A} A_{B\small]}) \propto \partial_{z} \left( \frac{1}{z^{d+1}} z^{4} \partial_{z} (z^{\Delta} f_M(\vec x)) \right) + \dots
+			0 = \partial_M (\sqrt{-g} F^{MN}) = \partial_M (\sqrt{-g} g^{M A} g^{N B} \partial_{\small[ A} A_{B\small]}) = \partial_{u} \left( \frac{1}{u^{p+2}} u^{4} \partial_{u} (u^{\Delta-1} A_\mu(\vec x)) \right) + \dots
 		\]
 		 where $\dots$ are terms with higher powers of $z$. Altogether this is:
 		 \[
-		 	[(-d+3)\Delta + \Delta(\Delta-1)] z^{\Delta - d} f(x^M) = \Delta(\Delta - (d - 2)) = 0.
+		 	(\Delta - p)(\Delta - 1) (A_\mu (\vec x) = 0.
 		 \]
-		 This implies that either $\Delta = 0$ or $\Delta = d-2$.
-		
+		 This implies that either $\Delta = 1$ or $\Delta = p$.
 		 
-		We can get the true scaling dimension by looking at how the invariant field $A = A_\mu dx ^\mu$ falls off at infinity. The reason for the discrepancy is that $dx^\mu$ is not a unit vector, but rather has length $R/z$. The scaling of $A$ is $|A| = \sqrt{g^{\mu \nu} A_\mu A_\nu} \to \sqrt{\frac{z^2}{R^2}} z^{d-2} = z^{d-1}$.
+		% We can get the scaling dimension by looking at how the invariant field $A = A_\mu dx ^\mu$ falls off at infinity. The reason for the discrepancy is that $dx^\mu$ is not a unit vector, but rather has length $R/z$. Incorporating this effect, we see that:
+		% \[
+		% 	A_M (z, \vec x) = z A(\vec x) + \dots
+		% \]
+		% Thus the leading dimension is $1$.
+		% The scaling of $A$ is $|A| = \sqrt{g^{\mu \nu} A_\mu A_\nu} \to \sqrt{\frac{z^2}{R^2}} z^{d-2} = z^{d-1}$.
 		
-		This gives a scaling dimension of $d-1$, exactly what we want for a conserved current. 
-		It does not matter which one we use to find the dimension of $J^\mu$, so long as we apply the consistent procedure that we have just done. 
+		Consequently this gives a scaling dimension of $d-1$ to $J^\mu$, exactly what we want for a conserved current. 
 		
 		\item \textbf{Massive case} Now again we have:
 		\[
 		\begin{aligned}
-			0 = \partial_M (\sqrt{-g} F^{MN}) - \sqrt{-g} m^2 A^N\\
-			& = \partial_M (\sqrt{-g} g^{MA} g^{NB} \partial_{\small[ A} A_{B\small]}) - \sqrt{-g} m^2 A_M\\
-			 &\propto \partial_{z} \left( \frac{1}{z^{d+1}} z^{4} \partial_{z} (z^{\Delta} f_M(\vec x)) \right) - R^{-2} m^2 z^{\Delta-d} f_M + \dots
+			0 &= \partial_M (\sqrt{-g} F^{MN}) - \sqrt{-g} \frac{m^2}{L^2} A^N\\
+			& = \partial_M (\sqrt{-g} g^{MA} g^{NB} \partial_{\small[ A} A_{B\small]}) - \sqrt{-g} \frac{m^2}{L^2} A_M\\
+			& = L^{p-2} \partial_{z} \left( \frac{1}{u^{p+2}} u^{4} \partial_u (u^{\Delta-1} A_M(\vec x)) \right) - L^{p} m^2 z^{\Delta-p-1} A_M + \dots
 		\end{aligned}
 		\]
 		Then this gives a new quadratic equation for $\Delta$:
 		\[
-			0 = \Delta (\Delta + 2 - d) - m^2 \Rightarrow \Delta = \frac{d-2}{2} \pm \sqrt{\frac{(d-2)^2}{4} + \frac{m^2}{R^2}} 
+			0 = (\Delta - 1) (\Delta - p) - L^2 m^2 \Rightarrow \Delta = \frac{p+1}{2} \pm \sqrt{\frac{(p-1)^2}{4} + m^2 L^2}
 		\]
-		 As before, looking at $|A| \propto \sqrt{\frac{z^2}{R^2}} z^\Delta \to z^{\Delta + 1}$ gives a conformal dimension of one higher:
-		\[
-			\tilde \Delta = \frac{d}{2} \pm \sqrt{\frac{(d-2)^2}{4} + \frac{m^2}{R^2}} 
-		\]
-		We see that the massive field picks up an $A_z$ component which cannot be gauged away, as the mass term is not gauge invariant. Because gauge invariance is lost, we see that the corresponding operator in the CFT does not have dimension $d-1$ anymore and no longer gives rise to a conserved current (see next problem). 
+		% The
+		%  % As before, looking at $|A| \propto \sqrt{\frac{z^2}{R^2}} z^\Delta \to z^{\Delta + 1}$ gives a conformal dimension of one higher:
+		% \[
+		% 	\tilde \Delta = \frac{p+1}{2} \pm \sqrt{\frac{(p-1)^2}{4} + m^2 L^2}
+		% \]
+		We see that the massive field picks up an $A_z$ component which cannot be gauged away, as the mass term is not gauge invariant. Because gauge invariance is lost, we see that the corresponding operator in the CFT does not have dimension $d-1$ anymore and no longer gives rise to a conserved current.
 		
 	\end{enumerate}
 	
@@ -333,13 +337,19 @@
 	\]
 	Thus, the normalized bulk-to-boundary propagator is:
 	\[
-		\frac{\Gamma(\Delta)}{pi^{\frac{p+1}{2}}  \Gamma(\Delta -  \frac{1+p}{2})} \frac{u^\Delta}{(u^2 + |x-x'|^2)^\Delta}.
+		\frac{\Gamma(\Delta)}{\pi^{\frac{p+1}{2}}  \Gamma(\Delta -  \frac{1+p}{2})} \frac{u^\Delta}{(u^2 + |x-x'|^2)^\Delta}.
 	\]
 	In the above, we pick $\Delta = \Delta_+$. By convolving a boundary configurations $\phi_0(x)$ with this propagator, we obtain a field $\phi$ in AdS satisfying the massive Laplace equation. 
 	\[
-		\phi(u, x) = \frac{\Gamma(\Delta)}{pi^{\frac{p+1}{2}}  \Gamma(\Delta -  \frac{1+p}{2})} \int d^{p+1} x' \frac{u^\Delta}{(u^2 + |x-x'|^2)^\Delta} \phi_0(x')
+		\phi(u, x) = \frac{\Gamma(\Delta)}{\pi^{\frac{p+1}{2}}  \Gamma(\Delta -  \frac{1+p}{2})} \int d^{p+1} x' \frac{u^\Delta}{(u^2 + |x-x'|^2)^\Delta} \phi_0(x')
 	\]
 	This is clear. It is also quick to see that as $u \to 0$ the leading behavior comes from the bulk-to-boundary propagator going as $u^{p+1-\Delta}  \phi_0(x) = u^{\Delta_-} \phi_0(x)$. This is exactly proportional to the leading solution, which asymptotes with the lower power $\Delta_-$.
+	
+	It is worth noting that there is another very clean way to obtain this propagator, as originally written in Witten's paper. Take the delta function source to be at $u = \infty$ and let's look for a solution of the massive wave equation. Because the source is at $\infty$ the solution has full symmetry under translations in $x$, and so can only depend on $u$. The equations of motion are:
+	\[
+		\d_u u^{-p - 2} u^{2} \d_u \phi(u) - m^2 L^2 \phi = 0 \Rightarrow \phi(u) = u^\Delta, \quad \Delta (\Delta - p - 1) = m^2 L^2
+	\]
+	this gives the correct $\Delta_{\pm}$ as required. To relate this to our solution for a $\delta$ function at $0$ we must do an inversion, which consists of taking $u, x \to \frac{u, x}{u^2 + |x|^2}$ yielding our desired propagator. 
 	
 	\item The extrinsic curvature $K$ is defined as
 	\[
@@ -372,8 +382,469 @@
 		A_2 = \frac{\Box \phi_0}{4 \Delta_- - 6 - 2 p}
 	\]
 	Again, taking $p = 3$ gives the correct $4 (\Delta_- - 3)$ denominator.
+	%
+	% It is worth remarking that this is easily extendable:
+	% \[
+	% 	\phi_{2n}(x) = - \frac{\Box \phi_{2n-2}}{2n (2 \Delta_- - p-1 + 2n)}
+	% \]
+	% This is valid
+	
+	\item Let's repeat the argument for clarity. We stick to $p+1=d=4$. We have a bulk-to-boundary propagator given by:
+	\[
+		K_{\Delta}(u, x; x') = \frac{1}{C_3} \frac{u^\Delta}{(u^2 + |x-x'|^2)^\Delta}, \quad C_3 = \pi^2 \frac{\Gamma(\Delta-2)}{\Gamma(\Delta)}
+	\]
+	At this stage we take $\Delta$ to be arbitrarily. We do not identify it with $\Delta_\pm$. In the small $u$-limit the propagator looks like:
+	\[
+		u^{4-\Delta} (\delta(x- x') + O(u^2)) + u^{\Delta} \left(\frac{C_3^{-1}}{|x_1 - x_2'|^2} + O(u^2)\right)
+	\]
+	A general field $\phi_0(x)$ on the boundary sources a the bulk field $\phi(u, x)$ to take the form:
+	\begin{equation}\label{eq:small-u-phi}
+	\begin{aligned}
+		\phi(u, x) &= \int dx' K(u, x; x') \phi_0 (x') \\ 
+		&= u^{4-\Delta} (\phi_0 (x) + u^2 \phi_2 (x) + \dots) +  u^{\Delta} \left(C_3^{-1} \int d^4x' \frac{\phi_0(x')}{|x-x'|^{2\Delta}} + u^2 A_2(x) + \dots \right)
+	\end{aligned}
+	\end{equation}
+	Here we have written the additional terms that we obtained in the prior exercise. This gives for the on-shell action at leading order:
+	\[
+	\begin{aligned}
+		S_{\text{on-shell}} &= - \frac{M_{pl}^3}{2} \int d^4 x \sqrt{g} g^{uu} \phi \d_u \phi\Big|_{u = \epsilon}\\
+		&= - \frac{(M_{pl} L)^3}{2} \int d^4 x_1 d^4 x_2 \phi(x_1) \phi(x_2) \int d^4 x \frac{K(u, x_1; x) \d_u K(u, x_2; x)}{u^3}\Big|_{u = \epsilon}\\
+	\end{aligned}
+	\]
+	This last integral is given by:
+	\[
+		(4-\Delta) u^{4-2\Delta} \delta^4 (x_1 - x_2) + \frac{4 C_3^{-1}}{|x_1 - x_2|} + \frac{\Delta}{C_3^2} u^{2 \Delta - 4} \int d^4 x \frac{1}{|x-x_1|^{2\Delta} |x-x_2|^{2\Delta}} + \dots
+	\]
+	When $1 < \Delta < 3$ the remaining terms vanish. \textbf{The third term doesn't though, at least not for $1<\Delta<2$. Different kind of counterterm needed?}
+	
+	Now let's take $3 < \Delta < 4$. the third term and all of its higher-order contributions will vanish. on the other hand, not only will the first term require a counter-term going as $\phi^2$, but so will the $u^{6-2 \Delta}$ term. From Equation~\eqref{eq:small-u-phi} we see that this must go as 
+	\[
+		u^{4-\Delta}(\delta(x-x') - \frac{u^2}{4 (3- \Delta)} \Box_x \delta(x- x') )
+	\]
+	Then we get divergent terms from:
+	\[
+	\begin{aligned}
+		&\int d^4 x \, u^{-3} \, u^{4-\Delta}\left(\delta(x-x_1) - \frac{u^2}{4 (3- \Delta)} \Box_x \delta(x- x_1) \right) \, \d_u \left[
+		u^{4-\Delta} \left(\delta(x-x_2) - \frac{u^2}{4 (3- \Delta)} \Box_x \delta(x- x_2) \right) \right]\\
+		&= (4-\Delta) u^{4-2\Delta} \delta^4 (x_1 - x_2) + (4-\Delta) \frac{u^{6-2\Delta}}{4 (\Delta-3)} \Box_{x_1} \delta^4 (x_1 - x_2) + (6-\Delta) \frac{u^{6-2\Delta}}{4 (\Delta-3)} \Box_{x_1} \delta^4 (x_1 - x_2)\\
+		&= (4-\Delta) u^{4-2\Delta} \delta^4 (x_1 - x_2) +  u^{6-2\Delta} \frac{10-2\Delta}{4 (\Delta-3)} \Box_{x_1} \delta^4 (x_1 - x_2)
+	\end{aligned}
+	\]
+	This altogether contributes:
+	\[
+		- \frac{(M_{pl} L)^3}{2} \epsilon^{6-2\Delta} \frac{10-2\Delta}{4 (\Delta-3)} \int dx \phi_0 \Box \phi_0
+	\]
+	
+	In the original action, expanding $\phi$ to quadratic order in $\epsilon$ gives
+	\[
+		\phi = \epsilon^{4-\Delta} \phi_0 + \frac{\epsilon^{2 + 4 - \Delta}}{4 (\Delta - 3)} \Box \phi_0 \Rightarrow \frac{(ML)^ \Delta_{-}}{2} \phi^2 =   \frac{(ML)^3 (4- \Delta)}{2} \epsilon^{2 (4- \Delta)} \phi_0^2  + \epsilon^{2 (4 - \Delta) + 2} (ML)^3 (4-\Delta) \frac{\phi_0 \Box \phi_0}{4 (\Delta - 3)} + \dots
+	\]
+	This shows that the $\phi^2$ term contributes a $\phi_0 \Box \phi_0$ term as well. 
+	
+	We thus need a counterterm action given by:
+	\[
+		S_{ct} = \int \sqrt{h} \left( \frac{M^3 \Delta_-}{2L} \phi^2 + \frac{M_{pl}^3 L}{2} \frac{1}{4 (\Delta - 3)} \phi \Box \phi \right)% \frac{10-2\Delta}{4 (\Delta-3)} \int dx \sqrt{h^\epsilon} \phi(\epsilon, x) \Box \phi(\epsilon, x).
+	\]
+	Here, now, $\Box$ is taken with respect to the boundary metric $h^\epsilon$, meaning it absorbs two factors of $\epsilon/L$. \textbf{This is correct :)}
+	
+	\item Our correlator is:
+	\[
+		\braket{\phi(k) \phi(q)} % = \int d^4 x e^{i p x - i q y} \braket{\phi(x) \phi(y)} =
+		= \frac{\d}{\d \lambda_k \d \lambda_q} S_{\text{on-shell}}(\phi_0(x)  = \lambda_k e^{i k x} + \lambda_q e^{i q x} )\Big|_{\lambda_k, \lambda_q = 0}
+	\]
+	We take the on-shell action and get
+	\[
+	\begin{aligned}
+	S_{\text{on-shell}}\left(\phi \right) 
+	&= - \frac{M^3}{2} \int d^4 x \sqrt g g^{uu} \phi \d_u \phi 
+	\\&=  - \frac{M^3}{2} \int d^4 k d^4 q \lambda_k \lambda_q \sdelta^4(k+q) u^{-3} \phi(u, p) \d_u \phi(u, q) \Big|_{u = \epsilon}
+	\end{aligned}
+	\]
+	Using the form \textbf{L.50} of the bulk-to-boundary propagator we can solve this:
+	\begin{center}
+		\includegraphics[scale=0.5]{"Figures/AdS 2-point"}
+	\end{center}
+    \textbf{Factor of 2 off from Gubser, Klebanov, Polyakov, but I don't think this problem asks for the coefficients, rather just the form of the correlator.}
+	
+	There is always a term going as $\log (p\epsilon/2)$. All other terms are positive polynomials in $p$ and so will contribute contact terms that we will need to supply counterterms to renormalize. There is an easy way to see this. A term going as $p^0$ simply contributes a $\delta(x)$ in position space. Even polynomials in $p$ therefore contribute terms of the form $\Box^n \delta(x)$. All of these need to be regulated and subtracted.
+	
+	We thus recognize the pattern and get
+	\[
+		\braket{\phi(k) \phi(q)} = - M^2 \sdelta^4 (k + q) \log \left( \frac{p^2 \epsilon^2}{2} \right) \frac{\sin(\pi \nu)}{\Gamma(\nu)^2} \left(\frac p2\right)^{2 \nu} = -\frac{M^2}{2} (2 \Delta - 4) \frac{\Gamma(3- \Delta)}{\Gamma(\Delta - 1)} \sdelta^4(p + q) \left(\frac p2\right)^{2 \Delta - 4}
+	\]
+	Up to a factor of $2$ this is consistent with 3.40 of MAGOO. My argument at the moment works only for integral $\nu$, but based off of remarks that I have read, this is what should be expected. 
+	
+	Integrating this is not hard if you know a trick:
+	\[
+		\frac{2 \pi^2}{(2\pi)^4} \int_0^\infty dp p^{2 \nu + 3} \frac{e^{i p |x|}}{p|x|} \log p \to \frac{1}{8\pi^2} \int_0^\infty dp p^{2 \nu + \epsilon} e^{i p x} 
+	\]
+	And look at the $O(\epsilon)$ part of this expansion. 
+	
+	Altogether this gives:
+	\[
+		\braket{\O(x) \O(y)} \approx \frac{1}{|x-y|^{2 \Delta}}
+	\]
+	Where I am not sure about the constant, but am sure about the $x$-scaling. % The $x$-scaling can be seen right away from dimensional analysis.
+	
+	\item In this problem I will freely exchange $p+1$ and $d$ whenever suitable. The dual current is constrained to have scaling dimension $p$. Upon choosing a gauge:
+	\[
+		A_u(u, x) = 0, \qquad \nabla^\mu A_\mu = 0
+	\]
+	We therefore have that $A$ satisfies the differential equation:
+	\[
+		0 = \nabla^M F_{MN} = \d_u \left(\frac{1}{u^{p+2}} u^4 u^{-1} \d_u A_\nu \right) + \frac{1}{u^{p+2}} u^4 u^{-1} \d_\mu \d_{[\mu} A_{\nu]}
+	\]
+	You will notice that there is an extra factor of $u$ accompanying $A$ in this PDE. This should be viewed as turning $\mu$ into a Vielbein index, so that $dx^\mu$ has trivial scaling properties. 
+	
+	The full solution $A_\mu (u, x)$ is then given by:
+	\[
+		u^{p/2} \int \frac{d^{p+1} p}{(2\pi)^{p+1}} a_\mu (p) e^{i p x} K_{p/2}(p u), \quad p^\mu a_\mu(p) = 0.
+	\]
+	
+	
+	It will be nicer to write the bulk-to-boundary propagator in position space. For this, I'll follow Witten's argument by putting the $\delta$ function source at $u = \infty$. This simplifies things since the solution must be independent of the $x$ variables. Take the solution $A= f(u) dx^i$. This gives the equations of motion for a free field:
+	\[
+		\dd \star \dd A = \d_u \frac{1}{u^{p+2}} u^4 f'(u) = 0 \Rightarrow f(u) = u^\Delta, \quad \Delta = d-2
+	\]
+	Doing the inversion again we have:
+	\[
+		u^{d-2} \dd x^i \to \frac{u^{d-2}}{(u^2 + |x|^2)^{d-2}} \dd\left(\frac{x^i}{u^2 + |x|^2} \right)=  \frac{u^{d-2}}{(u^2 + |x|^2)^{d}} (u^2 - x_i^2) dx^i - \frac{2 x_i u^{d-1}}{(u^2 + |x|^2)^{d-2}} du
+	\]
+	adding the exact term:
+	\[
+		- \frac{1}{d-1} \dd \left[\frac{x_i}{u} \left(\frac{u}{u^2 + |x|^2} \right)^{d-1} \right]
+	\]
+	and rescaling by an overall factor of $\frac{d-1}{d-2}$ yields:
+	\begin{equation}\label{eq:vectorprop}
+		G_{\mu i}(u, x; 0) = \frac{u^{d-2}}{(u^2 + |x|^2)^{d-1}} \left(dx^i - x^i \frac{du}{u} \right)
+	\end{equation}
+	This does not satisfy Lorenz gauge, but as expected can be brought to satisfy it by adding appropriate pure gauge terms
+	\[
+		G_{\mu i}(u, x; x') \to G_{\mu i}(u, x; x') + \d_\mu \Lambda(u, x; x')
+	\]
+	Freedman et al have a slightly different propagator, which can be obtained from this one by gauge transform. It takes the form:
+	\[
+		G_{\mu i} = \frac{ \Gamma(d)}{2\pi^{\frac d2} \Gamma(\frac d2)} \frac{u^{d-2}}{(u^2 + |x|^2)^{d-1}} I_{\mu i}(x) 
+		= \frac{ \Gamma(d)}{2\pi^{\frac d2} \Gamma(\frac d2)} \frac{u^{d-2}}{(u^2 + |x|^2)^{d-1}} \left(\delta_{\mu i} - 2 \frac{x_\mu x_i}{x^2} \right)
+	\]
+	This propagator can be seen to naturally come from the embedding space formalism. 
+	
+	Upon integration by parts, the action leads to only a boundary term:
+	\[
+		\frac{1}{4 g^2} \int F_{\mu \nu} F^{\mu \nu} \to \frac{1}{2 g^2} \int A \wedge \star F
+	\]
+	The nonvanishing components will come from the parts of $\star F$ that do not involve a $du$. Consequently, we only need to calculate the $du$ parts of $F$. 
+	Said equivalently, the on-shell action is:
+		\begin{equation}\label{eq:vectaction}
+			S_{on-shell} = \frac{1}{2g^2} \int dx_1 dx_2 J_i(x_1) J_j(x_2) \int \frac{du d^d z}{u^{d+1}} G_{\nu i} u^{4} \d_{[0} G_{\nu] j} 
+		\end{equation}
+	Computing this is straightforward, using \eqref{eq:vectorprop}:
+	\begin{equation}\label{eq:fieldstrengthprop}
+		\begin{aligned}
+			\d_{[\mu} G_{\nu] i} &= (d-2) \frac{u^{d-3}}{(u^2 + |x|^2)^{d-1}} du \wedge dx^i - \frac{u^{d-3}}{(u^2 + |x|^2)^{d-1}} dx^i \wedge du \\
+			& \quad - 2 (d-1) \frac{u^{d-1}}{(u^2 + |x|^2)^d} du \wedge dx^i + 2 (d-1) \frac{u^{d-3} x^i x^j}{(u^2 + |x|^2)^{d}} dx^j \wedge du\\
+			&= (d - 1) \frac{u^{d-3}}{(u^2 + |x|^2)^{d-1}} du \wedge dx^i - 2 (d-1) \frac{u^{d-1}}{(u^2 + |x|^2)^d} du \wedge dx^i - 2 (d-1) \frac{u^{d-3} x^i x^j}{(u^2 + |x|^2)^{d}} du \wedge dx^j
+		\end{aligned}
+	\end{equation}
+	% Taking the hodge star of this gives an extra factor of $u^{-d-1}$ wedged with $A$.
+	For the $u\to 0$ limit, recall the scalar propagator for a field with dimension $d-1$ would take the form:
+	\[
+		\frac{\Gamma(d-1)}{\pi^{\frac d2} \Gamma(\frac d2-1)} \frac{u^{d-1}}{(u^2 + |x-x'|^2)^{d-1}} = \frac{ \Gamma(d)}{2\pi^{\frac d2} \Gamma(\frac d2)} \frac{u^{d-1}}{(u^2 + |x-x'|^2)^{d-1}} \to u \delta(x - x') dx^i + u^{d-1} \frac{ \Gamma(d)}{2\pi^{\frac d2} \Gamma(\frac d2)} \frac{1}{|x-x'|^{2d -2}} dx^i
+	\]
+	So that $G_{\mu i}(u, x; x')$ will (up to a constant) approach $\delta(x- x') dx^i$ in the $u \to 0$ limit. On the other hand, \eqref{eq:fieldstrengthprop} will approach (up to a constant):
+	\[
+		\d_{[0} G_{i] j} = u^{d-3} \frac{1}{|x_{12}|^{2d-2}} \left(\delta_{ij} - 2 \frac{x_{12}^i x^{j}_{12}}{|x_{12}|^2} \right)
+	\]
+	The leading $u^{d-3}$ cancels exactly against the metric-dependent terms in the integral \eqref{eq:vectaction}. The final result is proportional to:
+	\[
+		 % \frac{\Gamma(d)}{2 \pi^{\frac d2} \Gamma(\frac d2)}
+		 \frac{1}{g^2}\int dx_1 dx_2 \, J_i(x_1) J_j(x_2)  \left(\frac{\delta^{ij}}{|x_{12}|^{2d-2}} - 2 \frac{x^i_{12} x^j_{12}}{|x_{12}|^{2d}} \right)
+	\]
+	Giving a two-point correlator (after rescaling):
+	\[
+		\braket{J_i(x_1) J_j(x_2)} = \frac{1}{|x_{12}|^{2d-2}} I_{ij}(x_{12}), \quad I_{ij}(x) = \delta_{ij} - 2 \hat x_i \hat x_j
+	\] 
+
+	
+	\item I think this is pretty direct. If a field $\phi_0$ diverges as $\epsilon^{\Delta}$ in the IR, it must couple with an operator $\mathcal O$ of scaling dimension $d-\Delta$ in order for the interaction term $\int \phi_0 \mathcal O$ to be conformally invariant. This situation is generic
+	
+	\textbf{What more does this question ask for?}
+	
+	\item In what follows, there are many variables and the story becomes rapidly confusing if one does not understand what everything stands for. I will review this. My conventions will mostly by those of Kiritsis, although occasionally I will adopt notation from de Haro, Skenderis, and Solodukin arXiv:000223
+	\begin{center}
+		\begin{tabular}{c | c}
+			Symbol & Definition\\
+			\hline
+			$g(u, x)$ & Full AdS5 Metric\\
+			$R_{\mu \nu}$ & Ricci Curvature of $g$\\
+			$g^{(2n)}$ & \parbox{4in}{\centering The coefficient of $u^{2n}$ in the expansion of $g$ about $u = 0$. \newline
+			Note that $g^{(4)}$ is undetermined by $g_0$. Its trace and divergence is however determined.} \\
+			$h^{(4)}$ & The coefficient of $u^4 \log u^2$\\
+			$\rho = u^2$ & Alternative coordinate, usually easier to work with.\\ 
+			$R_{ij}, R$ & Ricci curvatures of $g^{(0)}_{ij}$ \emph{only}\\
+			$t_{ij}$ & Undetermined integration constant in  $g^{(4)}$\\
+			$\gamma(x) = \frac{L^2}{\epsilon^2} g_{ij}(\epsilon, x)$ & Induced metric on the renormalization hypersurface $u = \epsilon$\\
+			$\braket{T_{ij}}$ & Stress tensor of varying renormalized action w.r.t. $g^{(0)}$\\
+			$T_{ij}[\gamma]$ & Stress tensor w.r.t. metric on renormalized hypersurface\\
+			$T^{\mathcal A}_{ij}$ & Stress tensor of varying anomaly $\mathcal A$ w.r.t. $g^{(0)}$.
+		\end{tabular}
+	\end{center}
+	
+	 The theorem of Fefferman and Graham states that a general asymptotically-AdS metric can be written as
+	\[
+		\frac{ds^2}{L^2} = \frac{du^2}{u^2} + \frac{g_{ij}}{u^2} dx^i dx^j, \quad g_{ij}(u^2, x) = g^{(0)}(x) + u^2 g^{(2)})(x) + \dots
+	\]
+	Einstein's equations in this setting are:
+	\[
+		R_{\mu \nu} - \frac12 g_{\mu \nu} R = \frac{6}{L^2} g_{\mu \nu}
+	\]
+	It will be rather annoying to derive how this looks like in terms of $g$ and its derivatives. Thankfully, Henningston and Skenderis already have this formula in equation 6 of their paper, and I am happy to quote it directly. Take $\rho = u^2$. Denote differentiation with respect to $\rho$ by $g'$. Then we get 
+	\begin{equation}\label{eq:fefferman-graham}
+		\rho [2 g'' - 2 g' g^{-1} g' + \Tr(g') g']_{ij} + R_{ij} - (d-2) g'_{ij} - \Tr(g') g_{ij} = 0
+	\end{equation}
+	Here all traces mean $\Tr(X) = g^{ab} X_{ab}$. 
+	At leading order in $\rho$, the first term is set to zero and we get for $d=4$ at $u = 0$:
+	\[
+		 g^{(2)}_{ij} + \frac12 g_{ij} g^{ab} g^{(2)}_{ab}  = \frac12 R_{ij}
+	\]
+	Taking the ansatz:
+	\[
+		g^{(2)}_{ij}  = \alpha R_{ij} + \beta R g_{ij} \Rightarrow g^{ab} g'_{ab} = (\alpha + 4 \beta) R \Rightarrow \beta +\frac12 (\alpha  + 4 \beta) = 0 \Rightarrow \beta = - \frac16 \alpha
+	\]
+	We see that to get the Ricci tensor to match we need $\alpha = 1/2$. Thus we get the solution
+	\[
+		g^{(2)}_{ij}  = \frac12 R_{ij} - \frac{1}{12} R g_{ij}
+	\]
+	as required. To next order, we have:
+	\begin{equation}\label{eq:hard}
+		\begin{aligned}
+			\cancel{4 g^{(4)}_{ij}} + 6 h^{(4)}_{ij} & - 2 (g^{(2)} g^{-1} g^{(2)})_{ij} + \cancel{\Tr(g^{(2)}) g^{(2)}_{ij}} \\
+			& + R_{ij}^{(2)} - \cancel{4 g^{(4)}_{ij}} - 2 h_{ij}^{(4)} - 2 \Tr[g^{(4)}] g_{ij} - \Tr[h^{(4)}] g_{ij}  - \cancel{\Tr[g^{(2)}] g_{ij}^{(2)}} + \Tr[g^{(2)} g^{(2)}] g_{ij} = 0\\
+			&\Rightarrow -4 (h^{(4)}_{ij} + g_{ij} \frac14 \Tr h^{(4)}) = - 2 g^{(2)} g^{-1} g^{(2)}_{ij} - 2\Tr[g^{(4)}] g_{ij}^{(0)} + R_{ij}^{(2)}  + \Tr[g^{(2)} g^{(2)}] g_{ij}
+		\end{aligned}
+	\end{equation}
+	Note that $g^{(4)}$ has canceled. This is generic. In $d$ dimensions $g^{(d)}$ will cancel. This is a reflection of the fact that there are generally two solutions to the Einstein equations. We cannot determine $g^{(4)}$ uniquely without an additional constraint. We can still trace over both sides and get a relation between traces. Alternatively, this comes from the $R_{rr}$ part of the Einstein equations:
+	\[
+		\Tr[g^{(4)}] =  \frac14 \Tr[g^{(2)} g^{(2)}].  % + R^{(2)}
+	\]
+	
+	The Einstein equations for $R_{i\rho}$ give the further constraint that
+	\[
+		0 = \nabla_i (g^{ab} g'_{ab}) - g^{ab} \nabla_b g_{ia}' \Rightarrow \nabla_i \Tr g' = \nabla^j g'_{ij}
+	\]
+	
+	\textbf{I'm missing how to actually get $g^{(4)}$ in order to get agreement with Kiritsis and 0002230. Thankfully, explicit calculation of $g^{(4)}$ is not necessary for anomaly analysis.}
+	
+	This gives the final desired result:
+	\[
+		g^{(4)}_{ij} = \frac18 g^{(0)}_{ij} \left[(\Tr g^{(2)})^2 - \Tr[(g^{(2)})^2]\right] + \frac12 (g^{(2)})^2_{ij} - \frac14 g_{ij}^{(2)} \Tr(g^{(2)}) + t_{ij}
+	\]
+	Consistency of divergence and trace requires:
+	\[
+		\nabla^i t_{ij} = 0, \quad t^i_i = -\frac14 \left[(\Tr g^{(2)})^2 - \Tr[(g^{(2)})^2]\right]
+	\]
+	Now, revisiting \eqref{eq:hard}, the trace conditions $\Tr g^{(4)} = \Tr[ (g^{(2)})^2]$ and $\Tr h^{(4)} =0$ simplify it to:
+	\[
+	\begin{aligned}
+		h_{ij}^{(4)} &= \frac12 (g^{(2)})^2 + \frac18 \Tr[(g^{(2)})^2] g^{(0)}_{ij} - \frac14 R_{ij}^{(2)}\\
+		& = \frac12 (g^{(2)})^2 + \frac18 \Tr[(g^{(2)})^2] g^{(0)}_{ij} + \frac18 (\nabla^k \nabla_{i} g_{j k}^{(2)} + \nabla^k \nabla_{j} g_{i k}^{(2)}  - \nabla^2 g^{(2)} -\nabla_i \nabla_j \Tr g^{(2)})
+	\end{aligned}
+	\]
+	where we have used identities for the variation of the Ricci tensor from appendix \textbf{C.2}. This can be written as:
+	\[
+	\begin{aligned}
+h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{12} \nabla^2 R_{ij} - \frac{1}{24} R R_{ij} + \frac{1}{32} \left(\frac13 \nabla^2 R + \frac13 R^2 - R_{kl} R^{kl} \right) g^{(0)}_{ij}\\
+&= - \frac{1}{\sqrt{g^{0}}} \frac{\delta}{\delta (g^{(0)})^{ij}} \left(- \frac18 \left[R_{kl} R^{kl} - \frac13 R^2 \right]\right)
+	\end{aligned}
+	\]
+
+	
+	As a bonus, for $d=2$, Equation~\eqref{eq:fefferman-graham} gives:
+	\[
+		R_{ij} = \Tr(g^{-1} g') g_{ij} \Rightarrow \frac12 R = \Tr(g^{-1} g') % \Rightarrow g^{(2)}_{ij} = \frac{1}{4} R g^{(0)}_{ij}
+	\]
+	Together with $\nabla^i g_{ij} = \nabla^i g_{ij} \Tr g'$ we get 
+	\[
+		g^{(2)}_{ij} = \frac12 (R g^{(0)}_{ij} + t_{ij})
+	\]
+	with $t_{ij}$ divergence-free and $t^i_i = - R$
+	We then get:
+	\[
+		\left< T_{ij} \right> = \frac{L}{16 \pi G_{N}} = - \frac{c}{24 \pi} R
+	\]
+	This is the 2D Weyl anomaly. 
+	
+	\item Take:
+	\begin{equation}\label{eq:gravonshell}
+				\frac{L^3}{2 \pi G_5} \int d^4 x\left( \int_{\epsilon} \frac{du}{u^5} \sqrt{\det g(u, x)} - \frac{1}{u^4} (1 - u \d_u) \sqrt{g(u, x)}|_{u = \epsilon} \right)
+	\end{equation}
+	It will be useful to recall:
+	\[
+	\begin{aligned}
+				\sqrt{-\det(g+h)}& = \exp \frac12 \log (-\det(g+h))\\& = \sqrt{\deg g} \exp\left[ \frac12 \tr \log(1 + g^{-1} h) \right] \\&= \sqrt{\deg g} \exp\left[ \frac12 \tr [g^{-1} h - \frac12 (g^{-1} h)^2] \right]\\& = \sqrt{\deg g}\left(1 + \frac12 \tr (g^{-1} h) - \frac14 \tr[(g^{-1} h)^2] + \frac18 \tr[g^{-1} h]^2 \right)
+	\end{aligned}
+	\]
+	This implies
+	\[
+		\sqrt{g(u, x)} = \sqrt{g^{(0)}} \left(1 + \frac12 u^2 \Tr[g^{(2)}] + \frac12 u^4 \Tr[g^{(4)}] + \cancel{ \frac12 u^4 \log u^2 \Tr[h^{(4)}]} + \frac18 u^4 \Tr[g^{(2)}]^2  - \frac14 u^4 \Tr[(g^{(2)})^2 ] \right)
+	\]
+	Again, indices are raised and lowered with $g^{(0)}$.
+	
+	At zeroth order we get:
+	\[
+		\frac{L^3}{8 \pi G_5} \frac{1}{\epsilon^4} - \frac{L^3}{2 \pi G_5 \epsilon^4} = -6 \frac{L^3}{16 \pi G_5} \frac{1}{\epsilon^4} \Rightarrow A_0 = -6
+	\]
+	At second order we get:
+	\[
+		\frac{L^3}{4 \pi G_5} \frac12  \frac{1}{\epsilon^2} \Tr[ g^{(2)}] - \frac{L^3}{2 \pi G_5} (1 - \frac12 ) \frac12 u^2 \Tr[g^{(2)}] = 0 \Rightarrow A_2 = 0
+	\]
+	At fourth order only the first term of \eqref{eq:gravonshell} contributes and we get:
+	\[
+	\begin{aligned}
+		-\frac{L^3}{4 \pi G_5} \log \epsilon^2 \Big( \frac12 \Tr[g^{(4)}] + & \frac18 \Tr[g^{2}]^2 - \frac14 \Tr[(g^{(2)})^2] \Big) = - \frac{L^3}{16 \pi G_5} \log \epsilon^2 \frac12 \left(\Tr[g^{2}]^2  - \Tr[(g^{2})^2]\right)\\
+		 \Rightarrow A_4 &= \frac12 \left(\Tr[g^{2}]^2  - \Tr[(g^{2})^2]\right) = \mathcal A
+	\end{aligned}
+	\]
+	\item 
+	In order to get the correct counterterms, we need to solve for $\Tr g^{(2)}, \Tr [(g^{(2)})^2]$ in terms of the induced metric \emph{on the renormalization surface}, that is at $u = \epsilon$. I will call this $\gamma$  (Kiritsis calls it $h$) as as not to be confused with $h^{(4)}!$. We have $\gamma = \frac{L^2}{\epsilon^2} g_{ij}$. This gives:
+	\[
+		\sqrt{g^{(0)}} = \frac{\epsilon^4}{L^4} \sqrt{\gamma} \left(1 - \frac12 \frac{\epsilon^2}{L^2} \Tr g^{(2)} + \frac18 \frac{\epsilon^4}{L^4} \left(-2 \Tr [(g^{(2)})^2]  + \Tr[ g^{(2)}]^2 \right) \right)
+	\]
+	Next, recall:
+	\[
+		g^{(2)}_{ij} = \frac12 R_{ij} - \frac{1}{12} R g_{ij}^{(0)}
+	\]
+	where $R_{ij}$ is taken w.r.t. $g^{(0)}$
+	This gives:
+	\[
+		\Tr g^{(2)} = \frac{1}{6} R[g^{(0)}] = \frac{1}{6} \left[R[g_{ij}] - g^{(2)}_{ij} \frac{\delta R[g^{(0)}]}{\delta g^{(0)}_{ij}}  \right] = \frac16 \frac{L^2}{\epsilon^2} \left(R[\gamma] + \frac{1}{2}\left[R^{ij}[\gamma] R_{ij}[\gamma] - \frac{1}{6} R[\gamma]^2 \right] \right)
+	\]
+	Finally, to leading order:
+	\[
+		\Tr[ (g^{(2)})^2] = \frac{L^4}{\epsilon^4} \frac12 (R_{ij}[\gamma] - \frac{1}{6} R[\gamma]\, \gamma_{ij}) \frac12 (R^{ij}[\gamma] - \frac{1}{6} R[\gamma]\, \gamma^{ij}) = \frac{L^4}{\epsilon^4} \frac14 ( R_{ij}[\gamma] R^{ij}[\gamma] - \frac{2}{9} R[\gamma]^2)
+	\]
+	As a check, we see (up to quadratic order in the curvature):
+	\[
+		A_4 = \frac12 [\Tr[g^{(2)}]^2 - \Tr[(g^{(2)})^2]] = \frac{L^4}{\epsilon^4} \frac12 \left( \frac{1}{36} R[\gamma]^2 - \frac14 ( R_{ij}[\gamma] R^{ij}[\gamma] - \frac{2}{9} R[\gamma]^2) \right) = -\frac{L^4}{\epsilon^4 }\frac{1}{8}\left(R_{ij}[\gamma] R^{ij}[\gamma] - \frac13 R[\gamma]^2 \right)
+	\]
+	
+	All together we get
+	\[
+	\begin{aligned}
+		&-\frac{L^3}{16 \pi G_5} \int d^4 x \sqrt{g^{(0)}} \left[-\frac{6}{\epsilon^4} - \log \epsilon^2 \, A_4\right]\\
+		& = \frac{L^3}{16 \pi G_5} \int d^4 x \sqrt{\gamma} \left[6 + \frac{6}{2} \frac{\epsilon^2}{L^2} \Tr g^{(2)}  + \Tr[ g^{(2)}]^2  + \log \epsilon^2 \, A_4 + \dots \right]\\
+		&=  \frac{1}{16 \pi G_5} \int d^4 x \sqrt{\gamma} \left[\frac{6}{L} - \frac{L}{2} R[\gamma] - \frac{L^3}{8} \log \epsilon^2 \left(R_{ij}[\gamma] R^{ij}[\gamma] - \frac13 R[\gamma]^2 \right) \right]
+	\end{aligned}
+	\]
+	Where the $\dots$ denotes ``up to finite terms''. \textbf{I think Kiritsis has a mistake and it should be $-\frac{L}{2} R$ not $+$. 0002230 confirms this.}
+
+	\item Let's review first. The stress tensor comes from varying the renormalized action by the initial source field $g^{(0)}$. This is given by:
+	\[
+		\braket{T_{ij}} = \lim_{\epsilon \to 0} \frac{2}{\sqrt {g_{ij}(\epsilon, x)}} \frac{\delta}{\delta g^{ij}(\epsilon, x)} S_{ren}[\gamma] = \frac{L^2}{\epsilon^2} T_{ij}[\gamma]
+	\]
+	Thus, we can look at variations with respect to the induced metric $\gamma$ at $u = \epsilon$ and take $\epsilon \to 0$ at the very end. 
+	
+	There are two variations to consider. The first is the variation of the on-shell effective action. Generalizing the argument giving \textbf{14.8.35} to a $u$-dependent metric, we get:
+	\[
+		T^{sugra}_{ij} = -\frac{1}{8 \pi G_5} (K_{ij} - K \gamma_{ij}) = -\frac{L^3}{8 \pi G_5} \left(-\d_\epsilon g_{ij}(\epsilon, x) + g_{ij}(\epsilon, x) \Tr[g^{-1}(\epsilon, x) \d_\epsilon g(\epsilon, x)] - \frac{3}{\epsilon^2} g_{ij}(\epsilon, x) \right)
+	\]
+	Varying the counterterm action with respect to $\gamma$ gives directly:
+	\[
+		T^{c}_{ij} = - \frac{1}{8 \pi G_5} \left[\frac{3}{L} \gamma_{ij} - \frac{L}{2} \left(R_{ij} - \frac12 R \gamma_{ij} \right) - \frac{L^3}{2} \log{\epsilon^2} T^{\mathcal A}_{ij} \right]
+	\]
+	The next step is to write these in terms of the $g^{(2n)}, h^{(4)}$.
+	
+	It is useful to note:
+	\[
+	\begin{aligned}
+		R_{ij}[\gamma] &= R_{ij} [g_0] + \frac14 \frac{\epsilon^2}{L^2} \left(R_{ik} R^{k}_{\, j} - 2 R_{ikjl}  R^{kl} - \frac13 \nabla_i \nabla_j R + \nabla^2 R_{ij} - \frac16 \nabla^2 R g_{ij}^{(0)}\right).\\
+		\Rightarrow R[\gamma] &= R[g_0] - \frac14 \frac{\epsilon^2}{L^2} R_{ij} R^{ij}
+	\end{aligned}
+	\]
+	where the curvatures on the RHS are those of the metric $g^{(0)}$. Now we get:
+	\[
+	\begin{aligned}
+		\braket{T_{ij}} &= \frac{L^2}{\epsilon^2} [T^{sugra}_{ij} + T^c_{ij}] \\
+		&= -\frac{L^3}{8 \pi G_5} \Bigg[\frac{L^2}{\epsilon^2} (-g^{(2)}_{ij} + g^{(0)} \Tr g^{(2)}_{ij} + \frac12 R_{ij} - \frac14 R g_{ij}^{(0)}) - \log \epsilon^2 \left(2 h^{(4)} +  T^{\mathcal A}_{ij} \right)\\
+		&\qquad \qquad -2 g^{(4)} - h^{(4)} - g_{ij}^{(2)} \Tr g^{(2)} - \frac12 g^{(0)}_{ij} \Tr g^2
+		\\
+		& \quad - \frac{L}{8} \cancel{\frac{\epsilon^2}{L^2}} \left(2 R_{ik} R^{k}_{\, j} - 2 R_{ikjl}  R^{kl} - \frac13 \nabla_i \nabla_j R + \nabla^2 R_{ij} - \frac16 \nabla^2 R g_{ij}^{(0)}\right) - \frac{L}{4} R g^{(2)}_{ij} + \frac{L}{8} g^{(0)}_{ij}  R_{ij} R^{ij} - \frac16 \nabla^2 R g^{(0)}_{ij}
+		 \Bigg]
+	\end{aligned}
+	\]
+	We see that the $\frac{L^2}{\epsilon^2}$ and $\log \epsilon^2$ terms vanish by \textbf{14.8.39, 14.8.43}. The curvature terms combine to give yet another two copies of $-h^{(4)})_{ij}$, and the remaining terms cancel everything but $t_{ij}$ from the $g^{(4)}_{ij}$ to give:
+	\[
+		\braket{T_{ij}} = \frac{L^3}{8 \pi G_5}[2 t_{ij} + 3 h^{(4)}_{ij}]
+	\]
+	
+	
+	\item In embedding space, it is easy, using L.10 to calculate:
+	\[
+		\begin{aligned}
+			2\sigma := \eta_{MN} (\xi - \xi')^M (\xi - \xi')^N &= -(\Delta X^0)^2 + (\Delta X^{p+1})^2 + (\Delta X^i)^2 \\
+			&= -\left(\tfrac{u-u'}{2} + \tfrac{L^2 + x^2}{2u} - \tfrac{L^2 + {x'}^2}{2u'}\right)^2 
+			+ \left(\tfrac{u-u'}{2} -  \tfrac{L^2 + x^2}{2u} + \tfrac{L^2 + {x'}^2}{2u'}\right)^2 + \left(\tfrac{L x}{2u} - \tfrac{L x'}{2u'} \right)^2\\
+			&= - (u-u')\left(\frac{L^2}{2u} - \frac{L^2}{2u'} \right) - \left(\frac{L^2}{u} - \frac{L^2}{u'} \right) \left(\frac{x^2}{u} - \frac{{x'}^2}{u'} \right) + L^2 \left(\frac{x}{u} - \frac{x'}{u'} \right)^2\\
+			&= L^2 \frac{(u-u')^2 + (x-x')^2}{u u'}
+		\end{aligned}
+	\]
+	Then $\eta^2 = 1+\sigma$. Now let us calculate:
+	\[
+		-iG_F = \braket{0| T \phi(x) \phi(x')| 0} =  \Theta(x-x')\sum_{n, \ell} \phi_{\Delta_+ n \ell}(x) \phi_{\Delta_+ n \ell}(x') + (x \leftrightarrow x').
+	\]
+	The modes of a scalar field are given by:
+	\[
+	\begin{aligned}
+		\phi_{\Delta, \ell, n} &=  N_{\Delta, n, \ell} \, \sin^\ell \theta\, \cos^{\Delta_\pm} \theta\, {_2F_1}(a, b, c; \sin^2 \theta) \, Y_{\ell}(\Omega_p) (\Omega_p),\\ \quad a = \frac12 (\ell + \Delta_{\pm}& - \omega L), \quad b = \frac12 (\ell + \Delta_{\pm} + \omega L),\quad c = \ell+\frac{p+1}{2}, \quad \omega L = \Delta_\pm + \ell + 2n
+	\end{aligned}
+	\] 
+	Because of the homogeneity of AdS, pick the AdS coordinate origin at $x'$. Then $\phi_{\Delta_+, \ell, n}(x') = 0$ for $\ell \neq 0$. This reduces the sum to:
+	\[
+		\frac{\Gamma(\frac{p+1}{2})}{2 \pi^{\frac{p+1}{2}}} e^{-i \Delta_+}\sum_{n=0}^\infty N_{\Delta, n, \ell}^2 \phi_{\Delta, 0, n}(x) \phi_{\Delta, 0, n}(0) = \frac{e^{-i \Delta t} \cos^{\Delta} \theta}{2 \pi^{\frac{p+1}{2}} L^p} \sum_{n=0}^\infty \frac{(\frac{p+1}{2})_n \Gamma(\Delta + n)}{n! \Gamma(\Delta + n + \frac{p-1}{2})} {_2F_1}\left(\begin{matrix}
+			-n \quad  \Delta + n\\ \frac12(p+1)
+		\end{matrix}; \sin^2 \theta \right) e^{-2 i n |t|}
+	\]
+	I have started using (ascending) Pochammer symbols. 
+	Writing this in terms of a Jacobi poylnomial:
+	\[
+		\sum_{n=0}^\infty \frac{\Gamma(\Delta + n)}{\Gamma(\Delta + n + \frac{p-1}{2})} P^{\frac{p-1}{2}, \Delta - \frac{p+1}{2}}_n (\cos 2 \theta) e^{-2 i n |t|}
+	\]
+	Using a Jacobi polynomial identity from 45.1.4 ``A table of series and products'' by Eldon R. Hansen we get the full greens function to be 
+	\[
+		\frac{\Gamma(\Delta) e^{-i \Delta t} \cos^\Delta \theta}{2 \pi^{\frac{p+1}{2}} \Gamma(\Delta + \frac{1-p}{2}) L^p} (1 + e^{-2 i |t|})^{-\Delta} {_2F_1}\left(\begin{matrix}
+			\frac{\Delta}{2} \quad \frac{\Delta + 1}{2}\\ \Delta + \frac{1-p}{2}
+		\end{matrix}; \frac{\cos^2 \theta}{\cos^2 t}\right) = \frac{\Gamma(\Delta)}{2^{\Delta + 1} \pi^{\frac{p+1}{2}} \Gamma(\Delta + \frac{1-p}{2}) L^p } \eta^{-2 \Delta} {_2F_1}\left(\begin{matrix}
+			\frac{\Delta}{2} \quad \frac{\Delta + 1}{2}\\ \Delta + \frac{1-p}{2}
+		\end{matrix}; \frac{1}{\eta^4}\right) 
+	\]
+	And $\eta^2 = \frac{\cos t}{\cos \theta}$ is the geodesic distance. Up to a minus sign this is correct. \textbf{I think Kiritsis means $2^{\Delta+1}$ in the denominator}. Either $\Delta = \Delta_+$ or $\Delta=\Delta_-$ works. 
+	% In the above expression, as we take $x \to x'$ we get
+% 	\[
+% 		\eta^2 = 1 + \frac{(u-u')^2}{2 u u'}
+% 	\]
+% \textbf{Important to appreciate the subtleties of contrasting this to the euclidean continuation of the sphere propagator. C.f. Burgess + Lutken.}
+	
+	
+	\item Upon taking $u \to 0$, $\eta^{-4}$ goes to zero and the ${_2F_1} \to 1$. What remains is (I'm including Kiritsis' minus sign):
+	\[
+		-\frac{\Gamma(\Delta)}{2^{\Delta+1} \pi^{\frac{p+1}{2}} \Gamma(\Delta + \frac{1-p}{2})} (2u)^{\Delta} \left(\frac{u'}{{u'}^2 + x^2} \right)^\Delta = -\frac{1}{2 (\Delta - \frac{p + 1}{2})} \frac{u^\Delta \Gamma(\Delta)}{ \pi^{\frac{p+1}{2}} \Gamma(\Delta - \frac{1+p}{2})} \left(\frac{u'}{{u'}^2 + x^2} \right)^\Delta 
+	\]
+	This is the negative of what is in Klebanov and Witten. 
+	\[
+		G_{\Delta}(u, x; u', x') t\to \frac{u^\Delta}{p+1 - 2 \Delta} K_\Delta(x; u', x')
+	\]
+	Take a source field $\phi(u,x)$ in the bulk. As $u \to 0$ away from the source we have $\phi(u, x) \to u^{\Delta} A(x)$.
+	
+	The expectation value $\braket{\O(x)}$ is given by contracting the bulk source with a bulk-to-boundary propagator going to $x$. On the other hand, contracting with a bulk-to-bulk propagator and taking $u$ close to $0$ gives $u^{\Delta} A(x)$. Thus, we see:
+	\[
+		u^{\Delta} A(x) = \frac{u^{\Delta}}{p+1-2\Delta} \braket{\O(x)} \Rightarrow A(x) = \frac{1}{p+1-2 \Delta} \braket{\O(x)}
+	\]
+	
+	I think the bulk-to-bulk greens function should have a minus sign from how Kiritsis defined it.
 	
 	\item 
+	
+	\item This is a difficult problem in general. Hong Liu has a method of doing this using conformal partial waves. 
 	
 \end{enumerate}
 
