@@ -1,0 +1,107 @@
+\documentclass[11pt, class=article, crop=false]{standalone}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd}
+\usepackage{mathabx}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{simpler-wick}
+\usepackage{hyperref}
+\usepackage{ytableau}
+\usepackage{cancel}
+\usepackage{listings}
+\usepackage{relsize}
+\usepackage{xcolor}
+\usepackage{stmaryrd}
+\usepackage{slashed}
+\usepackage{tikz-feynman}
+\usepackage{kiritsis}
+\geometry{margin = 0.5in}
+
+
+\begin{document}
+\section{Chapter 15: Applications of the Holographic Correspondence} % (fold)
+\label{sec:chapter_15_applications_of_the_holographic_correspondence}
+\begin{enumerate}
+	\item Taking $U = r/\ell_s^2$ and $g_{YM}^2 = g_s (2\pi)^{p-2} \ell_s^{p-3}$ fixed as $\ell_s \to 0$, we have that at the scale $U$,
+	\[
+		e^{2 \Phi} = g_s^2 H^{(3-p)/2} \Rightarrow g_{eff}^2 = g_{YM}^2 N U^{p-3}.
+	\]
+	In the extremal case the electric field is:
+	\[
+	\begin{aligned}
+		F_{r01\dots p} &= - \frac{H'}{H^2} = \frac{g_s N}{\Omega_{8-p} H^2} \frac{(2\pi \ell_s)^{7-p}}{r^{8-p}}\\& \to \frac{g_s N}{\Omega_{8-p}} \left(\frac{2 \pi \ell_s}{L^2} \right)^{7-p} r^{6-p} = \frac{(7-p)^2 \Omega_{8-p}}{(2 \pi \ell_s)^{7-p} g_s N} r^{6-p} = \frac{\ell_s^2 (7-p)^2 (2\pi)^{2p - 9} \Omega_{8-p}}{g_{YM}^2 N} U^{6-p}
+	\end{aligned}
+	\]
+	
+	\item The original near-horizon metric is:
+	\[
+		\ell_s^2 \left[\frac{U^{(7-p)/2}}{g_{YM} \sqrt{d_p N}} (-dt^2 + dx \cdot dx) + \frac{g_{YM} \sqrt{d_p N}}{U^{(7-p)/2}} (dU^2 + U^2 d\Omega_{8-p}^2)  \right]
+	\]
+	The sphere factor is direct and yields:
+	\[
+		\ell_s^2 \sqrt{d_p N} U^{(p-3)/2} g_{YM} d\Omega_{8-p}^2
+	\]
+	The other factor will require our change of variables. Pulling out the same overall factor as before, we are left with:
+	\[
+		\ell_s^2 \sqrt{d_p N} U^{(p-3)/2} g_{YM} \left[\frac{U^{5-p}}{g_{YM}^2 d_p N} (-dt^2 + dx \cdot dx) + \frac{dU^2}{U^2} \right]
+	\]
+	Upon making the substitution:
+	\[
+		U^{5-p} = \left(\frac{2 g_{YM} \sqrt{d_p N}}{(5-p) u} \right)^2 \Rightarrow \frac{dU}{U} = - \frac{2}{5-p} \frac{du}{u}
+	\]
+	we get:
+	\[
+		\frac{4}{(5-p)^2} \left[\frac{1}{u^2} (du^2 -dt^2 + dx \cdot dx)\right]
+	\]
+	Exactly AdS with radius $4/(5-p)$. \textbf{I'm not sure how Kiritsis is absorbing the $g_{YM}$ - strictly speaking the metric in 15.1.17 is off by that factor is the $d\Omega_5$ is to be unital.}
+	
+	\item For an extremal brane it is straightforward to get the curvature in terms of the dilaton EOM, and indeed we've done this in an exercise for chapter 8, as well as having it written explicitly in \textbf{8.8.31}. 
+	
+	Schematically:
+	\[
+		\ell_s^2 R \sim \frac{\ell_s^2}{r^{(p-3)/2} L^{(7-p)/2}} \sim \frac{1}{\sqrt{g_s \ell_s^{p-3} U^{p-3} N} } \sim \frac{1}{g_{eff}} \sim \sqrt{\frac{U^{3-p}}{g_{YM}^2 N}}
+	\]
+	as required. 
+	
+	\item Ok here the limits are subtle and worth discussing. I'm following section 13.7. There are two horizons. Near-horizon means near the \emph{outer} horizon. In order to take this limit successfully, we must take $r_0 \ll L$. In fact, we must take $r_0 \to 0$ in a controlled way. Expectedly, we must hold $U_0 = r_0 / \ell_s^2$ fixed alongside $U = r/\ell_s^2$ while taking $r_0, r, \ell_s^2$ to zero at the same rate. 
+	
+	For this reason, it is safe to replace $H$ by $L^{7-p}/r^{7-p}$ as before, and also to replace $f$ by $1 - \frac{U_0^{7-p}}{U^{7-p}}$ in the nonextremal solution. We then recover exactly the near-horizon extremal solution with the $dt^2$ and $dU^2$ terms modified by $f$:
+	\[
+	\begin{aligned}
+		ds^2 &= \frac{-f(r)  dt^2 + dx \cdot dx}{\sqrt H(r)} + \sqrt{H(r)} \left[ \frac{dr^2}{f(r)} + r^{8-p} d\Omega_{8-p}\right]\\
+		& \to \ell_s^2 \left[ \frac{U^{(7-p)/2}}{g_{YM} \sqrt{d_p N}} (-f(U) dt^2 + dx \cdot dx ) + \frac{g_{YM} \sqrt{d_p N}}{U^{(7-p)/2}} \left(\frac{dU^2}{f(U)} + U^2 d\Omega_{8-p} \right) \right].
+	\end{aligned}
+	\]
+	with 
+	\[
+		f(U) = 1 - \frac{U_0^{7-p}}{U^{7-p}}.
+	\]
+	
+	\item Let's start with the Hawking temperature. From excercise 13.1 it is simply 
+	\[
+		T_H = \frac{C'(r_0)}{4\pi} = \frac{(7-p) U_0^{(5-p)/2}}{4 \pi g_{YM} \sqrt{d_p N}}
+	\]
+	The ADM mass above extremality is given by \textbf{(again, I think there must be something wrong with equation 8.8.14)}
+	\[
+		\frac{V_p}{2 \kappa_{10}^2}  (9-p) r_0^{7-p} = V_p \frac{2^{-10 + 2p} (9-p) \pi^{\frac{-13 + 3p}{2}}}{g_{YM}^4 \Gamma(\frac{9-p}{2})} U_0^{7-p}
+	\]
+	as required.
+	
+	The entropy density will come from the area of the horizon at $U = U_0$.
+	\[
+		\frac{V_p}{4 G_{10}} (g_{YM} \sqrt{d_p N})^{4-p} U_0^{p (7-p)/4} U_{0}^{-(8-p)(7-p)/4} U_0^{8-p} = \frac{V_p}{2^5 \pi^6 \ell_s^8 g_s^2}
+	\]
+	
+	
+	By straightfoward algebra, this is equal to the messy expression that Kirtisis has.  
+		
+	\item Area law behavior is indicative of confinement, which is what we would qualitatively expect in 
+	
+\end{enumerate}
+% section chapter_15_applications_of_the_holographic_correspondence (end)
+\end{document}
+	

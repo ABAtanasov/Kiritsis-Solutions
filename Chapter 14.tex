@@ -233,7 +233,9 @@
 	\]
 	Take $c = \sinh \rho_0$. In AdS this corresponds to the minimum distance $\rho$ that the geodesic will approach, since there we have $\theta' = \infty \Rightarrow d\rho/d\theta = 0$.
 	
-	\textbf{Insert figure}
+	\begin{center}
+		\includegraphics[scale=0.2]{"Drawings/Ads Area"}
+	\end{center}
 	
 	To get $\Delta \theta$, we integrate this, giving
 	\[
@@ -1000,7 +1002,7 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	\[
 		L = P \exp i \int_0^\beta A_\mu \dot x^\mu d\tau
 	\]
-	We initially consider gauge transformations that are periodic in the time direction. That means that this object transforms as $L \to g^{-1} L g$. If we consider now the gauge transformations periodic up to an element of the center, we get $L \to g^{-1} L g h$. Closing the loop again, we get an additional insertion of $h$ in the line. Since $h$ is central, it is equalt to an $N$th root of unity $\zeta$ times the identity matrix. This is just a scalar, so inserting it to give a twisted sector gives the transformation:
+	We initially consider gauge transformations that are periodic in the time direction. That means that this object transforms as $L \to g^{-1} L g$. If we consider now the gauge transformations periodic up to an element of the center, we get $L \to g^{-1} L g h$. Closing the loop again, we get an additional insertion of $h$ in the line. Since $h$ is central, it is equal to an $N$th root of unity $\zeta$ times the identity matrix. This is just a scalar, so inserting it to give a twisted sector gives the transformation:
 	\[
 		L \to \zeta L
 	\]
@@ -1019,7 +1021,7 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	
 	A mass for the fermion is already generated at tree-level due to the anti-periodic identification implicit in putting the theory at finite temperature. 
 	
-	
+	\textbf{Finish, ask Pavel}
 	
 	\item There is a typo. It should be $r^2 d\Omega_3^2,$ not $r^3 d\Omega_3^2$.
 	
@@ -1073,6 +1075,8 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	
 	\item 
 	
+	\item 
+	
 	\item Newton's constant in 10D is $16\pi G_{10} = 2 \kappa_{10}^2 = (2\pi)^7 g_s^2 \ell_s^8$. Then compactifying on $T^4 \times S^3$ to get to 3D, with the volume of the $T^4$ being $(2\pi \ell_s)^4 V_4$ and the volume of the $S^3$ being $2 \pi^2 L^3$ we have
 	\[
 		2 \kappa_{3}^2 = \frac{2 \kappa_{10}^2}{(2 \pi \ell_s)^4 V L^3 2 \pi^2} \Rightarrow G_3 = \frac{(2\pi)^3 g_s^2 \ell_s^4}{16 \pi \times 2 \pi^2 \times V \times L^3} = \frac{g_s^2 \ell_s^4}{4 V L^3}
@@ -1081,15 +1085,37 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	\[
 		c = \frac32 \frac{L}{G_3} = \frac{6 V L^4}{g_s^2 \ell_s^4} = 6 Q_1 Q_5
 	\]
+	\item Because this is so crucial, I will first review the argument by Brown and Henneaux. 
+	
+	\item Let us first express the expectation value of the stress energy tensor in the 2D CFT in terms of the asymptotic metric of 3D gravity. We have done this for AdS$_5$/CFT$_4$ in section 14.8.3. We have the equations:
+	\[
+		\Tr [g_{(0)}^{-1} g_{(2)}] = - \frac{\ell^2}{2} R, \quad \nabla^k g_{kj}^{(0)} = \nabla_j \Tr g_{(0)}
+	\]
+	Thus only the trace-free part of $g^{(2)}$ is left undetermined. This can be parameterized by $h_{zz}, h_{\bar z, \bar z}$.
+	
+	
+	Altogether we get:
+	\[
+		T_{zz} = - \frac{1}{4 \ell} h_{zz}, T_{\bar z, \bar z} = - \frac{1}{4 \ell} h_{\bar z \bar z}
+	\]
+	Focusing on a holomorphic transformation we get:
+	\[
+		ds^2 \to ds^2 + 
+	\]
+	
+	
 	\item 
+	Say I had a conserved global charge for a continuous (internal) symmetry. This provides a local current $J^\mu$ in the theory. I take this current operator near the boundary of AdS - this defines an operator in the CFT. 
 	
-	\item
+	The corresponding boundary local operator will thus generate a global symmetry on the boundary theory. By preceding arguments (exercise 14.10), the corresponding bulk symmetry must be gauged. 
 	
-	\item 
+	\textbf{Incorporate Harlow's argument.}
 	
-	\item
+	\item First consider two noninteracting CFTs, CFT$_1$ and CFT$_2$. The stress energy tensor $T$ decomposes into a sum  $T_1 + T_2$. The corresponding geometry will be a product of two separate (noninteracting) copies of AdS$_5$.
 	
-	\item
+	Thus, one graviton $h^1 + h^2$ remains massless while the other $h^1 - h^2$ obtains a mass squared proportional to $\frac{1}{N^2 L^2}$.
+	
+	
 	
 \end{enumerate}
 
