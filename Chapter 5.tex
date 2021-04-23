@@ -76,6 +76,10 @@
 	\item 
 	Note that the three-point tachyon amplitude is very simple and independent of momenta aside from a delta function: $S(k_1, k_2, k_3) = \frac{8 \pi i}{\ell_s^2} g_c \sdelta^{26}(\Sigma k)$. 
 	
+	\begin{center}
+		\includegraphics[scale=0.1]{"Drawings/54"}
+	\end{center}
+	
 	Let's now consider the limit of a nearly on-shell particle of momenta $k$. From elementary field theory we get:
 	\[
 		S(k_1, k_2, k_3, k)4) \sim i \int \frac{d^{26} k}{(2\pi)^{26}} \frac{S_{S^2} (k_1, k_2, k) S_{S_2} (-k, k_3, k_4)}{-k^2 + 4/\ell_s^2 + i \epsilon} = i \left(\frac{8 \pi i}{\ell_s^2}\right)^2 g_c^2 \sdelta^{26} (\Sigma k_i) \frac{1}{s + 4 \ell_s^2 + i \epsilon}
@@ -89,7 +93,11 @@
 	exactly consistent with unitarity. Note we needed every constant to be as it was so that we could get such agreement. 
 	
 	
-	\item The massless state corresponds to $\zeta_{\mu \nu} \d X^\mu \d X^\nu e^{i p \cdot X}$. We don't have to integrate. Let's calculate the correlator
+	\item The massless state corresponds to $\zeta_{\mu \nu} \d X^\mu \d X^\nu e^{i p \cdot X}$. We don't have to integrate. 
+	\begin{center}
+		\includegraphics[scale=0.1]{"Drawings/55"}
+	\end{center}
+	Let's calculate the correlator
 	\[
 		\braket{\d X(z_1) \bar \d X(z_1) e^{i k_1 X(z_1)}\,  e^{i k_2 X(z_2)} \,  e^{i k_3 X(z_3)} } 
 		= i C_{S^2}^X \sdelta^{26}(\Sigma p) \prod_{i<j} |z_{ij}|^{\alpha' k_i \cdot k_j} \left(-\tfrac{i \ell_s^2}{2}\right) \left(\tfrac{k_2}{z_{12}} + \tfrac{k_3}{z_{13}}\right) \, \left(-\tfrac{i\ell_s^2}{2}\right) \left(\tfrac{k_2}{\bar z_{12}} + \tfrac{k_3}{\bar z_{13}}\right)
@@ -306,6 +314,10 @@
 	
 	\item Let $p_1$ be the momentum of the closed-string tachyon, and $p_2, p_3$ the the momenta of the open string tachyons. We get $2 p_2 \cdot p_3 = p_1^2 - p_2^2 - p_3^2 = 2/\ell_s^2 \Rightarrow p_2 \cdot p_3 = 1/\ell_s^2, \quad 2 p_1 \cdot p_2 = p_3^2 - p_2^2 - p_1^2  = -4/\ell_s^2 \Rightarrow p_1 \cdot p_2 = -2/\ell_s^2$
 	
+	\begin{center}
+		\includegraphics[scale=0.1]{"Drawings/59"}
+	\end{center}
+	
 	 I no longer have enough freedom to fix all three points. I can send one to $\infty$ on the real line, and fix the position of the closed string to be $i \in \H$. The remaining open string insertion can be anywhere on the real line, so we must integrate over this. The ghost and vertex operator correlator gives:
 	\[
 		(z_1 - \bar z_1) (z_1 - w_3) (\bar z_1 - w_3)\,  |z_1 - \bar z_1|^{\ell_s^2 p_1^2/2} |z_1 - w_3|^{2 \ell_s^2 p_1 \cdot p_3} \int_\RR dw_2 \, |w_2 - w_3|^{2 \ell_s^2 p_2 \cdot p_3} |w_2 - z_1|^{2 \ell_s^2 p_1 \cdot p_2} \; \sdelta(\Sigma p)
@@ -341,6 +353,9 @@
 		+ & \left[[1324] \int_{-\infty}^0 + [1432] \int_0^1 + [1342] \int_1^\infty \right] (|w|^{- u} |1-w|^{-s}) dw
 	\end{aligned}
 	\]
+	\begin{center}
+		\includegraphics[scale=0.1]{"Drawings/511"}
+	\end{center}
 	Note the second triplet of integrals swaps $2$ with $3$ so equivalently swaps $s$ and $t$. We get the amplitude 
 	\[
 	\begin{aligned}
@@ -373,7 +388,11 @@
 	
 	We thus see that the amplitude indeed factorizes, respecting the structure of the $U(N)$ gauge group. 
 	
-	\item We have $p^2 + m^2 = \frac{1}{\ell_s^2} L_0$ for the open string. From \textbf{5.3.1} (and consequently \textbf{5.3.3}) this gives:
+	\item We have $p^2 + m^2 = \frac{1}{\ell_s^2} L_0$ for the open string.
+	\begin{center}
+		\includegraphics[scale=0.1]{"Drawings/512"}
+	\end{center}
+	 From \textbf{5.3.1} (and consequently \textbf{5.3.3}) this gives:
 	\[
 		\frac{i}{2} \frac{V_{26}}{(4\pi)^{26}} \int_0^\infty \frac{dt}{t^{13+1}} \overbrace{\mathrm{Tr'}[e^{-2\pi t m^2}]}^{\text{transverse only}} = \frac{i}{2} \frac{V_{26}}{(16\pi^2 \ell_s^2)^{13}} \int_0^\infty \frac{dt}{t^{13+1}} \mathrm{Tr'}[e^{-2\pi t L_0^{\text{cyl}}}] =  \frac{i}{2} \frac{V_{26}}{(16\pi^2 \ell_s^2)^{13}} \int_0^\infty \frac{dt N_1 N_2 \eta(i t)^2}{t^{13+1} \eta(i t)^{26}} 
 	\]

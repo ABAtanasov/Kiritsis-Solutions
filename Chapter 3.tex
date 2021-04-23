@@ -232,6 +232,10 @@
 	 
 	 \item We can think of the torus as $\mathbb C / \Lambda$. Note that scaling and rotation preserve the complex structure of the fundamental parallelogram so WLOG we can pick $\Lambda = \mathbb Z\text{-span} \{1, \tau\}$ with $\tau \in \mathbb H$. Thus we need vector fields on $\mathbb C$ that respect the translation-invariance under $\Lambda$. Any translation-invariant holomorphic function is zero, we can only have the constant vector fields $\partial_z, \partial_{\bar z}$. 
 	 
+	  \begin{center}
+	  	\includegraphics[scale=0.1]{"Drawings/Torus Killing"}
+	  \end{center}
+	 
 	 We now look for holomorphic and anti-holomorphic traceless tensors. Again, $T_{zz}$ and $T_{\bar z \bar z}$ be translation-invariant w.r.t the lattice, so again they must be constants. We get $dz \otimes dz$ and $d \bar z \otimes d\bar z$ as our two Teichmuller deformations. As real tensors these are:
 	 \[
 	 	\begin{pmatrix}
@@ -249,6 +253,10 @@
 	  and $R^{\bar z}_{\bar z \bar z z} = \partial_z \Gamma^{\bar z}_{\bar z \bar z}$ giving $R_{z \bar z} = \frac{2}{(1 + |z|^2)}$. Tracing this gives $R = 1$. Integrating this over half the sphere gives $2 \pi$. The geodesic curvature vanishes on the great circle by symmetry, and we get $\chi = 1$ again.
 	  
 	  \item Any such surface can be decomposed as a sphere with $2n$ holes connected to $n$ handles. Let's integrate the scalar curvature over each piece individually. First the curvature integrated on the sphere with $2n$ disks removed is equal to the curvature integrated on the Riemann sphere: $4\pi$ minus the curvature integrated on $2n$ disks. We have just done this in the previous problem, and we get $2\pi \times 2n$. Lastly, the curvature on the handles is just the same as the curvature on the sphere with two holes cut out, which we have just calculated is $4 \pi - 2 \times 2\pi = 0$. Thus the total curvature is just $2 \pi (2-2n)$, giving us $\chi = 2-2n$ as required. 
+	  
+	  \begin{center}
+	  	\includegraphics[scale=0.12]{Drawings/Handles}
+	  \end{center}
 	  
 	  \item Our point particle action is $S_0 = \int d\tau e (e^{-2} (\partial_\tau x)^2 - m^2)$. Let's look at:
 	  \[

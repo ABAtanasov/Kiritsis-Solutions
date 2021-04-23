@@ -447,6 +447,9 @@
 	So the zero mode of $T^{cyl}$ is modified. By $T^{cyl}$ has the expansion $\sum_n L_n e^{-2 \pi i n x}$ so we see $L_0$ gets modified by $-\frac{c}{24}$.
 	
 	Because $L_0$ is a codimension $1$ operator, it will get modified the same way, whether on the cylinder or torus. 
+  \begin{center}
+  	\includegraphics[scale=0.16]{"Drawings/Plane to Cylinder"}
+  \end{center}
 
 	\item Each raising operator $L_{-n}$ acts by raising the level by $n$, and so assuming each one gives a unique state not expressible in terms of the action of the other $L_{-k}$, we get that it will contribute:
 	\[
@@ -993,6 +996,10 @@
 	
 	\textbf{Interpret this in terms of image charges}
 	
+	  \begin{center}
+	  	\includegraphics[scale=0.12]{"Drawings/DN Plane"}
+	  \end{center}
+	
 	\item Firstly, $\d X \bar \d X$ requires no normal ordering constant to be added ordinarily, since it has a wick contraction of zero. Now to go from the plane from the disk we have $x = \frac{z-i}{z+i}$. Vice versa is $z = i \frac{1+x}{1-x}$. This gives
 	\[
 	\begin{aligned}
@@ -1034,12 +1041,18 @@
 		\end{aligned}
 	\]
 	where the extra minus sign in the Dirichlet boundary condition case removes any sign ambiguity in the last line. Thus, we see that indeed $^\star_\star \d X(z) \d X(w) ^\star_\star = \pm \, ^\star_\star \d X(z) \bar \d X(1/\bar w) ^\star_\star $ for Neumann and Dirichlet boundary conditions respectively. 
+	
+	
+    \begin{center}
+    	\includegraphics[scale=0.12]{"Drawings/D Disk"}
+    \end{center}
+	
 	\item Using the doubling trick we have $\bar \psi (\bar z) = \psi(z^*)$. So $z_i = $ We can compute the correlator by Wick contraction:
 	\[
 		\braket{ \prod_{i=1}^m \psi(z_i) \, \prod_{j=1}^{2n-m} \bar \psi(\bar z_j)} = \braket{ \prod_{i=1}^n \psi(w_i) } = \frac{1}{2^n n!}\sum_{\pi \in S_{2n}} \mathrm{sgn}(\pi) \prod_{i=1}^n \frac{1}{w_{\pi(2i-1)} - w_{\pi(2i)}}  = \mathrm{Pf}\Big[\frac{1}{w_i - w_j}\Big]
 	\]
 	where $w_i = z_i$ for $z = 1 \dots m$ and $w_{i+m} = z_i^*$ for $z = 1 \to 2n-m$
-	
+  
 	\item I feel that this has already been done in 2.3.31. Rotating to euclidean signature, the most general solution for $X$ is 
 	\[
 		X(\tau, \sigma) = x^\mu + \frac{\ell_s^2}{2} (p + \bar p) \tau + \frac{\ell_s^2}{2} (p - \bar p) \sigma + i \frac{\ell_s}{\sqrt 2} \sum_{k \neq 0} \frac{e^{-k \tau}}{k} (\alpha_k e^{-i k \sigma} + \bar \alpha_k e^{i k \sigma})
@@ -1060,6 +1073,11 @@
 	\[
 		\d X = -i \frac{\ell_s}{\sqrt 2} \sum_{k \in \mathbb Z + 1/2} \alpha_k z^{-k-1}, \quad \bar \d X = i \frac{\ell_s}{\sqrt 2} \sum_{k \in \mathbb Z + 1/2} \alpha_k \bar z^{-k-1}
 	\]
+	
+    \begin{center}
+    	\includegraphics[scale=0.1]{"Drawings/DN Strip"}
+    \end{center}
+	
 	\item 
 	We have $N$ scalars with $\d X^i (z) = O^{ij} \bar \d X^j(\bar z)$ on the real axis. Because the conformal group includes the translation group, $O^{ij}$ must be translationally invariant, ie it cannot depend on $z$. Further because $X^i$ is a scalar $\d + \bar \d$ and $\d - \bar \d$ both act on it in an invariant way. These are the two boundary conditions we can set on each $X^i$. So we see that $O^{ij}$ can definitely be a diagonal matrix of $\pm 1$s. However, because all the scalars are identical we can also transform ${X'}^j(z, \bar z) = R^j_i X^i(z ,\bar z)$, with $R$ any orthogonal matrix (not just special orthogonal) and still get a valid boundary condition. So $O$ is any orbit of the matrix of $\pm 1$s under the conjugation action of the orthogonal group $O \to P^T O P$. This can be easily appreciated as boundary conditions for an open string along the various coordinate directions being either Neumann or Dirichlet. 
 	
@@ -1522,6 +1540,11 @@
 	\end{aligned}
 	\]
 	where the last one is zero as before, since for any state, there is a corresponding one with opposite $(-1)^F$ eigenvalue, related by zero-modes. 
+
+	
+    \begin{center}
+    	\includegraphics[scale=0.1]{"Drawings/Mobius"}
+    \end{center}
 
 \end{enumerate}
 
