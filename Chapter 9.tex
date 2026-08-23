@@ -51,13 +51,13 @@
 		\] 
 		coming from evaluating the determinant $(\det \nabla^{2})^{-1/2}$ of the bosons. This multiplies a sum over instanton contributions labelled by $m^\alpha, n^\alpha$ taking values in a $(p,p)$-signature lattice with classical action 
 		\[
-			\sum_{m^\alpha, n^\alpha} e^{-\frac{\pi}{\tau} (G+B)_{\alpha \beta} (m + \tau n)^\alpha (m + \bar \tau n)^\beta} \times \text{fermions}.
+			\sum_{m^\alpha, n^\alpha} e^{-\frac{\pi}{\tau_2} (G+B)_{\alpha \beta} (m + \tau n)^\alpha (m + \bar \tau n)^\beta} \times \text{fermions}.
 		\]
 		The fermion contribution depends via the Wilson lines on the configuration of the $X^\alpha$. In each such instanton sector, the fermion path integral with a constant background Wilson line is equivalent to a free fermion with twisted boundary conditions. For simplicity, let's compactify just on $S^1$, and denote $\theta^I = Y^I n, \phi^I = -Y^I m$. We get boundary conditions: 
 		\[
 		\begin{aligned}
-			\psi^I (\sigma + 1, \sigma_2) &= -(-1)^{a} e^{2 \pi i \theta^I} \\
-			\psi^I (\sigma, \sigma_2 + 1) &= -(-1)^{b} e^{-2\pi i \phi^I}
+			\psi^I (\sigma + 1, \sigma_2) &= -(-1)^{a} e^{2 \pi i \theta^I} \psi^I (\sigma, \sigma_2) \\
+			\psi^I (\sigma, \sigma_2 + 1) &= -(-1)^{b} e^{-2\pi i \phi^I} \psi^I (\sigma, \sigma_2)
 		\end{aligned}
 		\]
 		where $a,b = 0,1$ denotes anti-periodic/periodic boundary conditions respectively. We know that (in the absence of Wilson lines) the determinant of $\d$ acting on complex fermions is:
@@ -92,7 +92,7 @@
 		\]
 		Giving a total partition function as in the second (unnumbered) equation of \textbf{Appendix E}:
 		\[
-			\left[\frac{R}{\sqrt{\tau_2} \eta \bar \eta^{17}} \sum_{m,n} e^{-\frac{\pi R^2}{\tau_2} |m + n \tau|^2} \underline{e^{-i \pi \sum_I n Y^I (m + n \bar \tau) Y^I Y^I}\frac12 \sum_{a,b=0}^1  \prod_{i=1}^{16} \bar \theta \twist ab (Y^I (m + \bar \tau n) | \bar \tau)} \right] \times \frac{1}{\tau_2^{7/2} \eta^7 \bar \eta^7} \frac12 \sum_{a,b = 0}^1 \frac{\theta^4 \twist a b}{\eta^4}
+			\left[\frac{R}{\sqrt{\tau_2} \eta \bar \eta^{17}} \sum_{m,n} e^{-\frac{\pi R^2}{\tau_2} |m + n \tau|^2} \underline{e^{-i \pi \sum_I n Y^I (m + n \bar \tau) Y^I}\frac12 \sum_{a,b=0}^1  \prod_{i=1}^{16} \bar \theta \twist ab (Y^I (m + \bar \tau n) | \bar \tau)} \right] \times \frac{1}{\tau_2^{7/2} \eta^7 \bar \eta^7} \frac12 \sum_{a,b = 0}^1 \frac{\theta^4 \twist a b}{\eta^4}
 		\]
 		From the properties of the theta functions in Equation~\eqref{eq:thetaproperties}, the underlined fermionic sum has the exact same transformation properties as a sum of $\theta^{16}$ terms and thus makes the full partition function modular invariant.
 		
@@ -113,7 +113,7 @@
 		\]
 		We note that the second-to last line is indeed the sum over the roots of $O(32)$ augmented with one of the spinor weight lattices. Altogether the compact dimensions contribute:
 		\[
-			\frac{R}{\sqrt{\tau_2} \eta \bar \eta^{17}} \sum_{m\in \ZZ,n \in \ZZ ,q^I \in \Lambda^{16}} \exp\left[\frac{\pi R^2}{\tau_2} (m + n \tau) (m + n \bar \tau) + \pi i \tau (q^I + n Y^I)^2 - 2 \pi i m Y^I (k + \frac12 Y^I) \right]
+			\frac{R}{\sqrt{\tau_2} \eta \bar \eta^{17}} \sum_{m\in \ZZ,n \in \ZZ ,q^I \in \Lambda^{16}} \exp\left[-\frac{\pi R^2}{\tau_2} (m + n \tau) (m + n \bar \tau) + \pi i \tau (q^I + n Y^I)^2 - 2 \pi i m Y^I (q^I + \frac12 n Y^I) \right]
 		\]
 		To put this whole thing into Hamiltonian form, we proceed as in the bosonic case and perform a Poisson summation over $m$. The terms that contribute are:
 		\[
@@ -134,7 +134,7 @@
 		\begin{aligned}
 			&\frac{1}{\eta \bar \eta^{17}} \sum_{n, m, q^I} q^{\frac12 (q^I + n Y^I)^2}  e^{- n^2 \pi R^2 \tau_2}  e^{-\frac{\pi \tau_2}{R^2} (m + Y^I (q^I + \frac12 n Y^I) )^2 
 			+ 2 \pi i (m + q^I + \frac12 n Y^I) n  \tau_1 } \\
-			&= \frac{1}{\eta \bar \eta^{17}} \sum_{n, m, q^I} q^{\frac12 (q^I + n Y^I)^2} q^{\frac12 (\frac{1}{R} (m - Y^I (q^I + \frac12 n Y^I) + n R)^2} \bar q^{\frac12 ( \frac{1}{R} (m - Y^I (q^I + \frac12 n Y^I) - n R)^2}
+			&= \frac{1}{\eta \bar \eta^{17}} \sum_{n, m, q^I} q^{\frac12 (q^I + n Y^I)^2} q^{\frac14 (\frac{1}{R} (m - Y^I (q^I + \frac12 n Y^I)) + n R)^2} \bar q^{\frac14 ( \frac{1}{R} (m - Y^I (q^I + \frac12 n Y^I)) - n R)^2}
 		\end{aligned}
 		\]
 		where I've flipped $m \to -m$ at the end there. We get momenta 
@@ -205,7 +205,7 @@
 	\end{aligned}
 	\]
 	I can define $F$ in the standard $F_{\mu \nu}^I = \d_\mu A_\nu^I - \d_\nu A_\mu^I$, $\tilde F_{\mu \alpha}^I = \d_\mu Y_\alpha^I$. This gives me
-	$\hat F_{\mu \nu}^I = F_{\mu \nu}^I + \d_\mu (Y_\alpha^I A_\nu^\alpha) - \d_\nu (Y_\alpha^I A_\nu^\alpha)$. By redefining 
+	$\hat F_{\mu \nu}^I = F_{\mu \nu}^I + \d_\mu (Y_\alpha^I A_\nu^\alpha) - \d_\nu (Y_\alpha^I A_\mu^\alpha)$. By redefining 
 	\[
 		\tilde F^I_{\mu \nu} = F^I_{\mu \nu} + Y^I_\alpha F^{A, \alpha}_{\mu \nu}
 	\]
@@ -280,10 +280,10 @@
 	\] 
 	Here we used $H$ as in the last problem and the matrix $M$ consisting of the 21 $G_{\alpha \beta}$ and 15 $B_{\alpha \beta}$. The $F^i$ are the field strengths of the $6+6$ $U(1)$ vectors coming from $G$ and $B$ compactification.
 	\[
-		H_{\mu \nu \rho} = \d_\mu B_{\mu \rho} - \frac12 L_{ij} A^i_\mu  F^j_{\nu \rho} + 2 \perms
+		H_{\mu \nu \rho} = \d_\mu B_{\nu \rho} - \frac12 L_{ij} A^i_\mu  F^j_{\nu \rho} + 2 \perms
 		 \qquad M^{-1} = \begin{pmatrix}
 			G + B^T G^{-1} B & - B^T G^{-1}\\
-			- G^{-1} B G^{-1} & G
+			- G^{-1} B & G^{-1}
 		\end{pmatrix}
 	\]
 	
@@ -416,7 +416,7 @@
 	\[
 	\footnotesize
 	\begin{aligned}
-		h=0, h=0:\;& \theta\twist00^4 - \theta\twist10^4 - \theta\twist01^4 - \theta\twist11^4 = 0\\
+		h=0, g=0:\;& \theta\twist00^4 - \theta\twist10^4 - \theta\twist01^4 - \theta\twist11^4 = 0\\
 		h=1, g=0:\;& \theta \twist00^2 \theta\twist10 \theta \twist{-1}{0} - \theta \twist10^2 \theta \twist20 \theta \twist00 - \cancel{\theta \twist01^2 \theta \twist11 \theta \twist{-1}1} - \cancel{\theta \twist11^2 \theta \twist21 \theta \twist01} = \theta \twist00^2 \theta\twist10^2 - \theta \twist10^2 \theta \twist00^2 = 0 \\
 		h=0, g=1:\;& \theta \twist00^2 \theta\twist01 \theta \twist0{-1} - \cancel{\theta \twist10^2 \theta \twist11 \theta \twist1{-1}} - \theta \twist01^2 \theta\twist02 \theta \twist00 - \cancel{\theta\twist11^2 \theta\twist12 \theta\twist10} = \theta \twist00^2 \theta\twist01 \theta \twist01 -   \theta \twist01^2 \theta \twist00^2  = 0 \\
 		h=1, g=1:\;& \cancel{\theta \twist00^2 \theta\twist11 \theta \twist{-1}{-1}} - \theta \twist10^2 \theta \twist21 \theta \twist0{-1} - \theta \twist01^2 \theta \twist12 \theta \twist{-1}0 - \cancel{\theta \twist11^2 \theta\twist22 \theta\twist00} = - \theta\twist10^2 \theta\twist01^2 + \theta\twist01^2 \theta\twist10^2 = 0
@@ -429,7 +429,7 @@
 	\footnotesize
 	\hspace{-.5in}
 	\begin{aligned}
-		(0,0):\;&  \theta\twist00^4 - \theta\twist10^4 - \theta\twist01^4 - \theta\twist10^4 \to \theta\twist01^4 + \theta\twist10^4 - \theta\twist00^4 + \theta\twist11^4 \Leftarrow - (0,0)\\
+		(0,0):\;&  \theta\twist00^4 - \theta\twist10^4 - \theta\twist01^4 - \theta\twist11^4 \to \theta\twist01^4 + \theta\twist10^4 - \theta\twist00^4 + \theta\twist11^4 \Leftarrow - (0,0)\\
 		(1,0):\;&   - 2 \theta \twist01^2  \theta \twist11^2 \to -2 i\, \theta \twist00^2  \theta \twist11^2  \Leftarrow i \times (1,1) \\
 		(0,1):\;&  2 \theta \twist10^2 \theta \twist11^2
 		\to -2 \theta \twist10^2 \theta \twist11^2 \Leftarrow -(0,1) \\
@@ -442,7 +442,7 @@
 	
 	It is worth adding that Polchinski remarks in 16.1 that for abelian orbifolds (of the type $T^n/H$ with $H$ and abelian group), the only obstruction to modular invariance is $\tau \to \tau+1$ 
 	
-	Indeed, we see that this twist violates \textbf{16.1.28} of Polchinski, where we hae $r_2=0, r_3=r_4=1$ and so $\sum_{i=2}^4 r_i - \sum_{k=1}^{16} s_k 2 \neq 0 \text{ mod } 2N$ when $N = 2$.
+	Indeed, we see that this twist violates \textbf{16.1.28} of Polchinski, where we have $r_2=0, r_3=r_4=1$ and so $\sum_{i=2}^4 r_i^2 - \sum_{k=1}^{16} s_k^2 = 2 \neq 0 \text{ mod } 2N$ when $N = 2$.
 	
 	\item Now the partition function is given by
 	\[\hspace{-.2in}
@@ -459,9 +459,9 @@
 		\footnotesize
 		\hspace{-.5in}
 		\begin{aligned}
-			(0,0):\;&  \bar \theta\twist00^8 + \bar \theta\twist10^8 + \bar \theta\twist01^8 + \bar \theta\twist10^8 \to \bar \theta\twist01^4 + \bar \theta\twist10^4 + \bar \theta\twist00^4 +\bar \theta\twist11^4 \Leftarrow (0,0)
+			(0,0):\;&  \bar \theta\twist00^8 + \bar \theta\twist10^8 + \bar \theta\twist01^8 + \bar \theta\twist11^8 \to \bar \theta\twist01^8 + \bar \theta\twist10^8 + \bar \theta\twist00^8 +\bar \theta\twist11^8 \Leftarrow (0,0)
 			\\
-			(1,0):\;& \bar \theta\twist00^6 \bar \theta \twist10^2 + \bar \theta\twist10^6 \bar \theta \twist 00^2 + \bar\theta \twist01^6  \bar \theta \twist11^2 + \bar \theta \twist11^6 \bar \theta\twist01^2 \to -i \bar \theta\twist01^6 \bar \theta \twist10^2 - i \bar \theta\twist10^6 \bar \theta \twist 01^2 - i \bar\theta \twist00^6  \bar \theta \twist11^2 - i \bar \theta \twist11^6 \bar \theta\twist00^2  \Leftarrow i \times (1,1) 
+			(1,0):\;& \bar \theta\twist00^6 \bar \theta \twist10^2 + \bar \theta\twist10^6 \bar \theta \twist 00^2 + \bar\theta \twist01^6  \bar \theta \twist11^2 + \bar \theta \twist11^6 \bar \theta\twist01^2 \to -i \bar \theta\twist01^6 \bar \theta \twist10^2 + i \bar \theta\twist10^6 \bar \theta \twist 01^2 - i \bar\theta \twist00^6  \bar \theta \twist11^2 + i \bar \theta \twist11^6 \bar \theta\twist00^2  \Leftarrow i \times (1,1)
 			\\
 			(0,1):\;&  \bar \theta\twist00^6 \bar \theta \twist01^2 
 			- \bar \theta\twist10^6 \bar \theta \twist 11^2
@@ -472,13 +472,13 @@
 			+ \bar\theta \twist00^6  \bar \theta \twist01^2 
 			- \bar \theta \twist11^6 \bar \theta\twist10^2  \Leftarrow  (0,1)
 			\\
-			(1,1):\;&  - \bar \theta\twist00^6 \bar \theta \twist11^2 - \bar \theta\twist10^6 \bar \theta \twist 01^2 
+			(1,1):\;&  - \bar \theta\twist00^6 \bar \theta \twist11^2 + \bar \theta\twist10^6 \bar \theta \twist 01^2
 			- \bar\theta \twist01^6  \bar \theta \twist10^2 
-			- \bar \theta \twist11^6 \bar \theta\twist00^2 
+			+ \bar \theta \twist11^6 \bar \theta\twist00^2
 			\to i \bar \theta\twist01^6 \bar \theta \twist11^2 
-			+i \bar \theta\twist10^6 \bar \theta \twist 01^2 
-			+ i \bar\theta \twist00^6  \bar \theta \twist11^2 
-			+ i \bar \theta \twist11^6 \bar \theta\twist00^2  \Leftarrow i \times (0,1) 
+			+i \bar \theta\twist10^6 \bar \theta \twist 00^2 
+			+ i \bar\theta \twist00^6  \bar \theta \twist10^2 
+			+ i \bar \theta \twist11^6 \bar \theta\twist01^2  \Leftarrow i \times (1,0)
 		\end{aligned}
 	\]
 	So we get that the untwisted sector remains the same, while each of the two twisted sector components change by a factor of $i$. This combines with what we know about the left-moving fermions to make \emph{every} combined contribution change with a $-$ phase which exactly cancels the $\eta$-functions. The result is modular invariant.
@@ -613,7 +613,7 @@
 	
 	The $\tau \to -1/\tau$ phase
 	\[
-		\tau \to -1/\tau : Z^N\twist hh  \to e^{-\frac{2\pi i h g \epsilon^2}{N}} Z^N \twist{g}{-h}
+		\tau \to -1/\tau : Z^N\twist hg  \to e^{-\frac{2\pi i h g \epsilon^2}{N^2}} Z^N \twist{g}{-h}
 	\]
 	can similarly be proven from straightforward Poisson resummation. 
 	
@@ -633,7 +633,7 @@
 	\end{equation}
 	Here
 	\[
-		\xi(\nu) = \prod_{n=1}^\infty \frac{(1-q^n)^2}{(1-q^n e^{2\pi i n \nu}) (1-q^n e^{-2\pi i n \nu})} = \frac{\sin \pi \nu}{\pi} \frac{\theta'_1(\nu)}{\theta_1(\nu)}
+		\xi(\nu) = \prod_{n=1}^\infty \frac{(1-q^n)^2}{(1-q^n e^{2\pi i \nu}) (1-q^n e^{-2\pi i \nu})} = \frac{\sin \pi \nu}{\pi} \frac{\theta'_1(0)}{\theta_1(\nu)}
 	\]
 	plays the role of exchanging the traces over the bosons in the non-compact spatial (3,4) directions with traces that involve the helicity. 
 	
@@ -668,7 +668,7 @@
 		\tau_2 B_2 = - \frac{\Gamma_{2,18} \twist11 \bar \theta_2 \bar \theta_3}{\bar \eta^{24}} - \frac{ \Gamma_{2,18} \twist 10 \bar \theta_2 \bar \theta_3}{\bar \eta^{24}} +\frac{ \Gamma_{2,18} \twist 01 \bar \theta_3 \bar \theta_4}{\bar \eta^{24}}.
 	\]
 	
-	\item The gravitini can only come from the untwisted left-moving R sector (spinor spacetime index) tensored with an $\tilde \alpha^{2,3}_{-1}$ on the right (vector spacetime index). The zero-point energy of the left-moving R sector is $0$ from equal numbers of bosons and fermions. Because our group acts on the (bosonized) fermions the same way it acts on the bosons, we get that $\ZZ_2^2$ gives the three nontrivial elements given by rotations $e^{2 \pi i (s_1 \phi_1 - s_2 \phi_2)}, e^{2 \pi i (s_1 \phi_1 - s_3 \phi_2)}, e^{2 \pi i (s_2 \phi_1 - s_3 \phi_2)}$, with $\phi_0$ corresponding to the spacetime fermions not appearing. We see that the only spinors which are invariant under these three transformations take the form
+	\item The gravitini can only come from the untwisted left-moving R sector (spinor spacetime index) tensored with an $\tilde \alpha^{2,3}_{-1}$ on the right (vector spacetime index). The zero-point energy of the left-moving R sector is $0$ from equal numbers of bosons and fermions. Because our group acts on the (bosonized) fermions the same way it acts on the bosons, we get that $\ZZ_2^2$ gives the three nontrivial elements given by rotations $e^{2 \pi i (s_1 \phi_1 - s_2 \phi_2)}, e^{2 \pi i (s_1 \phi_1 - s_3 \phi_3)}, e^{2 \pi i (s_2 \phi_2 - s_3 \phi_3)}$, with $\phi_0$ corresponding to the spacetime fermions not appearing. We see that the only spinors which are invariant under these three transformations take the form
 	\[
 		\ket{\pm \tfrac12, \tfrac12, \tfrac12, \tfrac12}, \ket{\pm \tfrac12, -\tfrac12, -\tfrac12, -\tfrac12}
 	\]
@@ -728,7 +728,7 @@
 	
 	\item We begin with the existence of a Killing spinor 
 	\[
-		[\nabla_m, \nabla_n]\xi = R_{rs, mn} \gamma^{rs} \xi  =0
+		[\nabla_m, \nabla_n]\xi = \frac14 R_{rs, mn} \gamma^{rs} \xi  =0
 	\]
 	Now, multiplying by $\gamma^n$, we get
 	\[
@@ -752,11 +752,11 @@
 	
 	\item 
 	
-	\item The NSNS fields give a graviton, an antisymmetric tensor, and 81 scalars. From the RR sector we get another scalar from the axion $C_2$, another 2-index antisymmetric tensor and 22 scalars from $C_2$. Finally the self-dual 4-form $C_4$ gives 19 anti-self-dual and 3 self-dual two-index antisymmetric tensors. 
+	\item The NSNS fields give a graviton, an antisymmetric tensor, and 81 scalars. From the RR sector we get another scalar from the axion $C_0$, another 2-index antisymmetric tensor and 22 scalars from $C_2$. Finally the self-dual 4-form $C_4$ gives 19 anti-self-dual and 3 self-dual two-index antisymmetric tensors. 
 	
 	The supergravity multiplet contains two left-handed Weyl gravitini. The tensor multiplet contains two Weyl fermions of opposite chirality from the gravitini. 
 	
-	In order to cancel anomalies, we must be able to apply the Green-Schwartz mechanism
+	In order to cancel anomalies, we must be able to apply the Green-Schwarz mechanism
 	
 	Thus we get $N_{T} = 21$. Now IIB has a self-dual 5-form. For each of 20 2-cycles wrapped we get 
 	

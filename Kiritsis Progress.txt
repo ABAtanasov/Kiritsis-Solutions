@@ -1,0 +1,29 @@
+307/600 Exercises total
+
+Basics: 138/138
+1) 	0	Intro
+2)	17	Classical String
+3)	22	Quantum String
+4)	70	CFT
+5)	15	Scattering
+6)	14	Backgrounds
+
+-------------------------------------
+SUSY + Dualities: 131/131
+7)	36	SUSY
+8)	51	D-Branes
+11)	44	Dualities
+
+-------------------------------------
+Phenomenology: 20/116
+9)	67	Compactifications
+10)	19	Loop Corrections
+12)	30	Flux Compactifications
+
+-------------------------------------
+Holography: 21/215
+13)	23	BH Entropy
+14)	52	AdS/CFT
+15)	113	AdS/CFT Applications
+16)	27	Matrix Models
+

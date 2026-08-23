@@ -18,9 +18,7 @@
 	\section*{Chapter 2: Classical String Theory} % (fold)
 	\label{sec:chapter_2_classical_string_theory}
 	\begin{enumerate}
-		\item I don't know what this question asks exactly given that 2.1.16 is an infinitesimal diffeomorphism.  
-		
-		 We are still allowed to assume WLOG that $\tau$ runs from $0$ to $1$. For $\xi$ infinitesimal, we have $\delta e = \xi \dot e + \dot \xi e = \partial_\tau (\xi e)$. So for a general $e(\tau)$ define
+		\item We are still allowed to assume WLOG that $\tau$ runs from $0$ to $1$. For $\xi$ infinitesimal, we have $\delta e = \xi \dot e + \dot \xi e = \partial_\tau (\xi e)$. So for a general $e(\tau)$ define
 		\begin{equation}
 			\tau_2(\tau) = \frac{\int_0^\tau d\tau' e(\tau') }{\int_0^1 d\tau' e(\tau')}
 		\end{equation} 
@@ -35,9 +33,9 @@
 		\end{equation}
 		It is worth knowing that near $s=0$ we have $\zeta(1-s) = -\frac{1}{s} + \gamma$ and $\Gamma(1-s) = 1 + \gamma s$. Expanding the right hand side about $s = 0$ gives
 		\begin{equation}
-			\zeta(\epsilon) = -\frac12 - \frac12 \sqrt{2 \pi} \epsilon
+			\zeta(\epsilon) = -\frac12 - \frac12 \log(2 \pi) \epsilon
 		\end{equation}
-		This gives $\zeta(0) = -\frac12$ and $\zeta'(0) = -\frac12 \sqrt{2\pi}$. Further, $\zeta'(s) = - \sum_{n=1}^\infty \frac{\log n}{n^s}$. 
+		This gives $\zeta(0) = -\frac12$ and $\zeta'(0) = -\frac12 \log(2\pi)$. Further, $\zeta'(s) = - \sum_{n=1}^\infty \frac{\log n}{n^s}$. 
 		
 		So we get $\prod_{n=1}^\infty \frac{1}{L^2} = L^{-2 \sum_{n=1}^\infty 1} = L^{-2 \zeta(0)} = L$ and $\prod_{n=1}^\infty n^2 = \exp\left(2 \sum_{n=1}^\infty \log n \right) = 2\pi$.
 		
@@ -49,7 +47,7 @@
 		The Euler-Lagrange equations for $x^\mu$ is:
 		\begin{equation}
 			\begin{aligned}
-				\frac{d}{d\tau} \frac{\partial}{\partial x^\mu} (e^{-1} G_{\alpha \beta} \dot x^\alpha \dot x^\beta) - \frac{\partial}{\partial x^\mu}\left( e^{-1} G_{\alpha \beta} \dot x^\alpha \dot x^\beta \right)
+				\frac{d}{d\tau} \frac{\partial}{\partial \dot x^\mu} (e^{-1} G_{\alpha \beta} \dot x^\alpha \dot x^\beta) - \frac{\partial}{\partial x^\mu}\left( e^{-1} G_{\alpha \beta} \dot x^\alpha \dot x^\beta \right)
 				&= 2 e^{-1} G_{\mu \nu} \ddot x^\nu + 2 e^{-1} \partial_\gamma G_{\mu \nu} \dot x^\nu \dot x^\gamma - 2 \frac{G_{\mu \nu} \dot x^\nu}{e^2} \dot e  - e^{-1} \partial_\mu G_{\alpha \beta} \dot x^\alpha \dot x^\beta\\
 				&\to G_{\mu \nu} \ddot x^\nu + \frac12 (\partial_\gamma G_{\mu \nu} + \partial_\nu G_{\mu \gamma} - \partial_\mu G_{\nu \gamma}) \dot x^\nu \dot x^\gamma - \frac12 G_{\mu \nu} \dot x^\nu \partial_\tau \log e^2 \\
 			\end{aligned}
@@ -59,15 +57,15 @@
 		We could have done this explicitly as well: 
 		\begin{equation}
 			\begin{aligned}
-				\frac{d}{d\tau} \frac{G_{\mu \nu} \dot x^\nu}{\sqrt{G_{\alpha \beta} \dot x^\alpha \dot x^\beta}} - \frac{\partial}{\partial x^\mu} \sqrt{G_{\alpha \beta} \dot x^\alpha \dot x^\beta} &= \frac{G_{\mu \nu} \ddot x^\nu + \partial_\lambda G_{\mu \nu} \dot x^\nu \dot x^\lambda - \frac12 \partial_\mu G_{\nu \lambda} \dot x^\nu \dot x^\lambda}{ \sqrt{-G_{\alpha \beta} \dot x^\alpha \dot x^\beta}} + G_{\mu \nu} \dot x^\nu \frac{d}{d\tau} (-G_{\alpha \beta} \dot x^\alpha \dot x^\beta)^{-1/2}\\
+				\frac{d}{d\tau} \frac{G_{\mu \nu} \dot x^\nu}{\sqrt{-G_{\alpha \beta} \dot x^\alpha \dot x^\beta}} + \frac{\partial}{\partial x^\mu} \sqrt{-G_{\alpha \beta} \dot x^\alpha \dot x^\beta} &= \frac{G_{\mu \nu} \ddot x^\nu + \partial_\lambda G_{\mu \nu} \dot x^\nu \dot x^\lambda - \frac12 \partial_\mu G_{\nu \lambda} \dot x^\nu \dot x^\lambda}{ \sqrt{-G_{\alpha \beta} \dot x^\alpha \dot x^\beta}} + G_{\mu \nu} \dot x^\nu \frac{d}{d\tau} (-G_{\alpha \beta} \dot x^\alpha \dot x^\beta)^{-1/2}\\
 				&= G_{\mu \nu} (\ddot x^\nu + \Gamma^\nu_{\alpha \beta} \dot x^\alpha \dot x^\beta) - \frac12 G_{\mu \nu} \dot x^\nu \frac{d}{d\tau} \log(-G_{\alpha \beta} \dot x^\alpha \dot x^\beta)
 			\end{aligned}
 		\end{equation}
-		And fix the parameterization so that $x^2 = \mathrm{const}$ and the last term vanishes.
+		And fix the parameterization so that $\dot x^2 = \mathrm{const}$ and the last term vanishes.
 		
 		\item We get the same as before, but now cannot drop the last term. Now the dots represent time derivatives.
 		\begin{equation}
-			 G_{\mu \nu} (\ddot x^\nu + \Gamma^\nu_{\alpha \beta} \dot x^\alpha \dot x^\beta) - \frac12 G_{\mu \nu} \dot x^\nu \partial_{X^0} \log(-G_{\alpha \beta} \dot x^\alpha \dot x^\beta)
+			 G_{i \nu} (\ddot x^\nu + \Gamma^\nu_{\alpha \beta} \dot x^\alpha \dot x^\beta) - \frac12 G_{i \nu} \dot x^\nu \frac{d}{d X^0} \log(-G_{\alpha \beta} \dot x^\alpha \dot x^\beta) = 0
 		\end{equation}
 		
 		\item We get: 
@@ -76,7 +74,7 @@
 		\end{equation}
 		Taking $\tau = x^0 = ct$ gives us our result. Further, we write $G_{00} = -1 - \frac{2 \phi}{c^2}$ where $\phi$ is the gravitational potential. To first order then we get:
 		\begin{equation}
-			-m c^2 \int dt \sqrt{-(G_{00} + 2 c^{-1} G_{0i} \dot x^i +  c^{-2} G_{ij} \dot x^i \dot x^j)} \approx  \int dt \left(- m c^2 - m \phi  + m c G_{0 i} v^i +  m G_{ij} v^i v^j\right)
+			-m c^2 \int dt \sqrt{-(G_{00} + 2 c^{-1} G_{0i} \dot x^i +  c^{-2} G_{ij} \dot x^i \dot x^j)} \approx  \int dt \left(- m c^2 - m \phi  + m c G_{0 i} v^i +  \frac m2 G_{ij} v^i v^j\right)
 		\end{equation}
 		The last two terms in brackets are positive (kinetic) while the first two are negative (potential). \textbf{This explains why there is a - sign out front of the action}.
 		
@@ -87,16 +85,16 @@
 		\item The Lagrangian for a special relativistic particle in an electromagnetic field is $-mc^2 \sqrt{1-v^2/c^2} - e \phi + e \vec v \cdot \mathbf{A}$. This has the Lorentz invariant form: $-m \sqrt{-G_{\mu \nu} \dot x^\mu \dot x^\nu} + e A_\mu \dot x^\mu$. We get equations of motion as before: 
 		The additional term gives the equations of motion:
 		\begin{equation}
-			\frac{e}{m} (\dot A_\mu - \partial_\mu A_\nu \dot x^\nu) =  \frac{e}{m} (\partial_\nu A_\mu - \partial_\mu A_\nu \dot) x^\nu =  \frac{e}{m} F_{\mu \nu} \dot x^\nu
+			\frac{e}{m} (\dot A_\mu - \partial_\mu A_\nu \dot x^\nu) =  \frac{e}{m} (\partial_\nu A_\mu - \partial_\mu A_\nu) \dot x^\nu =  \frac{e}{m} F_{\mu \nu} \dot x^\nu
 		\end{equation}
 		don't confuse $e$ with the einbein. 
 		
 		If one coordinate is cyclic (neither the metric nor the vector potential depend on it), the corresponding momentum is 
 		\begin{equation}
-			\frac{\partial \mathcal L}{\partial \dot x^\mu} = m\frac{G_{\mu \nu} \dot x^\nu}{\sqrt{-G_\mu \nu \dot x^\mu \dot x^\nu}} + e A_\mu
+			\frac{\partial \mathcal L}{\partial \dot x^\mu} = m\frac{G_{\mu \nu} \dot x^\nu}{\sqrt{-G_{\alpha \beta} \dot x^\alpha \dot x^\beta}} + e A_\mu
 		\end{equation}
 		
-		\item Ignoring the cosmological constant term (which is not reparameterization invariant), we note that any term that involves the metric $G_{\mu \nu}$ will require at least $2$ $x^\mu$ variables for it to be contracted with. Also, reparameterization invariance requires that under $d\tau \to f'(\tau) d\tau$ we get $\mathcal L \to \mathcal L/\lambda$. The simplest such term is $\sqrt{-G_{\mu \nu} \dot x^\mu \dot x^\nu}$. Terms with more than $2$ $x^\mu$s will be suppressed by powers of $1/\ell_s^2$. Similarly, terms with more derivatives w.r.t. worldsheet coordinates will be less relevant in the IR. 
+		\item Ignoring the cosmological constant term (which is not reparameterization invariant), we note that any term that involves the metric $G_{\mu \nu}$ will require at least $2$ $x^\mu$ variables for it to be contracted with. Also, reparameterization invariance requires that under $d\tau \to f'(\tau) d\tau$ we get $\mathcal L \to \mathcal L/f'(\tau)$. The simplest such term is $\sqrt{-G_{\mu \nu} \dot x^\mu \dot x^\nu}$. Terms with more than $2$ $x^\mu$s will be suppressed by powers of $1/\ell_s^2$. Similarly, terms with more derivatives w.r.t. worldsheet coordinates will be less relevant in the IR. 
 		
 		\item Let's set $G_{i0}=0$ for simplicity. The Nambu-Goto action is:
 		\[
@@ -109,13 +107,13 @@
 						(G_{00} \dot X^0 {X'}^0 &+ G_{ij}  \dot X^i {X'}^j)^2 - (G_{00} \dot X^0 \dot X^0 + G_{ij} \dot X^i \dot X^j)(G_{00} {X'}^0 {X'}^0 + G_{ij} {X'}^i {X'}^j)\\ &= c^{-2} (G_{ij} u^i v^j)^2 - (G_{00} + c^{-2} G_{ij} v^i v^j)(G_{ij} u^i u^j)
 		\end{aligned}
 		\]
-		Take $G_{00} = -1 - 2 \varphi / c^2$. Then the radical becomes:
+		Take $G_{00} = -1 - 2 \phi / c^2$. Then the radical becomes:
 		\[
-			\sqrt{u^2 - c^{-2} 2 \phi u^2 + c^{-2} (\vec u \cdot \vec v)^2 - c^{-2} v^2 u^2 } = |u| \sqrt{1 - c^{-2} (2 \phi +  v^2 - \frac{(\vec u \cdot \vec v)^2}{u^2})} = |u| \left(1 - c^{-2} \left(-\phi + \frac12 v^2 - \frac12 \frac{(\vec u \cdot \vec v)^2}{u^2}\right)\right)
+			\sqrt{u^2 + c^{-2} 2 \phi u^2 + c^{-2} (\vec u \cdot \vec v)^2 - c^{-2} v^2 u^2 } = |u| \sqrt{1 - c^{-2} (-2 \phi +  v^2 - \frac{(\vec u \cdot \vec v)^2}{u^2})} = |u| \left(1 - c^{-2} \left(-\phi + \frac12 v^2 - \frac12 \frac{(\vec u \cdot \vec v)^2}{u^2}\right)\right)
 		\]
 		But note that $v^2 - \frac{(\vec u \cdot \vec v)^2}{u^2} = (\vec v - \frac{u \cdot v}{u^2} \vec u )^2$. This is exactly the part of $v$ transverse to $u$ (the string itself). So we can write this as $\vec v_T$, the transverse velocity. 
 		\begin{equation}
-			-T \int dt d\sigma |u| (1 + c^{-2} \phi - c^{-2}\frac12 v_T^2) = \int dt d\sigma |u| (-c^2 - \phi + \frac12 v_T^2)
+			-T \int dt d\sigma |u| (1 + c^{-2} \phi - c^{-2}\frac12 v_T^2) = \int dt d\sigma \rho |u| (-c^2 - \phi + \frac12 v_T^2)
 		\end{equation}
 		Note that $\rho \int d\sigma |u| = \rho L_s = M_s$. The first term is thus $-M_s c^2$. The second terms is exactly the mass density of the string interacting with the gravitational field, while the third (kinetic) is the motion of the transverse components of the string. Note that the longitudinal excitations do not contribute. 
 		
@@ -123,18 +121,18 @@
 % 		\begin{equation}
 % 			\partial_\tau \frac{\dd \mathcal L}{\dd \dot X} + \dd_\sigma \frac{\dd \mathcal L}{\dd X'}
 % 		\end{equation}
-		Let's work in lightcone gauge. We have $\partial_+ \partial_- X = 0$
-		The vanishing of the stress-energy tensor gives us $\dot X^2 + {X'}^2 = 0$ and $\dot X \cdot {X'}^2 = 0$. But at the endpoints we get $X' = 0$ so that $\dot X^2 = 0$ and the endpoints with Neumann boundary conditions need to move at the speed of light.
+		Let's work in conformal gauge. We have $\partial_+ \partial_- X = 0$
+		The vanishing of the stress-energy tensor gives us $\dot X^2 + {X'}^2 = 0$ and $\dot X \cdot X' = 0$. But at the endpoints we get $X' = 0$ so that $\dot X^2 = 0$ and the endpoints with Neumann boundary conditions need to move at the speed of light.
 		
 		\item The cosmological constant term gives the equation of motion $\frac{\delta S}{\delta g^{ab}} = - (\frac{T_{ab}}{4\pi} + \frac{\lambda_1}{2} g_{ab}) \sqrt{-g}$. But by reparameterization invariance we \emph{need} $T_{ab} = 0$ so that $\lambda_1$ must be $0$.
 		
-		\item It is quick to derive the current $P^\mu$ under $\delta X^{\nu} = \epsilon \delta^{\mu \nu}$:
+		\item It is quick to derive the current $P^\mu$ under $\delta X^{\nu} = \epsilon\, \delta_\mu^{\ \nu}$:
 		\begin{equation}
 			\frac{\d \mathcal L}{\d (\d_\alpha X^\mu)} = -T \sqrt{-g} g^{\alpha \beta} \partial_\beta X_\mu
 		\end{equation}
-		Similarly under $\delta X^{\lambda} = \epsilon M_{\mu \nu}^{\lambda \delta} X_\delta$ with $M_{\mu \nu}^{\lambda \delta} = (\delta_\mu^\lambda \delta_\nu^{\delta} - \delta_\mu^{\delta} \delta_\nu^\lambda)$. Then we have 
+		Similarly under $\delta X^{\lambda} = \epsilon M_{\mu \nu}^{\lambda \delta} X_\delta$ with $M_{\mu \nu}^{\lambda \delta} = (\delta_\mu^{\delta} \delta_\nu^\lambda - \delta_\mu^\lambda \delta_\nu^{\delta})$. Then we have 
 		\begin{equation}
-			\frac{\d \mathcal L}{\d (\d_\alpha X^\lambda)} (\delta_\mu^\lambda \delta_\nu^{\delta} - \delta_\mu^{\delta} \delta_\nu^\lambda) X_\delta = -T \sqrt{-g} g^{\alpha \beta} (X_\mu \partial_\beta X_\nu - X_\nu \partial_\beta X_\mu)
+			\frac{\d \mathcal L}{\d (\d_\alpha X^\lambda)} (\delta_\mu^{\delta} \delta_\nu^\lambda - \delta_\mu^\lambda \delta_\nu^{\delta}) X_\delta = -T \sqrt{-g} g^{\alpha \beta} (X_\mu \partial_\beta X_\nu - X_\nu \partial_\beta X_\mu)
 		\end{equation}
 		\item Write:
 		\begin{equation}
@@ -145,7 +143,7 @@
 		\end{equation}
 		Now take the Fourier series (in $\sigma$) of the commutation relation: 
 		\begin{equation}
-			\{X^\mu_{n}, \dot X^\mu_m\} = \frac{\delta_{n+m}}{2\pi} \frac{1}{T} \eta^{\mu \nu}
+			\{X^\mu_{n}, \dot X^\nu_m\} = \frac{\delta_{n+m}}{2\pi} \frac{1}{T} \eta^{\mu \nu}
 		\end{equation}
 		The only nonzero terms are those we get when we pair each mode with its negative (in $\sigma$). Also note that there is no $\tau$ dependence on the right-hand side, so we need to pair each $\tau$ mode with its negative. Let's look at $x^\mu$, the zero mode of $X$. We can only pair this with the other mode $p^\mu$ and we necessarily have:
 		\begin{equation}
@@ -153,11 +151,11 @@
 		\end{equation}
 		Similarly, we can only pair $\alpha_n$ with $\alpha_{-n}$ giving:
 		\begin{equation}
-			\{\alpha_m^\mu, \alpha_n^\nu\} + \{\bar \alpha_{m}^\mu, \bar \alpha_m^\nu\} = \frac{2 m \delta_{m+n}}{2 \pi i \ell_s^2 T} \eta^{\mu \nu}
+			\{\alpha_m^\mu, \alpha_n^\nu\} + \{\bar \alpha_{m}^\mu, \bar \alpha_n^\nu\} = \frac{2 m \delta_{m+n}}{2 \pi i \ell_s^2 T} \eta^{\mu \nu}
 		\end{equation}
 		By parity symmetry, both of these brackets should be the same. We get then that:
 		\begin{equation}
-			\{\alpha_m^\mu, \alpha_n^\nu\}= \{\bar \alpha_{m}^\mu, \bar \alpha_m^\nu\}= -i \delta_{m+n} \eta^{\mu \nu}
+			\{\alpha_m^\mu, \alpha_n^\nu\}= \{\bar \alpha_{m}^\mu, \bar \alpha_n^\nu\}= -i \delta_{m+n} \eta^{\mu \nu}
 		\end{equation}
 		
 		\item For each coordinate on the $n$-torus, we have $X^i(\tau, \sigma+2\pi) = X(\tau, \sigma) + 2 \pi n_i R_i$. Then the corresponding momenta have difference $p - \bar p = \frac{2}{\ell_s^2} n_i R_i$ while the total momentum is quantized in multiples of $p+\bar p = \frac{2 m_i}{R_i}$. Therefore we have:
@@ -177,7 +175,7 @@
 		\[
 			X' + \lambda \dot X = \ell_s^2 \left((\lambda + 1) p^\mu + (\lambda - 1) \bar p^\mu\right) + \frac{\ell_s}{\sqrt 2} \sum_{n} e^{-in\tau} \left((\lambda + 1) \alpha_n + (\lambda-1) \bar \alpha_n\right) = 0
 		\]
-		This gives $p^\mu = \frac{1-\lambda}{1+\lambda} \bar p^\mu$ and similarly $\alpha^\mu = \frac{1-\lambda}{1+\lambda} \bar \alpha_n^\mu$. 
+		This gives $p^\mu = \frac{1-\lambda}{1+\lambda} \bar p^\mu$ and similarly $\alpha^\mu_n = \frac{1-\lambda}{1+\lambda} \bar \alpha_n^\mu$. 
 		
 		Further: 
 		\begin{equation}
@@ -193,21 +191,21 @@
 		
 		The full equation is then 
 		\begin{equation}
-			X^\mu = x^\mu + \frac{2\ell_s^2 p^\mu}{1-\lambda} + \frac{i \sqrt 2 \ell_s}{ (1-\lambda)} \sum_{n \in \mathbb Z - \{0\}} \frac{\alpha_n^\mu}{n} e^{-i n \tau} (\cos(\sigma n) + i \lambda \sin(\sigma n))
+			X^\mu = x^\mu + \frac{2\ell_s^2 p^\mu}{1-\lambda} (\tau - \lambda \sigma) + \frac{i \sqrt 2 \ell_s}{ (1-\lambda)} \sum_{n \in \mathbb Z - \{0\}} \frac{\alpha_n^\mu}{n} e^{-i n \tau} (\cos(\sigma n) + i \lambda \sin(\sigma n))
 		\end{equation}
 		
 		 Clearly as $\lambda \to 0$ we recover Neumann boundary conditions. On the other hand as $\lambda \to \infty$ we see that the endpoint of the string is constrained to be unable to move and we indeed recover Dirichlet. 
 		 
 		 \item Looking at the DD solution:
 		 \begin{equation}
-		 	{X'}^\mu(\tau, \sigma) = w^\mu + \sqrt{2} \ell_s \sum_{n\in \mathbb Z} \alpha^\mu_n e^{-i n \tau} \cos(n \sigma)
+		 	{X'}^\mu(\tau, \sigma) = w^\mu + \sqrt{2} \ell_s \sum_{n\in \mathbb Z - \{0\}} \alpha^\mu_n e^{-i n \tau} \cos(n \sigma)
 		 \end{equation}
 		 At the endpoints the momentum flow is 
 		 \begin{equation}
-		 	w^\mu \pm \sqrt2 \ell_s \sum_{n \in \mathbb Z} \alpha^\mu_n e^{-in\tau}
+		 	-T \left( w^\mu + \sqrt2 \ell_s \sum_{n \in \mathbb Z - \{0\}} (\pm 1)^n \alpha^\mu_n e^{-in\tau} \right)
 		 \end{equation}
 		 
-		 \item In conformal gauge we have $\mathcal L = 2 T\, \partial_+ X^\mu \partial_- X_\mu = \frac{T}{2}\, (\partial_\tau + \partial_\sigma) X^\mu (\partial_\tau - \partial_\sigma) X^\mu = \frac{T}{2} ((\dot X)^2 - (X')^2) $ so that $\Pi = T (\dot X)$ and $\int d\sigma\, \Pi \dot X - \L = \frac T2 \int d\sigma\, ((\dot X)^2 + (X')^2) \cdot \dot X)$ as we needed. 
+		 \item In conformal gauge we have $\mathcal L = 2 T\, \partial_+ X^\mu \partial_- X_\mu = \frac{T}{2}\, (\partial_\tau + \partial_\sigma) X^\mu (\partial_\tau - \partial_\sigma) X^\mu = \frac{T}{2} ((\dot X)^2 - (X')^2) $ so that $\Pi = T (\dot X)$ and $\int d\sigma\, (\Pi \dot X - \L) = \frac T2 \int d\sigma\, ((\dot X)^2 + (X')^2)$ as we needed. 
 		 
 		For the closed string:
 		\[
@@ -239,7 +237,7 @@
 		\[
 			\Rightarrow \dot X^\mu = i \sqrt2 \ell_s \sum_k \alpha_k^\mu e^{-ik\tau}\sin(k \sigma), \quad {X'}^\mu = -\sqrt2 \ell_s \sum_k \alpha_k^\mu e^{-ik\tau} \cos(k \sigma)
 		\]
-		By the same reason as in DD and DN, the only terms that don't cancel is when we pair each $\sin(k \sigma)$ with its negative and similarly for $\cos$. We get
+		By the same reason as in DD and NN, the only terms that don't cancel is when we pair each $\sin(k \sigma)$ with its negative and similarly for $\cos$. We get
 		\begin{equation}
 			\frac T2 \ell_s^2 \times \pi \times 2 \times \sum_{n \in \mathbb Z + \frac12} \alpha_{-n} \alpha_n = \frac12 \sum_{n \in \mathbb Z + \frac12} \alpha_{-n} \alpha_n = \sum_{n=1}^\infty \alpha_{-n+\frac12} \alpha_{n-\frac12}
 		\end{equation}

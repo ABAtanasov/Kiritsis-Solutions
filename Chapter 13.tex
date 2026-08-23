@@ -32,19 +32,19 @@
 	\]
 	and $C(r)$ vanishes at the horizon $r = r_0$ while all other functions are positive for $r \geq r_0$ and everything asymptotes to $1$ as $r \to \infty$. Now, let's do a wick rotation $t \to i \tau$ with $\tau$ Euclidean time. We get
 	\[
-		F(r) C(r) dt^2 + \frac{dr^2}{C(r)} + H(r) r^2 d\Omega_2^2
+		F(r) C(r) d\tau^2 + \frac{dr^2}{C(r)} + H(r) r^2 d\Omega_2^2
 	\]
 	Now at $r = r_0 + \epsilon$ we see that the geometry takes the form
 	\[
-		F(r_0) C'(r_0) (r-r_0) dt^2 + \frac{dr^2}{C'(r_0) (r-r_0)} + r_0^2 d\Omega_2^2
+		F(r_0) C'(r_0) (r-r_0) d\tau^2 + \frac{dr^2}{C'(r_0) (r-r_0)} + H(r_0) r_0^2 d\Omega_2^2
 	\]
-	The last term is simply the expected metric on a 2-sphere of fixed radius $r_0$. The other two terms give a metric
+	The last term is simply the expected metric on a 2-sphere of fixed radius $\sqrt{H(r_0)}\, r_0$. The other two terms give a metric
 	\[
-		ds^2 = F(r_0) C'(r_0) \epsilon dt^2 + \frac{d \epsilon^2}{C'(r_0) \epsilon}
+		ds^2 = F(r_0) C'(r_0) \epsilon d\tau^2 + \frac{d \epsilon^2}{C'(r_0) \epsilon}
 	\]
 	Take $u = \frac{2 \sqrt{\epsilon}}{\sqrt{C'(r_0)}}$ then $du = \frac{d\epsilon}{\sqrt{C'(r_0) \epsilon}}$ giving us
 	\[
-		ds^2 = F(r_0) \frac{C'(r_0)^2}{4} u^2 dt^2 + du^2
+		ds^2 = F(r_0) \frac{C'(r_0)^2}{4} u^2 d\tau^2 + du^2
 	\]
 	This describe a conical deficit geometry in polar coordinates. In order to obtain a smooth geometry, we need the requirement that 
 	\[
@@ -76,7 +76,7 @@
 	\[
 	\begin{aligned}
 		M_f^2 \geq (1+\gamma^2) M_1^2  &\Rightarrow E = (1+\gamma) M_1 - \sqrt{1+\gamma^2} M_1\\ 
-		&\Rightarrow \frac{E}{M_1 + M_2} = \frac{(1+\gamma) M_1 - \sqrt{1+\gamma^2} M_1}{(1+\gamma) M_1} = 1 -\frac{\sqrt{1+\gamma^2}}{(1+\gamma)} \geq 1 \leq 1 - \frac{1}{\sqrt 2}
+		&\Rightarrow \frac{E}{M_1 + M_2} = \frac{(1+\gamma) M_1 - \sqrt{1+\gamma^2} M_1}{(1+\gamma) M_1} = 1 -\frac{\sqrt{1+\gamma^2}}{(1+\gamma)} \leq 1 - \frac{1}{\sqrt 2}
 	\end{aligned}
 	\]
 	as required. 
@@ -95,14 +95,14 @@
 	
 	\item Such a decay would look like 
 	\[
-		2 M_f^2  \geq M^2 \Rightarrow \sqrt{2} M_f \geq M  \Rightarrow M - 2 M_f \leq (\sqrt{2} - 2) M_F < 0.
+		2 M_f^2  \geq M^2 \Rightarrow \sqrt{2} M_f \geq M  \Rightarrow M - 2 M_f \leq (\sqrt{2} - 2) M_f < 0.
 	\]
 	This is a contradiction. 
 	\end{enumerate}
 	
 	\item We have that $n = \frac{1}{\sqrt{g_{rr}}} \d_r = \sqrt{f(r)} \d_r$ so that
 	\[
-		K_{\mu \nu} = \frac12  \frac{1}{\sqrt{g_{rr}}} \d_r G_{\mu \nu} = \frac{\sqrt{f(r)}}{2} \text{diag}\Big(f'(r), -\frac{f'(r)}{f(r)}, 2r, 2r \sin^2 \theta \Big)
+		K_{\mu \nu} = \frac12  \frac{1}{\sqrt{g_{rr}}} \d_r G_{\mu \nu} = \frac{\sqrt{f(r)}}{2} \text{diag}\Big(f'(r), -\frac{f'(r)}{f(r)^2}, 2r, 2r \sin^2 \theta \Big)
 	\]
 	Contracting with the $3 \times 3$ boundary inverse metric $h^{\mu \nu} = \text{diag}(f(r)^{-1}, r^{-2}, r^{-2} \sin^{-2} \theta)$ which has \emph{no $r$ component} gives
 	\[
@@ -114,7 +114,7 @@
 	\]
 	Directly evaluating this for $f(r) = 1 - \frac{2 G M}{r} + \frac{Q^2}{r^2}$ gives
 	\[
-		\frac{\beta}{2 G} \left(\frac{Q^2}{r_0^2} + 2 r_0 - 3 G M \right)
+		\frac{\beta}{2 G} \left(\frac{Q^2}{r_0} + 2 r_0 - 3 G M \right)
 	\]
 	This is the gravitational boundary term contribution to the classical action. 
 	 The gravitational bulk term is zero since the Ricci scalar vanishes for the RN solution. The electromagnetic contribution is
@@ -163,7 +163,7 @@
 	We can verify mass and angular momentum using the killing vectors $\d_t$ and $\d_\phi$ respectively using the formulas in \textbf{Wald 12.3.8-9}
 	\[
 	\begin{aligned}
-		- \frac{1}{8\pi G} \int \epsilon_{abcd} \nabla^c (\d_t)^d &= M
+		- \frac{1}{8\pi G} \int \epsilon_{abcd} \nabla^c (\d_t)^d &= M\\
 		\frac{1}{16\pi G} \int \epsilon_{abcd} \nabla^c (\d_\phi)^d &= a M
 	\end{aligned}
 	\]
@@ -173,7 +173,7 @@
 	
 	For the KN black hole metric, the only singularities can come from $\Sigma = 0$ or $\Delta = 0$. $\Sigma$ is only zero for $a > 0$ when $r= 0, \theta = \pi/2$. This corresponds to the curvature singularity of the black hole (in fact despite deceptive coordinate choice, this takes the form of a ring $S_1 \times \RR$ as is revealed in Kerr-Schild coordinates). The horizons come from $g_{rr}$ becoming singular, namely $\Delta = 0$ which occurs at
 	\[
-		r^2 - 2 G M r + a^2 + Q^2 = 0 \Rightarrow r_\pm = M \pm \sqrt{M^2 - a^2 - Q^2}.
+		r^2 - 2 M r + a^2 + Q^2 = 0 \Rightarrow r_\pm = M \pm \sqrt{M^2 - a^2 - Q^2}.
 	\]
 	These give the outer and inner horizons. 
 	
@@ -183,7 +183,7 @@
 	\]
 	But $\Delta = 0$ at the horizon so this trivializes to
 	\[
-		4 \pi (r_+^2 + a^2) = 4 \pi ((m + \sqrt{m^2 - a^2 - Q^2})^2 + a^2)
+		4 \pi (r_+^2 + a^2) = 4 \pi ((M + \sqrt{M^2 - a^2 - Q^2})^2 + a^2)
 	\]
 	The entropy of the black hole is then
 	\[
@@ -218,7 +218,7 @@
 		dM = T dS + \Omega dJ + \mu dQ
 	\]
 	
-	We obtain an extremal black hole when $M = a^2 + Q^2$, as this is the minimum value of $M$ where $r_+$ is a well-defined radius. At this value, $r_+=  r_-$. 
+	We obtain an extremal black hole when $M^2 = a^2 + Q^2$, as this is the minimum value of $M$ where $r_+$ is a well-defined radius. At this value, $r_+=  r_-$. 
 	
 	Thermodynamic stability comes from minimizing the Gibbs free energy:
 	\[
@@ -242,13 +242,13 @@
 	
 	\item This is direct - we take $M$ theory on $T^6$. Wrap $Q_1$ M2 branes along $x^9-x^{10}$, $Q_2$ M2 branes along $x^7-x^8$, and $Q_3$ M2 branes along $x^5-x^6$. 
 	
-	Take the M-theory $S^1$ to be along $x^{10}$. Now, taking this to be microscopic first, we get $Q^1$ strings wrapping $x^9$ together with $Q_2, Q_3$ D2 branes in IIA. 
+	Take the M-theory $S^1$ to be along $x^{10}$. Now, taking this to be microscopic first, we get $Q_1$ strings wrapping $x^9$ together with $Q_2, Q_3$ D2 branes in IIA. 
 	
-	$T$-dualize along $x^5,x^6$ to get $Q_3$ D0 branes, $Q_2$ D4 branes wrapping $x^{5-8}$, and $Q^2$ D2 branes wrapping $x^5, x^6$. The F1 around $x^9$ is unaffected.
+	$T$-dualize along $x^5,x^6$ to get $Q_3$ D0 branes, $Q_2$ D4 branes wrapping $x^{5-8}$. The F1 around $x^9$ is unaffected.
 	
 	Finally, $T$-dualize along $x^9$, taking IIA to IIB and giving $Q_3$ D1 branes and $Q_2$ D5 branes, while replacing the F1 (ie $B$-flux) with KK momentum of the system along the $x^9$. This is exactly the D1-D5 system.
 	
-	\item The D5 and D5 branes are both BPS. We know that, upon toroidal compactification, 
+	\item The D1 and D5 branes are both BPS. We know that, upon toroidal compactification, 
 	
 	In $D=10$ have the D1 stretch $x_0 = t, x_5 = \gamma$ and the D5 stretch $x_0, \dots, x_5$, where we write $\gamma^a, a=1 \dots 4$ to be the new D5 directions. These will form the direction of the $T^4$.
 	
@@ -273,7 +273,7 @@
 	
 	The combined 10D solution thus gives:
 	\[
-		\frac{-dt^2 + d\gamma^2}{\sqrt{H_1 H_5}} + \sqrt{\frac{H_1}{H_5}} d\gamma^a  \cdot d\gamma^a+ \sqrt{H_1 H_5} dx^i \cdot dx^i, \quad F_{r05} = \d_r H^{-1}, \quad F_{ijk} = - H'(r), \quad, e^{-2\Phi} = \frac{H_5}{H_1}
+		\frac{-dt^2 + d\gamma^2}{\sqrt{H_1 H_5}} + \sqrt{\frac{H_1}{H_5}} d\gamma^a  \cdot d\gamma^a+ \sqrt{H_1 H_5} dx^i \cdot dx^i, \quad F_{r05} = \d_r H_1^{-1}, \quad F_{ijk} = - \epsilon_{ijk} H_5'(r), \quad e^{-2\Phi} = \frac{H_5}{H_1}
 	\]
 	The next step is compactification. Upon wrapping D5 and D1 around a $T^5$, dimensional reduction freezes out $\gamma, \gamma^a$ dependence of the metric and fields.
 	The $T^5$ is parallel to the D5, so the D5 solution will look identical to how it looked before. The D1 also wraps a cycle of the $T^5$. Compactifying the other 4 directions will look like a periodic arrangement of $D1$ branes, which effectively serves to remove $\gamma^a$ dependence from the $D1$ contribution to the solution. \textbf{Think about this. Is it really true that the metric warps the same regardless of where on $T^5$ I am? More likely that they are taking $T^5$ small and neglecting it, or we're thinking about a uniform distribution of D1s on $T^5$.}
@@ -283,21 +283,21 @@
 	\item 
 	Ignoring the $-1/2$ discussed before, we can verify the charge from direct integration along a $S^3$. First, the electric charge 
 	\[
-		\frac{1}{2 \kappa_{10}^2} \int_{S^3 \times T^4} \star F = \frac{1}{2 \kappa_{10}^2} \int_{S^3 \times T^4} \frac{2 r_1^2}{r^3} = -\frac{4\pi^2 (2\pi \ell_s)^4 V}{(2\pi)^7 \ell_s^8 g_s^2} r_1^2 = \frac{Q_1}{2\pi \ell_s^2 g} = Q_1 T_1
+		\frac{1}{2 \kappa_{10}^2} \int_{S^3 \times T^4} \star F = \frac{1}{2 \kappa_{10}^2} \int_{S^3 \times T^4} \frac{2 r_1^2}{r^3} = \frac{4\pi^2 (2\pi \ell_s)^4 V}{(2\pi)^7 \ell_s^8 g_s^2} r_1^2 = \frac{Q_1}{2\pi \ell_s^2 g_s} = Q_1 T_1
 	\]
-	for $r_1^2 = \ell_s^2 g_s/V$, as required. 
+	for $r_1^2 = Q_1 \ell_s^2 g_s/V$, as required.
 	
 	For the magnetic charge, $F_{\theta \phi \psi} = \epsilon_{\theta \phi \psi r} \d_r H_5 = -H_5'$ so we get
 	\[
 		\frac{1}{2 \kappa_{10}^2} \int_{S^3} F = \frac{1}{2 \kappa_{10}^2} \int_{S^3} d\Omega_3 \frac{2 r_5^2}{r^3} = \frac{4 \pi^2}{(2\pi)^7 \ell_s^8 g_s^2} r_5^2 = \frac{Q_5}{(2\pi)^5 \ell_s^6 g_s} = Q_5 T_5
 	\]
-	for $r_5^2= \ell_s^2 g_s$, as required.
+	for $r_5^2= Q_5 \ell_s^2 g_s$, as required.
 	
 	We can also derive $c_p$ from the KK solution \textbf{Do this}.
 	
 	In the non-extremal case, this generalizes quite directly. 
 	\[
-		\frac{Q_1}{2 \pi \ell_s^2 g_s} = \frac{1}{2\kappa_{10}^2} \int_{S^3 \times T^4}  \hspace{-.1in}\star F = \frac{(2 \pi \ell_s)^4 V g_s}{(2\pi)^7 \ell_s^8 g_s^2} \int_{S^3} \coth a_1 \frac{2 r_1^2}{r^3} = \frac{V r_0^2 \sinh^2 a_1 \coth a_1}{2\pi g_s^2 \ell_s^4} = \frac{r_0^2 \sinh 2a_1 }{4\pi g_s \ell_s^2 c_1} \Rightarrow Q_1 = \frac{r_0^2 \sinh 2 a_1}{2 c_1}
+		\frac{Q_1}{2 \pi \ell_s^2 g_s} = \frac{1}{2\kappa_{10}^2} \int_{S^3 \times T^4}  \hspace{-.1in}\star F = \frac{(2 \pi \ell_s)^4 V}{(2\pi)^7 \ell_s^8 g_s^2} \int_{S^3} \coth a_1 \frac{2 r_1^2}{r^3} = \frac{V r_0^2 \sinh^2 a_1 \coth a_1}{2\pi g_s^2 \ell_s^4} = \frac{r_0^2 \sinh 2a_1 }{4\pi g_s \ell_s^2 c_1} \Rightarrow Q_1 = \frac{r_0^2 \sinh 2 a_1}{2 c_1}
 	\]
 	Similarly: 
 	\[
@@ -319,7 +319,7 @@
 	
 	The crucial principle (Maldacena 2.5) is that if a scalar diverges at the horizon, the $d$-dimensional character of the solution is lost. For a single $p$-brane $p \neq 3$ the dilaton goes either to $\infty$ or $0$. In the case of the $D1$-$D5$ system, we needed branes symmetric about $p=3$ and differing by $4$ in order to give a BPS state with the dilaton tending to a constant $\frac14 \log H_1/H_5 \to \frac12 \log r_1/r_5$.
 	
-	We see now that this does not work with a D6 and D2. For a $p$-brane $e^{-2 \Phi} = H^{(p-3)/2}$ giving that D6-D2 gas a dilaton going as $e^{-2 \Phi} = H_6^{3/2} H_2^{-1/2}$. There's no (even dimensional) D-brane we could add in type $1$ that would save us, and adding fundamental strings would only give $e^{-2 \phi} = H_f$, which would not help. 
+	We see now that this does not work with a D6 and D2. For a $p$-brane $e^{-2 \Phi} = H^{(p-3)/2}$ giving that D6-D2 has a dilaton going as $e^{-2 \Phi} = H_6^{3/2} H_2^{-1/2}$. There's no (even dimensional) D-brane we could add in type IIA that would save us, and adding fundamental strings would only give $e^{-2 \phi} = H_f$, which would not help. 
 	
 	But there is another extended object with the correct dilaton dependence as $e^{-2\Phi} = H^{-1}$. This is the NS5 brane! But will adding it break supersymmetry completely? On the contrary, the SUSY constraints from the D6 and D2 and KK momentum are:
 	\[
@@ -402,7 +402,7 @@
 		
 		 Now let's look at 
 		\[
-			r_+^2 \leq \xi^2 \Rightarrow (r_+^2 - r_-^2)(x_1^2 - x_2^2) \geq (r_-^2 + r_+^2) l^2 \Rightarrow l^2 \leq x_1^2 - x_2^2 
+			r_+^2 \leq \xi^2 \Rightarrow (r_+^2 - r_-^2)(x_1^2 - x_2^2) \geq (r_+^2 - r_-^2) l^2 \Rightarrow l^2 \leq x_1^2 - x_2^2 
 		\]
 		Next
 		\[
@@ -414,7 +414,7 @@
 		\]
 	
 		All boundaries between these regions are null. The boundary $x_1^2 - x_2^2 = l^2$ implies $x_0^2 - x_3^2 =0$ and so is a null surface (cone). 
-		Similarly, the boundary $x_1^2 - x_2^2 = 0$ implies $x_+ = \pm x_-$ which is again null surface. 
+		Similarly, the boundary $x_1^2 - x_2^2 = 0$ implies $x_1 = \pm x_2$ which is again null surface. 
 			%
 		% The boundary between region 1 and 2 is given by $x_1^2 - x_2^2 = \frac{(r_+^2 + r_-^2) l^2}{r_+^2 - r_-^2}$
 		% It is null
@@ -424,7 +424,7 @@
 			-N_\perp^2 dt^2 + N_\perp^{-2} dr^2 + r^2 (N_\phi dt + d\phi)^2
 		\]
 		
-		Note we get $x_1^2 - x_2^2 = A(r)$, $x_3^2 - x_4^2 = B(r)$, and $B(r) = A(r) + l^2$ so that $B - A = l^2$ as required in AdS. At $r = r_+$, $A = - \frac{(r_+^2 - r_-^2) l^2}{r_+^2 - r_-^2}$ exactly saturating the boundary of region $1$. Simple differential manipulations
+		Note we get $x_1^2 - x_2^2 = A(r)$, $x_3^2 - x_0^2 = B(r)$, and $A(r) = B(r) + l^2$ so that $A - B = l^2$ as required in AdS. At $r = r_+$, $A = \frac{(r_+^2 - r_-^2) l^2}{r_+^2 - r_-^2} = l^2$ exactly saturating the boundary of region $1$. Simple differential manipulations
 		\begin{center}
 			\includegraphics[scale=0.5]{"Figures/BTZ metric"}
 		\end{center}
@@ -458,13 +458,13 @@
 	
 		Looking at the $N_{\perp}^2$ and $N_\phi^2$ contributions to $g_{00}$ we get:
 		\[
-			-g_{00} = - \frac{r_-^2 + r_+^2}{\l^2}   + \frac{r^2}{l^2} 
+			-g_{00} = - \frac{r_-^2 + r_+^2}{l^2}   + \frac{r^2}{l^2}
 		\]
 		This is a black hole in AdS with mass $M = \frac{r_-^2 + r_+^2}{l^2}$. Similarly, from the $dt\, d\phi$ component, we see that $2 r^2 N_\phi$ corresponds exactly to the angular momentum. We thus get
 		\[
 			M = \frac{r_+^2 + r_-^2}{l^2}, \quad J = \frac{2 r_+ r_-}{l}
 		\]
-		Note for global AdS when $r_-\to 0, r_+ \to -l^2$, we get mass $-l^2$. \textbf{Kiritsis adjusts the definition of mass by $+1$ making it $0$ in global AdS, so that it counts only the mass of the black hole.}
+		Note for global AdS when $r_-\to 0, r_+^2 \to -l^2$, we get mass $-1$. \textbf{Kiritsis adjusts the definition of mass by $+1$ making it $0$ in global AdS, so that it counts only the mass of the black hole.}
 		
 		This gives 
 		\[
@@ -508,7 +508,7 @@
 	\]
 	The dilaton will obey:
 	\[
-		\frac83 \Box \, \phi - \frac12 e^{2\phi} \sqrt G \, G^{\alpha \beta} G^{\gamma \delta} \d C_{\alpha \gamma} \d C_{\beta \delta} + \frac{4}{3}  e^{-4 \phi}{3} G_{\alpha \beta} F^{\alpha}_{\mu \nu} F^{\beta\, \mu \nu} - \frac{1}{6} e^{2\phi/3} \sqrt{G} G^{\alpha \beta} H_{\mu \nu \alpha} H^{\mu \nu \beta} + \frac{1}{18} e^{-2\phi/3} \sqrt{G} H_{\mu \nu \rho} H^{\mu \nu \rho}
+		\frac83 \Box \, \phi - \frac12 e^{2\phi} \sqrt G \, G^{\alpha \beta} G^{\gamma \delta} \d C_{\alpha \gamma} \d C_{\beta \delta} + \frac{4}{3}  e^{-4 \phi/3} G_{\alpha \beta} F^{\alpha}_{\mu \nu} F^{\beta\, \mu \nu} - \frac{1}{6} e^{2\phi/3} \sqrt{G} G^{\alpha \beta} H_{\mu \nu \alpha} H^{\mu \nu \beta} + \frac{1}{18} e^{-2\phi/3} \sqrt{G} H_{\mu \nu \rho} H^{\mu \nu \rho}
 	\]
 	Finally, the metric will obey:
 	\[
@@ -535,7 +535,7 @@
 	\[
 	\begin{aligned}
 		&e^{-2\phi/3} \sqrt G H_{\mu \nu \rho}^2 = e^{-2\phi/3 + \nu_5 + 4 \nu} H_{\mu \nu \rho}^2 = e^{\frac43 \lambda + 4 \nu}  H_{\mu \nu \rho}^2\\
-		& e^{2\phi/3} \sqrt G  G^{55} H_{5 \nu \rho}^2 = e^{2\phi/3 - \nu_5 + 4 \nu} H_{5 \nu \rho}^2 = e^{-\frac43 \phi + 4 \nu} H_{5 \nu \rho}^2\\
+		& e^{2\phi/3} \sqrt G  G^{55} H_{5 \nu \rho}^2 = e^{2\phi/3 - \nu_5 + 4 \nu} H_{5 \nu \rho}^2 = e^{-\frac43 \lambda + 4 \nu} H_{5 \nu \rho}^2\\
 		& e^{-4 \phi/3} G_{55} (F^5_{\mu \nu})^2 = e^{-4\phi/3 + 2 \nu_5}  (F^5_{\mu \nu})^2 = e^{\frac83 \lambda} (F^5_{\mu \nu})^2
 	\end{aligned}
 	\]
@@ -552,17 +552,17 @@
 	
 	\item Redefining $K$ to be unitless, we have a relationship 
 	\[
-		e^{i x \cos \theta} = K \frac{e^{- i \omega x}}{x^{3/2}} Y_{000} + \text{higher moments}
+		e^{i x \cos \theta} = K \frac{e^{- i x}}{x^{3/2}} Y_{000} + \text{higher moments}
 	\]
 	Let's integrate both over $S^3$, giving
 	\[
-		\int_0^\pi d\theta \int_0^\pi d\phi \int_0^{2\pi} d\psi \sin^2 \theta  \sin \phi e^{i x \cos \theta} = 2 \pi^2 \frac{J_1(x)}{x}  = K \frac{e^{i \omega x}}{x^{3/2}} \sqrt{2 \pi^2}
+		\int_0^\pi d\theta \int_0^\pi d\phi \int_0^{2\pi} d\psi \sin^2 \theta  \sin \phi e^{i x \cos \theta} = 4 \pi^2 \frac{J_1(x)}{x}  = K \frac{e^{- i x}}{x^{3/2}} \sqrt{2 \pi^2}
 	\]
 	The asymptotic form of $J_1$ is
 	\[
-		J_1(x) \sim \sqrt{\frac{2}{\pi x}} \cos(z - 3 \pi /4)
+		J_1(x) \sim \sqrt{\frac{2}{\pi x}} \cos(x - 3 \pi /4)
 	\]
-	So then, up to a phase
+	Retaining only the ingoing half $\frac12 \sqrt{\frac{2}{\pi x}}\, e^{-i(x - 3\pi/4)}$, we get, up to a phase
 	\[
 		2 \pi \sqrt{2 \pi} = K \sqrt{2 \pi^2} \Rightarrow K = \sqrt{4 \pi}
 	\]
@@ -720,7 +720,7 @@
 	Now, let us calculate cross section per unit D3 brane volume.
 	We consider $s$-wave scattering. This wave equation in the D3 background $g_{rr} = \sqrt{H(r)}, \sqrt g = r^5 \sqrt{H(r)}$ translates to
 	\[
-		0 = \Big(\frac{1}{\sqrt g} \d_r g^{rr} \sqrt{g} \d_r  + \omega^2 g^{tt} \Big) R(r)  = \left( \frac{1}{r^5 \sqrt{H}} \d_r r^5 \d_r + \omega^2 \sqrt{H}  \right) R \Rightarrow \frac{1}{r^5} \d_r r^5 \d_r R + \omega^2 \left(1 + \frac{L^4}{r^4} \right) 
+		0 = \Big(\frac{1}{\sqrt g} \d_r g^{rr} \sqrt{g} \d_r  + \omega^2 g^{tt} \Big) R(r)  = \left( \frac{1}{r^5 \sqrt{H}} \d_r r^5 \d_r + \omega^2 \sqrt{H}  \right) R \Rightarrow \frac{1}{r^5} \d_r r^5 \d_r R + \omega^2 \left(1 + \frac{L^4}{r^4} \right) R
 	\]
 	As before, lets redefine $\psi = r^{5/2} R$. We get the equation
 	\[
@@ -744,7 +744,7 @@
 	\end{equation}
 	We want to match this at an intermediate value of $r$. Take $\rho \ll 1$, and look at low frequencies. This will allow us to write the first solution as
 	\[
-		R = \frac{1}{r^{5/2}} \sqrt{\frac{\pi \rho}{2}} (A J_2(\rho) + B J_2(\rho)) \approx \frac18 \sqrt{\frac{\pi \omega^5}{2}} A - \frac{2}{r^4 \sqrt{\omega^3 \pi/2}} B
+		R = \frac{1}{r^{5/2}} \sqrt{\frac{\pi \rho}{2}} (A J_2(\rho) + B Y_2(\rho)) \approx \frac18 \sqrt{\frac{\pi \omega^5}{2}} A - \frac{2}{r^4 \sqrt{\omega^3 \pi/2}} B
 	\]
 	We see that for small $r$, the second term blows up, and we expect that for matching to hold, we must take $B=0$. 
 	
@@ -789,7 +789,7 @@
 	\[
 		\tilde A \frac{(L \omega)^2}{\rho^2} \Big[ J_{2+\ell}(\frac{(L \omega)^2}{\rho})+ i Y_{2+\ell}(\frac{(L \omega)^2}{\rho}) \Big]
 	\]
-	This will give a match like $\tilde A \sim (\omega L)^{-2 \ell} A$. This makes it so that their ratio squared goes as $(\omega L)^{4 \ell}$. The flux calculations remain the same. Altogether we expect $\sigma_{abs}$ to scale as $L^8 \omega^3 (L \omega)^{2\ell}$ for higher partial waves.
+	This will give a match like $\tilde A \sim (\omega L)^{2 \ell} A$. This makes it so that their ratio squared goes as $(\omega L)^{4 \ell}$. The flux calculations remain the same. Altogether we expect $\sigma_{abs}$ to scale as $L^8 \omega^3 (L \omega)^{4\ell}$ for higher partial waves.
 	
 	Finally, the Hawking emission rate remains zero, since it involves a factor of $e^{-\beta \omega}$ and $\beta = 1/T = \infty$ for an extremal $p$-brane. There are likely corrections to this \emph{beyond} the semiclassical level of analysis.
 	
@@ -800,7 +800,7 @@
 	
 	For $N=0$ $(T^4)^N/S_N$ is just a point which has trivial cohomology ring with dimension $1$. 
 	
-	For $N=1$ we recover $T^4$ which has $4 \times 4$ cocycles generated as an alternating algebra by the elements $dx^i, i = 1 \dots 4$, giving dimension $16$. Note that we should view $dx^i$ as \emph{fermionc elements} corresponding to the odd cohomology, and even elements such as $1, dx^i \wedge dx^j, dx^1 \wedge dx^2 \wedge dx^3 \wedge dx^3$ as bosonic.
+	For $N=1$ we recover $T^4$ which has $4 \times 4$ cocycles generated as an alternating algebra by the elements $dx^i, i = 1 \dots 4$, giving dimension $16$. Note that we should view $dx^i$ as \emph{fermionic elements} corresponding to the odd cohomology, and even elements such as $1, dx^i \wedge dx^j, dx^1 \wedge dx^2 \wedge dx^3 \wedge dx^4$ as bosonic.
 	
 	For $N=2$ we get $T^{8}/S_2$ identifying points of two separate $T_4$s. Each individual $T_4$ has all of its cycles remaining intact, giving $2 \times 2^4 = 32$ cycles untouched. The remaining $2^8 - 2^4$ cycles are half-killed, giving $2 \times 2^4 + (2^8 - 2 \times 2^4)/2 = 144$. Although this gives the right answer, I see that its not the most generalizable way to look at things. There will always be an untwisted sector of this orbifold, as well as twisted sectors in 1-1 correspondence with conjugacy classes of $S_N$. The untwisted sector simply considers $N$ particle states on $T^4$. There are $8$ fermionic elements and $8$ bosonic elements in the cohomology. The types of 2-particle states are thus:
 	\[
@@ -827,7 +827,7 @@
 	
 	Then, the generating function consists of taking products over all $n$ so that for a given $S_N$, the full orbifold is built up from taking all the ways one can partition $N$ in terms of subsectors twisted by $n_i, \sum n_i = N$. Thus, we look for the $q^N$ coefficient in:
 	\[
-		\prod_{i=1}^\infty \frac{(1+q^n)^f}{(1-q^n)^b}.
+		\prod_{n=1}^\infty \frac{(1+q^n)^f}{(1-q^n)^b}.
 	\]
 	
 	\item A derivation of Cardy's Formula: 
@@ -890,11 +890,11 @@
 	In general, we also have fermionic contributions modifying the numerator in equation \eqref{eq:susypart}. Here, again $\tau = i \beta / 2 \pi R$. For a single periodic \emph{or} antiperiodic fermion we will have traces that gives partition functions of the form:
 	\[
 	\begin{aligned}
-		\Tr_{P} [e^{-\beta L_0/2\pi R}]  = \prod_{n = 0}^\infty (1 + q^{\frac{\beta}{2 \pi R} n})  = \sqrt{\frac{q^{1/24} \theta_{2}(\tau)}{\eta}}\\
-		\Tr_{A} [e^{-\beta L_0/2\pi R}]  = \prod_{n = 0}^\infty (1 + q^{\frac{\beta}{2 \pi R} (n+1/2)})  = \sqrt{\frac{q^{1/24} \theta_{3}(\tau)}{\eta}}
+		\Tr_{P} [e^{-\beta L_0}]  = \prod_{n = 0}^\infty (1 + q^{n})  = q^{-1/24}\sqrt{\frac{2 \theta_{2}(\tau)}{\eta}}\\
+		\Tr_{A} [e^{-\beta L_0}]  = \prod_{n = 0}^\infty (1 + q^{n+1/2})  = \sqrt{\frac{q^{1/24} \theta_{3}(\tau)}{\eta}}
 	\end{aligned}
 	\]
-	Taking the infinite temperature limit sets $\tau \to 0, q \to \infty$ giving respectively
+	Taking the infinite temperature limit sets $\tau \to 0, q \to 1$ giving respectively
 	\[
 		\begin{aligned}
 			\sqrt{ \frac{\theta_4 (-1/\tau)}{\eta(-1/\tau)}} \approx e^{\frac{2 \pi i}{48 \tau}} = e^{\frac{(2 \pi)^2 R}{48 \beta}}\\

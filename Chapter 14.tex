@@ -88,7 +88,7 @@
 	\[
 		N \Tr[(D q)^2 + (D \bar q)^2 + q \bar q + q \bar q \Phi + \dots ]
 	\]
-	Again the propagators will give $1/N$ and the vertices will give $N$, so we can apply the same analysis to get that planar diagrams dominate. For the two point correlator of $q \bar q$, we must introduce a quark loop into our worldsheet. The lowest-genus such surface is the disk, with two $q \bar q$s inserted on the boundary. This is genus $1$. Differentiating with respect to $N$ twice I get a two-point function going as $N^{-1}$. To get this to be unity I must rescale my mesons operator to be $\sqrt{N} q \bar q$. Now the $m$-point correlation function goes as $N^{m/2} N^{1-m}$.
+	Again the propagators will give $1/N$ and the vertices will give $N$, so we can apply the same analysis to get that planar diagrams dominate. For the two point correlator of $q \bar q$, we must introduce a quark loop into our worldsheet. The lowest-genus such surface is the disk, with two $q \bar q$s inserted on the boundary. This has Euler characteristic $\chi = 1$. Differentiating with respect to $N$ twice I get a two-point function going as $N^{-1}$. To get this to be unity I must rescale my mesons operator to be $\sqrt{N} q \bar q$. Now the $m$-point correlation function goes as $N^{m/2} N^{1-m}$.
 	We thus get scaling behavior behavior $N^{1-m/2}$ for mesons. In particular the 3-point function goes as $1/\sqrt{N}$. 
 	
 	% I can write the mesons as $\phi = \tr q \bar q$ where the trace is in the fundamental representation. Adding $\int N g(x) \phi(x)$ to the action and differentiating
@@ -115,7 +115,7 @@
 	\]
 	and
 	\[
-		G_N = \frac{(2 \pi)^7 \ell_s^8}{16 \pi} g_s^2 = \frac{(2 \pi)^7 \ell_s^8}{16 \pi} \frac{1}{(4 \pi \ell_s^4 N)^2} = \frac{\pi^4}{4 N^2}.
+		G_N = \frac{(2 \pi)^7 \ell_s^8}{16 \pi} g_s^2 = \frac{(2 \pi)^7 \ell_s^8}{16 \pi} \frac{1}{(4 \pi \ell_s^4 N)^2} = \frac{\pi^4}{2 N^2}.
 	\]
 	
 	\item 
@@ -139,9 +139,9 @@
 		\[
 			0 = \partial_M (\sqrt{-g} F^{MN}) = \partial_M (\sqrt{-g} g^{M A} g^{N B} \partial_{\small[ A} A_{B\small]}) = \partial_{u} \left( \frac{1}{u^{p+2}} u^{4} \partial_{u} (u^{\Delta-1} A_\mu(\vec x)) \right) + \dots
 		\]
-		 where $\dots$ are terms with higher powers of $z$. Altogether this is:
+		 where $\dots$ are terms with higher powers of $u$. Altogether this is:
 		 \[
-		 	(\Delta - p)(\Delta - 1) (A_\mu (\vec x) = 0.
+		 	(\Delta - p)(\Delta - 1)\, A_\mu (\vec x) = 0.
 		 \]
 		 This implies that either $\Delta = 1$ or $\Delta = p$.
 		 
@@ -158,8 +158,8 @@
 		\[
 		\begin{aligned}
 			0 &= \partial_M (\sqrt{-g} F^{MN}) - \sqrt{-g} \frac{m^2}{L^2} A^N\\
-			& = \partial_M (\sqrt{-g} g^{MA} g^{NB} \partial_{\small[ A} A_{B\small]}) - \sqrt{-g} \frac{m^2}{L^2} A_M\\
-			& = L^{p-2} \partial_{z} \left( \frac{1}{u^{p+2}} u^{4} \partial_u (u^{\Delta-1} A_M(\vec x)) \right) - L^{p} m^2 z^{\Delta-p-1} A_M + \dots
+			& = \partial_M (\sqrt{-g} g^{MA} g^{NB} \partial_{\small[ A} A_{B\small]}) - \sqrt{-g} \frac{m^2}{L^2} A^N\\
+			& = L^{p-2} \partial_{u} \left( \frac{1}{u^{p+2}} u^{4} \partial_u (u^{\Delta-1} A_\mu(\vec x)) \right) - L^{p} m^2 u^{\Delta-p-1} A_\mu + \dots
 		\end{aligned}
 		\]
 		Then this gives a new quadratic equation for $\Delta$:
@@ -179,7 +179,7 @@
 	\[
 		W[A_\mu] \to W[A_\mu + \d_\mu \epsilon] = \braket{e^{\int d^d x\, J^\mu A_\mu - \int d^d x\, \epsilon \d_\mu J^\mu }} = W[A_\mu]
 	\]
-	here $A_\mu$ is the source for the boundary $J^\mu$ current in the CFT. So the partition function is invariant under any local gauge transformation of $A_\mu$. This gives us that a global $U(1)$ in the CFT corresponds to a gauged $U(1)$ on the boundary.
+	here $A_\mu$ is the source for the boundary $J^\mu$ current in the CFT. So the partition function is invariant under any local gauge transformation of $A_\mu$. This gives us that a global $U(1)$ in the CFT corresponds to a gauged $U(1)$ in the bulk.
 	
 	\item We couple our CFT stress tensor $T^{\mu \nu}$ to an external field $h_{\mu \nu}$. Note that under any shift $h_{\mu \nu} + \d_\mu \epsilon_\nu + \d_\nu \epsilon_\mu$ we get:
 	\[
@@ -208,7 +208,7 @@
 	
 	\item Take $d\tau = 0$. First, take the points to be on opposite sides of the AdS cylinder. We get a distance equal to
 	\[
-		\int_{1-\epsilon}^{1+\epsilon} \frac{2 du}{1-u^2} = 2 \log\left(\frac{2-\epsilon}{\epsilon}\right) \approx 2 \log\left(\frac{2}{\epsilon}\right)
+		\int_{-(1-\epsilon)}^{1-\epsilon} \frac{2 du}{1-u^2} = 2 \log\left(\frac{2-\epsilon}{\epsilon}\right) \approx 2 \log\left(\frac{2}{\epsilon}\right)
 	\]
 	Given that AdS is a homogenous space, we can use symmetry arguments from group theory to get the general formula, replacing $2$ with $|x_1 - x_2|$. For finding the geodesic distance through direct methods, a better coordinate system would be global coordinates. In AdS$_3$ this looks like:
 	\[
@@ -256,11 +256,11 @@
 	\]
 	Take $\rho_f \to \infty$. The leading behavior of this goes as
 	\[
-		2 L \log \frac{2 e^{\rho_f}}{\cosh \rho_0} = 2 L \log \left(2 e^{\rho_f} \sin \frac{\theta}{2} \right)
+		2 L \log \frac{e^{\rho_f}}{\cosh \rho_0} = 2 L \log \left(e^{\rho_f} \sin \frac{\theta}{2} \right)
 	\]
 	Now note that for $x, y$ coordinates in $\RR^{d+2}$ lying on the unit $S^{d+1}$, we have 
 	\[
-		|x-y|^2 = (\cos^2 \theta - 1)^2 + \sin^2 \theta = 4 \sin^2 \frac{\theta}{2} \Rightarrow |x-y| = 2 \sin \frac{\theta}{2}.
+		|x-y|^2 = (\cos \theta - 1)^2 + \sin^2 \theta = 4 \sin^2 \frac{\theta}{2} \Rightarrow |x-y| = 2 \sin \frac{\theta}{2}.
 	\]
 	Finally, $\sinh \rho_f = \tan \theta_f$. This gives $\theta_f = \pi/2 - \epsilon$, with $\epsilon = e^{-\rho_f}$. Then $\tilde u = \tan \frac{\theta_f}{2} \approx 1-\epsilon$. So indeed we get the final entropy formula:
 	\[
@@ -269,7 +269,7 @@
 	
 	\item The volume element goes as
 	\[
-		16 L^4 \int_0^{1-\epsilon} \frac{u^3}{(1-u^2)^4} du d\Omega_3 \approx \frac{16 L^4}{6 \epsilon^3} 2 \pi^2 = \frac{16 \pi^2 L^4}{3 \epsilon^3}
+		16 L^4 \int_0^{\sqrt{1-\epsilon}} \frac{u^3}{(1-u^2)^4} du d\Omega_3 \approx \frac{16 L^4}{6 \epsilon^3} 2 \pi^2 = \frac{16 \pi^2 L^4}{3 \epsilon^3}
 	\]
 	The $\epsilon^3$ scaling valid in the small $\epsilon$ limit is exactly area scaling.
 	
@@ -293,11 +293,11 @@
 	
 	\item The eigenvalues of the Laplacian on a 5-sphere of radius $L$ are in correspondence with the quadratic casimir of $\SO(6)$ for the $(0, k, 0)$ representations, giving:
 	\[
-		\frac{k(k+5)}{L^2}
+		\frac{k(k+4)}{L^2}
 	\]
 	For a proof of this, consider a homogenous harmonic function of degree $k$. Any such homogenous harmonic function takes the form $f = |x|^{k} \sum_{m_i} Y^k_{m_i}(\gamma)$. Look then at the Laplacian
 	\[
-		f = -\nabla^2 (|x|^{-k} f) = k (k + 6 - 2) |x|^{-(k+2)} f + x^{-s} \cancel{\nabla^2 f}
+		-\nabla^2 (|x|^{-k} f) = k (k + 6 - 2) |x|^{-(k+2)} f + |x|^{-k} \cancel{\nabla^2 f}
 	\]
 	Thus the spherical harmonics on a unit $S^5$ have eigenvalue $k(k+4)$. Rescaling the sphere will contravariantly rescale these eigenvalues by $L^{-2}$ as required.
 	
@@ -369,11 +369,11 @@
 	
 	\item This problem is done for $p=3$, but I will solve it for general $p$. The subleading order equation of motion for $\phi$ of the form $u^{\Delta} (\phi_0 + u^2 \phi_2)$ is
 	\[
-		u^\Delta \Delta (\Delta -p-1) \phi_0 -  u^{\Delta} m^2 L^2 \phi_0 + u^{\Delta + 2} \Box \phi_0  + u^{\Delta + 2} (\Delta+2) (\Delta - p + 1)  \phi_2 + u^{\Delta - 2} m^2 L^2 \phi_2 = 0
+		u^\Delta \Delta (\Delta -p-1) \phi_0 -  u^{\Delta} m^2 L^2 \phi_0 + u^{\Delta + 2} \Box \phi_0  + u^{\Delta + 2} (\Delta+2) (\Delta - p + 1)  \phi_2 - u^{\Delta + 2} m^2 L^2 \phi_2 = 0
 	\]
 	At leading $u^{\Delta}$ order we get the quadratic constraint on $\Delta$, giving $\Delta_\pm$ as solutions. Solving for $\phi_2$ at subleading order gives:
 	\[
-		\phi_2 = - \frac{\Box \phi_0}{(\Delta+2)(\Delta-p+1) + m^2 L^2}
+		\phi_2 = - \frac{\Box \phi_0}{(\Delta+2)(\Delta-p+1) - m^2 L^2}
 	\]
 	Plugging in for $\Delta = \Delta_-$ yields:
 	\[
@@ -381,7 +381,7 @@
 	\]
 	This is consistent with what is written when $p=3$. Taking now $\Delta \to p+1 - \Delta$ gives
 	\[
-		A_2 = \frac{\Box \phi_0}{4 \Delta_- - 6 - 2 p}
+		A_2 = \frac{\Box A}{4 \Delta_- - 6 - 2 p}
 	\]
 	Again, taking $p = 3$ gives the correct $4 (\Delta_- - 3)$ denominator.
 	%
@@ -397,7 +397,7 @@
 	\]
 	At this stage we take $\Delta$ to be arbitrarily. We do not identify it with $\Delta_\pm$. In the small $u$-limit the propagator looks like:
 	\[
-		u^{4-\Delta} (\delta(x- x') + O(u^2)) + u^{\Delta} \left(\frac{C_3^{-1}}{|x_1 - x_2'|^2} + O(u^2)\right)
+		u^{4-\Delta} (\delta(x- x') + O(u^2)) + u^{\Delta} \left(\frac{C_3^{-1}}{|x - x'|^{2\Delta}} + O(u^2)\right)
 	\]
 	A general field $\phi_0(x)$ on the boundary sources a the bulk field $\phi(u, x)$ to take the form:
 	\begin{equation}\label{eq:small-u-phi}
@@ -415,7 +415,7 @@
 	\]
 	This last integral is given by:
 	\[
-		(4-\Delta) u^{4-2\Delta} \delta^4 (x_1 - x_2) + \frac{4 C_3^{-1}}{|x_1 - x_2|} + \frac{\Delta}{C_3^2} u^{2 \Delta - 4} \int d^4 x \frac{1}{|x-x_1|^{2\Delta} |x-x_2|^{2\Delta}} + \dots
+		(4-\Delta) u^{4-2\Delta} \delta^4 (x_1 - x_2) + \frac{4 C_3^{-1}}{|x_1 - x_2|^{2\Delta}} + \frac{\Delta}{C_3^2} u^{2 \Delta - 4} \int d^4 x \frac{1}{|x-x_1|^{2\Delta} |x-x_2|^{2\Delta}} + \dots
 	\]
 	When $1 < \Delta < 3$ the remaining terms vanish. \textbf{The third term doesn't though, at least not for $1<\Delta<2$. Different kind of counterterm needed?}
 	
@@ -439,13 +439,13 @@
 	
 	In the original action, expanding $\phi$ to quadratic order in $\epsilon$ gives
 	\[
-		\phi = \epsilon^{4-\Delta} \phi_0 + \frac{\epsilon^{2 + 4 - \Delta}}{4 (\Delta - 3)} \Box \phi_0 \Rightarrow \frac{(ML)^ \Delta_{-}}{2} \phi^2 =   \frac{(ML)^3 (4- \Delta)}{2} \epsilon^{2 (4- \Delta)} \phi_0^2  + \epsilon^{2 (4 - \Delta) + 2} (ML)^3 (4-\Delta) \frac{\phi_0 \Box \phi_0}{4 (\Delta - 3)} + \dots
+		\phi = \epsilon^{4-\Delta} \phi_0 + \frac{\epsilon^{2 + 4 - \Delta}}{4 (\Delta - 3)} \Box \phi_0 \Rightarrow \frac{(ML)^3 \Delta_{-}}{2} \phi^2 =   \frac{(ML)^3 (4- \Delta)}{2} \epsilon^{2 (4- \Delta)} \phi_0^2  + \epsilon^{2 (4 - \Delta) + 2} (ML)^3 (4-\Delta) \frac{\phi_0 \Box \phi_0}{4 (\Delta - 3)} + \dots
 	\]
 	This shows that the $\phi^2$ term contributes a $\phi_0 \Box \phi_0$ term as well. 
 	
 	We thus need a counterterm action given by:
 	\[
-		S_{ct} = \int \sqrt{h} \left( \frac{M^3 \Delta_-}{2L} \phi^2 + \frac{M_{pl}^3 L}{2} \frac{1}{4 (\Delta - 3)} \phi \Box \phi \right)% \frac{10-2\Delta}{4 (\Delta-3)} \int dx \sqrt{h^\epsilon} \phi(\epsilon, x) \Box \phi(\epsilon, x).
+		S_{ct} = \int \sqrt{h} \left( \frac{M^3 \Delta_-}{2L} \phi^2 + \frac{M_{pl}^3 L}{4 (\Delta - 3)} \phi \Box \phi \right)% \frac{10-2\Delta}{4 (\Delta-3)} \int dx \sqrt{h^\epsilon} \phi(\epsilon, x) \Box \phi(\epsilon, x).
 	\]
 	Here, now, $\Box$ is taken with respect to the boundary metric $h^\epsilon$, meaning it absorbs two factors of $\epsilon/L$. \textbf{This is correct :)}
 	
@@ -510,7 +510,7 @@
 	\]
 	Doing the inversion again we have:
 	\[
-		u^{d-2} \dd x^i \to \frac{u^{d-2}}{(u^2 + |x|^2)^{d-2}} \dd\left(\frac{x^i}{u^2 + |x|^2} \right)=  \frac{u^{d-2}}{(u^2 + |x|^2)^{d}} (u^2 - x_i^2) dx^i - \frac{2 x_i u^{d-1}}{(u^2 + |x|^2)^{d-2}} du
+		u^{d-2} \dd x^i \to \frac{u^{d-2}}{(u^2 + |x|^2)^{d-2}} \dd\left(\frac{x^i}{u^2 + |x|^2} \right)=  \frac{u^{d-2}}{(u^2 + |x|^2)^{d}} \left((u^2 + |x|^2)\delta^i_j - 2 x^i x_j\right) dx^j - \frac{2 x_i u^{d-1}}{(u^2 + |x|^2)^{d}} du
 	\]
 	adding the exact term:
 	\[
@@ -594,7 +594,7 @@
 	
 	 The theorem of Fefferman and Graham states that a general asymptotically-AdS metric can be written as
 	\[
-		\frac{ds^2}{L^2} = \frac{du^2}{u^2} + \frac{g_{ij}}{u^2} dx^i dx^j, \quad g_{ij}(u^2, x) = g^{(0)}(x) + u^2 g^{(2)})(x) + \dots
+		\frac{ds^2}{L^2} = \frac{du^2}{u^2} + \frac{g_{ij}}{u^2} dx^i dx^j, \quad g_{ij}(u^2, x) = g^{(0)}(x) + u^2 g^{(2)}(x) + \dots
 	\]
 	Einstein's equations in this setting are:
 	\[
@@ -645,11 +645,11 @@
 	\[
 		\nabla^i t_{ij} = 0, \quad t^i_i = -\frac14 \left[(\Tr g^{(2)})^2 - \Tr[(g^{(2)})^2]\right]
 	\]
-	Now, revisiting \eqref{eq:hard}, the trace conditions $\Tr g^{(4)} = \Tr[ (g^{(2)})^2]$ and $\Tr h^{(4)} =0$ simplify it to:
+	Now, revisiting \eqref{eq:hard}, the trace conditions $\Tr g^{(4)} = \frac14 \Tr[ (g^{(2)})^2]$ and $\Tr h^{(4)} =0$ simplify it to:
 	\[
 	\begin{aligned}
-		h_{ij}^{(4)} &= \frac12 (g^{(2)})^2 + \frac18 \Tr[(g^{(2)})^2] g^{(0)}_{ij} - \frac14 R_{ij}^{(2)}\\
-		& = \frac12 (g^{(2)})^2 + \frac18 \Tr[(g^{(2)})^2] g^{(0)}_{ij} + \frac18 (\nabla^k \nabla_{i} g_{j k}^{(2)} + \nabla^k \nabla_{j} g_{i k}^{(2)}  - \nabla^2 g^{(2)} -\nabla_i \nabla_j \Tr g^{(2)})
+		h_{ij}^{(4)} &= \frac12 (g^{(2)})^2 - \frac18 \Tr[(g^{(2)})^2] g^{(0)}_{ij} - \frac14 R_{ij}^{(2)}\\
+		& = \frac12 (g^{(2)})^2 - \frac18 \Tr[(g^{(2)})^2] g^{(0)}_{ij} + \frac18 (\nabla^k \nabla_{i} g_{j k}^{(2)} + \nabla^k \nabla_{j} g_{i k}^{(2)}  - \nabla^2 g^{(2)} -\nabla_i \nabla_j \Tr g^{(2)})
 	\end{aligned}
 	\]
 	where we have used identities for the variation of the Ricci tensor from appendix \textbf{C.2}. This can be written as:
@@ -678,12 +678,12 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	
 	\item Take:
 	\begin{equation}\label{eq:gravonshell}
-				\frac{L^3}{2 \pi G_5} \int d^4 x\left( \int_{\epsilon} \frac{du}{u^5} \sqrt{\det g(u, x)} - \frac{1}{u^4} (1 - u \d_u) \sqrt{g(u, x)}|_{u = \epsilon} \right)
+				\frac{L^3}{2 \pi G_5} \int d^4 x\left( \int_{\epsilon} \frac{du}{u^5} \sqrt{\det g(u, x)} - \frac{1}{u^4} (1 - \tfrac14 u \d_u) \sqrt{g(u, x)}|_{u = \epsilon} \right)
 	\end{equation}
 	It will be useful to recall:
 	\[
 	\begin{aligned}
-				\sqrt{-\det(g+h)}& = \exp \frac12 \log (-\det(g+h))\\& = \sqrt{\deg g} \exp\left[ \frac12 \tr \log(1 + g^{-1} h) \right] \\&= \sqrt{\deg g} \exp\left[ \frac12 \tr [g^{-1} h - \frac12 (g^{-1} h)^2] \right]\\& = \sqrt{\deg g}\left(1 + \frac12 \tr (g^{-1} h) - \frac14 \tr[(g^{-1} h)^2] + \frac18 \tr[g^{-1} h]^2 \right)
+				\sqrt{-\det(g+h)}& = \exp \frac12 \log (-\det(g+h))\\& = \sqrt{\det g} \exp\left[ \frac12 \tr \log(1 + g^{-1} h) \right] \\&= \sqrt{\det g} \exp\left[ \frac12 \tr [g^{-1} h - \frac12 (g^{-1} h)^2] \right]\\& = \sqrt{\det g}\left(1 + \frac12 \tr (g^{-1} h) - \frac14 \tr[(g^{-1} h)^2] + \frac18 \tr[g^{-1} h]^2 \right)
 	\end{aligned}
 	\]
 	This implies
@@ -698,7 +698,7 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	\]
 	At second order we get:
 	\[
-		\frac{L^3}{4 \pi G_5} \frac12  \frac{1}{\epsilon^2} \Tr[ g^{(2)}] - \frac{L^3}{2 \pi G_5} (1 - \frac12 ) \frac12 u^2 \Tr[g^{(2)}] = 0 \Rightarrow A_2 = 0
+		\frac{L^3}{4 \pi G_5} \frac12  \frac{1}{\epsilon^2} \Tr[ g^{(2)}] - \frac{L^3}{2 \pi G_5} (1 - \frac12 ) \frac{1}{2 \epsilon^2} \Tr[g^{(2)}] = 0 \Rightarrow A_2 = 0
 	\]
 	At fourth order only the first term of \eqref{eq:gravonshell} contributes and we get:
 	\[
@@ -748,7 +748,7 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	
 	There are two variations to consider. The first is the variation of the on-shell effective action. Generalizing the argument giving \textbf{14.8.35} to a $u$-dependent metric, we get:
 	\[
-		T^{sugra}_{ij} = -\frac{1}{8 \pi G_5} (K_{ij} - K \gamma_{ij}) = -\frac{L^3}{8 \pi G_5} \left(-\d_\epsilon g_{ij}(\epsilon, x) + g_{ij}(\epsilon, x) \Tr[g^{-1}(\epsilon, x) \d_\epsilon g(\epsilon, x)] - \frac{3}{\epsilon^2} g_{ij}(\epsilon, x) \right)
+		T^{sugra}_{ij} = -\frac{1}{8 \pi G_5} (K_{ij} - K \gamma_{ij}) = -\frac{L^3}{8 \pi G_5} \left(-\d_\epsilon g_{ij}(\epsilon, x) + g_{ij}(\epsilon, x) \Tr[g^{-1}(\epsilon, x) \d_\epsilon g(\epsilon, x)] - \frac{3}{\epsilon} g_{ij}(\epsilon, x) \right)
 	\]
 	Varying the counterterm action with respect to $\gamma$ gives directly:
 	\[
@@ -774,7 +774,7 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 		 \Bigg]
 	\end{aligned}
 	\]
-	We see that the $\frac{L^2}{\epsilon^2}$ and $\log \epsilon^2$ terms vanish by \textbf{14.8.39, 14.8.43}. The curvature terms combine to give yet another two copies of $-h^{(4)})_{ij}$, and the remaining terms cancel everything but $t_{ij}$ from the $g^{(4)}_{ij}$ to give:
+	We see that the $\frac{L^2}{\epsilon^2}$ and $\log \epsilon^2$ terms vanish by \textbf{14.8.39, 14.8.43}. The curvature terms combine to give yet another two copies of $-h^{(4)}_{ij}$, and the remaining terms cancel everything but $t_{ij}$ from the $g^{(4)}_{ij}$ to give:
 	\[
 		\braket{T_{ij}} = \frac{L^3}{8 \pi G_5}[2 t_{ij} + 3 h^{(4)}_{ij}]
 	\]
@@ -802,7 +802,7 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	\] 
 	Because of the homogeneity of AdS, pick the AdS coordinate origin at $x'$. Then $\phi_{\Delta_+, \ell, n}(x') = 0$ for $\ell \neq 0$. This reduces the sum to:
 	\[
-		\frac{\Gamma(\frac{p+1}{2})}{2 \pi^{\frac{p+1}{2}}} e^{-i \Delta_+}\sum_{n=0}^\infty N_{\Delta, n, \ell}^2 \phi_{\Delta, 0, n}(x) \phi_{\Delta, 0, n}(0) = \frac{e^{-i \Delta t} \cos^{\Delta} \theta}{2 \pi^{\frac{p+1}{2}} L^p} \sum_{n=0}^\infty \frac{(\frac{p+1}{2})_n \Gamma(\Delta + n)}{n! \Gamma(\Delta + n + \frac{p-1}{2})} {_2F_1}\left(\begin{matrix}
+		\frac{\Gamma(\frac{p+1}{2})}{2 \pi^{\frac{p+1}{2}}} e^{-i \Delta_+ t}\sum_{n=0}^\infty N_{\Delta, n, \ell}^2 \phi_{\Delta, 0, n}(x) \phi_{\Delta, 0, n}(0) = \frac{e^{-i \Delta t} \cos^{\Delta} \theta}{2 \pi^{\frac{p+1}{2}} L^p} \sum_{n=0}^\infty \frac{(\frac{p+1}{2})_n \Gamma(\Delta + n)}{n! \Gamma(\Delta + n + \frac{p-1}{2})} {_2F_1}\left(\begin{matrix}
 			-n \quad  \Delta + n\\ \frac12(p+1)
 		\end{matrix}; \sin^2 \theta \right) e^{-2 i n |t|}
 	\]
@@ -896,18 +896,18 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	\]
 	Calculating the renormalized area from the determinant of the induced metric yields:
 	\[
-		S = \frac{1}{2 \pi \ell_s^2} A = \frac{L^2}{2 \pi \ell_s^2} \int_0^\infty d\theta \int_\epsilon^a  \frac{dz\, a}{z^2} = \frac{L^2}{\ell_s^2} \left(\frac{a}{\epsilon} - 1\right)
+		S = \frac{1}{2 \pi \ell_s^2} A = \frac{L^2}{2 \pi \ell_s^2} \int_0^{2\pi} d\theta \int_\epsilon^a  \frac{dz\, a}{z^2} = \frac{L^2}{\ell_s^2} \left(\frac{a}{\epsilon} - 1\right)
 	\]
 	subtracting off the divergence from the area associated to a wilson loop that has a cylinder as boundary, we effectively drop the $\epsilon^{-1}$ term. This gives a wilson loop going as
 	\[
-		W[C] = e^{-S_{ren}} = e^{L^2/\ell_s^2} = e^{\sqrt{4 \pi \lambda}}
+		W[C] = e^{-S_{ren}} = e^{L^2/\ell_s^2} = e^{\sqrt{\lambda}}
 	\]
 	
 	I assume that making use of this conformal transformation is what was meant by guessing the qualitative form using symmetries. 
 	
 	\item The monopole-monopole static potential is the EM dual of the quark-quark potential. It is probed by a D1 brane in the bulk. The tension of a D-string is $1/g_s$ times that of an F-string. Going through the same steps for calculating the rectangular Wilson line gives the same potential as we got in 14.9.11 with an extra $g_s^{-1} = (4 \pi) g_{YM}^{-2}$
 	\[
-		- \frac{1}{} \frac{4 \pi^2 \sqrt{2 g_{YM}^2 N}}{\Gamma(\frac14)^4 l} = - \frac{4 \pi^2 \sqrt{2 N \frac{(4 \pi)^2}{g_{YM}^2}}}{ \Gamma(\frac14)^4 l}
+		- \frac{1}{g_s} \frac{4 \pi^2 \sqrt{2 g_{YM}^2 N}}{\Gamma(\frac14)^4 l} = - \frac{4 \pi^2 \sqrt{2 N \frac{(4 \pi)^2}{g_{YM}^2}}}{ \Gamma(\frac14)^4 l}
 	\]
 	This is exactly S-duality sending $g_{YM}^2 \to (4\pi)/g_{YM}^2$.
 	
@@ -917,7 +917,7 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 		
 		In Euclidean signature, all we need to look at is the part of the metric going as:
 		\[
-			\frac{f(r)}{\sqrt{H(r)}} d\tau^2 + \frac{\sqrt{H(r)}}{f(r)}
+			\frac{f(r)}{\sqrt{H(r)}} d\tau^2 + \frac{\sqrt{H(r)}}{f(r)} dr^2
 		\]
 		Now applying exercise 13.1 with $F = 1, C(r) = f(r) / \sqrt{H}$ we get exactly:
 		\[
@@ -965,9 +965,9 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	\[
 		E = - \frac{\d}{\d \beta} \log \mathcal Z = \frac{\pi^2}{2} N^2 V_3 T^4
 	\]
-	The free energy is $F = \beta^{-1} \log \mathcal Z = E - \beta^{-1} S$. This gives the entropy to be 
+	The free energy is $F = -\beta^{-1} \log \mathcal Z = E - \beta^{-1} S$. This gives the entropy to be 
 	\[
-		S = \beta E - \log \mathcal Z = -(\beta \d_\beta + 1) \log \mathcal Z = (\frac16 + \frac12) \pi^2 N^2 V_3 T^3 = \frac23 \pi^2 N^2 V_3 T^3
+		S = \beta E + \log \mathcal Z = (1 - \beta \d_\beta) \log \mathcal Z = (\frac16 + \frac12) \pi^2 N^2 V_3 T^3 = \frac23 \pi^2 N^2 V_3 T^3
 	\]
 	exactly as written. 
 	
@@ -983,12 +983,12 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	\[
 	\begin{aligned}
 		M = \frac{V_3 (4 \tilde L^4 + 5 r_0^4)}{2^7 \pi^4 g_s^2 \ell_s^8} &\approx V_3 \frac{\tilde L^2 \sqrt{\tilde L^4 + r_0^4}}{4 \pi g_s \ell_s^4} \frac{1}{(2\pi)^3 \ell_s^4 g_s} + (5 - 2) \frac{V_3 r_0^4}{2^7 \pi^4 g_s^2 \ell_s^8}\\
-		& \approx  N V_3 T_3+ 3 V_3 \frac{\pi^2}{8} N^2 T_H^{-4} = N V_3 T_3 + \frac34 E_{YM}
+		& \approx  N V_3 T_3+ 3 V_3 \frac{\pi^2}{8} N^2 T_H^{4} = N V_3 T_3 + \frac34 E_{YM}
 	\end{aligned}
 	\]
 	up to quartic corrections in the string length. Next, the chemical potential is also easy:
 	\[
-		\Phi = \frac{V_3}{(2\pi)^3 g_s \ell_s^4} \frac{\tilde L^2}{\sqrt{\tilde L^4 + r_0^4}} = T_3 V_3 - \frac12 \frac{V_3 r_0^4}{\tilde L^2 (2\pi)^3 g_s \ell_s^4} = T_3 V_3 - \frac12 \pi^2  V_3 N^2 T_H^4.
+		\Phi = \frac{V_3}{(2\pi)^3 g_s \ell_s^4} \frac{\tilde L^2}{\sqrt{\tilde L^4 + r_0^4}} = T_3 V_3 - \frac12 \frac{V_3 r_0^4}{\tilde L^4 (2\pi)^3 g_s \ell_s^4} = T_3 V_3 - \frac{\pi^2}{4}  V_3 N T_H^4.
 	\]
 	Finally, the entropy:
 	\[
@@ -1029,9 +1029,9 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	\[
 		K_{\mu \nu} = \frac12 n^r \d_r g_{\mu \nu}
 	\]
-	Here $n^\rho \d_\rho$ is the unit vector in the $r$ direction, whose $r$ component is $\frac{1}{\sqrt{g_rr}}$. We get:
+	Here $n^\rho \d_\rho$ is the unit vector in the $r$ direction, whose $r$ component is $\frac{1}{\sqrt{g_{rr}}}$. We get:
 	\[
-		K_{\mu \nu} = \frac12 \frac{1}{\sqrt{g_{rr}}} (-g_{tt}'(r) dt^2 + 2 r^3 d\Omega_3^2) \Rightarrow  \frac12 \frac{1}{\sqrt{g_{rr}}} \left(\frac{g_{tt}'(r)}{g_{tt}(r)} + \frac{6}{r} \right)
+		K_{\mu \nu} = \frac12 \frac{1}{\sqrt{g_{rr}}} (-g_{tt}'(r) dt^2 + 2 r\, d\Omega_3^2) \Rightarrow  \frac12 \frac{1}{\sqrt{g_{rr}}} \left(\frac{g_{tt}'(r)}{g_{tt}(r)} + \frac{6}{r} \right)
 	\]
 	For AdS Schwarzschild the metric is
 	\[
@@ -1089,7 +1089,7 @@ h^{(4)}&= \frac18 R_{ijkl} R^{kl} + \frac{1}{48} \nabla_i \nabla_j R - \frac{1}{
 	
 	\item Let us first express the expectation value of the stress energy tensor in the 2D CFT in terms of the asymptotic metric of 3D gravity. We have done this for AdS$_5$/CFT$_4$ in section 14.8.3. We have the equations:
 	\[
-		\Tr [g_{(0)}^{-1} g_{(2)}] = - \frac{\ell^2}{2} R, \quad \nabla^k g_{kj}^{(0)} = \nabla_j \Tr g_{(0)}
+		\Tr [g_{(0)}^{-1} g_{(2)}] = - \frac{\ell^2}{2} R, \quad \nabla^k g_{kj}^{(2)} = \nabla_j \Tr g_{(2)}
 	\]
 	Thus only the trace-free part of $g^{(2)}$ is left undetermined. This can be parameterized by $h_{zz}, h_{\bar z, \bar z}$.
 	
