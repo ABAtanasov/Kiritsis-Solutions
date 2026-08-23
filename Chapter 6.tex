@@ -59,9 +59,9 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 	\]
 	Combining all of this together, we see that we will get the $\beta$-functions:
 	\[
-		\beta^G = R_{\mu \nu} - \frac14 H_{\mu \rho \sigma} H_{\nu}^{\rho \sigma} + 4 \nabla_\mu \nabla_\nu \Phi, \quad \beta^B = - \frac12 \nabla^\lambda H_{\lambda \mu \nu} - 2 \nabla^\lambda \Phi H_{\lambda \mu \nu}.
+		\beta^G = R_{\mu \nu} - \frac14 H_{\mu \rho \sigma} H_{\nu}^{\rho \sigma} + 2 \nabla_\mu \nabla_\nu \Phi, \quad \beta^B = - \frac12 \nabla^\lambda H_{\lambda \mu \nu} + \nabla^\lambda \Phi H_{\lambda \mu \nu}.
 	\]
-	As pointed out, these are not quite that RG beta functions (for example compare $\beta^B$ to the correct form in Kiritsis), but around the fixed point, they capture the correct first order behavior. In particular their vanishing will mean that we have no Weyl anomaly. 
+	As pointed out, these are not quite the RG beta functions, but around the fixed point, they capture the correct first order behavior. In particular their vanishing will mean that we have no Weyl anomaly. 
 	
 	Now we need to account for the effects of a curved worldsheet geometry. We can account for this by looking at a $\braket{T_{+ -} T_{+ -}}$ correlator:
 	\begin{equation}\label{eq:vartrace}
@@ -113,7 +113,7 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 	\]
 	We can integrate this to get the change after a finite conformal transformation:
 	\[
-		\frac{1}{4\pi} \int d^2 \xi \left[\sqrt g \beta^\Phi \left(R^{(2)} \phi - \frac12 g^{ab} \nabla_a \phi \nabla_b \phi \right) + \frac{\phi }{2\ell_s^2} \left(\beta^G_{\mu \nu} + \beta^B_{\mu \nu} \epsilon^{ab} \right) \d_a X \d_b X \right]
+		\frac{1}{4\pi} \int d^2 \xi \left[\frac{\beta^\Phi}{12} \sqrt g \left(R^{(2)} \phi + \frac12 g^{ab} \nabla_a \phi \nabla_b \phi \right) + \frac{\phi }{2\ell_s^2} \left(\beta^G_{\mu \nu} \sqrt g\, g^{ab} + \beta^B_{\mu \nu} \epsilon^{ab} \right) \d_a X \d_b X \right]
 	\]
 	this vanishes, of course, when all beta functions are zero. When $\beta^G, \beta^B$ are zero we can show (exercise 3) that $\beta^\Phi$ is a constant, and we recover the Liouville action from before. 
 	
@@ -132,17 +132,17 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 	% Note by this definition $(\beta^G)^\alpha_\alpha  = R - 2 \Box \Phi - \frac14 H^2$, so the term in parentheses is equal to $(\beta^G)^\alpha_\alpha - \frac23 \beta^\Phi$.
 	With respect to $B$ we get:
 	\[
-		-\frac{1}{12} e^{-2 \Phi} (2 (\delta_{B^{\mu \nu}} (\d_\alpha B_{\beta \gamma} + 2 \perms)) H^{\alpha \beta \gamma} ) \overbrace{\to}^{IBP} \frac{2 \times 3}{12} e^{-2 \Phi} (\nabla^\alpha H_{\alpha \mu \nu})  \overbrace{\to}^{IBP} \underbrace{ - \frac14 \nabla^\alpha (e^{-2\Phi} H_{\alpha \mu \nu})}_{:= \beta^B_{\mu \nu}} = 0
+		-\frac{1}{12} e^{-2 \Phi} (2 (\delta_{B^{\mu \nu}} (\d_\alpha B_{\beta \gamma} + 2 \perms)) H^{\alpha \beta \gamma} ) \overbrace{\to}^{IBP} \frac{2 \times 3}{12} \nabla^\alpha (e^{-2 \Phi} H_{\alpha \mu \nu}) \Rightarrow \underbrace{ - \frac12 \nabla^\alpha (e^{-2\Phi} H_{\alpha \mu \nu})}_{:= \beta^B_{\mu \nu}} = 0
 	\]
 	Finally, with respect to $\Phi$ we get:
 	\[
-		0 = -2 \left(R + 4(\nabla \Phi)^2 -\frac{1}{12} H^2 + 2 \frac{26 - D}{3 \ell_s^2}\right) - 8 \Box \Phi - 16 (\nabla \Phi)^2 = -2 \underbrace{\left( R - 4 (\nabla \Phi)^2 + 4 \Box \Phi - \frac{1}{12} H^2 + 2 \frac{26 - D}{3 \ell_s^2}\right)}_{:=-\frac23 \beta^\Phi}
+		0 = -2 \left(R + 4(\nabla \Phi)^2 -\frac{1}{12} H^2 + 2 \frac{26 - D}{3 \ell_s^2}\right) - 8 \Box \Phi + 16 (\nabla \Phi)^2 = -2 \underbrace{\left( R - 4 (\nabla \Phi)^2 + 4 \Box \Phi - \frac{1}{12} H^2 + 2 \frac{26 - D}{3 \ell_s^2}\right)}_{:=-\frac{2}{3 \ell_s^2} \beta^\Phi}
 		% = D-26 + \frac{3}{2} \left[-4 (\nabla \Phi)^2 - 4 \Box \Phi - R + \frac{1}{12} H^2 \right]
 	\]
 	The term in parentheses is the same as the term in parentheses the bottom line of \eqref{eq:Gvar}. 
 	This agrees with \textbf{Polchinski 3.7.21} (with appropriate conventions adopted)
 	\[
-		\delta S = - \frac{1}{2\kappa^2} \int d^D x \sqrt{- \det G} e^{-2 \Phi} \left[\delta G^{\mu \nu} \left(\beta^G_{\mu \nu} - \frac12 G_{\mu \nu} \frac23 \beta^\Phi \right) + \delta B^{\mu \nu} \beta^B_{\mu \nu} + 2 \delta \Phi \frac23 \beta^\Phi \right]
+		\delta S = - \frac{1}{2\kappa^2} \int d^D x \sqrt{- \det G} e^{-2 \Phi} \left[\delta G^{\mu \nu} \left(\beta^G_{\mu \nu} - \frac12 G_{\mu \nu} \frac{2}{3 \ell_s^2} \beta^\Phi \right) + \delta B^{\mu \nu} \beta^B_{\mu \nu} + 2 \delta \Phi \frac{2}{3 \ell_s^2} \beta^\Phi \right]
 	\]
 	
 	\item Let's look at $\frac{2}{3 \ell_s^2} \nabla \beta^\Phi$. We get:
@@ -196,7 +196,7 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 	\begin{enumerate}
 		\item We have
 		\[
-			H = 2 R^2 \sin^2 \psi \sin \theta \, \dd\psi \wedge \dd \theta \wedge \dd \phi \Rightarrow \int_{S^3} H = \frac{(2\pi R)^2}{4 \pi^2 \ell_s^2} = \frac{R^2}{\ell_s^2} \in \ZZ
+			H = 2 R^2 \sin^2 \psi \sin \theta \, \dd\psi \wedge \dd \theta \wedge \dd \phi \Rightarrow \int_{S^3} H = 4 \pi^2 R^2 \Rightarrow \frac{1}{4 \pi^2 \ell_s^2} \int_{S^3} H = \frac{R^2}{\ell_s^2} \in \ZZ
 		\]
 		\item 
 		The dilaton is $\Phi = 0$.  Using Mathematica, the Ricci tensor is:
@@ -210,20 +210,20 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 		\]
 		as desired. Next, $\beta^B_{\mu \nu} = -\frac12 \nabla^\alpha (H_{\mu \nu \alpha})$. To take a contravariant divergence we divide by the volume element and differentiate, but the volume element is $\sin^2 \psi \sin \theta$ which will give $H/\sqrt g$ is a constant, so $\beta_{\mu \nu}$ will vanish. 
 		
-		Lastly, $H^2 = (2 R^2)^2 / R^6 = 2 / R^6$ so that $-R + \frac{1}{12} H^2 = -\frac{4}{R^2}$. Ignoring ghosts, this gives a central charge of:
+		Lastly, $H^2 = 3! \, (2 R^2)^2 / R^6 = 24 / R^2$ so that $-R + \frac{1}{12} H^2 = -\frac{4}{R^2}$. Ignoring ghosts, this gives a central charge of:
 		\[
 			D - 6 \frac{\ell_s^2}{R^2} + O(\ell_s^4) = D - \frac{6}{k} + O(\ell_s^4)
 		\]
 		as desired. 
 		
-		\item Without using coordinates, the isometry of $S^3$ is $G = \mathrm{SO}(4) = [\mathrm{SU}(2) \times \mathrm{SU}(2)]/\ZZ_2$. TO see that equivalence, think of of $S^3$ as the unit quaternions, and take $\mathrm{SU}(2) \times \mathrm{SU}(2)$ act as unit quaternions on the left and right. We get a right $G$-action by: $x \to a^{-1} x b$. Note the kernel is the set of $(a, b) \in G$ $a x = x b$ for all $x$. In particular, for $x = 1$ we get $a = b$ so the kernel lies in the diagonal subgroup. To act trivially on all quaternions, $a$ must be in the center, and for the unit quaternions this is exactly $\pm 1$. So this is an injection $\varphi: [\mathrm{SU}(2) \times \mathrm{SU}(2)]/\ZZ_2 \to \mathrm{SO}(4)$. Since $\mathrm{SO}(4)$ is compact and connected, it is generated by the image of exponentiating $\frak{so}(4)$, and so surjectivity of $\varphi$ at the level of the Lie algebras (which is true by dimension-counting) implies surjectivity and hence equivalence at the level of Lie groups. 
+		\item Without using coordinates, the isometry of $S^3$ is $G = \mathrm{SO}(4) = [\mathrm{SU}(2) \times \mathrm{SU}(2)]/\ZZ_2$. To see that equivalence, think of $S^3$ as the unit quaternions, and take $\mathrm{SU}(2) \times \mathrm{SU}(2)$ act as unit quaternions on the left and right. We get a right $G$-action by: $x \to a^{-1} x b$. Note the kernel is the set of $(a, b) \in G$ $a x = x b$ for all $x$. In particular, for $x = 1$ we get $a = b$ so the kernel lies in the diagonal subgroup. To act trivially on all quaternions, $a$ must be in the center, and for the unit quaternions this is exactly $\pm 1$. So this is an injection $\varphi: [\mathrm{SU}(2) \times \mathrm{SU}(2)]/\ZZ_2 \to \mathrm{SO}(4)$. Since $\mathrm{SO}(4)$ is compact and connected, it is generated by the image of exponentiating $\frak{so}(4)$, and so surjectivity of $\varphi$ at the level of the Lie algebras (which is true by dimension-counting) implies surjectivity and hence equivalence at the level of Lie groups. 
 		
-		So we see that $\frak{so}(4)$ acting on $S^3$ is just a simultaneous left and right copt of $\frak{su}(2)$ acting on $\mathrm{SU}(2)$. Thus, we view this as the CFT of a nonlinear sigma model with target space $G = \mathrm{SU}(2)$ and the left, right copies of the $\frak{su}(2)$ action correspond to currents $J = g^{-1} \d g$ and $J = \bar \d g \, g^{-1}$
+		So we see that $\frak{so}(4)$ acting on $S^3$ is just a simultaneous left and right copy of $\frak{su}(2)$ acting on $\mathrm{SU}(2)$. Thus, we view this as the CFT of a nonlinear sigma model with target space $G = \mathrm{SU}(2)$ and the left, right copies of the $\frak{su}(2)$ action correspond to currents $J = g^{-1} \d g$ and $J = \bar \d g \, g^{-1}$
 				%
 		% The Lie algebra of this is indeed $\frak g = \frak{su}(2) \oplus \frak{su}(2)$. On the three sphere, each element of $v \in \frak g$ generates a vector field that can locally be written as $v^i(x) \d_i$. Define the corresponding operator in the CFT by $v^i \d X^i$
 		% \textbf{Finish}
 		
-		We indeed get the central charge $c = \frac{3k}{k+2}$ which has the large $k$ expansion $3 - 6/k + O(1/k^2)$. Since $k$ in a non-negative integer in WZW models, except for the case $k=0$ corresponding to the trivial CFT, we must have $k \geq 1$, where we get $R \geq \ell_s$.
+		We indeed get the central charge $c = \frac{3k}{k+2}$ which has the large $k$ expansion $3 - 6/k + O(1/k^2)$. Since $k$ is a non-negative integer in WZW models, except for the case $k=0$ corresponding to the trivial CFT, we must have $k \geq 1$, where we get $R \geq \ell_s$.
 	\end{enumerate}
 	
 	\item Here the metric has three degrees of freedom and $B_{\mu \nu}$, $\Phi$ both have only one degree of freedom (which can be spatially varying). $H$, being a 3-index antisymmetric tensor, must vanish in $1+1$D, and so we will always have $\beta^B = 0$. The other two constraints become:
@@ -238,7 +238,7 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 	\]
 	The only way for this to work is for $R= \Box \Phi = 0$ so that $\nabla \Phi$ can be a constant. We then have $\Phi = \alpha x + \beta t$ so that $\alpha^2 + \beta^2 = 4/\ell_s^2$, and $g$ is Ricci flat everywhere (so we can pick it to be constant). In the case of either $\alpha, \beta = 0$, we can also safely take $x, t$ respectively to be periodic without having $\Phi$ be multi-valued.
 	
-	\item We still have $\beta^B = 0$, but $\beta^{G} = R_{\mu \nu} - \nabla_{\mu} \nabla_{\nu} \Phi$ while $\beta^\Phi = D - 26 +  \frac32 \ell_s^2 ( 4 (\nabla \Phi)^2 - 4 \Box \Phi - R)$
+	\item We still have $\beta^B = 0$, but $\beta^{G} = R_{\mu \nu} + 2 \nabla_{\mu} \nabla_{\nu} \Phi$ while $\beta^\Phi = D - 26 +  \frac32 \ell_s^2 ( 4 (\nabla \Phi)^2 - 4 \Box \Phi - R)$
 	
 	This can be recast in terms of a new 4D \emph{Ricci flat} metric $ds^2 = F(\phi) d\phi^2 + \phi R^2 d\Omega_3^2$. 
 	
@@ -250,7 +250,7 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 	
 	\item As stated in the problem, upon gauging the adapted compact $U(1): \theta \to \theta + \epsilon$, which has radius $2\pi$, we modify our derivative operator to act as $\d_\alpha \theta \to \d_\alpha \theta + A_\alpha$, where $A_\alpha$ gives our connection on the $U(1)$ principal bundle associated with gauging the Killing symmetry. The action gets modified:
 	\[
-		S \supseteq \frac{R^2}{4\pi \ell_s} \int |\d \theta|^2 \to \frac{R^2}{4\pi \ell_s^2} \int |\d \theta + A|^2
+		S \supseteq \frac{R^2}{4\pi \ell_s^2} \int |\d \theta|^2 \to \frac{R^2}{4\pi \ell_s^2} \int |\d \theta + A|^2
 	\]
 	
 	This is a new theory, but we can \emph{return to the old one} by enforcing that $A$ be pure gauge as follows: introduce an auxiliary field $\phi$ and add to $S$ the term 
@@ -272,26 +272,26 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 	\]
 	so we have obtained the same action but now on a circle of radius $\ell_s^2/R$ instead of $R$. 
 	
-	In doing this path integral we get a determinant factor of $\sqrt{4 \pi^2 \ell_s^2/R^2} = 2 \pi \ell_s/R$ for each mode. Using zeta function regularization this is equal to $\sqrt{R/2 \pi \ell_s}$ which we can understand as adding a $-\frac12 \log(R/2 \pi \ell_s)$ term to the action that will couple to the curvature $R$ \textbf{(Show why)}, this shifting the dilaton as required.
+	In doing this path integral we get a determinant factor of $\sqrt{4 \pi^2 \ell_s^2/R^2} = 2 \pi \ell_s/R$ for each mode. Using zeta function regularization this is equal to $\sqrt{R/2 \pi \ell_s}$ which we can understand as adding a $-\log(R/\ell_s)$ term to the action that will couple to the curvature $R$ \textbf{(Show why)}, this shifting the dilaton as required.
 	
 	\item We can simplify things by using the conventions of the next problem to do this one. Here, we have a \emph{single} compact coordinate $\theta$. In our convention:
 	\[
 		\hat G_{\mu \nu} = \begin{pmatrix}
 			G_{00} & G_{00} A_j\\
 			G_{00} A_i & g_{ij} + G_{00} A_i A_j
-		\end{pmatrix}, \quad B_{\mu \nu} = B_j d\theta \wedge dx^i + A_i B_j b_{ij} dx_i \wedge dx_j, \quad \phi = \Phi - \frac14 \log \det G_{00}
+		\end{pmatrix}, \quad B = (d\theta + A_i dx^i) \wedge B_j dx^j + b_{ij} dx^i \wedge dx^j, \quad \phi = \Phi - \frac14 \log G_{00}
 	\]
 	 From formula \textbf{F.3} specialized to this case, we get that the metric and dilaton terms become
 	\begin{equation}\label{eq:gdil}
 		\int d^D x \sqrt{-\det \hat G_{\mu \nu}} e^{-2 \Phi} \left[\hat R + 4 (\d_\mu \Phi)^2 \right] = \int d^{D-1}x \sqrt{-\det g}\, e^{-2 \phi} \left[R + 4 (\d_\mu \phi)^2 + \frac14 \d_\mu G_{00} \d^\mu G^{00} - \frac14 G_{00} (F^A_{\mu \nu})^2\right]
 	\end{equation}
-	where $F_{\mu \nu} = \d_\mu A_\nu - \d_\nu A_\mu$ and $\hat R$ corresponds to the original $\hat G_{\mu \nu}$ while $R$ corresponds to $g_{ij}$. Further $G^{00} = $
+	where $F_{\mu \nu} = \d_\mu A_\nu - \d_\nu A_\mu$ and $\hat R$ corresponds to the original $\hat G_{\mu \nu}$ while $R$ corresponds to $g_{ij}$. Further $G^{00} = 1/G_{00}$.
 	
 	From \textbf{F.6-F.9}, the antisymmetric tensor changes as:
 	\begin{equation}\label{eq:b}
-		-\frac1{12} \int d^D \sqrt{-\det \hat G}\, e^{-2\Phi} \hat H_{ijk} \hat H^{ijk} = - \int d^{D-1} x \sqrt{-\det g} \, e^{-2 \phi} \left[\frac1{12} H_{ijk} H^{ijk} + \frac14 \hat H_{ij0} \hat H^{ij0} \right]
+		-\frac1{12} \int d^D x \sqrt{-\det \hat G}\, e^{-2\Phi} \hat H_{ijk} \hat H^{ijk} = - \int d^{D-1} x \sqrt{-\det g} \, e^{-2 \phi} \left[\frac1{12} H_{ijk} H^{ijk} + \frac14 \hat H_{ij0} \hat H^{ij0} \right]
 	\end{equation}
-	Here where $H_{ij0} = \hat H_{ij0}$ and $H_{ijk} = \hat H_{ijk} - (A_i H_{0jk} + 3 \perms)$.  Here $H_{ijk}$ is defined so that it is invariant under $T$-duality \textbf{(TYSM Kiritsis for pre-organizing these terms for me)} . Further, under T-duality
+	Here where $H_{ij0} = \hat H_{ij0}$ and $H_{ijk} = \hat H_{ijk} - (A_i H_{0jk} + \text{cyclic})$.  Here $H_{ijk}$ is defined so that it is invariant under $T$-duality \textbf{(TYSM Kiritsis for pre-organizing these terms for me)} . Further, under T-duality
 	\begin{equation}\label{eq:Tdual}
 		\begin{aligned}
 			G_{00} &\to G_{00}^{-1} = G^{00} \Rightarrow \d_\mu G_{00} \d^\mu G^{00} \text{ invariant}\\
@@ -301,7 +301,7 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 			\Phi &\to \Phi - \frac12 \log G_{00}\Rightarrow \phi \to \phi \Rightarrow (\d_\mu \phi)  \text{ invariant}.
 		\end{aligned}		
 	\end{equation}
-	We see that the $\sqrt{- \det g} \, e^{-2\phi}$ as well as first three terms of equation \eqref{eq:gdil}. We have that $F_{\mu \nu}^A \to \d_\mu B_\nu - \d_\nu B_\mu =: F^B_{\mu \nu}$ and $F^B_{ij} = H_{ij0}$. The last term of \eqref{eq:gdil} will therefore  become  swap with the last term of \eqref{eq:b} and we are done.
+	We see that $\sqrt{- \det g} \, e^{-2\phi}$ as well as the first three terms of equation \eqref{eq:gdil} are invariant. We have that $F_{\mu \nu}^A \to \d_\mu B_\nu - \d_\nu B_\mu =: F^B_{\mu \nu}$ and $F^B_{ij} = H_{ij0}$. The last term of \eqref{eq:gdil} will therefore swap with the last term of \eqref{eq:b} and we are done.
 	
 	
 	\begin{center}
@@ -312,13 +312,13 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 	\[
 		ds^2 = G_{00} d\theta^2 + 2 G_{00} A_{i} dx^i dx^0 + G_{ij} dx^i dx^j, \quad B = B_j d\theta \wedge dx^j + (b_{ij} + A_i B_j) dx^i \wedge dx^j
 	\]
-	Certainly we have $\tilde G_{00} = 1/G_{00}, \tilde B_i = G_{00} A_i/G_{00}$. Then $\tilde A_i = B_i$ is consistent both for the $i,0$ components of the line element and the $dx^i \wedge dx^j$ components of the $B$-field as long as we keep $\tilde b_{ij} = b_{ij}$ and $\tilde g_{ij} = g_{ij}$. Finally, the dilaton must be shifted by $\Phi = \Phi - \frac12 \log G_{00}$. 
+	Certainly we have $\tilde G_{00} = 1/G_{00}, \tilde B_i = G_{00} A_i/G_{00}$. Then $\tilde A_i = B_i$ is consistent both for the $i,0$ components of the line element and the $dx^i \wedge dx^j$ components of the $B$-field as long as we keep $\tilde b_{ij} = b_{ij}$ and $\tilde g_{ij} = g_{ij}$. Finally, the dilaton must be shifted by $\tilde \Phi = \Phi - \frac12 \log G_{00}$. 
 	
-	\item The $N$ commuting isometries correspond to a fibration by $N$-dimensional tori over each point in the base space. As we have seen before (for strings valued in a $N$-dimensional torus target space), we have that modes are described by two momenta $p_L, p_R$ that Lie on an integral lattice. Naively, we can rotate $p_L, p_R$ by any $\mathrm{GL}(N)$ transformation, but the integrality condition restricts us to $\mathrm{GL}(N, \ZZ)$. Now $\mathrm{GL}(N)$ acts separately on the left and the right momenta, but we are allowed to exchange between these two by applying $T$-duality, which still preserves our Lorentzian norm, so the $T$-duality group gets enhanced to $O(N, N, \ZZ)$.
+	\item The $N$ commuting isometries correspond to a fibration by $N$-dimensional tori over each point in the base space. As we have seen before (for strings valued in a $N$-dimensional torus target space), we have that modes are described by two momenta $p_L, p_R$ that lie on an integral lattice. Naively, we can rotate $p_L, p_R$ by any $\mathrm{GL}(N)$ transformation, but the integrality condition restricts us to $\mathrm{GL}(N, \ZZ)$. Now $\mathrm{GL}(N)$ acts separately on the left and the right momenta, but we are allowed to exchange between these two by applying $T$-duality, which still preserves our Lorentzian norm, so the $T$-duality group gets enhanced to $O(N, N, \ZZ)$.
 	
 	\item This is clear, since orientation reversal acts trivially on $g^{ab} G_{\mu \nu} \d_a X^\mu \d_b X^\nu$ while it acts with a minus sign on $\epsilon^{ab} B_{\mu \nu} \d_a X^\mu \d_b X^\nu$. The corresponding vertex operators are:
 	\[
-		:\d X^\mu \bar \d X_\mu e^{i k X}:, \quad   :G_{\mu \nu} \d X^{\mu} \bar \d X^\nu:, \quad R :e^{i k X}:
+		:\d X^\mu \bar \d X_\mu e^{i k X}:, \quad   :\zeta_{\mu \nu} \d X^{\mu} \bar \d X^\nu e^{i k X}:, \quad R^{(2)} :e^{i k X}:
 	\]
 	If we assume the tachyon $:e^{i k X}:$ is negative under parity then so are the dilaton and graviton. 
 	

@@ -28,13 +28,13 @@
    	 \[
    	 		[L_m, L_n ] = \frac14 \sum_{k, l} [:\alpha_{m-k} \alpha_k: , :\alpha_{n-l} \alpha_l: ] 
    	 \]
-   	 Note that the indices $m-k, k, n-l, l$ sum to $n+m$, if any pairwise sum of them is equal to zero (necessary for a nonvanishing commutator), then the other two will have sum equal to $n+m$. Then as long as $m+n \neq 0$ $\alpha_p$, there will be no normal-ordering ambiguity and we will recover the standard commutation relations as before. 
+   	 Note that the indices $m-k, k, n-l, l$ sum to $n+m$, if any pairwise sum of them is equal to zero (necessary for a nonvanishing commutator), then the other two will have sum equal to $n+m$. Then as long as $m+n \neq 0$, there will be no normal-ordering ambiguity and we will recover the standard commutation relations as before. 
 	 
 	 So the remaining case to consider is $n = -m$. Take $m$ positive WLOG. The logic of the question from last chapter applies, but now we must be careful about the ordering of the $\alpha_i$ outside of the commutator. 
 	 \begin{equation}
 	 	\begin{aligned}
 	 		\, [L_m, L_{-m}] &= \frac14 \sum_{k, l} [\alpha_{m-k} \alpha_k, \alpha_{-m-l} \alpha_l]\\
-			&= \frac14 \sum_k \alpha_{m-k} \alpha_l k \delta_{k-m-l} 
+			&= \frac14 \sum_{k, l} \alpha_{m-k} \alpha_l k \delta_{k-m-l}
 				+ \alpha_{-m-l} \alpha_k (m-k) \delta_{m-k+l} 
 				+ \alpha_{-m-l} \alpha_{m-k} k \delta_{k+l}
 				+ \alpha_k \alpha_l (m-k) \delta_{k+l}\\
@@ -44,9 +44,9 @@
 				+ \alpha_{k} \alpha_{-k} (m-k)
 	 	\end{aligned}
 	 \end{equation}
-	 We can split this into $k \geq 1$ and $k \leq 1$. The $k = 0$ term is already in normal order. When $k \geq 1$, the first, third, and fourth terms of the sum are out of normal order. The first term has only $m$ terms out of normal order. Rearranging these gives the constant:
+	 We can split this into $k \geq 1$ and $k \leq -1$. The $k = 0$ term is already in normal order. When $k \geq 1$, the first, third, and fourth terms of the sum are out of normal order. The first term has only $m$ terms out of normal order. Rearranging these gives the constant:
 	 \begin{equation*}
-	 	\frac14 \sum_{k=1}^m k (k-m) = \frac14 \frac{m (m^2 - 1)}{6}
+	 	\frac14 \sum_{k=1}^m k (m-k) = \frac14 \frac{m (m^2 - 1)}{6}
 	 \end{equation*}
 	 The fourth term has all terms out of normal order and gives the formally infinite sum
 	 \[
@@ -54,7 +54,7 @@
 	 \]
 	 The last term has all but the first $m$ terms out of normal order, and so contributes the sum
 	 \[
-	 	\sum_{k=m+1}^\infty (-m + k) k = - \sum_{k=1}^\infty (m-k) k + \sum_{k=1}^m (k-m) k
+	 	\sum_{k=m+1}^\infty (-m + k) k = - \sum_{k=1}^\infty (m-k) k + \sum_{k=1}^m (m-k) k
 	 \]
 	 The first part of this exactly cancels with the third term's infinite contribution. The last part of this gives exactly the same contribution as the first term. 
 	 
@@ -66,7 +66,7 @@
 	 
 	 Finally, we see that the normal ordering constant $a$ must be equal to:
 	 \begin{equation}
-	 	\frac12 \sum_{k} \alpha_{-k}^i \alpha^i_k \to \sum_{k=0} \alpha_{-k}^i \alpha^i_{k} + \frac12 \sum_{k>0} [\alpha^i_{k}, \alpha^i_{-k}] = :L_0: + \frac{D-2}{2} \underbrace{\sum_k k}_{\zeta(-1)} = -\frac{D-2}{24}
+	 	\frac12 \sum_{k} \alpha_{-k}^i \alpha^i_k \to \sum_{k=0} \alpha_{-k}^i \alpha^i_{k} + \frac12 \sum_{k>0} [\alpha^i_{k}, \alpha^i_{-k}] = :L_0: + \frac{D-2}{2} \underbrace{\sum_k k}_{\zeta(-1)} = :L_0: -\frac{D-2}{24}
 	 \end{equation}
 
 	 
@@ -108,7 +108,7 @@
 % 
 	 \item Given that the Witt algebra is already given as an associative algebra, the commutator directly satisfies the Jacobi identity, since $(a- (b-c)) + (b-(c-a)) + (c-(a-b)) = a+b+c = 0$. Adding a central term gives 
 	 \begin{equation}
-	 	[L_a, [L_b, L_c]] + [L_b, [L_c, L_a]] + [L_c, [L_a, L_b]] = \frac{1}{12} \delta_{a+b+c} (a(a^2-1) (b-c) + b(b^2-1) (c-a) - c(c^2-1) (a-b) )
+	 	[L_a, [L_b, L_c]] + [L_b, [L_c, L_a]] + [L_c, [L_a, L_b]] = \frac{1}{12} \delta_{a+b+c} (a(a^2-1) (b-c) + b(b^2-1) (c-a) + c(c^2-1) (a-b) )
 	 \end{equation}
 	 This is zero by algebra. 
 	 
@@ -119,7 +119,7 @@
 		{X'}^\mu (\tau, \sigma) &= \frac{\ell_s}{\sqrt2} \sum_{n \neq 0} (\alpha_n^\mu e^{-in \sigma} - \bar \alpha_{n}^\mu e^{i n \sigma} ) e^{-in\tau}
 	 \end{aligned}
 	 \]
-	 Taking $X^+ = x^+ + \ell_s p^+ \tau$ sets $\alpha_n^+, \bar \alpha_n^+ = 0$ for all $n \neq 0$.
+	 Taking $X^+ = x^+ + \ell_s^2 p^+ \tau$ sets $\alpha_n^+, \bar \alpha_n^+ = 0$ for all $n \neq 0$.
 	 \[
 	 \begin{aligned}
 	 	\dot X^\mu + {X'}^\mu &= \ell_s^2 p^\mu + \sqrt2 \ell_s \sum_{n \neq 0} \alpha_n^\mu e^{-in\sigma} e^{-in\tau}\\
@@ -128,13 +128,13 @@
 	 \]
 	 Let's just look at the constraint $(\dot X + X')^2 = 0$ and then the other constraint will give the same result for the right-movers. 
 	 \[
-	 	0 = \ell_s^4 p^2 + \sqrt2 \ell_s^3 \sum_{n \neq 0} p \cdot \alpha_n e^{-in (\sigma + \tau)} + 2 \ell_s^2 \sum_{n, m \neq 0} \alpha_n \cdot \alpha_m e^{-i(n+m) (\sigma+\tau)}
+	 	0 = \ell_s^4 p^2 + 2\sqrt2 \ell_s^3 \sum_{n \neq 0} p \cdot \alpha_n e^{-in (\sigma + \tau)} + 2 \ell_s^2 \sum_{n, m \neq 0} \alpha_n \cdot \alpha_m e^{-i(n+m) (\sigma+\tau)}
 	 \]
-	 The zero mode gives $p^2 = 0$. Noting that $\alpha_n \cdot \alpha_m = - \alpha^+_{n} \alpha^-_m - \alpha^+_{m} \alpha^-_n + \alpha^i_n \alpha^i_m = \alpha^i_n \alpha^i_m$, we look at the remaining terms of each mode individually, so:
+	 The zero mode gives $p^2 = 0$. Noting that $\alpha_n \cdot \alpha_m = - \frac12 \alpha^+_{n} \alpha^-_m - \frac12 \alpha^+_{m} \alpha^-_n + \alpha^i_n \alpha^i_m = \alpha^i_n \alpha^i_m$, we look at the remaining terms of each mode individually, so:
 	 \[
 	 \begin{aligned}
-	 	0 &=\ell_s p \cdot \alpha_{n} + \sqrt2 \sum_{m} \alpha_{m-n}^i \alpha_m^i = - \ell_s p^+ \alpha^- +  \underbrace{\cancel{\ell_s p^i \alpha^i}}_{\alpha^i\text{ is transverse}} + \sqrt2 \sum_{m} \alpha_{m-n} \alpha_n\\
-		& \Rightarrow \alpha^- = \frac{\sqrt{2}}{\ell_s p^+} \underbrace{\sum_{m} \alpha_{m-n}^i \alpha_m^i}_{2 L_0} = \frac{\sqrt{2}}{\ell_s p^+} \left[: \sum_{m} \alpha_{m-n}^i \alpha_m^i : - 2 a \delta_{n}\right]
+	 	0 &= 2 \ell_s p \cdot \alpha_{n} + \sqrt2 \sum_{m} \alpha_{n-m}^i \alpha_m^i = - \ell_s p^+ \alpha_n^- +  \underbrace{\cancel{2 \ell_s p^i \alpha^i_n}}_{\alpha^i\text{ is transverse}} + \sqrt2 \sum_{m} \alpha_{n-m}^i \alpha_m^i\\
+		& \Rightarrow \alpha_n^- = \frac{\sqrt{2}}{\ell_s p^+} \underbrace{\sum_{m} \alpha_{n-m}^i \alpha_m^i}_{2 L_n} = \frac{\sqrt{2}}{\ell_s p^+} \left[: \sum_{m} \alpha_{n-m}^i \alpha_m^i : - 2 a \delta_{n}\right]
 	 \end{aligned}
 	 \]
 	 
@@ -144,13 +144,13 @@
 	 \]
 	 However if this is massless for some value of $k$, it will be massive for $k+1$, breaking Lorentz invariance. 
 	 
-	 Note that $L - \bar L_0$ generates translations along $\sigma$ so this shows that any state should be invariant under $\sigma \to \sigma + c$.
+	 Note that $L_0 - \bar L_0$ generates translations along $\sigma$ so this shows that any state should be invariant under $\sigma \to \sigma + c$.
 	 
 	 \item Note that $\mathrm{SO}(25)$ acts on $25 \times 25$ traceless symmetric tensors. Note that if we restrict to a subgroup $\mathrm{SO}(24)$ that leaves one of the spatial direction fixed, the $\mathrm{SO}(25)$ representation breaks down into two $\mathrm{SO}(24)$ representations: the symmetric tensor representation (including trace) on the 24 transverse directions, and the vector representation in those directions as well. This is exactly what we have at level two. So, we see we can arrange these two $\mathrm{SO}(24)$ rep'ns into the traceless symmetric $SO(25)$ tensor rep. 
 	 
 	 \item The generators (for the closed string) are:
 	 \[
-	 	J^{\mu \nu} = T \int_0^{2\pi} d\sigma (X^\mu \dot X^\nu - X^\nu \dot X^\mu) = x^\mu p^\nu - x^\nu p^\mu - i \sum_{n=1}^\infty [\alpha_{-n}^\mu \alpha^\nu_n - \alpha^\nu_{-n} \alpha^\mu_n + \overline{(\dots)} ]
+	 	J^{\mu \nu} = T \int_0^{2\pi} d\sigma (X^\mu \dot X^\nu - X^\nu \dot X^\mu) = x^\mu p^\nu - x^\nu p^\mu - i \sum_{n=1}^\infty \frac1n [\alpha_{-n}^\mu \alpha^\nu_n - \alpha^\nu_{-n} \alpha^\mu_n + \overline{(\dots)} ]
 	 \]
 	 Upon computing the commutator $[J^{\mu \nu}, J^{\rho \sigma}]$ the $x^{ \mu} p^{\nu} - x^\nu p^\mu$ will give no problems, and there will be no cross terms between the right and left moving modes. So it is enough to look at the left movers.
 	 \textbf{I'm gonna pass on doing this computation...}
@@ -211,13 +211,13 @@
 	 \begin{equation}
 		 \begin{aligned}
 		 	\mathcal L_{X} g_{zz} &= 2 g_{z \bar z} \partial_z X^{\bar z} = 0 \\
-			\mathcal L_{X} g_{zz} &= 2 g_{z \bar z} \partial_z X^{\bar z} = 0\\
-			\mathcal L_{X} g_{z \bar z} &= (X^z \partial_z + X^{\bar z} \partial_{\bar z} ) g_{z \bar z} = \lambda(z, \bar z) g_{z \bar z}
+			\mathcal L_{X} g_{\bar z \bar z} &= 2 g_{z \bar z} \partial_{\bar z} X^{z} = 0\\
+			\mathcal L_{X} g_{z \bar z} &= (X^z \partial_z + X^{\bar z} \partial_{\bar z} ) g_{z \bar z} + g_{z \bar z} (\partial_z X^z + \partial_{\bar z} X^{\bar z}) = \lambda(z, \bar z) g_{z \bar z}
 		 \end{aligned}
 	 \end{equation}
 	 The first two equation shows us that $X^z, X^{\bar z}$ must be holomorphic and anti-holomorphic respectively. We want the function $\lambda$ to be well-defined on the entire Riemann sphere and so the last equation gives us:
 	 \begin{equation}
-	 	-2 \frac{ (X^z \bar z + X^{\bar z} z)}{1 + z \bar z} = \lambda(z, \bar z)
+	 	-2 \frac{ (X^z \bar z + X^{\bar z} z)}{1 + z \bar z} + \partial_z X^z + \partial_{\bar z} X^{\bar z} = \lambda(z, \bar z)
 	 \end{equation}
 	 We see that $X^z, X^{\bar z}$ cannot have any poles. Further, they cannot grow faster than $z^2, \bar z^2$  respectively as $z \to \infty$ otherwise $\lambda$ will blow up at the north pole. So our solutions space is spanned by $\partial_z, z \partial_z, z^2 \partial_z$ and their conjugates. 
 	 
@@ -228,15 +228,15 @@
 			g^{z \bar z} \nabla_{z} T_{\bar z \bar z} &= \partial_z T_{\bar z \bar z}
 	 	\end{aligned}
 	 \end{equation}
-	 Note that there can be no Christoffel contribution. This simply asks for globally-defined holomorphic 2-forms. Let's look at $T_{zz}$. Around $z = 0$, it must be a polynomial to avoid poles. Transforming to $w = 1/z, dw = - dz/z^2 \Rightarrow \frac{dz}{dw} = -z^2 = -w^{-2} $ we get $T_{ww}(w) = (\frac{dz}{dw})^2 T_{zz}(w)$. Note that the right hand side will only have poles at least as bad as $w^{-2}$ so we cannot have any global section of this vector bundle. Thus, there are no Teichmuller parameters.
+	 Note that there can be no Christoffel contribution. This simply asks for globally-defined holomorphic quadratic differentials. Let's look at $T_{zz}$. Around $z = 0$, it must be a polynomial to avoid poles. Transforming to $w = 1/z, dw = - dz/z^2 \Rightarrow \frac{dz}{dw} = -z^2 = -w^{-2} $ we get $T_{ww}(w) = (\frac{dz}{dw})^2 T_{zz}(w)$. Note that the right hand side will only have poles at least as bad as $w^{-4}$ so we cannot have any global section of this vector bundle. Thus, there are no Teichmuller parameters.
 	 
-	 \item We can think of the torus as $\mathbb C / \Lambda$. Note that scaling and rotation preserve the complex structure of the fundamental parallelogram so WLOG we can pick $\Lambda = \mathbb Z\text{-span} \{1, \tau\}$ with $\tau \in \mathbb H$. Thus we need vector fields on $\mathbb C$ that respect the translation-invariance under $\Lambda$. Any translation-invariant holomorphic function is zero, we can only have the constant vector fields $\partial_z, \partial_{\bar z}$. 
+	 \item We can think of the torus as $\mathbb C / \Lambda$. Note that scaling and rotation preserve the complex structure of the fundamental parallelogram so WLOG we can pick $\Lambda = \mathbb Z\text{-span} \{1, \tau\}$ with $\tau \in \mathbb H$. Thus we need vector fields on $\mathbb C$ that respect the translation-invariance under $\Lambda$. Any translation-invariant holomorphic function is constant, so we can only have the constant vector fields $\partial_z, \partial_{\bar z}$. 
 	 
 	  \begin{center}
 	  	\includegraphics[scale=0.1]{"Drawings/Torus Killing"}
 	  \end{center}
 	 
-	 We now look for holomorphic and anti-holomorphic traceless tensors. Again, $T_{zz}$ and $T_{\bar z \bar z}$ be translation-invariant w.r.t the lattice, so again they must be constants. We get $dz \otimes dz$ and $d \bar z \otimes d\bar z$ as our two Teichmuller deformations. As real tensors these are:
+	 We now look for holomorphic and anti-holomorphic traceless tensors. Again, $T_{zz}$ and $T_{\bar z \bar z}$ be translation-invariant w.r.t the lattice, so again they must be constants. We get $dz \otimes dz$ and $d \bar z \otimes d\bar z$ as our two Teichmuller deformations. As real tensors, their real and imaginary parts are:
 	 \[
 	 	\begin{pmatrix}
 	 		1 & 0\\
@@ -245,12 +245,12 @@
 	 	\begin{pmatrix}
 	 		0 & 1\\
 			1 & 0
-	 	\end{pmatrix} = 2 dx \otimes dy ,
+	 	\end{pmatrix} = dx \otimes dy + dy \otimes dx ,
 	 \]
 	 \item Not sure exactly how they want us to calculate this. Let's assume they are OK with Gauss-Bonnet. For the disk with the flat metric, we have right away that the curvature $R$ vanishes. The geodesic curvature at the boundary is a constant, and is easily seen to be $1$. Integrating this over the boundary of the disk gives $2\pi$ so that $\chi=1$. 
 	 
 	 Using the round metric, it is quick to see that the only contribution to $R_{\mu \nu} = R^z_{\, \mu z \nu} + R^{\bar z}_{\, \mu \bar z \nu}$ is for $R^z_{z z \bar z} = -\partial_{\bar z} \Gamma^z_{z z}$
-	  and $R^{\bar z}_{\bar z \bar z z} = \partial_z \Gamma^{\bar z}_{\bar z \bar z}$ giving $R_{z \bar z} = \frac{2}{(1 + |z|^2)}$. Tracing this gives $R = 1$. Integrating this over half the sphere gives $2 \pi$. The geodesic curvature vanishes on the great circle by symmetry, and we get $\chi = 1$ again.
+	  and $R^{\bar z}_{\bar z \bar z z} = \partial_z \Gamma^{\bar z}_{\bar z \bar z}$ giving $R_{z \bar z} = \frac{2}{(1 + |z|^2)^2}$. Contracting with $g^{z \bar z}$ gives the Gaussian curvature $K = 1$. Integrating this over half the sphere gives $2 \pi$. The geodesic curvature vanishes on the great circle by symmetry, and we get $\chi = 1$ again.
 	  
 	  \item Any such surface can be decomposed as a sphere with $2n$ holes connected to $n$ handles. Let's integrate the scalar curvature over each piece individually. First the curvature integrated on the sphere with $2n$ disks removed is equal to the curvature integrated on the Riemann sphere: $4\pi$ minus the curvature integrated on $2n$ disks. We have just done this in the previous problem, and we get $2\pi \times 2n$. Lastly, the curvature on the handles is just the same as the curvature on the sphere with two holes cut out, which we have just calculated is $4 \pi - 2 \times 2\pi = 0$. Thus the total curvature is just $2 \pi (2-2n)$, giving us $\chi = 2-2n$ as required. 
 	  
@@ -258,7 +258,7 @@
 	  	\includegraphics[scale=0.12]{Drawings/Handles}
 	  \end{center}
 	  
-	  \item Our point particle action is $S_0 = \int d\tau e (e^{-2} (\partial_\tau x)^2 - m^2)$. Let's look at:
+	  \item Our point particle action is $S_0 = \frac12 \int d\tau e (e^{-2} (\partial_\tau x)^2 - m^2)$. Let's look at:
 	  \[
 	  	\int \frac{\mathcal D X \mathcal D e}{V_{gauge}} e^{-S_0} \sim \int \mathcal D X \mathcal D e \mathcal D b \mathcal D c \; e^{-S_0 - \int b (\delta F) c - i \int B F(e)}
 	  \]
@@ -278,7 +278,7 @@
 	  \begin{equation}\label{eq:polch}
 	  	\begin{aligned}
 	  		\delta_{\epsilon} X &= i \epsilon c \dot X\\
-			\delta_{\epsilon} e &= i \epsilon \dot{(c X)}\\
+			\delta_{\epsilon} e &= i \epsilon \dot{(c e)}\\
 			\delta_\epsilon   b &= \epsilon B_A\\
 			\delta_\epsilon   c &= i \epsilon c \dot c\\
 			\delta_{\epsilon} B &= 0
@@ -300,7 +300,7 @@
 	  \item I believe these variations have Kiritsis taking $c \to -i c$ in his formalism. They also follow directly from Polchinski's formalism. Under a diffeomorphism $\delta_{\xi, \bar \xi} X = -\xi \d X - \bar \xi \bar \d X$. These are two copies of the reparameterization algebra developed in the previous problem, and so the commutation relations are the same. We get, again in Polchinski's formalism \eqref{eq:polch}
 	  \begin{equation}
 	  	\begin{aligned}
-	  		\delta_{\epsilon} X &= i \epsilon (c \d X + \bar c \bar d X)\\
+	  		\delta_{\epsilon} X &= i \epsilon (c \d X + \bar c \bar \d X)\\
 			\delta_\epsilon   c &= i \epsilon (c \partial c + \bar c \bar \partial \bar c)\\
 			\delta_\epsilon   b &= i \epsilon (T^X + T^{gh})
 	  	\end{aligned}
@@ -308,7 +308,7 @@
 	  
 	  I see no problem with $Q^2_B$ giving zero when acting on the $X$ and $c$ fields.
 	  \[
-	  	\delta_B (c \d X+ \bar c \bar d X ) = i \epsilon (\cancel {c (\d c) \d X} + \cancel{\bar c (\bar \d \bar c) \bar \d X} - c \d (\cancel{c \d X} + \bar c \bar \d \bar c X) -  \bar c \d (\cancel{c \d X} + \bar c \bar \d \bar c X) )
+	  	\delta_B (c \d X+ \bar c \bar \d X ) = i \epsilon (\cancel {c (\d c) \d X} + \cancel{\bar c (\bar \d \bar c) \bar \d X} - c \d (\cancel{c \d X} + \bar c \bar \d \bar c X) -  \bar c \d (\cancel{c \d X} + \bar c \bar \d \bar c X) )
 	  \]
 	  and the remaining terms die by the equations of motion. The $c$ variation will always die because we've already shown the transformations satisfy a Lie algebra with Bianchi identity. 
 	  
@@ -324,7 +324,7 @@
 	  
 	  \item Integrating over $\sigma$ will as usual pick out the zero mode. For $T_{++}$ this gives us
 	  \[
-	  	\sum_n (2 n b_{-n+m} c_n + n+m c_{-n} b_{n+m}) = \sum_n (m-n) :b_{n+m} c_{-n}:
+	  	\sum_n (2 n b_{-n+m} c_n + (n+m) c_{-n} b_{n+m}) = \sum_n (m-n) :b_{n+m} c_{-n}:
 	  \]
 	  and similarly for the right-movers. To get the central charge we'll have to proceed as before, noting that only $[L_m, L_{-m}]$ can give a nonzero central term. As before, we expect only a finite part of the infinite sum to contribute to this. We thus take out the only terms of the sum with $m,n$ having the same sign:
 	  \[
@@ -334,8 +334,8 @@
 	  \[
 	  \begin{aligned}
 	  		  	\sum_{k, k'} (m+k) (-2m + k') [b_{m-k} c_k, b_{-k'} c_{-m+k'}]
-				&= \sum_{k, k'} (m+k) (-2m + k') (b_{m-k} c_{m+k'}  - b_{-k'} c_{k}) \delta_{k - k'}\\
-				& = \sum_{k=1}^m (m+k) (-2m +k)(b_{m-k} c_{m+k} - b_{-k} c_k)
+				&= \sum_{k, k'} (m+k) (-2m + k') (b_{m-k} c_{-m+k'}  - b_{-k'} c_{k}) \delta_{k - k'}\\
+				& = \sum_{k=1}^m (m+k) (-2m +k)(b_{m-k} c_{-m+k} - b_{-k} c_k)
 	  \end{aligned}
 	  \]
 	  Looking at the non-normal-ordered part, this leaves:
@@ -359,7 +359,7 @@
 	  	  
 	  We now need to consider the total BRST charge $Q + \bar Q$. Then:
 	  \[
-	  	Q_{B}^2 = \sum_{n,m} ([L_m^X, L_n^X] + [L_m^{gh}, L_n^{gh}] + (m-n) L_{m+n}^X + (m-n) L_{m+n}^{gh} + 2 a m \delta_{m+n})c_{-m} c_m
+	  	Q_{B}^2 = \sum_{n,m} ([L_m^X, L_n^X] + [L_m^{gh}, L_n^{gh}] - (m-n) L_{m+n}^X - (m-n) L_{m+n}^{gh} + 2 a m \delta_{m+n})c_{-m} c_{-n}
 	  \]
 	  This will vanish only if the commutators give no anomalous term. From previous exercises we see this is only if: 
 	  \[
@@ -373,7 +373,7 @@
 	  \]
 	  and $\bar Q$ is the conjugate of this.
 	  
-	  At level zero we will again have $Q^0 = c_0 L_0^X + \bar c_0 \bar L^X_0 $. We now have two copies of the Clifford algebra and our Siegel gauge condition will make it so that we only consider states $\ket{\downarrow, \bar \downarrow, p, \bar p}$. Now we need $((L_0 - 1) c_0 + (\bar L_0 - 1) \bar c_0) \ket{\downarrow, \bar \downarrow, p, \bar p} = (L_0 - 1) \ket{\uparrow, \bar \downarrow, p, \bar p} + (\bar L_0 - 1) \ket{\downarrow, \bar \uparrow, p, \bar p}$ so we need $\frac{\ell_s^2 p^2}4 = \frac{\ell_s^2 \bar p^2}4 = 1$ i.e. the total  mass is $m^2 = -4$. We thus have the tachyon state.
+	  At level zero we will again have $Q^0 = c_0 L_0^X + \bar c_0 \bar L^X_0 $. We now have two copies of the Clifford algebra and our Siegel gauge condition will make it so that we only consider states $\ket{\downarrow, \bar \downarrow, p}$. Now we need $((L_0 - 1) c_0 + (\bar L_0 - 1) \bar c_0) \ket{\downarrow, \bar \downarrow, p} = (L_0 - 1) \ket{\uparrow, \bar \downarrow, p} + (\bar L_0 - 1) \ket{\downarrow, \bar \uparrow, p}$ so we need $\frac{\ell_s^2 p^2}4 = 1$ i.e. the total  mass is $\ell_s^2 m^2 = -4$. We thus have the tachyon state.
 	  
 	  Also because $b_0 \ket{\psi} = 0$ for any physical state, we will have $\{ Q, b_0 \} \ket{\psi} = 0 = (L_0 - a) \ket{\psi}$ so we have $L_0 - 1 = \bar L_0 - 1 = 0$ and this gives us the level-matching condition. So the next level we can have a state is at $(1,1)$.
 	  
@@ -397,7 +397,7 @@
 	  \end{equation}
 	  and the conjugate of this will contribute the conjugate terms. For this to all be zero we need each of the $\zeta_i \cdot p = 0$ as well as their conjugates. We also need $\xi_{bb} = \xi_{bc} = \xi_{cb} = 0$. We also see that $\zeta_{ba} = \zeta_{ab} = 0$.
 	  
-	  On the other hand the general form of an exact state is also given by \eqref{eq:Q} for the $\zeta_i$ and $\xi_i$ arbitrary. Thus all the terms involving $c$ and/or $\bar c$ are exact and so upon quotienting we get $\zeta_{ac} = \zeta_{bc} = \xi_{cc} = 0$. Lastly we get the relation that we should identify $\zeta_i \bar \zeta_j = \zeta_i \bar \zeta_j + p_i \zeta'_j + \zeta_i' p $
+	  On the other hand the general form of an exact state is also given by \eqref{eq:Q} for the $\zeta_i$ and $\xi_i$ arbitrary. Thus all the terms involving $c$ and/or $\bar c$ are exact and so upon quotienting we get $\zeta_{ac} = \zeta_{bc} = \xi_{cc} = 0$. Lastly we get the relation that we should identify $\zeta_i \bar \zeta_j = \zeta_i \bar \zeta_j + p_i \zeta'_j + \zeta_i' p_j $
 	 ie we project out any tensor of the form $p \otimes \zeta'$ or $\zeta' \otimes p$. This is equivalent to identifying $\zeta \cong \zeta' + \xi p$ and identically for $\bar \zeta$. 
 	 
 	 So we have eliminated everything except for $\zeta, \bar \zeta$, each of which must be transverse to $p$ and we identify $\zeta$ differing by a longitudinal $p$ component. This is $24 \times 24$ parameters, as required.  

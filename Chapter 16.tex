@@ -23,13 +23,13 @@
 
 
 \begin{document}
-\section*{Chapter 16: String Theory and Matrix Models} % (fold)
+\section{Chapter 16: String Theory and Matrix Models} % (fold)
 \label{sec:chapter_16_string_theory_and_matrix_models}
 
 \begin{enumerate}
 	\item The Nambu-Goto action is
 	\[
-		-T_2 \int d^3 \xi [\sqrt{\det \hat g} + \hat C_{\alpha \beta \gamma} \epsilon^\alpha \beta \gamma], \quad \hat g_{\alpha \beta} = G_{\mu \nu} \d_\alpha X^\mu \d_\beta X^\nu, \quad C_{\alpha \beta \gamma} = C_{\mu \nu \rho} \d_\alpha X^\mu \d_\beta X^nu \d_\gamma X^\rho
+		-T_2 \int d^3 \xi [\sqrt{-\det \hat g} + \hat C_{\alpha \beta \gamma} \epsilon^{\alpha \beta \gamma}], \quad \hat g_{\alpha \beta} = G_{\mu \nu} \d_\alpha X^\mu \d_\beta X^\nu, \quad C_{\alpha \beta \gamma} = C_{\mu \nu \rho} \d_\alpha X^\mu \d_\beta X^\nu \d_\gamma X^\rho
 	\]
 	 Let's set $C_{\alpha \beta \gamma} = 0$. The EOM for the scalar field is quickly seen to be $\Box X = 0$, where $\Box$ is the Laplacian from the induced metric. 
 	 
@@ -39,7 +39,7 @@
 	 \]
 	 This is harder to solve than the $p=1$ case, as we can't just take the square root of the determinant of both sides. Taking the ansatz that $\gamma_{\alpha \beta} = \lambda \d_\alpha X^\mu \d_\beta X_\mu$ we get:
 	 \[
-	 	\lambda \gamma_{\alpha \beta} - \frac12 \gamma_{\alpha \beta}(3 \lambda - 1 )
+	 	\frac{1}{\lambda} \gamma_{\alpha \beta} - \frac12 \gamma_{\alpha \beta}\left(\frac{3}{\lambda} - 1 \right)
 	 \]
 	 And we get a solution with $\lambda = 1$. Note there is no Weyl rescaling here. Similarly, the $X$ field must satisify
 	 \[
@@ -77,7 +77,7 @@
 		p_- \dot X^- - \mathcal L + \int d^2 \xi \, p_i \dot X^i
 	\]
 	
-	\item This rescaling is very straightforward once one has the hamiltonian 16.1.14. One rescales $X^i \to \left(\frac{N}{V_2}\right)^{1/4} X^i$ and $t \to \left(\frac{N}{4 V_2}\right)^{-1/4}$ yielding:
+	\item This rescaling is very straightforward once one has the hamiltonian 16.1.14. One rescales $X^i \to \left(\frac{N}{V_2}\right)^{1/4} X^i$ and $t \to \left(\frac{N}{4 V_2}\right)^{-1/4} t$ yielding:
 	\[
 		\frac{T_2}{2} \int d^2 \sigma \dot X^i \dot X^i \to \frac{T_2}{4} \frac{N}{V_2} \int d^2 \sigma \frac{\dot X^i \dot X^i}{2} = \frac{T_2}{4} \Tr[\frac{\dot X^i \dot X^i}{2} ]
 	\]
@@ -92,12 +92,10 @@
 	\[
 		\frac16 \{X^\mu, X^\nu, X^\rho\}  \{X_\mu, X_\nu, X_\rho\} = \d_1 X^\mu \d_2 X^\nu \d_3 X^\rho \epsilon_{\alpha \beta \gamma} (\d_\alpha X_\mu \d_\beta X_\nu \d_\gamma X_\rho)
 	\]
-	Its not hard to see that this reproduces the formula for a 3x3 determinant, as we have an antisymmetric object involving one element from every row and column multiplied together, all with unital coefficients. 
+	Its not hard to see that this reproduces the formula for a 3x3 determinant, as we have an antisymmetric object involving one element from every row and column multiplied together, all with unital coefficients. That is, $\frac16 \{X^\mu, X^\nu, X^\rho\}\{X_\mu, X_\nu, X_\rho\} = \det \hat g_{\alpha\beta}$, which is negative for Lorentzian signature, hence the minus sign under the square root in the bracket form of the action: $\sqrt{-\det \hat g} = \sqrt{-\frac16 \{X^\mu, X^\nu, X^\rho\}\{X_\mu, X_\nu, X_\rho\}}$.
 	
 	The bracket is not associative \textbf{show}
-	
-	\item 
-	
+
 \end{enumerate}
 
 % section chapter_16_string_theory_and_matrix_models (end)
