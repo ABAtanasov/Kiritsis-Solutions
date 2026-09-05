@@ -341,8 +341,15 @@
 	\[
 		\int_0^1 d|z_2| c(z_1)\bar c(\bar z_1) c(z_2)  (1+|z_1|^2)^{\ell_s^2 p^2/2} (1+|z_2|^2)^{\ell_s^2 p^2/2} |(z_1 - z_2) (1+z_1 \bar z_2)|^{-\ell_s^2 p^2}\to \int_0^1 r dr\, r^{-\ell_s^2 p^2} (1+r^2)^{\ell_s^2 p^2/2}
 	\]
-	For the closed string tachyon, we have $p^2 = 4/\ell_s^2$. The integral is divergent, coming from the $(z-w)^{-4}$ singularity as the two tachyons approach one another. If we had the milder $(z-w)^{-1}$ singularity of the open-string tachyon, this could be fixed. 
-	\textbf{REVISIT}
+	Write $a = \ell_s^2 p^2$ and define the integral by analytic continuation in $p^2$. Expanding $(1+r^2)^{a/2}$,
+	\[
+		I(a) \equiv \int_0^1 dr\, r^{1-a} (1+r^2)^{a/2} = \frac12 \sum_{k \geq 0} \binom{a/2}{k} \frac{1}{k + 1 - a/2}.
+	\]
+	The $k$-th term is the exchange of the level-$k$ closed-string state in the channel where the two tachyons collide: the OPE $V_p(r) V_{-p}(0) \sim r^{-a} \sum_k r^{2k} \O_k$ with $\O_k$ of weight $(k, k)$, and the $r$-integral of each term is the propagator $1/(k+1-a/2)$ of that state at zero momentum $p_1 + p_2 = 0$. The $k = 0$ (tachyon) term is finite after continuation, but the $k = 1$ term has a pole exactly at the on-shell value $a = 4$:
+	\[
+		I(a) = \frac{2}{4 - \ell_s^2 p^2} - \frac12 + O(4 - \ell_s^2 p^2).
+	\]
+	This is the massless closed string (graviton and dilaton) propagating at zero momentum into the crosscap: the divergence is the $\RP^2$ one-point function of the massless fields, the unoriented analogue of the disk tadpole of problem 5.8. So the amplitude is $i g_c^2 C_{\RP^2}\, \sdelta^{26}(p_1 + p_2)\, I(\ell_s^2 p^2)$ and is ill-defined on shell by itself; it only makes sense together with the disk two-tachyon amplitude, whose divergence has the same origin, and in the unoriented theory with $N = 2^{13}$ the two tadpoles cancel (problem 5.15).
 	
 	
 	\item To simplify this problem, as Polchinski asks in his problem 6.9, I will look at the terms that contribute to the $e_1 \cdot e_2 \, e_3 \cdot e_4$ amplitude, which comes from contracting $\d X^\alpha(y_1) \d X^\beta(y_2)$ and $\d X^\beta(y_3) \d X^\delta(y_4)$. There are six possible orderings for the trace in the 4-point amplitude. We get $\frac{i {g_o'}^4}{g_o^2 \ell_s^2}  \sdelta^{26}(\Sigma p) \times \left(2 \ell_s^2 \right)^2$ multiplying a sum of six integrals. Using $s := - \ell_s^2 (p_1 + p_2)^2 = -2 p_1 \cdot p_2, t := - \ell_s^2 (p_1 + p_3)^2 = - 2 p_1 \cdot p_3, u := - \ell_s^2 (p_1 + p_4)^2 = - 2 p_1 \cdot p_4$ and the shorthand $[1234]$ for $\mathrm{Tr}(\lambda^{\mu_1} \lambda^{\mu_2} \lambda^{\mu_3} \lambda^{\mu_4})$, we get:
