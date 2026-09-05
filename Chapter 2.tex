@@ -124,7 +124,15 @@
 		Let's work in conformal gauge. We have $\partial_+ \partial_- X = 0$
 		The vanishing of the stress-energy tensor gives us $\dot X^2 + {X'}^2 = 0$ and $\dot X \cdot X' = 0$. But at the endpoints we get $X' = 0$ so that $\dot X^2 = 0$ and the endpoints with Neumann boundary conditions need to move at the speed of light.
 		
-		\item The cosmological constant term gives the equation of motion $\frac{\delta S}{\delta g^{ab}} = - (\frac{T_{ab}}{4\pi} + \frac{\lambda_1}{2} g_{ab}) \sqrt{-g}$. But by reparameterization invariance we \emph{need} $T_{ab} = 0$ so that $\lambda_1$ must be $0$.
+		\item Adding $\lambda_1 \int d^2\xi \sqrt{-g}$ to the Polyakov action, the metric equation of motion becomes $\frac{\delta S}{\delta g^{\alpha \beta}} = -\sqrt{-g} \left(\frac{T_{\alpha \beta}}{4 \pi} + \frac{\lambda_1}{2} g_{\alpha \beta}\right) = 0$, i.e.
+		\begin{equation}
+			T_{\alpha \beta} = \frac{1}{\ell_s^2}\left[\d_\alpha X \cdot \d_\beta X - \frac12 g_{\alpha \beta}\, g^{\gamma \delta} \d_\gamma X \cdot \d_\delta X\right] = -2 \pi \lambda_1\, g_{\alpha \beta}.
+		\end{equation}
+		The left side is traceless in two dimensions ($g^{\alpha \beta} g_{\alpha \beta} = 2$), a consequence of Weyl invariance, while the right side has trace $-4 \pi \lambda_1$. So for $\lambda_1 \neq 0$ there is no solution with an invertible $g_{\alpha \beta}$. Explicitly: the equation still says $g_{\alpha \beta} = \lambda\, \d_\alpha X \cdot \d_\beta X$ for some function $\lambda$, but substituting this back the bracket becomes $(1/\lambda - 2 \pi \lambda_1 \ell_s^2)\, \d_\alpha X \cdot \d_\beta X$, so that
+		\begin{equation}
+			\lambda_1 \lambda\, \d_\alpha X \cdot \d_\beta X = 0.
+		\end{equation}
+		With $\lambda_1 \neq 0$, the Weyl factor $\lambda$ that was arbitrary for the pure Polyakov action is forced to zero: $g_{\alpha \beta} = 0$, the action vanishes, and there are no dynamics. The point is that $\sqrt{-g}$ is not Weyl invariant in two dimensions, so the cosmological term sources a pure-trace stress tensor that the traceless Polyakov $T_{\alpha \beta}$ can never balance.
 		
 		\item It is quick to derive the current $P^\mu$ under $\delta X^{\nu} = \epsilon\, \delta_\mu^{\ \nu}$:
 		\begin{equation}
@@ -158,10 +166,19 @@
 			\{\alpha_m^\mu, \alpha_n^\nu\}= \{\bar \alpha_{m}^\mu, \bar \alpha_n^\nu\}= -i \delta_{m+n} \eta^{\mu \nu}
 		\end{equation}
 		
-		\item For each coordinate on the $n$-torus, we have $X^i(\tau, \sigma+2\pi) = X(\tau, \sigma) + 2 \pi n_i R_i$. Then the corresponding momenta have difference $p - \bar p = \frac{2}{\ell_s^2} n_i R_i$ while the total momentum is quantized in multiples of $p+\bar p = \frac{2 m_i}{R_i}$. Therefore we have:
+		\item Take coordinates $X^I \simeq X^I + 2 \pi n^I$, $n^I \in \ZZ^n$, with the size and shape of the torus encoded in the constant metric $G_{IJ}$ (a circle of radius $R$ is $G_{11} = R^2$). The action is $-\frac{T}{2} \int \sqrt{-g}\, g^{\alpha \beta} G_{IJ} \d_\alpha X^I \d_\beta X^J$, so the mode expansion is unchanged and the zero-mode part is $X^I = x^I + \frac{\ell_s^2}{2}\left[(p^I + \bar p^I) \tau + (p^I - \bar p^I) \sigma\right]$. Going around the string, $X^I(\sigma + 2\pi) = X^I(\sigma) + 2 \pi n^I$ gives
 		\begin{equation}
-			\alpha^i_0 = \frac{1}{\sqrt 2} \left(m_i \frac{\ell_s}{R_i} + n_i \frac{R_i}{\ell_s}\right)
+			p^I - \bar p^I = \frac{2}{\ell_s^2} n^I.
 		\end{equation}
+		The metric enters through the conjugate momentum $\Pi_I = T G_{IJ} \dot X^J$, which carries a lower index: the total momentum $P_I = \int_0^{2\pi} d\sigma\, \Pi_I = G_{IJ} \frac{p^J + \bar p^J}{2}$ must be an integer $m_I$ for $e^{i P_I x^I}$ to be single valued, so
+		\begin{equation}
+			\frac{p^I + \bar p^I}{2} = G^{IJ} m_J.
+		\end{equation}
+		Windings live in the lattice $\ZZ^n$ and momenta in its dual, with $G$ converting between them. Then $\alpha_0^I = \frac{\ell_s}{\sqrt 2} p^I$ gives
+		\begin{equation}
+			\alpha^I_0 = \frac{1}{\sqrt 2} \left(\ell_s G^{IJ} m_J + \frac{n^I}{\ell_s}\right), \qquad \bar \alpha^I_0 = \frac{1}{\sqrt 2} \left(\ell_s G^{IJ} m_J - \frac{n^I}{\ell_s}\right),
+		\end{equation}
+		which reduces to the circle result after rescaling $X \to X/R$. The zero-mode part of $L_0 = \frac12 G_{IJ} \alpha_0^I \alpha_0^J + \dots$ is $\frac14\left(\ell_s^2\, m_I G^{IJ} m_J + 2 m_I n^I + \frac{n^I G_{IJ} n^J}{\ell_s^2}\right)$, and $\bar L_0$ has $-2 m_I n^I$ instead, so $L_0 - \bar L_0 = m_I n^I + N - \bar N$: level matching is $N - \bar N = -m_I n^I$, independent of $G$.
 		
 		\item
 		We begin with a redefined $p^\mu \to 2 p^\mu$ as in the book.
