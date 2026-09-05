@@ -157,15 +157,15 @@
 	 
 	 \item For NN boundary conditions, $\alpha_k^\mu$ is associated to the wavefunction $\cos(k \sigma), \sigma \in [0, \pi]$. This has eigenvalue $1$ under flip if $k$ is even and $-1$ if $k$ is odd. Thus this $\alpha_k$ must transform identically: $\Omega \alpha^\mu_k \Omega^{-1} = (-1)^k \alpha_k$. For DD boundary conditions, we have $\sin(k \sigma)$, which has opposite eigenvalues, so instead we get $(-1)^{k+1}$
 	 
-	 \item This is a Lie algebra of dimension $n(n-1)/2$, which already looks promising. In the case of all $\theta_i$ equal, we can pick basis so that the $R_{ij}$ are all $1$. This is clearly $\frak{so}(n)$. Now, take a diagonal unitary matrix $\gamma$ (note $\gamma^T = \gamma$). It clear that $\tilde \lambda_{ij} := \gamma^{1/2} \lambda_{ij} \gamma^{-1/2}$ gives the right structure under transposition:
+	 \item This is a Lie algebra of dimension $n(n-1)/2$, which already looks promising. In the case of all $\theta_i$ equal, we can pick basis so that the $R_{ij}$ are all $1$. This is clearly $\frak{so}(n)$. Now, take a diagonal unitary matrix $\gamma$ (note $\gamma^T = \gamma$). Using $\lambda^T = -\gamma^{-1} \lambda \gamma$, it is clear that $\tilde \lambda := \gamma^{-1/2} \lambda \gamma^{1/2}$ gives the right structure under transposition:
 	 \[
-	 	\tilde \lambda^T = \gamma^{-1/2} \lambda^T \gamma^{1/2} = - \gamma^{-1/2} \lambda \gamma^{1/2} = - \gamma \tilde \lambda \gamma
+	 	\tilde \lambda^T = \gamma^{1/2} \lambda^T \gamma^{-1/2} = - \gamma^{1/2} \gamma^{-1} \lambda \gamma\, \gamma^{-1/2} = - \gamma^{-1/2} \lambda \gamma^{1/2} = - \tilde \lambda.
 	 \]
-	 But since $\tilde \lambda_{ij}$ is just a conjugation action on the $\lambda_{ij}$, we will still have that the Lie algebra structure is preserved, and maintain $\frak{so}(n)$.
+	 Since $\gamma^{1/2}$ is unitary, $\tilde \lambda$ is still Hermitian, so $\tilde \lambda = i A$ with $A$ real antisymmetric. But since $\tilde \lambda$ is just a conjugation action on the $\lambda$, we will still have that the Lie algebra structure is preserved, and maintain $\frak{so}(n)$. (Equivalently: the phases are absorbed by redefining the CP states $\ket{i} \to e^{i \theta_i/2} \ket{i}$, after which $\gamma = 1$.)
 	 
-	 For the second part, again when all the $\theta_i = 0$, this is just the definition of the symplectic group and we have $\lambda = - \omega \lambda^T \omega^{-1} = \omega \lambda^T \omega$ for $\omega$ the canonical symplectic written in the $(x_1, p_1, x_2, p_2, \dots)$ basis. Now note that the new symplectic form $\gamma$ can be written as $\sigma^{1/2} \omega \sigma^{-1/2}$ with $\sigma = \mathrm{diag}(e^{i \theta_1}, e^{i\theta_1}, e^{i \theta_2}, e^{i\theta_2}, \dots)$. Then define $\tilde \lambda = \sigma^{-1/2} \lambda \sigma^{1/2}$ and note that
+	 For the second part, again when all the $\theta_i = 0$, this is just the definition of the symplectic group and we have $\lambda = - \omega \lambda^T \omega^{-1} = \omega \lambda^T \omega$ for $\omega$ the canonical symplectic form written in the $(x_1, p_1, x_2, p_2, \dots)$ basis. Now note that the new symplectic form $\gamma$ can be written as $\sigma \omega$ with $\sigma = \mathrm{diag}(e^{i \theta_1}, e^{i\theta_1}, e^{i \theta_2}, e^{i\theta_2}, \dots)$; $\sigma$ is scalar on each $2 \times 2$ block so it commutes with $\omega$, and $\gamma^{-1} = -\omega \sigma^{-1}$. Then define $\tilde \lambda = \sigma^{-1/2} \lambda \sigma^{1/2}$ and note that
 	 \[
-	 	\tilde \lambda^T = \sigma^{1/2} \lambda^T \sigma^{-1/2} = - \sigma^{1/2} \omega \lambda \omega \sigma^{-1/2} = - \gamma \tilde \lambda \gamma 
+	 	\tilde \lambda^T = \sigma^{1/2} \lambda^T \sigma^{-1/2} = - \sigma^{1/2} \gamma^{-1} \lambda \gamma\, \sigma^{-1/2} = \sigma^{1/2} \omega \sigma^{-1} \lambda\, \sigma \omega\, \sigma^{-1/2} = \omega \tilde \lambda \omega = - \omega \tilde \lambda \omega^{-1}
 	 \]
 	 as required. Again, conjugation action will preserve the Lie algebra structure, so this will remain $\frak{sp}(2n)$.
 	 
@@ -297,7 +297,7 @@
 	  Clearly $Q_B^2 = 0$.
 	  As before, the ghosts generate a two-state system. Our set of states is given by $\ket{k^\mu, \uparrow}, \ket{k^\mu, \downarrow}$. Following convention, $c$ raises and $b$ lowers. $Q_B \ket{k, \downarrow} = \frac12 (k^2 + m^2) \ket{k, \uparrow}$ so all states of the form $\ket{k, \uparrow}$ with $k^2 + m^2 \neq 0$ are BRST exact. Similarly all states $\ket{k, \uparrow}$ are BRST closed along with all states of the form $\ket{k, \downarrow}$ with $k^2 + m^2 = 0$. So the closed states that are not exact are $\ket{k, \downarrow}$, $\ket{k, \uparrow}$ with $k^2 + m^2 = 0$. We take only the states with $b \ket{\psi} = 0$. The reason is that all states $\ket{k, \uparrow}$ are physical, and so we would need amplitudes between such states to be proportional to $\delta(k^2 + m^2)$ in order for the states to decouple, but \emph{amplitudes} cannot have such extreme singularities \textbf{Don't understand this. Appreciate it, and its relation to Siegel gauge.}.
 	  
-	  \item I believe these variations have Kiritsis taking $c \to -i c$ in his formalism. They also follow directly from Polchinski's formalism. Under a diffeomorphism $\delta_{\xi, \bar \xi} X = -\xi \d X - \bar \xi \bar \d X$. These are two copies of the reparameterization algebra developed in the previous problem, and so the commutation relations are the same. We get, again in Polchinski's formalism \eqref{eq:polch}
+	  \item I believe these variations follow directly from Polchinski's formalism, up to the sign issue discussed below. Under a diffeomorphism $\delta_{\xi, \bar \xi} X = -\xi \d X - \bar \xi \bar \d X$. These are two copies of the reparameterization algebra developed in the previous problem, and so the commutation relations are the same. We get, again in Polchinski's formalism \eqref{eq:polch}
 	  \begin{equation}
 	  	\begin{aligned}
 	  		\delta_{\epsilon} X &= i \epsilon (c \d X + \bar c \bar \d X)\\
@@ -308,19 +308,23 @@
 	  
 	  I see no problem with $Q^2_B$ giving zero when acting on the $X$ and $c$ fields.
 	  \[
-	  	\delta_B (c \d X+ \bar c \bar \d X ) = i \epsilon (\cancel {c (\d c) \d X} + \cancel{\bar c (\bar \d \bar c) \bar \d X} - c \d (\cancel{c \d X} + \bar c \bar \d \bar c X) -  \bar c \d (\cancel{c \d X} + \bar c \bar \d \bar c X) )
+	  	\delta_B (c \d X+ \bar c \bar \d X ) = i \epsilon (\cancel {c (\d c) \d X} + \cancel{\bar c (\bar \d \bar c) \bar \d X} - c \d (\cancel{c \d X} + \bar c \bar \d X) -  \bar c \bar \d (c \d X + \cancel{\bar c \bar \d X}) )
 	  \]
-	  and the remaining terms die by the equations of motion. The $c$ variation will always die because we've already shown the transformations satisfy a Lie algebra with Bianchi identity. 
+	  and the remaining terms die by the equations of motion ($\d \bar c = \bar \d c = 0$, $\d \bar \d X = 0$; the $c \bar c\, \d \bar \d X$ terms also cancel by antisymmetry). The $c$ variation will always die because we've already shown the transformations satisfy a Lie algebra with Bianchi identity. 
 	  
-	  It looks like the $b$ field will be nontrivial. If one of the equations of motion is the $T^X + T^{gh} = 0$ then this will be zero right away. Otherwise, we want to compute (WLOG in the holomorphic sector):
+	  It looks like the $b$ field will be nontrivial. Write $\delta_B = i \epsilon\, s$ with $s$ Grassmann-odd, so that $s(b\, \d c) = (s b) \d c - b\, \d (s c)$. WLOG in the holomorphic sector we want to compute:
 	  	  \[
-	  	  	\delta_B (T^X + T^{gh}) = \delta_B (\frac1\alpha (\partial X)^2 + 2 b \partial c + \partial b c) = i \epsilon [\frac2\alpha \partial X \partial(c \partial X) + 2 (T^X + T^{gh}) \partial c + 2 b\, \partial(c \partial c) + \partial(T^X + T^{gh}) \partial c + \partial b\, c \partial c ] 
+	  	  	s (T^X + T^{gh}) = s \left(\frac1\alpha (\partial X)^2 + 2 b \partial c + \partial b\, c\right) = \frac2\alpha \partial X \partial(c \partial X) + 2 (T^X + T^{gh}) \partial c - 2 b\, \partial(c \partial c) + c\, \partial(T^X + T^{gh}) - \partial b\, c \partial c.
 	  	  \]
-		  The purely $b c$ terms cancel. I'm left with
+		  The first term is $c\, \d T^X + 2 \d c\, T^X$, i.e. $T^X$ transforms as a weight-2 tensor. The purely $b c$ terms do not cancel among themselves. Rather, using $(\d c)^2 = 0$,
 		  \[
-		  	\frac2\alpha [(\partial X)^2 \partial c + \partial X \partial^2 X c]
+		  	- 2 b c\, \d^2 c - \d b\, c \d c = c\, \d T^{gh} + 2 \d c\, T^{gh},
 		  \]
-		  I don't know how to get rid of this. I can write it as a total derivative less something proportional to $(\partial X)^2 \partial c$ and perhaps note that this is just $\partial c$ times the stress tensor, which perhaps vanishes classically? At any rate, there is no need to use $d=26$ here.
+		  so $T^{gh}$ also transforms as a weight-2 tensor, and altogether
+		  \[
+		  	s (T^X + T^{gh}) = 2\, (c \d + 2 \d c)(T^X + T^{gh}).
+		  \]
+		  This does not vanish, except on the constraint surface $T^X + T^{gh} = 0$, and there is no way to get rid of it: the variations as written in Kiritsis are inconsistent with his sign for $T^{gh}$. If instead $T^{gh} = -(2 b \d c + \d b\, c)$, the $T^{gh}$ contribution to $s b$ flips sign and the two weight-2 pieces cancel, $s(T^X + T^{gh}) = (1 - 1)(c \d + 2 \d c)(T^X + T^{gh}) = 0$ identically. This is also the sign for which $\frac12 c T^{gh} = b c \d c$ in Kiritsis's BRST current. Note that the coefficient of $T^X$ in $\delta_B b$ drops out of this computation entirely. At any rate, there is no need to use $d=26$ here.
 	  
 	  \item Integrating over $\sigma$ will as usual pick out the zero mode. For $T_{++}$ this gives us
 	  \[
