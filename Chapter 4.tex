@@ -461,13 +461,13 @@
 	\]
 	This also shows that at level $n$ there will generically be as many states as there are partitions of the number $n$.
 	
-	\item Consider a nontrivial state $\ket{h}$ so that $L_{n} \ket{h} = 0$ for some $n$ sufficiently positive. Then: 
+	\item Consider a primary state $\ket{h}$, so that $L_{n} \ket{h} = 0$ for all $n > 0$. Then:
 	\[
-		0 = \bra{h} L_{-n} L_{n} \ket{h} = \bra{h} (\frac{n(n^2-1)}{12} c - 2nh) \ket{h}
+		\| L_{-n} \ket{h} \|^2 = \bra{h} L_{n} L_{-n} \ket{h} = \bra{h} [L_n, L_{-n}] \ket{h} = 2nh + \frac{n(n^2-1)}{12} c.
 	\]
-	If $c = 0$ we get a contradiction unless either $\ket{0}$ is null (and thus decouples) or otherwise $h = 0$, and so we get a vacuum state.
+	At $n = 1$ this gives $h \geq 0$ in a positive theory. Now take $\ket{h} = \ket{0}$. If $c = 0$ then every $L_{-n} \ket{0}$ is null and so vanishes, i.e. $T(z) \ket{0} = 0$. A local operator that annihilates the vacuum is zero: any correlator with $T(z)$ inserted closer to the origin than all other operators vanishes, and by analyticity in $z$ so do all of them. So $T \equiv 0$, $L_0 = 0$ on every state, and $h = 0$ throughout. Every operator $\phi$ then has $\d \phi = [L_{-1}, \phi] = 0$, so $\braket{\phi \psi} = \braket{\phi} \braket{\psi}$ for all $\psi$ by taking the two far apart, and $(\phi - \braket{\phi}) \ket{0}$ is orthogonal to every state and hence zero: the only operator is the identity and the only state is $\ket{0}$.
 	
-	I think we need to add the assumption of irreducibility to have a unique ground state (ie a counterexample would be TQFTs with multiple ground states). 
+	The last step uses uniqueness of the vacuum (equivalently cluster decomposition); without it a counterexample would be a TQFT with multiple ground states. 
 	
 	\item It is enough to show that $L_1$ and $L_2$ acting on this state give zero, since then all other $L_n$ can be obtained by commutators of these two. Indeed:
 	\[
@@ -1079,9 +1079,19 @@
     \end{center}
 	
 	\item 
-	We have $N$ scalars with $\d X^i (z) = O^{ij} \bar \d X^j(\bar z)$ on the real axis. Because the conformal group includes the translation group, $O^{ij}$ must be translationally invariant, ie it cannot depend on $z$. Further because $X^i$ is a scalar $\d + \bar \d$ and $\d - \bar \d$ both act on it in an invariant way. These are the two boundary conditions we can set on each $X^i$. So we see that $O^{ij}$ can definitely be a diagonal matrix of $\pm 1$s. However, because all the scalars are identical we can also transform ${X'}^j(z, \bar z) = R^j_i X^i(z ,\bar z)$, with $R$ any orthogonal matrix (not just special orthogonal) and still get a valid boundary condition. So $O$ is any orbit of the matrix of $\pm 1$s under the conjugation action of the orthogonal group $O \to P^T O P$. This can be easily appreciated as boundary conditions for an open string along the various coordinate directions being either Neumann or Dirichlet. 
+	We have $N$ scalars with $\d X^i (z) = O^{ij} \bar \d X^j(\bar z)$ on the real axis. Because the conformal group includes the translation group, $O^{ij}$ must be translationally invariant, ie it cannot depend on $z$. Conformal invariance further requires no energy flow through the boundary, $T = \bar T$ on the real axis. With $T \propto \d X \cdot \d X$ this reads $\bar \d X^T O^T O\, \bar \d X = \bar \d X \cdot \bar \d X$, so $O^T O = 1$: $O$ is any orthogonal matrix, and this is the only condition. Under $X \to P X$ with $P \in \mathrm{O}(N)$ we can bring $O$ to block-diagonal form with blocks $+1$ (Neumann), $-1$ (Dirichlet), and $2 \times 2$ rotations. The rotation blocks are not conjugate to $\pm 1$s: writing $z = e^{\tau + i \sigma}$, the boundary condition is $(1 - O) \d_\tau X = i (1 + O) \d_\sigma X$, and $(1-O)(1+O)^{-1}$ is antisymmetric for orthogonal $O$, so these are Neumann directions in a constant magnetic field on the brane. ($O$ may also jump between segments of the boundary; the jumps are boundary-condition-changing operators, as for DN strings.)
 	
-	\emph{Its surprising that O can't vary on the real axis - corresponding to the D-brane changing which $X^i$ live on it. Think about this more.}
+	For the mode expansion, write $X = x + i \frac{\ell_s}{\sqrt 2} \sum_n \frac1n (\alpha_n z^{-n} + \bar \alpha_n \bar z^{-n})$ with the $n = 0$ term understood as $-i \frac{\ell_s}{\sqrt 2} (\alpha_0 \ln z + \bar \alpha_0 \ln \bar z)$. The boundary condition on the real axis gives $\bar \alpha_n = O^T \alpha_n$ for every $n$, so
+	\[
+		X^i(z, \bar z) = x^i - i \frac{\ell_s}{\sqrt 2} \left[\alpha_0 \ln z + O^T \alpha_0 \ln \bar z\right]^i + i \frac{\ell_s}{\sqrt 2} \sum_{n \neq 0} \frac1n \left[\alpha_n z^{-n} + O^T \alpha_n \bar z^{-n}\right]^i.
+	\]
+	For $O = 1$ the zero mode is $-i \sqrt 2 \ell_s \alpha_0 \ln|z|$, the momentum of NN, and for $O = -1$ it is $\sqrt 2 \ell_s \alpha_0 \sigma$, the stretched DD string.
+	
+	For the propagator use the method of images:
+	\[
+		\braket{X^i(z, \bar z) X^j(w, \bar w)} = -\frac{\ell_s^2}{2} \left[\delta^{ij} \ln|z-w|^2 + O^{ij} \ln(z - \bar w) + O^{ji} \ln(\bar z - w)\right].
+	\]
+	Indeed $\d_z$ of this at $z = x$ real is $-\frac{\ell_s^2}{2} [\delta^{ij}/(x-w) + O^{ij}/(x - \bar w)]$, while $O^{ik} \d_{\bar z}$ gives $-\frac{\ell_s^2}{2} [O^{ij}/(x - \bar w) + (O O^T)^{ij}/(x - w)]$, and these agree precisely when $O^T O = 1$. For $O = \pm 1$ this is the familiar $\ln|z-w|^2 \pm \ln|z - \bar w|^2$. The antisymmetric part of $O$ contributes an imaginary piece, which on the boundary reduces to $\frac{i \pi \ell_s^2}{2} (O - O^T)^{ij}\, \theta(y - x)$: the noncommutativity of the string endpoints in a magnetic field.
 	 
 	\item Everything is in the NS sector. Let's first evaluate $\braket{\psi_{NN}(z) \psi_{NN} (w)}$. We have
 	\[
@@ -1447,17 +1457,7 @@
 	\[
 		Z\twist11 = \frac{1}{|\eta(\tau)| |\theta\twist00(\tau)|}\sum_{m, n} (-1)^{mn} \exp\left[\frac{i \pi \tau}{4} \left( \tfrac{m}{R} + n R \right)^2 - \frac{i \pi \bar \tau}{4} \left( \tfrac{m}{R} - n R \right)^2  \right].
 	\]
-	Let us check if this is modular invariant. Clearly $Z\twist00$ maps to itself under both $S$ and $T$. Under $T$, $Z\twist01$ maps to itself, and $Z\twist10$ and $Z\twist11$ get exchanged by the properties of theta functions. Further, under $\tau \to -1/\tau$ $Z\twist10$ and $Z\twist01$ map to one another. However, $Z\twist11$ does not map to itself under $S$, and we are led to conclude that this $\mathbb Z_2$ symmetry is anomalous. % \emph{does} map to itself under $S$, though seeing this is nontrivial. We can write
- % 	\[
- % 		Z\twist11(-1/\tau) = \frac{1}{|\tau| |\eta(\tau) \theta \twist00 (\tau)|} \sum_{n,m} \exp\left[-\frac{\pi}{2 |\tau|^2} \begin{pmatrix}
- % 			n & m
- % 		\end{pmatrix} \begin{pmatrix}
- % 			R^2 \tau_2 & i (\tau_1 - |\tau|^2)\\
- % 			i (\tau_1 - |\tau|^2) & \tau_2/R^2
- % 		\end{pmatrix} \begin{pmatrix}
- % 			n \\ m
- % 		\end{pmatrix} \right]
- % 	\]
+	Let us check if this is modular invariant. Clearly $Z\twist00$ maps to itself under both $S$ and $T$. Under $T$, $Z\twist01$ maps to itself, and $Z\twist10$ and $Z\twist11$ get exchanged by the properties of theta functions. Under $\tau \to -1/\tau$, $Z\twist10$ and $Z\twist01$ map to one another, since these are just $Z(\tau/2)$ and $Z(2\tau)$ for $Z$ the modular invariant partition function of a single circle. The same observation handles $Z\twist11 = Z\left(\frac{\tau+1}{2}\right)$: under $S$, $\frac{\tau+1}{2} \to \frac{\tau - 1}{2 \tau}$, and writing $\tau' = \frac{\tau+1}{2}$ this is $\frac{\tau'-1}{2\tau'-1}$, an $\SL(2, \ZZ)$ transformation of $\tau'$. So $Z\twist11$ maps to itself under $S$ as well, and $\frac12 \left(Z\twist00 + Z\twist01 + Z\twist10 + Z\twist11\right)$ is modular invariant. The twisted sector is a single ``long string'' of twice the length, which is why $\tau \to \tau/2$ appears.
 	
 	\item If we orbifold the single free scalar by acting as $\ket{m, n} \to (-1)^{m+n} \ket{m, n}$ we have $Z\twist00 = Z(R)$ as before, but now:
 	\[
