@@ -145,37 +145,26 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 		\delta S = - \frac{1}{2\kappa^2} \int d^D x \sqrt{- \det G} e^{-2 \Phi} \left[\delta G^{\mu \nu} \left(\beta^G_{\mu \nu} - \frac12 G_{\mu \nu} \frac{2}{3 \ell_s^2} \beta^\Phi \right) + \delta B^{\mu \nu} \beta^B_{\mu \nu} + 2 \delta \Phi \frac{2}{3 \ell_s^2} \beta^\Phi \right]
 	\]
 	
-	\item Let's look at $\frac{2}{3 \ell_s^2} \nabla \beta^\Phi$. We get:
+	\item Let's look at $\frac{2}{3 \ell_s^2} \nabla_\mu \beta^\Phi$. We get:
 	\[
-		8 \nabla_\nu \Phi \nabla_\mu \nabla^{\nu} \Phi - 4 \Box \nabla_\mu \Phi - \nabla_\mu R + \frac16 (\nabla_\mu H_{\alpha \beta \gamma}) H^{\alpha \beta \gamma}
+		8 \nabla^\nu \Phi \nabla_\mu \nabla_{\nu} \Phi - 4 \nabla_\mu \Box \Phi - \nabla_\mu R + \frac16 (\nabla_\mu H_{\alpha \beta \gamma}) H^{\alpha \beta \gamma}
 	\]
-	The contracted Bianchi identity $\nabla_\mu R = 2 \nabla^\nu R_{\nu \mu}$ together with the vanishing of $\beta^G_{\mu \nu}$ gives:
+	The contracted Bianchi identity $\nabla_\mu R = 2 \nabla^\nu R_{\mu \nu}$ together with the vanishing of $\beta^G_{\mu \nu}$ gives, after commuting covariant derivatives on the dilaton term ($\nabla^\nu \nabla_\mu \nabla_\nu \Phi = \nabla_\mu \Box \Phi + R_{\mu \nu} \nabla^\nu \Phi$):
 	\[
-		\nabla_\mu R = 2 \nabla^\nu R_{\mu \nu} = \frac12 \nabla^\nu (H_{\mu \rho \sigma} H_{\nu}^{\rho \sigma}) - 4 \Box \nabla_\mu \Phi
+		\nabla_\mu R = 2 \nabla^\nu R_{\mu \nu} = \frac12 \nabla^\nu (H_{\mu \rho \sigma} H_{\nu}{}^{\rho \sigma}) - 4 \nabla_\mu \Box \Phi - 4 R_{\mu \nu} \nabla^\nu \Phi
 	\]
-	which in turn gives
+	Substituting, the $\nabla_\mu \Box \Phi$ terms cancel, and using $\beta^G = 0$ once more to write $4 R_{\mu \nu} \nabla^\nu \Phi = H_{\mu \rho \sigma} H_\nu{}^{\rho \sigma} \nabla^\nu \Phi - 8 \nabla^\nu \Phi \nabla_\mu \nabla_\nu \Phi$, the dilaton terms collapse and we are left with
 	\[
-		8 \nabla_\nu \Phi \nabla_\mu \nabla^{\nu} \Phi -\frac12 \nabla^\nu (H_{\mu \rho \sigma} H_{\nu}^{\rho \sigma})  + \frac16 (\nabla_\mu H_{\alpha \beta \gamma}) H^{\alpha \beta \gamma}
+		H_{\mu \rho \sigma} H_\nu{}^{\rho \sigma} \nabla^\nu \Phi - \frac12 \nabla^\nu (H_{\mu \rho \sigma} H_{\nu}{}^{\rho \sigma}) + \frac16 (\nabla_\mu H_{\alpha \beta \gamma}) H^{\alpha \beta \gamma}
 	\]
-	 The fact that $H$ is exact gives us $\dd H = 0$ so $\d_{[\alpha} H_{\beta \gamma \delta]} = 0$. The symmetry properties of $H$ imply that summing over the four cyclic permutations of this gives zero. Contracting with the metric then implies a contracted Bianchi-type identity for $H$, namely that $\nabla^\alpha H_{\alpha \beta \gamma} = 0$.
-	  % \textbf{I think this is wrong, since this would then be true for any vacuum. I can't see my mistake though...}
-	
-	Using $\beta^B = 0$ together with the Bianchi identity, we have $0 = \nabla^\rho H_{\mu \nu \rho} = 2 \nabla^\rho \Phi \, H_{\mu \nu \rho}$. So we have that $H$ is divergence-free, and $\nabla^\rho \Phi$ dotted with any component of $H$ is zero. This lets us rewrite:
+	Now $\beta^B = 0$ says $\nabla^\rho H_{\rho \mu \nu} = 2 \nabla^\rho \Phi\, H_{\rho \mu \nu}$ ($H$ itself is not divergence-free, only $e^{-2\Phi} H$ is). Distributing the $\nabla^\nu$ in the middle term, the piece where it hits the second $H$ is $-\frac12 H_\mu{}^{\rho \sigma} \nabla^\nu H_{\nu \rho \sigma} = - H_{\mu \rho \sigma} H_\nu{}^{\rho \sigma} \nabla^\nu \Phi$, cancelling the first term. For the last term, $H$ exact gives $\dd H = 0$, i.e. $\nabla_\mu H_{\nu \rho \sigma} - \nabla_\nu H_{\mu \rho \sigma} + \nabla_\rho H_{\mu \nu \sigma} - \nabla_\sigma H_{\mu \nu \rho} = 0$; contracting with $H^{\nu \rho \sigma}$, the last three terms are equal by the antisymmetry of $H$, so $H^{\nu \rho \sigma} \nabla_\mu H_{\nu \rho \sigma} = 3 H^{\nu \rho \sigma} \nabla_\nu H_{\mu \rho \sigma}$ and
 	\[
-	\begin{aligned}
-		-\frac12 \nabla^\nu (H_{\mu \rho \sigma} H_{\nu}^{\rho \sigma}) &= -\frac12 H^{\nu \rho \sigma} \nabla_{\nu} H_{\mu \rho \sigma}\\
-	\frac16 \nabla_\mu (H_{\alpha \beta \gamma}) H^{\alpha \beta \gamma} &= -\frac16 H^{\alpha \beta \gamma} \left(\nabla_{\alpha} H_{\beta \gamma \mu} - \nabla_\beta H_{\gamma \alpha \mu} + \nabla_{\gamma} H_{\alpha \beta \mu} \right) = -\frac16 H^{\nu \rho \sigma} \nabla_\nu H_{\mu \rho \sigma}
-	\end{aligned}
+		\frac16 (\nabla_\mu H_{\alpha \beta \gamma}) H^{\alpha \beta \gamma} = \frac12 H_\nu{}^{\rho \sigma} \nabla^\nu H_{\mu \rho \sigma},
 	\]
-	\[
-		\Rightarrow \frac{1}{12 \ell_s^2} \nabla_\mu \beta^\Phi = \nabla_\nu \Phi \nabla_\mu \nabla^{\nu} \Phi - \frac{1}{12} \nabla^\nu (H_{\mu \rho \sigma} H_{\nu}^{\rho \sigma}) = -\frac12 \nabla^\nu \Phi R_{\mu \nu} - \frac{1}{12} \nabla^\nu H_{\mu \nu}
-	\]
-	\textbf{One last step. I am missing something.}
-	
-	This gives that $\nabla_\mu \beta^\Phi = 0$ as required. So $\beta^\Phi = c$ is a constant.
+	which cancels the remaining piece $-\frac12 (\nabla^\nu H_{\mu \rho \sigma}) H_\nu{}^{\rho \sigma}$. Altogether $\nabla_\mu \beta^\Phi = 0$, so $\beta^\Phi = c$ is a constant.
 	
 	
-	\item We get a linear dilaton giving rise to a Liouville action with $Q = 0$. This is our familiar free massless boson in $2D$ with $1D$ target space. So we get a string propagating in a single dimension.
+	\item We get a Liouville action with $Q = \sqrt{(25-c)/3} = 0$: the conformal factor is a free massless boson with no background charge and no coupling to $\hat R^{(2)}$, i.e. one extra flat spacelike dimension with constant dilaton. Together with the $c = 25$ CFT this is a $c = 26$ critical string living in one more dimension than the original CFT --- for $25$ free bosons, just the ordinary $26$-dimensional bosonic string. It is the marginal case between the spacelike ($c < 25$) and timelike ($c > 25$) Liouville directions.
 	
 	\item Note that the only relevant parameters are $\ell_s$, with units of length, and whatever length scales there are on the manifold, all of which depend on its volume (since its compact) as $V^{1/D}$. In particular $c = \beta^\Phi$ depends on $\ell_s$ as 
 	\[
@@ -230,13 +219,25 @@ Note this chapter is specific to \emph{closed oriented strings}. As such, we wil
 	\[
 		0 = \beta^G_{\mu \nu} = \frac12 R g_{\mu \nu} + 2 \nabla_\mu \nabla_\nu \Phi, \qquad 0 = \beta^{\Phi} = -24 + \frac32 \ell_s^2 \left[ 4 (\nabla \Phi)^2 - 4 \Box \Phi - R \right]
 	\]
-	Translational isometry implies that $R, g$ depend on only the time variable $t$. The $x$ variable can therefore parameterize either $S^1$ or $\RR$ endowed with constant metric.
+	Translational isometry implies that $R, g$ depend on only the time variable $t$. The $x$ variable can therefore parameterize either $S^1$ or $\RR$.
 	
 	Now taking the trace of the first equation implies $R(t) = -2 \Box \Phi(x, t)$. Then the second equation will give:
 	\[
 		\frac{16}{\ell_s^2} =  4(\nabla \Phi(x, t))^2 - 2 (\Box \Phi)(t)
 	\]
-	The only way for this to work is for $R= \Box \Phi = 0$ so that $\nabla \Phi$ can be a constant. We then have $\Phi = \alpha x + \beta t$ so that $\alpha^2 + \beta^2 = 4/\ell_s^2$, and $g$ is Ricci flat everywhere (so we can pick it to be constant). In the case of either $\alpha, \beta = 0$, we can also safely take $x, t$ respectively to be periodic without having $\Phi$ be multi-valued.
+	Write the metric as $ds^2 = -dt^2 + a(t)^2 dx^2$, fixing the time reparameterization, and allow $\Phi = f(t) + \alpha x$, since a term linear in $x$ drops out of every equation. The components of $\beta^G$ are
+	\[
+		tt:\ -\frac{\ddot a}{a} + 2 \ddot f = 0, \qquad xx:\ \ddot a - 2 \dot a \dot f = 0, \qquad tx:\ -2 \alpha \frac{\dot a}{a} = 0,
+	\]
+	so either the metric is flat or $\alpha = 0$.
+	
+	\emph{Flat:} $a = 1$, $\ddot f = 0$, so $\Phi = \alpha x + \beta t$ and the dilaton equation gives $4 (\nabla \Phi)^2 = 4(\alpha^2 - \beta^2) = 16/\ell_s^2$, i.e. $\alpha^2 - \beta^2 = 4/\ell_s^2$. The gradient must be spacelike, so $\alpha \neq 0$ and $x$ cannot be compact, while $\beta = 0$ with periodic $t$ is fine. This is the $D = 2$ linear dilaton.
+	
+	\emph{Curved:} $\alpha = 0$. The two $\beta^G$ equations give $\ddot f = (\dot a/a) \dot f$, hence $\dot f = k a$, and $\ddot a = 2 \dot a \dot f$. The combination $4 \ddot f - 2 \ddot a/a$ then vanishes in the dilaton equation, which reduces to $\dot f (\dot a/a - \dot f) = 4/\ell_s^2$, i.e. $\dot a = k a^2 + 4/(k \ell_s^2)$. This is solved by $a = \frac{2}{k \ell_s} \tan(2t/\ell_s)$, and rescaling $x$ to absorb the constant,
+	\[
+		ds^2 = -dt^2 + \tan^2\!\left(\frac{2t}{\ell_s}\right) dx^2, \qquad \Phi = -\log\left|\cos \frac{2t}{\ell_s}\right|,
+	\]
+	with $R = \frac{16}{\ell_s^2} \sec^2(2t/\ell_s) \neq 0$, so $R = \Box \Phi = 0$ is not forced. This is the Lorentzian continuation of the two-dimensional black hole (the $\SL(2, \RR)/U(1)$ cigar $ds^2 = dr^2 + \tanh^2 r\, dx^2$, $\Phi = -\log \cosh r$), in the region where the Killing vector $\d_x$ is spacelike. Up to translations of $t$ and $x$, these two branches are all the solutions.
 	
 	\item We still have $\beta^B = 0$, but $\beta^{G} = R_{\mu \nu} + 2 \nabla_{\mu} \nabla_{\nu} \Phi$ while $\beta^\Phi = D - 26 +  \frac32 \ell_s^2 ( 4 (\nabla \Phi)^2 - 4 \Box \Phi - R)$
 	
