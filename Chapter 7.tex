@@ -42,6 +42,28 @@
 			&= \frac32 \frac{G(w)}{(z-w)^2} + \frac{\d G(w)}{z-w}
 		\end{aligned}
 	\]
+	That was the matter algebra. The exercise actually asks about the ghosts. $T_{gh}$ is a $\lambda = 2$ anticommuting $bc$ system plus a $\lambda = \frac32$ commuting one, so $TT$ closes with $c = -26 + 11 = -15$, and I only need to check the OPEs involving $G_{gh}$. I'll use $c b \sim \frac{1}{z-w}$, $\gamma \beta \sim \frac{1}{z-w}$, $\beta \gamma \sim -\frac{1}{z-w}$, and take
+	\[
+		G_{gh} = c\, \d \beta + \tfrac32\, \d c\, \beta - 2 \gamma b.
+	\]
+	Kiritsis has the opposite sign on the two $c \beta$ terms. With his sign the computation below comes out with an overall minus sign ($\hat c = +10$ and $-2T$), so that sign is a typo, or he means $\beta \gamma \sim + \frac{1}{z-w}$.
+	
+	Neither $c \d \beta + \frac32 \d c\, \beta$ nor $\gamma b$ has a singular OPE with itself, so everything comes from the cross terms:
+	\[
+		G_{gh}(z) G_{gh}(w) = -2 \big[c \d \beta + \tfrac32 \d c\, \beta\big](z)\; \gamma b (w) - 2\, \gamma b(z)\; \big[c \d \beta + \tfrac32 \d c\, \beta\big](w) + \text{regular}.
+	\]
+	The double contractions use $\braket{c(z) b(w)} = \frac{1}{z-w}$, $\braket{\d \beta(z) \gamma(w)} = \frac{1}{(z-w)^2}$, $\braket{\d c(z) b(w)} = -\frac{1}{(z-w)^2}$, $\braket{\beta(z) \gamma(w)} = -\frac{1}{z-w}$ and their mirror images, and give
+	\[
+		\frac{-2 - 3 - 2 - 3}{(z-w)^3} = -\frac{10}{(z-w)^3},
+	\]
+	so $\hat c_{gh} = -10$, $c_{gh} = -15$ as required. The single contractions from the four terms give $\frac{1}{(z-w)^2}(2 b c + 3 \beta \gamma - 2 b c - 3 \beta \gamma) = 0$ for the double pole, and
+	\[
+		\frac{-4 b \d c - 2 \d b\, c - \d \beta \gamma - 3 \beta \d \gamma}{z-w} = \frac{2 T_{gh}(w)}{z-w}
+	\]
+	for the simple pole. So $G_{gh} G_{gh} \sim \frac{-10}{(z-w)^3} + \frac{2 T_{gh}}{z-w}$.
+	
+	Finally $T_{gh}(z) G_{gh}(w) = \frac32 \frac{G_{gh}(w)}{(z-w)^2} + \frac{\d G_{gh}(w)}{z-w}$, exactly as in the matter case: each of $c \d \beta + \frac32 \d c\, \beta$ and $\gamma b$ is separately a weight-$\frac32$ primary, the relative coefficient $\frac32$ being what kills the $(z-w)^{-3}$ term.
+	
 	
 	\item We will take the OPE of $j_B(z) j_B(w)$, but just look at the $(z-w)^{-1}$ term as a function of $w$, as this, when integrated around the origin in $w$ will give $Q_B^2$. This is an extension of exercise \textbf{4.45}, and there is nothing conceptually further, except for some $\beta \gamma$ manipulation. There are altogether $16$ terms to consider, and we will get $c=15$. The algebra is heavy, so I will skip this. An alternative is to do this as in \textbf{Polchinski 4.3}.
 	
