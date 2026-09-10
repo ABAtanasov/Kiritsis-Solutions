@@ -785,30 +785,29 @@
 	\[
 		Z_{fermions} \twist hg = \frac12 \sum_{a, b = 0}^1 (-1)^{a + b + ab + a g + b h + gh} \frac{\theta^4 \twist ab}{\eta^4}
 	\]
-	On the $E_8 \times E_8$s the untwisted block is just $(\frac12 \sum_{ab} \bar \theta^8 \twist ab / \bar \eta^8)^2$. Performing the projection $g$ requires that $a, b$ match for both factors, giving:
+	On the $E_8 \times E_8$ the untwisted block is just $\bar Z_{E_8}(\bar \tau)^2$ with $Z_{E_8} = \frac12 \sum_{a,b} \theta^8 \twist ab / \eta^8$. Inserting $g$ in the trace, the exchange only keeps the diagonal states $\ket{p, p}$, which contribute $\bar q^{\,2 \cdot p^2/2}$, and pairs up the $16$ oscillators, which contribute $\prod (1 - \bar q^{2n})^{-8}$. So the whole block is the single-$E_8$ partition function at doubled modulus,
 	\[
-		Z_{E_8^2} \twist 01 = \frac14 \sum_{a, b=0}^1 \frac{(-1)^b \bar \theta^{8} \twist{a}{b} (2 \tau)}{\bar \eta^{8}(2 \tau)} = \frac14 \frac{\bar \theta^8\twist00 + \bar \theta^8\twist01}{\bar \eta^4 (\tau) \bar \theta^4 \twist10 (\tau)}
+		Z_{E_8^2} \twist 01 = \bar Z_{E_8}(2 \bar \tau) = \frac{\bar \theta_3^8 + 14\, \bar \theta_3^4 \bar \theta_4^4 + \bar \theta_4^8}{\bar \theta_2^4\, \bar \eta^4},
 	\]
-	Taking $\tau \to -1/\tau$ gives
+	using the duplication formulas $\theta_3(2\tau)^2 = \frac12 (\theta_3^2 + \theta_4^2)$, $\theta_4(2\tau)^2 = \theta_3 \theta_4$, $\theta_2(2\tau)^2 = \frac12(\theta_3^2 - \theta_4^2)$, $\eta(2\tau)^2 = \frac12 \theta_2 \eta$. Taking $\tau \to -1/\tau$ gives
 	\[
-		Z_{E_8^2} \twist 10 = \frac14 \frac{\bar \theta^8\twist00 + \bar \theta^8\twist10}{\bar \eta^4 (\tau) \bar \theta^4 \twist01 (\tau)}
+		Z_{E_8^2} \twist 10 = \bar Z_{E_8}(\bar \tau/2) = \frac{\bar \theta_3^8 + 14\, \bar \theta_3^4 \bar \theta_2^4 + \bar \theta_2^8}{\bar \theta_4^4\, \bar \eta^4},
 	\]
-	Finally taking $\tau \to \tau+1$ gives
+	and taking $\tau \to \tau+1$ gives $Z_{E_8^2} \twist 11 = \bar Z_{E_8}\big(\tfrac{\bar \tau + 1}{2}\big) = e^{i \pi/3}\, \frac{\bar \theta_4^8 - 14\, \bar \theta_4^4 \bar \theta_2^4 + \bar \theta_2^8}{\bar \theta_3^4\, \bar \eta^4}$. The full partition function is thus
 	\[
-		Z_{E_8^2} \twist 11 = \frac14 \frac{\bar \theta^8\twist01 + \bar \theta^8\twist10}{\bar \eta^4 (\tau) \bar \theta^4 \twist00 (\tau)}
+		Z = \frac12 \sum_{h, g = 0}^1 Z_{E_8^2} \twist hg\, Z_{fermions} \twist hg .
 	\]
-	The full partition function is thus
-	\[
-		Z = \frac12 \sum_{h, g = 0}^1 Z_{E_8^2} \twist hg Z_{fermions} \twist hg
-	\]
-	We see that this is modular invariant, as individually both $Z_{fermions}$ and $Z_{E_8^2}$ are invariant under $\tau \to -1/\tau$. Their anomalous changes under $\tau \to \tau+1$ from the $\eta^4$ powers in the denominator are cancelled in pairs. 
+	This is modular invariant: $S$ exchanges $\twist01$ and $\twist10$ and maps $\twist11$ to itself, as in problem 4.66, while the phases $e^{\mp 2\pi i/3}$ that $\bar Z_{E_8}$ and the fermion block pick up under $T$ cancel against each other.
 	
-	The gauge group corresponds to the invariant (diagonal) $E_8$ sublattice of $E_8 \times E_8$ (\textbf{Confirm}). At the massless level, we still have the gravity supermultiplet ($G, B, \Phi$), as well as gauge bosons with gauge group $E_8$ from the untwisted sector. \textbf{What about the twisted sector?}
+	Untwisted sector. The projection is $(-1)^F \mathcal I = 1$. Bosons must be even under $\mathcal I$: $G, B, \Phi$ survive, and of the gauge bosons only the symmetric combination $\bar J^a_1 + \bar J^a_2$ does. So the gauge group is the diagonal $E_8$, at level $2$ since the two level-one currents add. Fermions must be odd under $\mathcal I$: the gravitino and dilatino are projected out, and the gauginos survive only in the antisymmetric combination $\bar J^a_1 - \bar J^a_2$, giving fermions in $8_s \otimes 248$. As a check on the blocks, the $\bar q^0$ coefficient of $\bar Z_{E_8}(2\bar\tau)/\bar \eta^8$ is $8$ (only the spacetime oscillators are $\mathcal I$-invariant at level one), so the massless bosons number $\frac12(504 + 8) = 256 = 8 + 248$ and the fermions $\frac12(504 - 8) = 248$.
 	
-	The gravitino has been projected out, so this theory no longer has spacetime supersymmetry. 
-	The theory is still chiral, and since the partition function is modular invariant, we are also guaranteed that it is anomaly free. However, it has a tachyon. 
-
-	\textbf{Unfinished}
+	Twisted sector. Since $Z\twist11(\tau) = Z\twist10(\tau+1)$, the projection $\frac12(Z\twist10 + Z\twist11)$ just imposes level matching on $\bar Z_{E_8}(\bar\tau/2)\, (O_8 - C_8)/(\sqrt{\tau_2} \eta \bar \eta)^8$. On the right, the $8$ antisymmetric combinations $X_1 - X_2$ are antiperiodic and the momenta live in the diagonal lattice, so the zero-point energy is raised to $-\frac12$ and
+	\[
+		\frac{Z_{E_8}(\tau/2)}{\eta^8} = q^{-1/2} \big(1 + 248\, q^{1/2} + \dots \big):
+	\]
+	at level $\frac12$ we find the $8$ oscillators $(X_1 - X_2)_{-1/2}$ together with the $240$ roots with $p^2/4 = \frac12$, i.e. the adjoint of the diagonal $E_8$. On the left the GSO projection is reversed: the $O_8$ sector is $q^{-1/2}(1 + 36 q + \dots)$ and the $C_8$ sector is $q^{-1/2}(8 q^{1/2} + \dots)$. Level matching then leaves the twisted ground state $q^{-1/2} \bar q^{-1/2}$, an $E_8$ singlet tachyon with $m^2 = -2/\ell_s^2$, and the massless fermions $8_c \otimes 248$, of the opposite chirality to the untwisted ones. There are no massless twisted bosons, since $O_8$ has nothing at weight $\frac12$.
+	
+	So the massless spectrum is $G, B, \Phi$, the $E_8$ gauge bosons, and fermions in $(8_s \oplus 8_c) \otimes 248$, plus a tachyon. There is no gravitino, so no spacetime supersymmetry. The fermions come in both chiralities, so the theory is not chiral and is trivially anomaly free.
 	
 	\item Let's assume we do not have self-dual 2-form gauge fields that give self-dual $3$-form field strengths and we do not consider an $I_A$ contribution. Recall we can write
 	\[
