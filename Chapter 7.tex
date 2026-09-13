@@ -601,6 +601,16 @@
 	\]
 	consistent with Polchinski.
 	
+	For the heterotic string the left-movers are the same as in type II and give $V^{\mu \nu \rho}$ again, while the right-movers are those of the bosonic string. There are no $\bar \psi$, the graviton vertex is $\zeta_{\mu \sigma} \psi^\mu \bar \d X^\sigma e^{i k \cdot X}$ with pictures on the left only, and the right-moving contraction is exactly the one from problem 5.5:
+	\[
+		\bar T^{\sigma \omega \lambda} = \eta^{\sigma \omega} k_{12}^\lambda + \eta^{\omega \lambda} k_{23}^\sigma + \eta^{\sigma \lambda} k_{31}^\omega + \frac{\ell_s^2}{8}\, k_{12}^\lambda k_{23}^\sigma k_{31}^\omega .
+	\]
+	So the heterotic three-graviton amplitude is
+	\[
+		\pi i g_c\, \sdelta^{10}(\Sigma k)\; \zeta_{1, \mu \sigma} \zeta_{2, \nu \omega} \zeta_{3, \rho \lambda}\, V^{\mu \nu \rho}\, \bar T^{\sigma \omega \lambda}.
+	\]
+	The only difference from type II is the $k^3$ term in $\bar T$. Together with the momentum in $V$ it has four momenta, so it comes from an $R^2$ term in the heterotic effective action. Type II has no such term (its first correction is $R^4$), while the bosonic string $T \bar T$ has both these $R^2$ cross terms and an $R^3$ term from $k^3 \bar k^3$.
+	
 	\item We can put all our gaugini in the $-1/2$ picture thankfully.
 	\begin{center}
 		\includegraphics[scale=0.1]{"Drawings/723"}
@@ -866,17 +876,17 @@
 	
 	\item Another 10D nonsupersymmetric string theory without tachyon! This one is open+closed. The $O(16) \times O(16)$ is the only closed non-SUSY string theory in 10D without tachyon. \textbf{Is this the only open one?} The relevant reference is \href{https://arxiv.org/abs/hep-th/9905159}{arXiv:hep-th/9905159}
 	
-	This is a theory of strings stretching $D9-D\bar 9$ branes.
+	This is the theory of $32$ anti-D9 branes on an $O9^+$ plane, the orientifold plane with the opposite tension and RR charge to the type I one. Tadpole cancellation still requires $32$ branes, but the $\Omega$ projection on the Chan--Paton factors is now symplectic: the gauge bosons are in the symmetric (adjoint) representation of $USp(32)$ and the massless open-string fermions $\lambda$ in the antisymmetric $496 = 495 + 1$. Supersymmetry is broken because these do not form a vector multiplet.
 	
-	We have $\lambda, \tilde \lambda$ are positive chirality spinors belonging to the adjoint of $\mathrm{Sp}(n)$ (equivalent to the symmetric representation {\tiny \ydiagram{2}} and traceless antisymmetric representation {\tiny \ydiagram{1,1}} of $\mathrm{Sp}(m)$ respectively, while $\psi, \bar \psi$ are negative chirality spinors belonging to the bi-fundamental representation of $\SO(n) \times \SO(m)$. We take $n=0, m = 32$.
-	
-	As in the $\SO(16) \times \SO(16)$ example, the lack of spacetime SUSY means there is no gravitino contribution, and we look only at the massless fermion content:
+	Unlike the $O(16) \times O(16)$ example, the closed string sector is exactly that of type I, so the gravitino and dilatino are still there and contribute $I_{3/2}(R) - I_{1/2}(R)$. The $\Omega$ projection changes which Chan--Paton representation the fermions land in, but not their spacetime chirality, which is fixed by the GSO projection: $\lambda$ has the same chirality as the type I gaugino. The anomaly polynomial is therefore
 	\[
-		I_{\lambda} + I_{\bar \lambda} - 2 I_{\psi}
+		I_{3/2}(R) - I_{1/2}(R) + \Tr_{496}\, I_{1/2}(R, F).
 	\]
-	The gravitational anomaly cancels for free since we have the same number of left and right chirality fermions. $\bar \lambda$ does not contribute to the gauge or mixed anomaly, since it transforms trivially under $\mathrm{USp}(32)$. 
-	
-	\textbf{Finish}
+	Now the antisymmetric of $USp(32)$ and the adjoint of $SO(32)$ are both $\Lambda^2$ of a $32$-dimensional fundamental with vanishing odd traces, so their trace identities coincide. From $\Tr_{\Lambda^2} e^F = \frac12 \big[(\tr e^F)^2 - \tr e^{2F}\big]$,
+	\[
+		\Tr F^2 = 30\, \tr F^2, \qquad \Tr F^4 = 24\, \tr F^4 + 3 (\tr F^2)^2, \qquad \Tr F^6 = 15\, \tr F^2 \tr F^4,
+	\]
+	which are exactly the $SO(32)$ identities of problem 7.29. So the anomaly polynomial is literally that of the $SO(32)$ type I string: the $\Tr R^6$ terms cancel because there are $496$ fermions, and the rest factorizes as before with the same Green--Schwarz counterterm $B \wedge X_8$. The $USp(32)$ theory is anomaly free without being supersymmetric.
 	
 	
 \end{enumerate}
